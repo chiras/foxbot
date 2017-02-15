@@ -1,10 +1,6 @@
 module.exports = (bot, msg, setitems) => {
     let [searchVal] = msg.content.split(" ").slice(1);
 
-    if (searchVal.length < 4) {
-        msg.channel.sendMessage("Please provide at least 4 characters, otherwise there will be too many results.");
-
-    } else {
         var results = [];
         var searchField = "Name";
         var filter = new RegExp(searchVal, "i")
@@ -15,7 +11,9 @@ module.exports = (bot, msg, setitems) => {
             }
         }
 
-
+		msg.channel.sendMessage("Found " + results.length + " sets matching your request.");
+		
+		if (results.length < 6){
         for (var i = 0; i < results.length; i++) {
 
             var outputsets = "";
@@ -42,7 +40,9 @@ module.exports = (bot, msg, setitems) => {
 
             msg.channel.sendMessage(outputsetsesc);
 
-        }
-    }
+        }		
+		}else{
+			msg.channel.sendMessage("Please narrow down your request to avoid spam by providing more characters.");
+		}
 
 };
