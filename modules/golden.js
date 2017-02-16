@@ -19,11 +19,8 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
     newdateday = day + "." + month + "." + year;
     newdateday2 = year + "-" + month + "-" + day;
 
-    console.log(newdate);
-
     var d = new Date(newdateday2);
     var dayName = gsDayNames[d.getDay()];
-    console.log(`Today is !!!"${dayName}" the "${newdateday2}": "${time}"`);
 
 
     //   if (dayName == 'Friday' || dayName == 'Sunday' || dayName == 'Saturday'){

@@ -7,7 +7,6 @@ module.exports = (bot, msg, request, cheerio) => {
         }
         var $statusbin = 0;
         if (response.statusCode === 200) {
-            console.log("response ok");
             var $ = cheerio.load(body);
         }
         $('div[class="DismissMessage AlertMessage"]')
