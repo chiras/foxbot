@@ -14,7 +14,7 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
 
     var day = dateObj.getUTCDate();
     var year = dateObj.getUTCFullYear();
-
+	
     newdate = year + "" + month;
     newdateday = day + "." + month + "." + year;
     newdateday2 = year + "-" + month + "-" + day;
@@ -22,9 +22,11 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
     var d = new Date(newdateday2);
     var dayName = gsDayNames[d.getDay()];
 
-
+	
     //   if (dayName == 'Friday' || dayName == 'Sunday' || dayName == 'Saturday'){
     if (dayName == 'Sunday' || dayName == 'Saturday') {
+    	var goldentext = "",
+    	
         request(goldenurl, function(error, response, body) {
             if (error) {
                 console.log("Error: " + error);
@@ -39,15 +41,17 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
                 .each(function() {
                     var $el = $(this);
                     var datex = $(this).text()
-                    msg.channel.sendMessage("This weekend (" + datex + "), the Golden Vendor sells: ");
+                    goldentext = "This weekend (" + datex + "), the Golden Vendor sells: \n"
+               //     msg.channel.sendMessage("This weekend (" + datex + "), the Golden Vendor sells: ");
                 })
                 .next('ul')
                 .find('li')
                 .each(function() {
                     var $el = $(this);
-                    msg.channel.sendMessage(" * " + $(this).text());
+                    goldentext += " * " + $(this).text()) + "\n";
                 });
         });
+        msg.channel.sendMessage(goldentext);
 
     } else {
         msg.channel.sendMessage("It's not weekend, nothing to sell. Sorry!");
