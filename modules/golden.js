@@ -2,6 +2,7 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
 
     var goldenurl = "http://benevolentbowd.ca/games/esotu/esotu-chronicle-of-alliance-point-vendor-items/";
     var dateObj = new Date();
+    var goldentext = "";
 
     var time = dateObj.getTime(); //months from 1-12
     var monthtmp = dateObj.getUTCMonth() + 1; //months from 1-12
@@ -22,11 +23,10 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
     var d = new Date(newdateday2);
     var dayName = gsDayNames[d.getDay()];
 
-	
+
     //   if (dayName == 'Friday' || dayName == 'Sunday' || dayName == 'Saturday'){
     if (dayName == 'Sunday' || dayName == 'Saturday') {
-    	var goldentext = "",
-    	
+    
         request(goldenurl, function(error, response, body) {
             if (error) {
                 console.log("Error: " + error);
@@ -41,17 +41,16 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
                 .each(function() {
                     var $el = $(this);
                     var datex = $(this).text()
-                    goldentext = "This weekend (" + datex + "), the Golden Vendor sells: \n"
-               //     msg.channel.sendMessage("This weekend (" + datex + "), the Golden Vendor sells: ");
+                    goldentext += "This weekend (" + datex + "), the Golden Vendor sells: \n";
                 })
                 .next('ul')
                 .find('li')
                 .each(function() {
                     var $el = $(this);
-                    goldentext += " * " + $(this).text()) + "\n";
+                    goldentext +=" * " + $(this).text() + "\n";
                 });
-        });
-        msg.channel.sendMessage(goldentext);
+         msg.channel.sendMessage(goldentext);
+       });
 
     } else {
         msg.channel.sendMessage("It's not weekend, nothing to sell. Sorry!");
