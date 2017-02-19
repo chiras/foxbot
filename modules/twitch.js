@@ -1,6 +1,6 @@
 module.exports = (bot, msg, twitch,util) => {  
      
-   twitch.searchStreams({query: "The+Elder+Scrolls+Online", limit: 6}, function(err, body){
+   twitch.searchStreams({query: "The+Elder+Scrolls+Online", limit: 10}, function(err, body){
   	  if (err){
     	  console.log(err);
     	} else {
