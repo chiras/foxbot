@@ -3,7 +3,7 @@ const async = require('async');
 
 function getLastWeek(){
     var today = new Date();
-    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 14);
+    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 10);
     return lastWeek ;
 }
 
