@@ -2,7 +2,7 @@ module.exports = (bot, msg, request, cheerio) => {
 
     var pledgeurl = "https://esoleaderboards.com/api/getpledges.php"
     var pledgetimeurl = "https://esoleaderboards.com"
-
+	
     request({
         url: pledgeurl,
         json: true
@@ -30,5 +30,5 @@ module.exports = (bot, msg, request, cheerio) => {
             });
 
     });
-
+    
 };

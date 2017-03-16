@@ -368,7 +368,7 @@
     "Type": "Overland",
     "Pieces": "All",
     "Location": "Starter Areas",
-    "Style": "??? (Breton Style)",
+    "Style": "Breton",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
@@ -416,7 +416,7 @@
     "": ""
   },
   {
-    "Name": "Bloodthorn's Touch (formerly Adroitness)",
+    "Name": "Bloodthorn's Touch (Adroitness)",
     "Type": "Overland",
     "Pieces": "Light",
     "Location": "Glenumbra",
@@ -429,7 +429,7 @@
     "": ""
   },
   {
-    "Name": "Dreamer's Mantle (formerly Apprentice Garb)",
+    "Name": "Dreamer's Mantle (Apprentice Garb)",
     "Type": "Overland",
     "Pieces": "Light",
     "Location": "Stormhaven",
@@ -481,7 +481,7 @@
     "": ""
   },
   {
-    "Name": "Queen's Elegance (formerly Elegance)",
+    "Name": "Queen's Elegance (Elegance)",
     "Type": "Overland",
     "Pieces": "Light",
     "Location": "Auridon",
@@ -494,7 +494,7 @@
     "": ""
   },
   {
-    "Name": "Robes of the Hist (formerly Robes of Onslaught)",
+    "Name": "Robes of the Hist (Robes of Onslaught)",
     "Type": "Overland",
     "Pieces": "Light",
     "Location": "Shadowfen",
@@ -507,7 +507,7 @@
     "": ""
   },
   {
-    "Name": "Robes of the Withered Hand (formerly Robes of the Necromancer)",
+    "Name": "Robes of the Withered Hand (Robes of the Necromancer)",
     "Type": "Overland",
     "Pieces": "Light",
     "Location": "Alik'r",
@@ -663,7 +663,7 @@
     "": ""
   },
   {
-    "Name": "Shadow of the Red Mountain (formerly Coat of the Red Mountain)",
+    "Name": "Shadow of the Red Mountain (Coat of the Red Mountain)",
     "Type": "Overland",
     "Pieces": "Medium",
     "Location": "Stonefalls",
@@ -689,7 +689,7 @@
     "": ""
   },
   {
-    "Name": "Fiord's Legacy (Typo?)",
+    "Name": "Fiord's Legacy",
     "Type": "Overland",
     "Pieces": "Medium",
     "Location": "Eastmarch",
@@ -728,7 +728,7 @@
     "": ""
   },
   {
-    "Name": "Night Terror (formerly Nightshade)",
+    "Name": "Night Terror (Nightshade)",
     "Type": "Overland",
     "Pieces": "Medium",
     "Location": "Stormhaven",
@@ -767,7 +767,7 @@
     "": ""
   },
   {
-    "Name": "Senche's Bite (formerly Skirmisher's Bite)",
+    "Name": "Senche's Bite (Skirmisher's Bite)",
     "Type": "Overland",
     "Pieces": "Medium",
     "Location": "Reaper's March",
@@ -806,7 +806,7 @@
     "": ""
   },
   {
-    "Name": "Swamp Raider (formerly Toxic Defiance)",
+    "Name": "Swamp Raider (Toxic Defiance)",
     "Type": "Overland",
     "Pieces": "Medium",
     "Location": "Shadowfen",
@@ -836,7 +836,7 @@
     "Type": "Overland",
     "Pieces": "Medium",
     "Location": "Auridon",
-    "Style": "??? (Redguard Style)",
+    "Style": "Redguard",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 967 Maximum Stamina",
@@ -858,7 +858,7 @@
     "": ""
   },
   {
-    "Name": "Wilderqueen's Arch (formerly Kyne's Flight)",
+    "Name": "Wilderqueen's Arch (Kyne's Flight)",
     "Type": "Overland",
     "Pieces": "Medium",
     "Location": "Greenshade",
@@ -871,7 +871,7 @@
     "": ""
   },
   {
-    "Name": "Witchman Armor (formerly Shrouded Armor)",
+    "Name": "Witchman Armor (Shrouded Armor)",
     "Type": "Overland",
     "Pieces": "Medium",
     "Location": "The Rift",
@@ -897,7 +897,7 @@
     "": ""
   },
   {
-    "Name": "Armor of the Veiled Heritance (formerly Armor of Rage)",
+    "Name": "Armor of the Veiled Heritance (Armor of Rage)",
     "Type": "Overland",
     "Pieces": "Heavy",
     "Location": "Auridon",
@@ -949,7 +949,7 @@
     "": ""
   },
   {
-    "Name": "Hatchling's Shell (formerly Armor of the Construct)",
+    "Name": "Hatchling's Shell (Armor of the Construct)",
     "Type": "Overland",
     "Pieces": "Heavy",
     "Location": "Shadowfen",
@@ -988,7 +988,7 @@
     "": ""
   },
   {
-    "Name": "Meridia's Blessed Armor (formerly Akatosh's Blessed Armor)",
+    "Name": "Meridia's Blessed Armor (Akatosh's Blessed Armor)",
     "Type": "Overland",
     "Pieces": "Heavy",
     "Location": "Coldharbour",
@@ -1031,7 +1031,7 @@
     "Type": "Overland",
     "Pieces": "Heavy",
     "Location": "Deshaan",
-    "Style": "??? (Breton Style)",
+    "Style": "Breton",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
@@ -1053,7 +1053,7 @@
     "": ""
   },
   {
-    "Name": "Seventh Legion Brute (formerly The Brute)",
+    "Name": "Seventh Legion Brute (The Brute)",
     "Type": "Overland",
     "Pieces": "Heavy",
     "Location": "Bangkorai",
@@ -1092,7 +1092,7 @@
     "": ""
   },
   {
-    "Name": "Thunderbug's Carapace (formerly Thunderous Plate Mail)",
+    "Name": "Thunderbug's Carapace (Thunderous Plate Mail)",
     "Type": "Overland",
     "Pieces": "Heavy",
     "Location": "Malabal Tor",
@@ -1131,7 +1131,7 @@
     "": ""
   },
   {
-    "Name": "Wyrd Tree's Blessing (formerly Lord's Mail)",
+    "Name": "Wyrd Tree's Blessing (Lord's Mail)",
     "Type": "Overland",
     "Pieces": "Heavy",
     "Location": "Glenumbra",
@@ -1447,7 +1447,7 @@
     "Type": "Dungeon",
     "Pieces": "Medium",
     "Location": "Elden Hollow",
-    "Style": "??? (Breton Style)",
+    "Style": "Breton",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Stamina Recovery",
@@ -1612,7 +1612,7 @@
     "": ""
   },
   {
-    "Name": "Storm Master (formerly Shock Master)",
+    "Name": "Storm Master (Shock Master)",
     "Type": "Dungeon",
     "Pieces": "Medium",
     "Location": "Tempest Island",
@@ -1720,7 +1720,7 @@
     "Type": "Dungeon",
     "Pieces": "Heavy",
     "Location": "Darkshade Caverns",
-    "Style": "??? (Breton Style)",
+    "Style": "Breton",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
@@ -1755,7 +1755,7 @@
     "": ""
   },
   {
-    "Name": "Duneripper's Scales (formerly Unassailable)",
+    "Name": "Duneripper's Scales (Unassailable)",
     "Type": "Dungeon",
     "Pieces": "Heavy",
     "Location": "Volenfell",
@@ -1811,7 +1811,7 @@
     "Type": "Dungeon",
     "Pieces": "Heavy",
     "Location": "Cradle of Shadows",
-    "Style": "???",
+    "Style": "Kothringi",
     "i1": "",
     "i2": "Adds 4% Healing Taken",
     "i3": "Adds 1064 Maximum Health",
