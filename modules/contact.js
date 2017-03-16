@@ -3,9 +3,9 @@ module.exports = (bot, msg) => {
     
 		var contactmsg = "Please contact <@218803587491299328> or ingame (EU/PC) @chi-ras directly for requests about the discord bot!\n\n";
 		
-		contactmsg += "Golden/Luxury info: benevolentbowd.ca\n";
-		contactmsg += "Pledges info: esoleaderboards.com\n";
-		contactmsg += "Maintainance info: forums.elderscrollsonline.com";
+		contactmsg += "Golden/Luxury info: <http://www.benevolentbowd.ca>\n";
+		contactmsg += "Pledges info: <http://www.esoleaderboards.com>\n";
+		contactmsg += "Maintainance/Patchnotes: <http://www.forums.elderscrollsonline.com>";
 			
         msg.channel.sendMessage(contactmsg);
 

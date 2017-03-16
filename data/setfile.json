@@ -3,7 +3,7 @@
     "Name": "Blood Spawn",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Spindleclutch ||",
+    "Location": "Spindleclutch II",
     "Style": "",
     "i1": "Adds 129 Stamina Recovery",
     "i2": "When you take damage, you have a 6% chance to generate 15 Ultimate and increase your Physical and Spell Resistance by 6450 for 6 seconds. This effect can occur once every 6 seconds.",
@@ -29,7 +29,7 @@
     "Name": "Engine Guardian",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Darkshade Caverns ||",
+    "Location": "Darkshade Caverns II",
     "Style": "",
     "i1": "Adds 129 Health Recovery",
     "i2": "When you use an ability, you have a 10% to summon a dwemer automation to restore 1204 Health, Stamina, or Magicka every 0.5 seconds for 6.5 seconds.",
@@ -58,7 +58,7 @@
     "Location": "Direfrost Keep",
     "Style": "",
     "i1": "Adds 688 Spell Critical",
-    "i2": "When you deal Critical Damage, you have a 20% chance to gain a damage shield that absorbs 8600 damage for 6 seconds. While the damage shield holds, you deal 770 Cold damage to all enemies within 5 meters of you every |",
+    "i2": "When you deal Critical Damage, you have a 20% chance to gain a damage shield that absorbs 8600 damage for 6 seconds. While the damage shield holds, you deal 770 Cold damage to all enemies within 5 meters of you every 1 second. This effect can occur once every 6 seconds.",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -120,7 +120,7 @@
     "Name": "Maw of the Infernal",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Banished Cells ||",
+    "Location": "Banished Cells II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you deal damage with a Light of Heavy Attack, you have a 10% chance to summon a fire breathing Daedroth for 15 seconds. The Daedroth's basic attacks deal 4257 Physical Damage. This effect can occur once every 15 seconds.",
@@ -136,7 +136,7 @@
     "Location": "Ruins of Mazzatun",
     "Style": "",
     "i1": "Adds 1376 Spell Resistance. Adds 1376 Physical Resistance",
-    "i2": "Gain Major Ward and Major Resolve at all times, increasing your Physical and Spell Resistance by 5280.. Adds 1064 Maximum Health",
+    "i2": "Gain Major Ward and Major Resolve at all times, increasing your Physical and Spell Resistance by 5280. Adds 1064 Maximum Health.",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -276,7 +276,7 @@
     "Name": "Spawn of Mephala",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Fungal Grotto ||",
+    "Location": "Fungal Grotto II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you deal damage with a fully-charged Heavy attack, you create a web for 10 seconds that deals 1044 Poison Damage every 1 second and reduces the Movement Speed of enemies within by 50%. This effect can occur once every 10 seconds.",
@@ -341,7 +341,7 @@
     "Name": "Valkyn Skoria",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "City of Ash ||",
+    "Location": "City of Ash II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you deal damage with a damage over time effect, you have a 8% chance to summon a meteor that deals 9000 Flame Damage to the target and 4000 Flame Damage to all other enemies within 5 meters. This effect can occur once every 5 seconds.",
@@ -373,7 +373,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Increases your Max Health, Magicka, and Stamina by 2484",
+    "i5": "Increases your Max Health, Magicka, and Stamina by 2484.",
     "": ""
   },
   {
@@ -529,7 +529,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Ignore the Movement Speed penalty of Sneak.. Adds 129 Stamina Recovery",
+    "i5": "Ignore the Movement Speed penalty of Sneak. Adds 129 Stamina Recovery.",
     "": ""
   },
   {
@@ -750,7 +750,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Reduce the effectiveness of snares applied to you by 50%. Adds 129 Stamina Recovery",
+    "i5": "Reduce the effectiveness of snares applied to you by 50%. Adds 129 Stamina Recovery.",
     "": ""
   },
   {
@@ -789,7 +789,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Adds 4000 Physical Penetration",
+    "i5": "Adds 4000 Physical Penetration.",
     "": ""
   },
   {
@@ -802,7 +802,7 @@
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "While you are Sneaking or invisible, your Spell Damage and Max Magicka is increased by 20%",
+    "i5": "While you are Sneaking or invisible, your Spell Damage and Max Magicka is increased by 20%.",
     "": ""
   },
   {
@@ -945,7 +945,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Health Recovery",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "While you have a food buff active, your Max Health is increased by 400 and Health Recovery by 200",
+    "i5": "While you have a food buff active, your Max Health is increased by 400 and Health Recovery by 200.",
     "": ""
   },
   {
@@ -1010,7 +1010,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "Reduces the radius you can be detected while Sneaking by 2 meters. Reduces the cost of Sneak by 25%. Adds 129 Weapon Damage",
+    "i5": "Reduces the radius you can be detected while Sneaking by 2 meters. Reduces the cost of Sneak by 25%. Adds 129 Weapon Damage.",
     "": ""
   },
   {
@@ -1023,7 +1023,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
-    "i5": "Gain Minor Vitality at all times, increasing your healing recieved by 8%",
+    "i5": "Gain Minor Vitality at all times, increasing your healing recieved by 8%.",
     "": ""
   },
   {
@@ -1192,7 +1192,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Adds 300 Stamina Recovery. Adds 300 Magicka Recovery",
+    "i5": "Adds 300 Stamina Recovery. Adds 300 Magicka Recovery.",
     "": ""
   },
   {
@@ -1517,7 +1517,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When an enemy within 28 meters of you dies, you gain Major Berserk for 3 seconds, increasing your damage done by 25%",
+    "i5": "When an enemy within 28 meters of you dies, you gain Major Berserk for 3 seconds, increasing your damage done by 25%.",
     "": ""
   },
   {
@@ -1660,7 +1660,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "Gain Major Savagery at all times, increasing your Weapon Critical rating by 2191. Adds 100 Weapon Damage",
+    "i5": "Gain Major Savagery at all times, increasing your Weapon Critical rating by 2191. Adds 100 Weapon Damage.",
     "": ""
   },
   {
@@ -1918,9 +1918,9 @@
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
-    "i3": "",
+    "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Gain Major Sorcery at all times, increasing your Spell Damage by 20%. Adds 100 Spell Damage",
+    "i5": "Gain Major Sorcery at all times, increasing your Spell Damage by 20%. Adds 100 Spell Damage.",
     "": ""
   },
   {
@@ -2063,7 +2063,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "Increases the amount of damage you block by 8%",
+    "i5": "Increases the amount of damage you block by 8%.",
     "": ""
   },
   {
@@ -2219,7 +2219,7 @@
     "i2": "Adds 688 Spell Critical",
     "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%.",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Your fully charged heavy attacks do an additional 903 damage.. Enemies you damage with fully charged Heavy Attacks are afflicted with Minor Vulnerability for 10 seconds, increasing their damage taken by 8%.. Adds 688 Spell Critical",
+    "i5": "Your fully charged heavy attacks do an additional 903 damage.. Enemies you damage with fully charged Heavy Attacks are afflicted with Minor Vulnerability for 10 seconds, increasing their damage taken by 8%.. Adds 688 Spell Critical.",
     "": ""
   },
   {
@@ -2271,7 +2271,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%.",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "Reduces the cost of your Stamina abilities by 8%.. When you kill an enemy, you restore 2150 Stamina and gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%.. Adds 129 Weapon Damage",
+    "i5": "Reduces the cost of your Stamina abilities by 8%.. When you kill an enemy, you restore 2150 Stamina and gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%. Adds 129 Weapon Damage.",
     "": ""
   },
   {
@@ -2284,7 +2284,7 @@
     "i2": "Adds 4% Healing Taken",
     "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%.",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you die, you instead turn into a statue for 3 seconds and gain 200 Ultimate. While a statue you are immune to all negative effects but can still be healed. This effect can occur once every 10 minutes.. Adds 4% Healing Taken",
+    "i5": "When you die, you instead turn into a statue for 3 seconds and gain 200 Ultimate. While a statue you are immune to all negative effects but can still be healed. This effect can occur once every 10 minutes. Adds 4% Healing Taken.",
     "": ""
   },
   {
@@ -2362,7 +2362,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Reduces your damage taken from Players by 5%.",
-    "i5": "When you take damage from a spell, you have a 10% chance to gain a damage shield that absorbs 2580 damage for 6 seconds. This effect can occur once every 4 seconds (BUG: Typo, needs a period on the end like other set bonus statements)",
+    "i5": "When you take damage from a spell, you have a 10% chance to gain a damage shield that absorbs 2580 damage for 6 seconds. This effect can occur once every 4 seconds.",
     "": ""
   },
   {
@@ -2594,7 +2594,7 @@
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
-    "i3": "Reduces the cost of your Ultimate abilites by 10%",
+    "i3": "Reduces the cost of your Ultimate abilites by 10%.",
     "i4": "",
     "i5": "",
     "": ""
@@ -2648,7 +2648,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Reduces your damage taken from Players by 5%.",
-    "i5": "Reduces your damage taken from Siege Weapons and Player Area of Effect abilities by 20% (BUG: Needs period at the end like other 5 set bonuses)",
+    "i5": "Reduces your damage taken from Siege Weapons and Player Area of Effect abilities by 20%.",
     "": ""
   },
   {
@@ -2829,7 +2829,7 @@
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
-    "i4": "Adds 967 Maximum Stamina",
+    "i4": "Adds 967 Maximum Magicka",
     "i5": "Increases your Weapon and Spell Damage by 154. Increases the Magicka and Stamina restored from the Constitution passive ability by 40%.",
     "": ""
   },
