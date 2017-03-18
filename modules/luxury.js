@@ -43,7 +43,7 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
                     var datex = $(this).text()
                     luxurytext += "This weekend (" + datex + "), the Luxury Vendor sells: \n";
                 })
-                .next('pre')
+               // .next('pre')
                 .next('ul')
                 .find('li')
                 .each(function() {
