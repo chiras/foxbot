@@ -3,10 +3,11 @@ module.exports = (bot, msg, setitems) => {
  	//helpinfo += "\n\n..................................................................................................."
 	helpinfo += "\nAvailable commands are:\n";
  	helpinfo += "..................................................................................................."
-    helpinfo += "\n ### **Daily Events ** \n\n";
-    helpinfo += " **!pledges**      -> Today's Undaunted Pledges\n";
+    helpinfo += "\n ### **Regular Events ** \n\n";
+    helpinfo += " **!pledges**      -> Today's Undaunted pledges\n";
+    helpinfo += " **!trials**      -> This weeks's special trials\n";
  	helpinfo += "..................................................................................................."
-    helpinfo += "\n ### **Weekend Events **\n\n";
+    helpinfo += "\n ### **Weekly Events **\n\n";
     helpinfo += " **!golden**      -> Cyrodiil's Golden Vendor Items\n";
     helpinfo += " **!luxury**      -> Luxury Housing Vendor Items\n";
  	helpinfo += "..................................................................................................."

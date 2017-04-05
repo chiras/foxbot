@@ -30,7 +30,7 @@ module.exports = (bot, msg, request, cheerio, util) => {
             //}
            // );
 
-    msg.channel.sendMessage("This weeks trials are " + weeklytrials[0] + " (EU) and "  + weeklytrials[1] + " (US)" );
+    msg.channel.sendMessage("This week's trials are " + weeklytrials[0] + " (EU) and "  + weeklytrials[1] + " (US)" );
     });
 
 };
