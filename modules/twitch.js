@@ -2,6 +2,7 @@ module.exports = (bot, msg, twitch,util) => {
      
    twitch.searchStreams({query: "The+Elder+Scrolls+Online", limit: 10}, function(err, body){
   	  if (err){
+          msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
     	  console.log(err);
     	} else {
  	 		var twitchout = "\n\n..................................................................................................."

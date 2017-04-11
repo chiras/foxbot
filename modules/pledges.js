@@ -10,11 +10,16 @@ module.exports = (bot, msg, request, cheerio) => {
 
         if (!error && response.statusCode === 200) {
             msg.channel.sendMessage("Pledges today are: " + JSON.stringify(body[1]) + ", " + JSON.stringify(body[2]) + " and " + JSON.stringify(body[3]) + "!");
+        }else{
+          msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
+
         }
     })
 
     request(pledgetimeurl, function(error, response, body) {
         if (error) {
+            msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
+
             console.log("Error: " + error);
         }else{
 

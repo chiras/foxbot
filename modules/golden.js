@@ -49,8 +49,10 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
     
         request(goldenurl, function(error, response, body) {
             if (error) {
+	            msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
+
                 console.log("Error: " + error);
-            }
+            }else{
 
             if (response.statusCode === 200) {
                 var $ = cheerio.load(body);
@@ -85,6 +87,7 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
 
 
          msg.channel.sendMessage(goldentext);
+         }
        });
 
     } else {

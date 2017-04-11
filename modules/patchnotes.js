@@ -3,8 +3,9 @@ module.exports = (bot, msg, request, cheerio) => {
 
     request(patchUrl, function(error, response, body) {
         if (error) {
+            msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
             console.log("Error: " + error);
-        }
+        }else{
         var $statusbin = 0;
         if (response.statusCode === 200) {
             var $ = cheerio.load(body);
@@ -42,7 +43,7 @@ module.exports = (bot, msg, request, cheerio) => {
  		patchOut += "..................................................................................................."
 		
         msg.channel.sendMessage(patchOut);
-           
+        }
     });
 
 };

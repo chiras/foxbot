@@ -3,6 +3,8 @@ module.exports = (bot, msg, request, cheerio) => {
 
     request(statusurl, function(error, response, body) {
         if (error) {
+            msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
+
             console.log("Error: " + error);
         }else{
         

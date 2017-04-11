@@ -65,7 +65,10 @@ const headers= [
 var out;
 
 async.map(urls, httpGet, function (err, body){
-  if (err) return console.log(err);
+  if (err){
+      msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
+	 return console.log(err);
+	}else{
   			//console.log(body);
 
   			var youtubeout =  "";
@@ -86,7 +89,7 @@ async.map(urls, httpGet, function (err, body){
 			  
  			youtubeout += "\n..................................................................................................."
      msg.channel.sendMessage(youtubeout);
-
+}
 
 });
 
