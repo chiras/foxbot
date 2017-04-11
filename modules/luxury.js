@@ -67,12 +67,22 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
 				}
 
 
-         msg.channel.sendMessage(luxurytext);
+            msg.channel.sendEmbed({
+  				color: 0x800000,
+  				description: luxurytext,
+  				footer: {
+			      text: 'Data obtained from www.benevolentbowd.ca' 
+    			}
+			});	
        }
        });
 		
     } else {
-        msg.channel.sendMessage("It's not weekend, nothing to sell. Sorry!");
+            msg.channel.sendEmbed({
+  				color: 0x800000,
+  				description: "It's not weekend, nothing to sell. Sorry!",
+			});	
+       // msg.channel.sendMessage("It's not weekend, nothing to sell. Sorry!");
     } // end else
 
 };

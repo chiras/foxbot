@@ -31,7 +31,16 @@ module.exports = (bot, msg, request, cheerio, util) => {
             //}
            // );
 
-    msg.channel.sendMessage("This week's special trials are " + weeklytrials[0] + " (EU) and "  + weeklytrials[1] + " (US)" );
+    var trialText = "This week's special trials are " + weeklytrials[0] + " (EU) and "  + weeklytrials[1] + " (US)" ;
+         	msg.channel.sendEmbed({
+  				color: 0x800000,
+  				description: trialText,
+  				footer: {
+			      text: 'Data obtained from www.esoleaderboards.com' 
+    			}
+			});		
+	
+	
 	}
     });
 

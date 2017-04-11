@@ -9,7 +9,12 @@ module.exports = (bot, msg, request, cheerio) => {
     }, function(error, response, body) {
 
         if (!error && response.statusCode === 200) {
-            msg.channel.sendMessage("Pledges today are: " + JSON.stringify(body[1]) + ", " + JSON.stringify(body[2]) + " and " + JSON.stringify(body[3]) + "!");
+            var pledgetext = "Pledges today are: " + JSON.stringify(body[1]).replace(/\"/g, "") + ", " + JSON.stringify(body[2]).replace(/\"/g, "") + " and " + JSON.stringify(body[3]).replace(/\"/g, "") + "!";
+         	msg.channel.sendEmbed({
+  				color: 0x800000,
+  				description: pledgetext,
+			});		
+
         }else{
           msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
 
@@ -30,7 +35,13 @@ module.exports = (bot, msg, request, cheerio) => {
             .each(function() {
                 var $el = $(this);
                 if ($(this).text().substring(0, 5) == " Next") {
-                    msg.channel.sendMessage($(this).text());
+         	msg.channel.sendEmbed({
+  				color: 0x800000,
+  				description: $(this).text(),
+  				footer: {
+			      text: 'Data obtained from www.esoleaderboards.com' 
+    			}
+			});		
                 }
             });
         }
