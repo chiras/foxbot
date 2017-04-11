@@ -57,8 +57,8 @@ const urls= [
 ];
 
 const headers= [
-  "\n### ** Hot recent ESO videos on YouTube are: ** ",
-  "\n### ** Newest ESO videos on YouTube are: **"
+  "Hot recent ESO videos on YouTube are:",
+  "Newest ESO videos on YouTube are:"
 ];
 
 
@@ -71,24 +71,36 @@ async.map(urls, httpGet, function (err, body){
 	}else{
   			//console.log(body);
 
-  			var youtubeout =  "";
   			var maxcount = 5;
    				
   			for (var j = 0; j <= 1; j++){
   			
  			var curcount = 1;
- 			youtubeout += "\n\n..................................................................................................."
-   			youtubeout += headers[j];
+  			var youtubeout =  "";
+ 			//youtubeout += "\n\n..................................................................................................."
+   			//youtubeout += headers[j];
    			
-  			for (var i = 0; curcount <= 3; i++){
+  			for (var i = 0; curcount <= maxcount; i++){
   			
   			if (body[j].items[i]){		
-            	youtubeout += "\n\n" + curcount + ". *" + JSON.stringify(body[j].items[i].snippet.channelTitle).replace(/\"/g, "") + '*: "http://youtube.com/watch?v='+ JSON.stringify(body[j].items[i].id.videoId).replace(/\"/g, "")+'"\n' + JSON.stringify(body[j].items[i].snippet.title) ;
+            	youtubeout += "\n\n" + curcount + ". **[" + JSON.stringify(body[j].items[i].snippet.channelTitle).replace(/\"/g, "") + '](http://youtube.com/watch?v='+ JSON.stringify(body[j].items[i].id.videoId).replace(/\"/g, "")+')**: ' + JSON.stringify(body[j].items[i].snippet.title).replace(/\"/g, "") ;
 				curcount++;
-			}}}
+			}}
+     		msg.channel.sendEmbed({
+  				color: 0x800000,
+  				description: " ",
+  				fields: [{
+       				 name: headers[j],
+       				 value: youtubeout
+     			 }
+    			]
+			});			
+			
+			}
 			  
- 			youtubeout += "\n..................................................................................................."
-     msg.channel.sendMessage(youtubeout);
+ 			//youtubeout += "\n..................................................................................................."
+   //  msg.channel.sendMessage(youtubeout);
+
 }
 
 });

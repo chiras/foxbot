@@ -14,7 +14,7 @@ module.exports = (bot, msg, twitch,util) => {
 
   			for (var i = 0; curcount <= 5; i++){
   			  	if (body.streams[i]){
-  			  		twitchout += "\n" + curcount + ". **[" + JSON.stringify(body.streams[i].channel.display_name).replace(/\"/g, "") + "](http://twitch.tv/"+body.streams[i].channel.display_name+")**: " + "(" + JSON.stringify(body.streams[i].viewers) + ' Viewers): ' + JSON.stringify(body.streams[i].channel.status) +'\n';
+  			  		twitchout += "\n" + curcount + ". **[" + JSON.stringify(body.streams[i].channel.display_name).replace(/\"/g, "") + "](http://twitch.tv/"+body.streams[i].channel.display_name+")** " + "(" + JSON.stringify(body.streams[i].viewers) + ' Viewers): ' + JSON.stringify(body.streams[i].channel.status) +'\n';
 					curcount++;
 				}
   			}
