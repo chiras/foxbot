@@ -23,26 +23,41 @@ module.exports = (bot, msg, request, cheerio) => {
   			titles.push($(element).text().replace(/^ /g, ""));
 		});
 		
- 		var patchOutStickies = "\n...................................................................................................\n"
-        var patchOutOthers =  patchOutStickies + "### ** Other recent:**\n";
-        patchOutStickies +=  "### **Current announcements:**\n";
+ 		var patchOutStickies = "\n"; //"\n...................................................................................................\n"
+        var patchOutOthers = "\n";// patchOutStickies + "### ** Other recent:**\n";
+      //  patchOutStickies +=  "### **Current announcements:**\n";
        
         var lastcurrent = 0;
         for (var i = 0; i < titles.length; i++) {
         	if (stickies[i]){
-        		patchOutStickies += "\n" + titles[i] + ':\n<' + list[i] + '>\n';
+        		patchOutStickies += "\n[" + titles[i] + ']('+list[i]+')\n';
         	}else{
         		if (lastcurrent < 3){
-        			patchOutOthers += "\n" + titles[i] + ':\n<'  + list[i] + '>\n';
+        			patchOutOthers += "\n[" + titles[i] + ']('+list[i]+')\n';
         			lastcurrent ++;
         		}
         	}
         }
 		
 		var patchOut = patchOutStickies + patchOutOthers;
- 		patchOut += "..................................................................................................."
+ 		//patchOut += "..................................................................................................."
 		
-        msg.channel.sendMessage(patchOut);
+  //      msg.channel.sendMessage(patchOut);
+        
+        msg.channel.sendEmbed({
+  			color: 0x800000,
+  		//	description: helpinfo,
+  			fields: [{
+       			 name: 'Current Announcements',
+       			 value: patchOutStickies
+     		 },
+     		 {
+       			 name: 'Other recent',
+       			 value: patchOutOthers
+			}
+    		]
+		});
+		
         }
     });
 
