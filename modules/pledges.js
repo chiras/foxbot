@@ -16,7 +16,7 @@ module.exports = (bot, msg, request, cheerio) => {
     request(pledgetimeurl, function(error, response, body) {
         if (error) {
             console.log("Error: " + error);
-        }
+        }else{
 
         if (response.statusCode === 200) {
             var $ = cheerio.load(body);
@@ -28,6 +28,7 @@ module.exports = (bot, msg, request, cheerio) => {
                     msg.channel.sendMessage($(this).text());
                 }
             });
+        }
 
     });
     

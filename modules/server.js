@@ -4,7 +4,8 @@ module.exports = (bot, msg, request, cheerio) => {
     request(statusurl, function(error, response, body) {
         if (error) {
             console.log("Error: " + error);
-        }
+        }else{
+        
         var $statusbin = 0;
         if (response.statusCode === 200) {
             var $ = cheerio.load(body);
@@ -18,8 +19,9 @@ module.exports = (bot, msg, request, cheerio) => {
             });
         if ($statusbin == "0") {
             msg.channel.sendMessage("Currently no server announcements, everything should be running.");
+            
 
-        }
+        }}
     });
 
 };

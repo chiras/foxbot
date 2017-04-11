@@ -6,7 +6,7 @@ module.exports = (bot, msg, request, cheerio, util) => {
     request(trialurl, function(error, response, body) {
         if (error) {
             console.log("Error: " + error);
-        }
+        }else{
 
         if (response.statusCode === 200) {
             var $ = cheerio.load(body);
@@ -31,6 +31,7 @@ module.exports = (bot, msg, request, cheerio, util) => {
            // );
 
     msg.channel.sendMessage("This week's special trials are " + weeklytrials[0] + " (EU) and "  + weeklytrials[1] + " (US)" );
+	}
     });
 
 };
