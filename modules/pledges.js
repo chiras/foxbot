@@ -45,6 +45,7 @@ const async = require('async');
             var pledgetext = "Pledges today are: [" + JSON.stringify(body[1]).replace(/\"/g, "") + "](" + baseurl + pledges[JSON.stringify(body[1]).replace(/\"/g, "")] +"), ["
                 pledgetext +=  JSON.stringify(body[2]).replace(/\"/g, "") + "](" + baseurl + pledges[JSON.stringify(body[2]).replace(/\"/g, "")] +") and [" 
                 pledgetext +=  JSON.stringify(body[3]).replace(/\"/g, "") + "](" + baseurl + pledges[JSON.stringify(body[3]).replace(/\"/g, "")] +").";
+
          	msg.channel.sendEmbed({
   				color: 0x800000,
   				description: pledgetext,
