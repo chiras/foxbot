@@ -1,6 +1,6 @@
 module.exports = (bot, msg, twitch,util, request) => {  
         var clientid = "ppswltywns8ixv0bdnesh852j9qn2g"
-        var twitchurl = "https://api.twitch.tv/kraken/streams?game=The%20Elder%20Scrolls%20Online&live=true&client_id="+clientid;
+        var twitchurl = "https://api.twitch.tv/kraken/streams?game=The%20Elder%20Scrolls%20Online&live=true&language=en&client_id="+clientid;
 
 //         msg.channel.sendEmbed({
 //   			color: 0x800000,

@@ -20,8 +20,8 @@ module.exports = (bot, msg, request, youtube) => {
     }
 
     var lastweek = getLastWeek();
-    var youtubeurlhot = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&order=viewCount&publishedAfter=" + lastweek.toISOString() + "&q=Elder+Scrolls+Online&type=video&key=AIzaSyCgNeM4jBdyRKdE75loEpw-vPC_seN6L7A";
-    var youtubeurlnew = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&order=date&publishedAfter=" + lastweek.toISOString() + "&q=Elder+Scrolls+Online&type=video&key=AIzaSyCgNeM4jBdyRKdE75loEpw-vPC_seN6L7A";
+    var youtubeurlhot = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&order=viewCount&publishedAfter=" + lastweek.toISOString() + "&q=Elder+Scrolls+Online&lr=en&type=video&key=AIzaSyCgNeM4jBdyRKdE75loEpw-vPC_seN6L7A";
+    var youtubeurlnew = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&order=date&publishedAfter=" + lastweek.toISOString() + "&q=Elder+Scrolls+Online&lr=en&type=video&key=AIzaSyCgNeM4jBdyRKdE75loEpw-vPC_seN6L7A";
 
     const urls = [
         youtubeurlhot,
