@@ -1,7 +1,40 @@
 module.exports = (bot, msg, request, cheerio) => {
+const async = require('async');
 
     var pledgeurl = "https://esoleaderboards.com/api/getpledges.php"
     var pledgetimeurl = "https://esoleaderboards.com"
+	
+	var baseurl = "http://en.uesp.net"
+	var pledges = {
+		"The Banished Cells I" : "/wiki/Online:The_Banished_Cells_I",
+		"The Banished Cells II" : "/wiki/Online:The_Banished_Cells_II",
+		"Elden Hollow I" : "/wiki/Online:Elden_Hollow_I",
+		"Elden Hollow II" : "/wiki/Online:Elden_Hollow_II",
+		"City of Ash I" : "/wiki/Online:City_of_Ash_I",
+		"City of Ash II" : "/wiki/Online:City_of_Ash_II",
+		"Tempest Island" : "/wiki/Online:Tempest_Island",
+		"Selene's Web" : "/wiki/Online:Selene%27s_Web",
+		"Volenfell" : "/wiki/Online:Volenfell",
+		"Blackheart Haven" : "/wiki/Online:Blackheart_Haven",
+		"Spindleclutch I" : "/wiki/Online:Spindleclutch_I",
+		"Spindleclutch II" : "/wiki/Online:Spindleclutch_II",
+		"Crypt of Hearts I" : "/wiki/Online:Crypt_of_Hearts_I",
+		"Crypt of Hearts II" : "/wiki/Online:Crypt_of_Hearts_II",
+		"Wayrest Sewers I" : "/wiki/Online:Wayrest_Sewers_I",
+		"Wayrest Sewers II" : "/wiki/Online:Wayrest_Sewers_II",
+		"Darkshade Caverns I" : "/wiki/Online:Darkshade_Caverns_I",
+		"Darkshade Caverns II" : "/wiki/Online:Darkshade_Caverns_II",
+		"Direfrost Keep" : "/wiki/Online:Direfrost_Keep",
+		"Blessed Crucible" : "/wiki/Online:Blessed_Crucible",
+		"Arx Corinium" : "/wiki/Online:Arx_Corinium",
+		"Cradle of Shadows" : "/wiki/Online:Cradle_of_Shadows",
+		"Ruins of Mazzatun" : "/wiki/Online:Ruins_of_Mazzatun",
+		"Fungal Grotto I" : "/wiki/Online:Fungal_Grotto_I",
+		"Fungal Grotto II" : "/wiki/Online:Fungal_Grotto_II",
+		"Vaults of Madness" : "/wiki/Online:Vaults_of_Madness",
+		"White-Gold Tower" : "/wiki/Online:White-Gold_Tower",
+		"Imperial City Prison" : "/wiki/Online:Imperial_City_Prison"
+		};
 	
     request({
         url: pledgeurl,
@@ -9,7 +42,9 @@ module.exports = (bot, msg, request, cheerio) => {
     }, function(error, response, body) {
 
         if (!error && response.statusCode === 200) {
-            var pledgetext = "Pledges today are: " + JSON.stringify(body[1]).replace(/\"/g, "") + ", " + JSON.stringify(body[2]).replace(/\"/g, "") + " and " + JSON.stringify(body[3]).replace(/\"/g, "") + "!";
+            var pledgetext = "Pledges today are: [" + JSON.stringify(body[1]).replace(/\"/g, "") + "](" + baseurl + pledges[JSON.stringify(body[1]).replace(/\"/g, "")] +"), ["
+                pledgetext +=  JSON.stringify(body[2]).replace(/\"/g, "") + "](" + baseurl + pledges[JSON.stringify(body[2]).replace(/\"/g, "")] +") and [" 
+                pledgetext +=  JSON.stringify(body[3]).replace(/\"/g, "") + "](" + baseurl + pledges[JSON.stringify(body[3]).replace(/\"/g, "")] +").";
          	msg.channel.sendEmbed({
   				color: 0x800000,
   				description: pledgetext,
