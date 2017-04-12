@@ -1,9 +1,8 @@
 module.exports = (bot, msg, setitems) => {
-    let [searchVal] = msg.content.split(" ").slice(1);
 
         var results = [];
         var searchField = "Name";
-        var filter = new RegExp(searchVal, "i")
+        var filter = new RegExp(msg.content.split(" ").slice(1).join(" "), "i")
 
         for (var i = 0; i < setitems.length; i++) {
             if (setitems[i][searchField].match(filter)) {
