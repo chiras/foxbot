@@ -14,13 +14,20 @@ module.exports = (bot, msg, setitems, util) => {
 
     var results = {};
     var fields = ["i1", "i2", "i3", "i4", "i5"]
-    var minbonus = msg.content.split(" ").slice(1)[0]
-    var filter;
-
+    var allargs = msg.content.split(" ").slice(1).join(" ")
+    console.log("all : "+ allargs)
+    var [bonusargs] = allargs.split(",").slice(1)
+    
+    console.log("bonus : "+ bonusargs + "l"+bonusargs.length)
+    
+    for (var z = 0; z < bonusargs.length; z++) {
+    
+	var minbonus = bonusargs[z].split(" ").slice(1)[0]
+    	
     if (isNumber(minbonus)) {
-        filter = new RegExp(msg.content.split(" ").slice(2).join(" "), "i")
+        filter = new RegExp(bonusargs[z], "i")
     } else {
-        filter = new RegExp(msg.content.split(" ").slice(1).join(" "), "i");
+        filter = new RegExp(bonusargs[z], "i");
         minbonus = 2;
 
         msg.channel.sendEmbed({
@@ -30,7 +37,12 @@ module.exports = (bot, msg, setitems, util) => {
                 value: "I have set to a default of 2 for now. You may try !setbonus 1 KEYWORD, if you don't get enough results."
             }]
         });
-    }
+    }    
+    } // end z
+
+    var filter;
+
+
 
     for (var j = 0; j < fields.length; j++) {
 
