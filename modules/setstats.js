@@ -116,7 +116,6 @@ module.exports = (bot, msg, setitems, util) => {
                     }]
                 });
 
-            } // at least one hit
         } else {
 
             msg.channel.sendEmbed({
@@ -128,6 +127,8 @@ module.exports = (bot, msg, setitems, util) => {
                 }]
             });
         }
+        } // at least one hit
+
         
         } // length check
         
