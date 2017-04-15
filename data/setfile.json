@@ -6,7 +6,7 @@
     "Location": "Spindleclutch II",
     "Style": "",
     "i1": "Adds 129 Stamina Recovery",
-    "i2": "When you take damage, you have a 6% chance to generate 15 Ultimate and increase your Physical and Spell Resistance by 6450 for 6 seconds. This effect can occur once every 6 seconds.",
+    "i2": "When you take damage, you have a 6% chance to generate 15 Ultimate and increase your Physical and Spell Resistance by 6450 for 6 seconds. This effect can occur once every 6 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -19,7 +19,7 @@
     "Location": "Elden Hollow I",
     "Style": "",
     "i1": "Adds 129 Magicka Recovery",
-    "i2": "When you use a heal ability, you have a 15% chance to summon a strangler sapling that heals you or an ally for 19565 Health over 4 seconds. This effect can occur once every 10 seconds.",
+    "i2": "When you use a heal ability, you have a 15% chance to summon a strangler sapling that heals you or an ally for 19565 Health over 4 seconds. This effect can occur once every 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -32,7 +32,7 @@
     "Location": "Darkshade Caverns II",
     "Style": "",
     "i1": "Adds 129 Health Recovery",
-    "i2": "When you use an ability, you have a 10% to summon a dwemer automation to restore 1204 Health, Stamina, or Magicka every 0.5 seconds for 6.5 seconds.",
+    "i2": "When you use an ability, you have a 10% to summon a dwemer automation to restore 1204 Health, Stamina, or Magicka every 0.5 seconds for 6.5 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -45,7 +45,7 @@
     "Location": "Vaults of Madness",
     "Style": "",
     "i1": "Adds 967 Maximum Magicka",
-    "i2": "When you deal damage, you have a 10% chance to create lava pools that swirl around you, dealing 2000 Flame Damage to all enemies within 8 meters of you every 1 second for 5 seconds. This effect can occur once every 10 seconds.",
+    "i2": "When you deal damage, you have a 10% chance to create lava pools that swirl around you, dealing 2000 Flame Damage to all enemies within 8 meters of you every 1 second for 5 seconds. This effect can occur once every 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -58,7 +58,7 @@
     "Location": "Direfrost Keep",
     "Style": "",
     "i1": "Adds 688 Spell Critical",
-    "i2": "When you deal Critical Damage, you have a 20% chance to gain a damage shield that absorbs 8600 damage for 6 seconds. While the damage shield holds, you deal 770 Cold damage to all enemies within 5 meters of you every 1 second. This effect can occur once every 6 seconds.",
+    "i2": "When you deal Critical Damage, you have a 20% chance to gain a damage shield that absorbs 8600 damage for 6 seconds. While the damage shield holds, you deal 770 Cold damage to all enemies within 5 meters of you every 1 second. This effect can occur once every 6 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -71,7 +71,7 @@
     "Location": "Crypt of Hearts I",
     "Style": "",
     "i1": "Adds 967 Maximum Magicka",
-    "i2": "When you deal Flame or Shock Damage, you have a 10% chance to summon a meteor shower of that damage type that deals 1300 Damage to all enemies within 4 meters every 1 second for 5 seconds. Each effect can occur once every 8 seconds.",
+    "i2": "When you deal Flame or Shock Damage, you have a 10% chance to summon a meteor shower of that damage type that deals 1300 Damage to all enemies within 4 meters every 1 second for 5 seconds. Each effect can occur once every 8 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -84,7 +84,7 @@
     "Location": "City of Ash I",
     "Style": "",
     "i1": "Adds 967 Maximum Magicka",
-    "i2": "When you use a damage shield ability, you have a 50% chance to lob 3 mortars over 2 seconds at the furthest enemy from you that each deal 5500 Flame Damage to all enemies within 5 meters of the blast area. This effect can occur once every 6 seconds.",
+    "i2": "When you use a damage shield ability, you have a 50% chance to lob 3 mortars over 2 seconds at the furthest enemy from you that each deal 5500 Flame Damage to all enemies within 5 meters of the blast area. This effect can occur once every 6 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -97,7 +97,7 @@
     "Location": "Fungal Grotto I",
     "Style": "",
     "i1": "Adds 1935 Physical Penetration",
-    "i2": "When you deal damage, you have a 10% chance to spawn dreugh limbs that creates shockwaves in front of you dealing 1300 Physical Damage every 0.4 seconds for 1.2 seconds. This effect can occur once every 3 seconds.",
+    "i2": "When you deal damage, you have a 10% chance to spawn dreugh limbs that creates shockwaves in front of you dealing 1300 Physical Damage every 0.4 seconds for 1.2 seconds. This effect can occur once every 3 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -110,7 +110,7 @@
     "Location": "Imperial City Prison",
     "Style": "",
     "i1": "Adds 1935 Spell Resistance",
-    "i2": "When you take damage, you have a 50% chance to summon a shadow orb for 10 seconds that increases the Physical and Spell Resistance of you and your allies within 5 meters by 3870. This effect can occur once every 10 seconds.",
+    "i2": "When you take damage, you have a 50% chance to summon a shadow orb for 10 seconds that increases the Physical and Spell Resistance of you and your allies within 5 meters by 3870. This effect can occur once every 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -123,7 +123,7 @@
     "Location": "Banished Cells II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
-    "i2": "When you deal damage with a Light of Heavy Attack, you have a 10% chance to summon a fire breathing Daedroth for 15 seconds. The Daedroth's basic attacks deal 4257 Physical Damage. This effect can occur once every 15 seconds.",
+    "i2": "When you deal damage with a Light of Heavy Attack, you have a 10% chance to summon a fire breathing Daedroth for 15 seconds. The Daedroth's basic attacks deal 4257 Physical Damage. This effect can occur once every 15 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -136,7 +136,7 @@
     "Location": "Ruins of Mazzatun",
     "Style": "",
     "i1": "Adds 1376 Spell Resistance. Adds 1376 Physical Resistance",
-    "i2": "Gain Major Ward and Major Resolve at all times, increasing your Physical and Spell Resistance by 5280. Adds 1064 Maximum Health.",
+    "i2": "Gain Major Ward and Major Resolve at all times, increasing your Physical and Spell Resistance by 5280. Adds 1064 Maximum Health",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -149,7 +149,7 @@
     "Location": "White-Gold Tower",
     "Style": "",
     "i1": "Adds 129 Weapon Damage. Adds 129 Spell Damage",
-    "i2": "When you deal damage with 2 consecutive Light Attacks you trigger Overkill for 6 seconds, which increases your Weapon and Spell Damage by 516 but also increases the cost of your abilities by 33%.",
+    "i2": "When you deal damage with 2 consecutive Light Attacks you trigger Overkill for 6 seconds, which increases your Weapon and Spell Damage by 516 but also increases the cost of your abilities by 33%",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -162,7 +162,7 @@
     "Location": "Crypt of Hearts II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
-    "i2": "When you deal direct damage, you have a 10% chance to summon a Lich crystal that explodes after 3 seconds, dealing 7335 Magic Damage to all enemies within 4 meters. This effect can occur once every 3 seconds.",
+    "i2": "When you deal direct damage, you have a 10% chance to summon a Lich crystal that explodes after 3 seconds, dealing 7335 Magic Damage to all enemies within 4 meters. This effect can occur once every 3 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -175,7 +175,7 @@
     "Location": "Elden Hollow II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
-    "i2": "When you heal a friendly target, you have a 3% chance to summon a totem for 6 seconds that heals you and your allies within 5 meters for 3483 Health every 1 second. This effect can occur once every 6 seconds.",
+    "i2": "When you heal a friendly target, you have a 3% chance to summon a totem for 6 seconds that heals you and your allies within 5 meters for 3483 Health every 1 second. This effect can occur once every 6 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -188,7 +188,7 @@
     "Location": "Blackheart Haven",
     "Style": "",
     "i1": "Adds 1935 Physical/Spell Resistance",
-    "i2": "When you take damage, you have a 6% chance to transform into a skeleton and gain Major Protection and Minor Defile for 12 seconds, reducing your damage taken by 30% but reducing your healing receieved by 15%. This effect can occur once every 15 seconds.",
+    "i2": "When you take damage, you have a 6% chance to transform into a skeleton and gain Major Protection and Minor Defile for 12 seconds, reducing your damage taken by 30% but reducing your healing receieved by 15%. This effect can occur once every 15 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -201,7 +201,7 @@
     "Location": "Wayrest Sewers II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
-    "i2": "When you take damage, you have a 6% chance to create a beam that steals 5805 Health over 4 seconds from the attacker. The beam breaks if the enemy moves further than 8 meters away. While the beam holds gained 30% increased healing from all sources.",
+    "i2": "When you take damage, you have a 6% chance to create a beam that steals 5805 Health over 4 seconds from the attacker. The beam breaks if the enemy moves further than 8 meters away. While the beam holds gained 30% increased healing from all sources",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -214,7 +214,7 @@
     "Location": "Selene's Web",
     "Style": "",
     "i1": "Adds 967 Maximum Stamina",
-    "i2": "When you deal direct melee damage, you have a 15% chance call on a primal spirit that mauls the closest enemy in front of you for 12000 Physical Damage. This effect can occur once every 4 seconds.",
+    "i2": "When you deal direct melee damage, you have a 15% chance call on a primal spirit that mauls the closest enemy in front of you for 12000 Physical Damage. This effect can occur once every 4 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -226,8 +226,8 @@
     "Pieces": "Head/Shoulder",
     "Location": "Arx Corinium",
     "Style": "",
-    "i1": "Adds 967 Maxium Stamina",
-    "i2": "When you deal damage, you have a 10% chance to create an earthquake under the enemy that erupts after 2 seconds, dealing 3870 Physical Damage to all enemies within 4 meters and stunning them for 3 seconds. This effect can occur once every 5 seconds.",
+    "i1": "Adds 967 Maximum Stamina",
+    "i2": "When you deal damage, you have a 10% chance to create an earthquake under the enemy that erupts after 2 seconds, dealing 3870 Physical Damage to all enemies within 4 meters and stunning them for 3 seconds. This effect can occur once every 5 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -240,7 +240,7 @@
     "Location": "Darkshade Caverns I",
     "Style": "",
     "i1": "Adds 2% Healing Done",
-    "i2": "When you heal a friendly target, you have a 10% chance to summon a dwemer spider that heals for 1049 Health and restores 524 Stamina to you and your allies within 5 meters every 1 second for 8 seconds. This effect can occur once every 15 seconds.",
+    "i2": "When you heal a friendly target, you have a 10% chance to summon a dwemer spider that heals for 1049 Health and restores 524 Stamina to you and your allies within 5 meters every 1 second for 8 seconds. This effect can occur once every 15 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -253,7 +253,7 @@
     "Location": "Banished Cells I",
     "Style": "",
     "i1": "Adds 129 Magicka Recovery",
-    "i2": "When you deal damage, you have a 5% chance to summon a shadowy Clannfear for 15 seconds. The Clannfear's basic attacks deal 3440 Physical Damage and apply Minor Maim to any enemy hit for 3 seconds, reducing their damage done by 15%. This effect can occur once every 15 seconds.",
+    "i2": "When you deal damage, you have a 5% chance to summon a shadowy Clannfear for 15 seconds. The Clannfear's basic attacks deal 3440 Physical Damage and apply Minor Maim to any enemy hit for 3 seconds, reducing their damage done by 15%. This effect can occur once every 15 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -266,7 +266,7 @@
     "Location": "Wayrest Sewers I",
     "Style": "",
     "i1": "Adds 129 Health Recovery",
-    "i2": "Gain Minor Berserk at all times, increasing your damage done by 8%.",
+    "i2": "Gain Minor Berserk at all times, increasing your damage done by 8%",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -279,7 +279,7 @@
     "Location": "Fungal Grotto II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
-    "i2": "When you deal damage with a fully-charged Heavy attack, you create a web for 10 seconds that deals 1044 Poison Damage every 1 second and reduces the Movement Speed of enemies within by 50%. This effect can occur once every 10 seconds.",
+    "i2": "When you deal damage with a fully-charged Heavy attack, you create a web for 10 seconds that deals 1044 Poison Damage every 1 second and reduces the Movement Speed of enemies within by 50%. This effect can occur once every 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -292,7 +292,7 @@
     "Location": "Tempest Island",
     "Style": "",
     "i1": "Adds 129 Stamina Recovery",
-    "i2": "When you deal damage, you have a 10% chance to create a thunderfist to crush the enemy, dealing 1500 Shock Damage every 1 second for 3 seconds to all enemies within 4 meters and a final 8000 Physical Damage when the fist closes. This effect can occur once every 8 seconds.",
+    "i2": "When you deal damage, you have a 10% chance to create a thunderfist to crush the enemy, dealing 1500 Shock Damage every 1 second for 3 seconds to all enemies within 4 meters and a final 8000 Physical Damage when the fist closes. This effect can occur once every 8 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -305,7 +305,7 @@
     "Location": "Spindleclutch I",
     "Style": "",
     "i1": "Adds 129 Stamina Recovery",
-    "i2": "When you block an attack from an enemy that is further than 5 meters from you, you spin strands of spider silk to pull the enemy to you. This effect can occur once every 2 seconds.",
+    "i2": "When you block an attack from an enemy that is further than 5 meters from you, you spin strands of spider silk to pull the enemy to you. This effect can occur once every 2 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -318,7 +318,7 @@
     "Location": "Blessed Crucible",
     "Style": "",
     "i1": "Adds 2% Healing Done",
-    "i2": "When you heal a friendly target, if they are still below 60% Health, their Health Recovery is increased by 1548 for 10 seconds.",
+    "i2": "When you heal a friendly target, if they are still below 60% Health, their Health Recovery is increased by 1548 for 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -331,7 +331,7 @@
     "Location": "Volenfell",
     "Style": "",
     "i1": "Adds 967 Maximum Stamina",
-    "i2": "When you taunt an enemy, you have a 50% chance to cause a duneripper to burst from the ground beneath them, dealing 6500 Physical Damage to all enemies within 4 meters and reducing their Movement Speed by 70% for 8 seconds. This effect can occur once every 4 seconds.",
+    "i2": "When you taunt an enemy, you have a 50% chance to cause a duneripper to burst from the ground beneath them, dealing 6500 Physical Damage to all enemies within 4 meters and reducing their Movement Speed by 70% for 8 seconds. This effect can occur once every 4 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -344,7 +344,7 @@
     "Location": "City of Ash II",
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
-    "i2": "When you deal damage with a damage over time effect, you have a 8% chance to summon a meteor that deals 9000 Flame Damage to the target and 4000 Flame Damage to all other enemies within 5 meters. This effect can occur once every 5 seconds.",
+    "i2": "When you deal damage with a damage over time effect, you have a 8% chance to summon a meteor that deals 9000 Flame Damage to the target and 4000 Flame Damage to all other enemies within 5 meters. This effect can occur once every 5 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -357,7 +357,7 @@
     "Location": "Cradle of Shadows",
     "Style": "",
     "i1": "Adds 129 Weapon Damage",
-    "i2": "When you deal damage, you have a 20% chance to spawn 3 disease spores in front of you that deal 10320 Disease Damage to the first enemy they hit. This effect can occur once every 9 seconds.",
+    "i2": "When you deal damage, you have a 20% chance to spawn 3 disease spores in front of you that deal 10320 Disease Damage to the first enemy they hit. This effect can occur once every 9 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
@@ -373,7 +373,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Increases your Max Health, Magicka, and Stamina by 2484.",
+    "i5": "Increases your Maximum Health, Magicka, and Stamina by 2484",
     "": ""
   },
   {
@@ -386,7 +386,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Reduces your damage taken from environmental traps by 40%.. Adds 967 Maximum Stamina",
-    "i5": "When you deal damage, you have a 25% chance to create desecrated ground for 5 seconds, which reduces the Movement Speed of enemies within by 70%, damages them for 860 Magic Damage every 1 second, and heals you for 100% of the damage done.",
+    "i5": "When you deal damage, you have a 25% chance to create desecrated ground for 5 seconds, which reduces the Movement Speed of enemies within by 70%, damages them for 860 Magic Damage every 1 second, and heals you for 100% of the damage done",
     "": ""
   },
   {
@@ -399,7 +399,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you use Blade of Woe, you gain Major Berserk for 20 seconds, increasing your damage done by 25%.",
+    "i5": "When you use Blade of Woe, you gain Major Berserk for 20 seconds, increasing your damage done by 25%",
     "": ""
   },
   {
@@ -412,7 +412,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Reduces your damage taken from Guards by 20%.. Adds 967 Maximum Magicka",
-    "i5": "When you deal damage, you have a 5% chance to cause a burst of lamia poison that deals 967 Poison Damage in a 5 meter radius and an additional 5802 Poison Damage over 6 seconds to all enemies hit. This effect can occur once every 6.5 seconds.",
+    "i5": "When you deal damage, you have a 5% chance to cause a burst of lamia poison that deals 967 Poison Damage in a 5 meter radius and an additional 5802 Poison Damage over 6 seconds to all enemies hit. This effect can occur once every 6.5 seconds",
     "": ""
   },
   {
@@ -425,7 +425,7 @@
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "When you deal direct damage, you restore 660 Magicka and Stamina. This effect can occur once every 5 seconds.",
+    "i5": "When you deal direct damage, you restore 660 Magicka and Stamina. This effect can occur once every 5 seconds",
     "": ""
   },
   {
@@ -438,7 +438,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you take damage while you are under 35% Health, you knockdown all enemies within 4 meters of you for 2 seconds and heal for 7000 Health. This effect can occur once every 20 seconds.",
+    "i5": "When you take damage while you are under 35% Health, you knockdown all enemies within 4 meters of you for 2 seconds and heal for 7000 Health. This effect can occur once every 20 seconds",
     "": ""
   },
   {
@@ -464,7 +464,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "While you have a pet active, your Max Magicka is increased by 4000.",
+    "i5": "While you have a pet active, your Maximum Magicka is increased by 4000",
     "": ""
   },
   {
@@ -477,7 +477,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "Reduces the cost of Sprint by 50%. While Sprinting, restore 1000 Magicka every 1 second.",
+    "i5": "Reduces the cost of Sprint by 50%. While Sprinting, restore 1000 Magicka every 1 second",
     "": ""
   },
   {
@@ -490,7 +490,7 @@
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "Increases your Light and Heavy Attack damage by 20%.",
+    "i5": "Increases your Light and Heavy Attack damage by 20%",
     "": ""
   },
   {
@@ -503,7 +503,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "Reduces the duration of all disabling effects applied to you by 20%. While you are affected by a disabling effect, heal for 2000 Health every 1 second.",
+    "i5": "Reduces the duration of all disabling effects applied to you by 20%. While you are affected by a disabling effect, heal for 2000 Health every 1 second",
     "": ""
   },
   {
@@ -516,7 +516,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When an enemy within 28 meters of you dies, heal for 1290 Health and gain 1290 Magicka. This effect can occur once every 3 seconds.",
+    "i5": "When an enemy within 28 meters of you dies, heal for 1290 Health and gain 1290 Magicka. This effect can occur once every 3 seconds",
     "": ""
   },
   {
@@ -529,7 +529,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Ignore the Movement Speed penalty of Sneak. Adds 129 Stamina Recovery.",
+    "i5": "Ignore the Movement Speed penalty of Sneak. Adds 129 Stamina Recovery",
     "": ""
   },
   {
@@ -542,7 +542,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Adds 400 Spell Damage to your Flame Damage abilities.",
+    "i5": "Adds 400 Spell Damage to your Flame Damage abilities",
     "": ""
   },
   {
@@ -581,7 +581,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you heal a friendly target, you have a 50% chance to remove up to 5 negative effects from them. This effect can occur once every 30 seconds per target.",
+    "i5": "When you heal a friendly target, you have a 50% chance to remove up to 5 negative effects from them. This effect can occur once every 30 seconds per target",
     "": ""
   },
   {
@@ -594,7 +594,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you block a Flame, Frost, Shock, or Magic Damage ability, you restore 860 Magicka. This effect can occur once every 1 second.",
+    "i5": "When you block a Flame, Frost, Shock, or Magic Damage ability, you restore 860 Magicka. This effect can occur once every 1 second",
     "": ""
   },
   {
@@ -607,7 +607,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "When you cast a damage shield on an ally, you have a 20% chance to call down a fragment of Trinimac that heals you and your allies for 3667 Health and damages enemies for 3667 Magic Damage in a 5 meter radius. This effect can occur once every 5 seconds.",
+    "i5": "When you cast a damage shield on an ally, you have a 20% chance to call down a fragment of Trinimac that heals you and your allies for 3667 Health and damages enemies for 3667 Magic Damage in a 5 meter radius. This effect can occur once every 5 seconds",
     "": ""
   },
   {
@@ -620,7 +620,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 688 Spell Critical",
-    "i5": "Adds 400 Spell Damage to your Vampire abilities. Reduces the cost of your Vampire abilities by 5%.",
+    "i5": "Adds 400 Spell Damage to your Vampire abilities. Reduces the cost of your Vampire abilities by 5%",
     "": ""
   },
   {
@@ -633,7 +633,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you deal damage, you cause the enemy to take 10% additional damage from the next attack. This effect can occur once every 4 seconds.",
+    "i5": "When you deal damage, you cause the enemy to take 10% additional damage from the next attack. This effect can occur once every 4 seconds",
     "": ""
   },
   {
@@ -646,7 +646,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Adds 400 Spell Damage to your Cold Damage abilities.",
+    "i5": "Adds 400 Spell Damage to your Cold Damage abilities",
     "": ""
   },
   {
@@ -659,7 +659,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal Critical Damage, you have a 10% chance to increase your Weapon Damage by 449 for 10 seconds. While this effect is active your Critical Strikes heal you for 609 Health. This effect can occur once every 15 seconds.",
+    "i5": "When you deal Critical Damage, you have a 10% chance to increase your Weapon Damage by 449 for 10 seconds. While this effect is active your Critical Strikes heal you for 609 Health. This effect can occur once every 15 seconds",
     "": ""
   },
   {
@@ -672,7 +672,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal damage with a Weapon ability, you have a 10% chance to deal an additional 8400 Flame Damage. This effect can occur once every 2 seconds.",
+    "i5": "When you deal damage with a Weapon ability, you have a 10% chance to deal an additional 8400 Flame Damage. This effect can occur once every 2 seconds",
     "": ""
   },
   {
@@ -685,7 +685,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "Reduces the cost of Sprint and Sneak by 50%.",
+    "i5": "Reduces the cost of Sprint and Sneak by 50%",
     "": ""
   },
   {
@@ -698,7 +698,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "Reduces the cost and increases the Movement Speed bonus of Sprint by 15%.",
+    "i5": "Reduces the cost and increases the Movement Speed bonus of Sprint by 15%",
     "": ""
   },
   {
@@ -711,7 +711,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Adds 345 Weapon Damage to your damaging abilites when you use them to attack an enemy from behind.",
+    "i5": "Adds 345 Weapon Damage to your damaging abilites when you use them to attack an enemy from behind",
     "": ""
   },
   {
@@ -724,7 +724,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you take damage, you generate 5 Ultimate. This effect can occur once every 5 seconds.",
+    "i5": "When you take damage, you generate 5 Ultimate. This effect can occur once every 5 seconds",
     "": ""
   },
   {
@@ -734,10 +734,10 @@
     "Location": "Stormhaven",
     "Style": "Daedric",
     "i1": "",
-    "i2": "Adds 967 Maxium Stamina",
-    "i3": "Reduces the radius you can be detected while Sneaking by 2 meters. Reduces the cost of Sneak by 27%.",
+    "i2": "Adds 967 Maximum Stamina",
+    "i3": "Reduces the radius you can be detected while Sneaking by 2 meters. Reduces the cost of Sneak by 27%",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you take melee damage, you deal 2100 Poison Damage to the attacker. This effect can occur once every 1 second.",
+    "i5": "When you take melee damage, you deal 2100 Poison Damage to the attacker. This effect can occur once every 1 second",
     "": ""
   },
   {
@@ -750,7 +750,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Reduce the effectiveness of snares applied to you by 50%. Adds 129 Stamina Recovery.",
+    "i5": "Reduce the effectiveness of snares applied to you by 50%. Adds 129 Stamina Recovery",
     "": ""
   },
   {
@@ -763,7 +763,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Reduces the cost of your Werewolf Transformation ability 33%. While in Werewolf form, your Weapon Damage is increased by 150.",
+    "i5": "Reduces the cost of your Werewolf Transformation ability 33%. While in Werewolf form, your Weapon Damage is increased by 150",
     "": ""
   },
   {
@@ -776,7 +776,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "When you use Roll Dodge, your Weapon Damage is increased by 430 and Weapon Critical rating is increased by 657 for 5 seconds.",
+    "i5": "When you use Roll Dodge, your Weapon Damage is increased by 430 and Weapon Critical rating is increased by 657 for 5 seconds",
     "": ""
   },
   {
@@ -789,7 +789,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Adds 4000 Physical Penetration.",
+    "i5": "Adds 4000 Physical Penetration",
     "": ""
   },
   {
@@ -802,7 +802,7 @@
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "While you are Sneaking or invisible, your Spell Damage and Max Magicka is increased by 20%.",
+    "i5": "While you are Sneaking or invisible, your Spell Damage and Maximum Magicka is increased by 20%",
     "": ""
   },
   {
@@ -815,7 +815,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "When you deal damage with a Magicka ability, your Poison and Disease Damage abilities gain an additional 450 Weapon Damage for 10 seconds.",
+    "i5": "When you deal damage with a Magicka ability, your Poison and Disease Damage abilities gain an additional 450 Weapon Damage for 10 seconds",
     "": ""
   },
   {
@@ -828,7 +828,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "Adds 400 Weapon Damage to your Two Handed abilities.",
+    "i5": "Adds 400 Weapon Damage to your Two Handed abilities",
     "": ""
   },
   {
@@ -841,7 +841,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you block an attack, you have a 20% chance to cause all enemies within 5 meters of you to bleed for 9030 Physical Damage over 8 seconds. This effect can occur once every 8 seconds.",
+    "i5": "When you block an attack, you have a 20% chance to cause all enemies within 5 meters of you to bleed for 9030 Physical Damage over 8 seconds. This effect can occur once every 8 seconds",
     "": ""
   },
   {
@@ -853,8 +853,8 @@
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Stamina Recovery",
-    "i4": "Increases the radius you can detect Sneaking enemies by 2 meters.",
-    "i5": "When you use Roll Dodge, your Weapon and Spell Damage is increased by 344 for 6 seconds.",
+    "i4": "Increases the radius you can detect Sneaking enemies by 2 meters",
+    "i5": "When you use Roll Dodge, your Weapon and Spell Damage is increased by 344 for 6 seconds",
     "": ""
   },
   {
@@ -867,7 +867,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Your Bow abilities reduce the Movement Speed of any enemy they hit by 30% for 3 seconds.",
+    "i5": "Your Bow abilities reduce the Movement Speed of any enemy they hit by 30% for 3 seconds",
     "": ""
   },
   {
@@ -880,7 +880,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you use an Ultimate ability, you heal for 6880 Health and restore 6880 Stamina.",
+    "i5": "When you use an Ultimate ability, you heal for 6880 Health and restore 6880 Stamina",
     "": ""
   },
   {
@@ -893,7 +893,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "Reduces the cost of your Ultimate abilities by 15%.",
+    "i5": "Reduces the cost of your Ultimate abilities by 15%",
     "": ""
   },
   {
@@ -906,7 +906,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal damage, you have a 10% chance to increase your Weapon Damage by 400 for 5 seconds.",
+    "i5": "When you deal damage, you have a 10% chance to increase your Weapon Damage by 400 for 5 seconds",
     "": ""
   },
   {
@@ -932,7 +932,7 @@
     "i2": "Adds 4% Healing Taken",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you take damage while you are under 35% Health, you knockdown all enemies within 4 meters of you for 2 seconds and heal for 7000 Health. This effect can occur once every 20 seconds.",
+    "i5": "When you take damage while you are under 35% Health, you knockdown all enemies within 4 meters of you for 2 seconds and heal for 7000 Health. This effect can occur once every 20 seconds",
     "": ""
   },
   {
@@ -945,7 +945,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Health Recovery",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "While you have a food buff active, your Max Health is increased by 400 and Health Recovery by 200.",
+    "i5": "While you have a food buff active, your Maximum Health is increased by 400 and Health Recovery by 200",
     "": ""
   },
   {
@@ -958,7 +958,7 @@
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 4% Healing Taken",
-    "i5": "Gain a damage shield that absorbs 5000 damage every 15 seconds.",
+    "i5": "Gain a damage shield that absorbs 5000 damage every 15 seconds",
     "": ""
   },
   {
@@ -971,7 +971,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "When you Roll Dodge through an enemy, you deal 1840 Physical Damage and knock them down for 3 seconds.",
+    "i5": "When you Roll Dodge through an enemy, you deal 1840 Physical Damage and knock them down for 3 seconds",
     "": ""
   },
   {
@@ -984,7 +984,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "Increases your Physical and Spell Resistance by up to 11094 based on your missing Health.",
+    "i5": "Increases your Physical and Spell Resistance by up to 11094 based on your missing Health",
     "": ""
   },
   {
@@ -997,7 +997,7 @@
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "When you block an attack, you have a 33% chance to blind the attacker, causing them to miss all of their attacks for 5 seconds. This effect can occur once every 10 seconds.",
+    "i5": "When you block an attack, you have a 33% chance to blind the attacker, causing them to miss all of their attacks for 5 seconds. This effect can occur once every 10 seconds",
     "": ""
   },
   {
@@ -1010,7 +1010,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "Reduces the radius you can be detected while Sneaking by 2 meters. Reduces the cost of Sneak by 25%. Adds 129 Weapon Damage.",
+    "i5": "Reduces the radius you can be detected while Sneaking by 2 meters. Reduces the cost of Sneak by 25%. Adds 129 Weapon Damage",
     "": ""
   },
   {
@@ -1023,7 +1023,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
-    "i5": "Gain Minor Vitality at all times, increasing your healing recieved by 8%.",
+    "i5": "Gain Minor Vitality at all times, increasing your healing recieved by 8%",
     "": ""
   },
   {
@@ -1049,7 +1049,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 688 Spell Critical",
-    "i5": "Gain Minor Heroism at all times while you are in combat, generating 1 Ultimate every 1.5 seconds.",
+    "i5": "Gain Minor Heroism at all times while you are in combat, generating 1 Ultimate every 1.5 seconds",
     "": ""
   },
   {
@@ -1062,7 +1062,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 129 Health Recovery",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you take damage, you have a 10% to gain 500 Weapon Damage for 5 seconds and heal for 1290 Haelth.",
+    "i5": "When you take damage, you have a 10% to gain 500 Weapon Damage for 5 seconds and heal for 1290 Haelth",
     "": ""
   },
   {
@@ -1075,7 +1075,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Adds 450 Spell Damage to your cast time and channeled abilities.",
+    "i5": "Adds 450 Spell Damage to your cast time and channeled abilities",
     "": ""
   },
   {
@@ -1088,7 +1088,7 @@
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you take non-physical damage, you have a 10% to deal 4591 Shock Damage all enemies within 5 meters of you every 2 seconds for 6 seconds. This effect can occur once every 6 seconds.",
+    "i5": "When you take non-physical damage, you have a 10% to deal 4591 Shock Damage all enemies within 5 meters of you every 2 seconds for 6 seconds. This effect can occur once every 6 seconds",
     "": ""
   },
   {
@@ -1101,7 +1101,7 @@
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you take Physical Damage, you have a 50% chance to deal 5418 Shock Damage in a 5 meter radius around you. This effect can occur once every 3 seconds.",
+    "i5": "When you take Physical Damage, you have a 50% chance to deal 5418 Shock Damage in a 5 meter radius around you. This effect can occur once every 3 seconds",
     "": ""
   },
   {
@@ -1113,8 +1113,8 @@
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
-    "i4": "Adds 1064 Maxium Health",
-    "i5": "Gain Minor Protection at all times, reducing your damage taken by 8%.",
+    "i4": "Adds 1064 Maximum Health",
+    "i5": "Gain Minor Protection at all times, reducing your damage taken by 8%",
     "": ""
   },
   {
@@ -1127,7 +1127,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal damage with a Weapon Ability, you have a 20% chance to deal an additional 4200 Flame Damage. This effect can occur once every 2 seconds.",
+    "i5": "When you deal damage with a Weapon Ability, you have a 20% chance to deal an additional 4200 Flame Damage. This effect can occur once every 2 seconds",
     "": ""
   },
   {
@@ -1140,7 +1140,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "When you cast a Magicka abiltiy, you remove up to 5 negative effects from yourself. This effect can occur once every 15 seconds.",
+    "i5": "When you cast a Magicka abiltiy, you remove up to 5 negative effects from yourself. This effect can occur once every 15 seconds",
     "": ""
   },
   {
@@ -1192,7 +1192,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Adds 300 Stamina Recovery. Adds 300 Magicka Recovery.",
+    "i5": "Adds 300 Stamina Recovery. Adds 300 Magicka Recovery",
     "": ""
   },
   {
@@ -1205,7 +1205,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 688 Spell Critical",
-    "i5": "When you deal damage with a Flame Damage ability, you have a 20% chance apply the Burning status effect to the enemy and increase your Spell Damage by 600 for 8 seconds. This effect can occuer once every 12 seconds.",
+    "i5": "When you deal damage with a Flame Damage ability, you have a 20% chance apply the Burning status effect to the enemy and increase your Spell Damage by 600 for 8 seconds. This effect can occuer once every 12 seconds",
     "": ""
   },
   {
@@ -1218,7 +1218,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 688 Spell Critical",
-    "i5": "When you critically heal a friendly target, you grant them a damage shield that absorbs 8195 damage for 6 seconds. This effect can occur once every 6 seconds.",
+    "i5": "When you critically heal a friendly target, you grant them a damage shield that absorbs 8195 damage for 6 seconds. This effect can occur once every 6 seconds",
     "": ""
   },
   {
@@ -1231,7 +1231,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you heal a friendly target, you have a 10% chance to grant them Major Evasion for 6 seconds, increasing their dodge chance by 20%.",
+    "i5": "When you heal a friendly target, you have a 10% chance to grant them Major Evasion for 6 seconds, increasing their dodge chance by 20%",
     "": ""
   },
   {
@@ -1244,7 +1244,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you activate your Ultimate, you heal you and your allies within 20 meters of you for 7500 Health.",
+    "i5": "When you activate your Ultimate, you heal you and your allies within 20 meters of you for 7500 Health",
     "": ""
   },
   {
@@ -1257,7 +1257,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Adds 400 Spell Damage to your Restoration Staff abilities.",
+    "i5": "Adds 400 Spell Damage to your Restoration Staff abilities",
     "": ""
   },
   {
@@ -1270,7 +1270,7 @@
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you take damage from a melee attack while you are under 80% Magicka, restore 8000 Magicka. This effect can occur once every 30 seconds.",
+    "i5": "When you take damage from a melee attack while you are under 80% Magicka, restore 8000 Magicka. This effect can occur once every 30 seconds",
     "": ""
   },
   {
@@ -1283,7 +1283,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Adds 400 Spell Damage to your Shock Damage abilities.",
+    "i5": "Adds 400 Spell Damage to your Shock Damage abilities",
     "": ""
   },
   {
@@ -1296,7 +1296,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you dodge an attack, your Light and Heavy Attacks deal an additional 1225 damage for 8 seconds.",
+    "i5": "When you dodge an attack, your Light and Heavy Attacks deal an additional 1225 damage for 8 seconds",
     "": ""
   },
   {
@@ -1309,7 +1309,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you activate a Class ability, you have a 15% chance to surround yourself with a torrent that deals 1986 Shock Damage to the closest enemy within 12 meters of you every 1 second for 6 seconds.",
+    "i5": "When you activate a Class ability, you have a 15% chance to surround yourself with a torrent that deals 1986 Shock Damage to the closest enemy within 12 meters of you every 1 second for 6 seconds",
     "": ""
   },
   {
@@ -1322,7 +1322,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "When you heal a friendly target, you have a 6% chance to grant them a damage shield that absorbs 2425 damage for 6 seconds.",
+    "i5": "When you heal a friendly target, you have a 6% chance to grant them a damage shield that absorbs 2425 damage for 6 seconds",
     "": ""
   },
   {
@@ -1335,7 +1335,7 @@
     "i2": "Adds 1062 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "Increases your healing received by 12% for you and your group.",
+    "i5": "Increases your healing received by 12% for you and your group",
     "": ""
   },
   {
@@ -1348,7 +1348,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 688 Spell Critical",
-    "i5": "When you deal direct Critical Damage, you have a 20% chance to increase your Spell Damage by 516 for 6 seconds. This effect can occur once every 6 seconds.",
+    "i5": "When you deal direct Critical Damage, you have a 20% chance to increase your Spell Damage by 516 for 6 seconds. This effect can occur once every 6 seconds",
     "": ""
   },
   {
@@ -1361,7 +1361,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "When you fall below 33% Magicka increase your Magicka Recovery by 1032 for 20 seconds. This effect can occuer once every 1 minute.",
+    "i5": "When you fall below 33% Magicka increase your Magicka Recovery by 1032 for 20 seconds. This effect can occuer once every 1 minute",
     "": ""
   },
   {
@@ -1374,7 +1374,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you heal a friendly target that is at 100% Health, you have a 50% chance to increase their Weapon and Spell Damage by 258 for 10 seconds.",
+    "i5": "When you heal a friendly target that is at 100% Health, you have a 50% chance to increase their Weapon and Spell Damage by 258 for 10 seconds",
     "": ""
   },
   {
@@ -1387,7 +1387,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Adds 400 Spell Damage to your Destruction Staff abilities.",
+    "i5": "Adds 400 Spell Damage to your Destruction Staff abilities",
     "": ""
   },
   {
@@ -1400,7 +1400,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 688 Spell Critical",
-    "i5": "Gain Major Prophecy at all times, increasing your Spell Critical rating by 2191. Adds 100 Spell Damage.",
+    "i5": "Gain Major Prophecy at all times, increasing your Spell Critical rating by 2191. Adds 100 Spell Damage",
     "": ""
   },
   {
@@ -1413,7 +1413,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Spell Critical",
-    "i5": "When you use an ability that costs Stamina, your Light Attacks deal an additional 774 damage and Heavy Attacks deal an additional 1161 damage for 10 seconds.",
+    "i5": "When you use an ability that costs Stamina, your Light Attacks deal an additional 774 damage and Heavy Attacks deal an additional 1161 damage for 10 seconds",
     "": ""
   },
   {
@@ -1426,7 +1426,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "When you fall below 33% Magicka, restore 9000 Magicka. This effect can occur once every 1 minute.",
+    "i5": "When you fall below 33% Magicka, restore 9000 Magicka. This effect can occur once every 1 minute",
     "": ""
   },
   {
@@ -1439,7 +1439,7 @@
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "Reduces the cost of your Magicka abilities by 5% for you and your group.",
+    "i5": "Reduces the cost of your Magicka abilities by 5% for you and your group",
     "": ""
   },
   {
@@ -1452,7 +1452,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 1935 Physical Resistance",
-    "i5": "Reduces the duration of immobilizations and snares applied to you by 50%. When an immobilization or snare is applied to you, heal for 2000 Health and restore 1000 Stamina. This effect can occur once every 5 seconds.",
+    "i5": "Reduces the duration of immobilizations and snares applied to you by 50%. When an immobilization or snare is applied to you, heal for 2000 Health and restore 1000 Stamina. This effect can occur once every 5 seconds",
     "": ""
   },
   {
@@ -1465,7 +1465,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "While you have a drink buff active, your Max Stamina is increased by 2000 and Stamina Recovery by 300.",
+    "i5": "While you have a drink buff active, your Maximum Stamina is increased by 2000 and Stamina Recovery by 300",
     "": ""
   },
   {
@@ -1478,7 +1478,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Increases the duration of the dodge chance bonus of Roll Dodge by 0.3 seconds.",
+    "i5": "Increases the duration of the dodge chance bonus of Roll Dodge by 0.3 seconds",
     "": ""
   },
   {
@@ -1504,7 +1504,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal damage with a Light Attack, you have a 15% chance to draw essence from the enemy. Collecting the essence heals you for 4300 Health, restores 4300 Stamina, and increases your damage done by 12% for 10 seconds.",
+    "i5": "When you deal damage with a Light Attack, you have a 15% chance to draw essence from the enemy. Collecting the essence heals you for 4300 Health, restores 4300 Stamina, and increases your damage done by 12% for 10 seconds",
     "": ""
   },
   {
@@ -1517,7 +1517,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When an enemy within 28 meters of you dies, you gain Major Berserk for 3 seconds, increasing your damage done by 25%.",
+    "i5": "When an enemy within 28 meters of you dies, you gain Major Berserk for 3 seconds, increasing your damage done by 25%",
     "": ""
   },
   {
@@ -1530,7 +1530,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "Increases your Stamina Recovery by 10% for you and your group.",
+    "i5": "Increases your Stamina Recovery by 10% for you and your group",
     "": ""
   },
   {
@@ -1582,7 +1582,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal damage with an Execute ability you infect the enemy, dealing 8428 Poison Damage over 6 seconds. This effect can occur once every 6 seconds.",
+    "i5": "When you deal damage with an Execute ability you infect the enemy, dealing 8428 Poison Damage over 6 seconds. This effect can occur once every 6 seconds",
     "": ""
   },
   {
@@ -1595,7 +1595,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Adds 400 Weapon and Spell Damage to your Undaunted abilities. When an ally uses one of your Undaunted ability synergies you restore 1500 Stamina.",
+    "i5": "Adds 400 Weapon and Spell Damage to your Undaunted abilities. When an ally uses one of your Undaunted ability synergies you restore 1500 Stamina",
     "": ""
   },
   {
@@ -1608,7 +1608,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Adds 400 Weapon Damage to your Physical Damage abilities.",
+    "i5": "Adds 400 Weapon Damage to your Physical Damage abilities",
     "": ""
   },
   {
@@ -1621,7 +1621,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal Critical Damage with a fully-charged Heavy Attack, your Light Attacks deal an additional 1399 Shock Damage for 20 seconds.",
+    "i5": "When you deal Critical Damage with a fully-charged Heavy Attack, your Light Attacks deal an additional 1399 Shock Damage for 20 seconds",
     "": ""
   },
   {
@@ -1634,7 +1634,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal damage with a fully-charged Heavy Attack, you deal an additional 812 Flame Damage and reduce the enemy's Physical Resistance by 3440 for 8 seconds.",
+    "i5": "When you deal damage with a fully-charged Heavy Attack, you deal an additional 812 Flame Damage and reduce the enemy's Physical Resistance by 3440 for 8 seconds",
     "": ""
   },
   {
@@ -1647,7 +1647,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Adds 400 Weapon Damage to your Dual Wield abilities.",
+    "i5": "Adds 400 Weapon Damage to your Dual Wield abilities",
     "": ""
   },
   {
@@ -1660,7 +1660,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "Gain Major Savagery at all times, increasing your Weapon Critical rating by 2191. Adds 100 Weapon Damage.",
+    "i5": "Gain Major Savagery at all times, increasing your Weapon Critical rating by 2191. Adds 100 Weapon Damage",
     "": ""
   },
   {
@@ -1673,7 +1673,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you use an ability that costs Magicka, your Light Attacks deal an additional 774 damage and Heavy Attacks deal an additional 1164 damage for 10 seconds.",
+    "i5": "When you use an ability that costs Magicka, your Light Attacks deal an additional 774 damage and Heavy Attacks deal an additional 1164 damage for 10 seconds",
     "": ""
   },
   {
@@ -1686,7 +1686,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal damage with a melee attack, you deal an additional 6720 Poison Damage. This effect can occur once every 4 seconds.",
+    "i5": "When you deal damage with a melee attack, you deal an additional 6720 Poison Damage. This effect can occur once every 4 seconds",
     "": ""
   },
   {
@@ -1699,7 +1699,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "When your alchemical poison fires, deal 7740 Poison Damage to all enemies within 5 meters of you.",
+    "i5": "When your alchemical poison fires, deal 7740 Poison Damage to all enemies within 5 meters of you",
     "": ""
   },
   {
@@ -1712,7 +1712,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you fall below 30% Health, heal for 7502 Health and Restore 6020 Magicka and Stamina. This effect can occur once every 45 seconds.",
+    "i5": "When you fall below 30% Health, heal for 7502 Health and Restore 6020 Magicka and Stamina. This effect can occur once every 45 seconds",
     "": ""
   },
   {
@@ -1725,7 +1725,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you set an enemy off-balance, your Weapon Damage is increased by 450 for 10 seconds.",
+    "i5": "When you set an enemy off-balance, your Weapon Damage is increased by 450 for 10 seconds",
     "": ""
   },
   {
@@ -1738,7 +1738,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
-    "i5": "When you take damage, you have a 10% chance to grant you and your allies within 8 meters a damage shield that absorbs 12040 damage for 6 seconds. This effect can occur once every 15 seconds.",
+    "i5": "When you take damage, you have a 10% chance to grant you and your allies within 8 meters a damage shield that absorbs 12040 damage for 6 seconds. This effect can occur once every 15 seconds",
     "": ""
   },
   {
@@ -1751,7 +1751,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "Gain Major Brutality at all times, increasing your Weapon Damage by 20%. When you kill an enemy, you gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%.",
+    "i5": "Gain Major Brutality at all times, increasing your Weapon Damage by 20%. When you kill an enemy, you gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%",
     "": ""
   },
   {
@@ -1764,7 +1764,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 4% Healing Taken",
-    "i5": "While you are blocking, your Physical and Spell Resistance is increased by 4300.",
+    "i5": "While you are blocking, your Physical and Spell Resistance is increased by 4300",
     "": ""
   },
   {
@@ -1777,7 +1777,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Health Recovery",
     "i4": "Adds 4% Healing Taken",
-    "i5": "When you take damage, you apply Major Defile to the attacker for 10 seconds, reducing their healing received by 30%. This effect can occur once every 1 second.",
+    "i5": "When you take damage, you apply Major Defile to the attacker for 10 seconds, reducing their healing received by 30%. This effect can occur once every 1 second",
     "": ""
   },
   {
@@ -1790,7 +1790,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
-    "i5": "Increases your Max Health by 1118 for you and your group.",
+    "i5": "Increases your Maximum Health by 1118 for you and your group",
     "": ""
   },
   {
@@ -1803,7 +1803,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "When you deal damage with a fully-charged Heavy Attack, you have a 50% chance increase your Spell Resistance by 3440 and deal 1083 Flame Damage to all enemies within 5 meters of you every 1 second for 6 seconds.",
+    "i5": "When you deal damage with a fully-charged Heavy Attack, you have a 50% chance increase your Spell Resistance by 3440 and deal 1083 Flame Damage to all enemies within 5 meters of you every 1 second for 6 seconds",
     "": ""
   },
   {
@@ -1816,7 +1816,7 @@
     "i2": "Adds 4% Healing Taken",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1935 Physical Resistance",
-    "i5": "When you take damage, you have a 10% chance to cast a web around you for 5 seconds, reducing the Movement Speed of enemies with by 50%. After 5 seconds the webs burst into venom, dealing 2580 Poison Damage and applying Minor Fracture to any enemy hit for 5 seconds, reducing their Physical Resistance by 1320.",
+    "i5": "When you take damage, you have a 10% chance to cast a web around you for 5 seconds, reducing the Movement Speed of enemies with by 50%. After 5 seconds the webs burst into venom, dealing 2580 Poison Damage and applying Minor Fracture to any enemy hit for 5 seconds, reducing their Physical Resistance by 1320",
     "": ""
   },
   {
@@ -1829,7 +1829,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal direct damage with a Frost Damage ability, you have a 50% chance to deal an additional 1046 Flame Damage to all enemies within 8 meters around the initial target. This effect can occur once every 1 second.",
+    "i5": "When you deal direct damage with a Frost Damage ability, you have a 50% chance to deal an additional 1046 Flame Damage to all enemies within 8 meters around the initial target. This effect can occur once every 1 second",
     "": ""
   },
   {
@@ -1842,7 +1842,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "When you block an attack, you have a 50% chance to charge your arms, causing your next Bash ability to deal an additional 6095 Shock Damage and increase your Spell Resistance by 6450 for 6 seconds.",
+    "i5": "When you block an attack, you have a 50% chance to charge your arms, causing your next Bash ability to deal an additional 6095 Shock Damage and increase your Spell Resistance by 6450 for 6 seconds",
     "": ""
   },
   {
@@ -1855,7 +1855,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Adds 200 Weapon Damage to your One Handed and Shield abilities. When you use a One Hand and Shield ability, you heal for 1250 Health.",
+    "i5": "Adds 200 Weapon Damage to your One Handed and Shield abilities. When you use a One Hand and Shield ability, you heal for 1250 Health",
     "": ""
   },
   {
@@ -1868,7 +1868,7 @@
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal melee damage, you have a 20% chance to apply Minor Maim to all enemies within 8 meters of you for 5 seconds, reducing their damage done by 15%.",
+    "i5": "When you deal melee damage, you have a 20% chance to apply Minor Maim to all enemies within 8 meters of you for 5 seconds, reducing their damage done by 15%",
     "": ""
   },
   {
@@ -1881,7 +1881,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 4% Healing Taken",
-    "i5": "When you take damage, you have a 8% chance to summon a cloud of leeching poison under the attack that deals 1204 Poison Damage in a 4 meter radius every 1 second for 5 seconds and heals you for 100% of the damage caused.",
+    "i5": "When you take damage, you have a 8% chance to summon a cloud of leeching poison under the attack that deals 1204 Poison Damage in a 4 meter radius every 1 second for 5 seconds and heals you for 100% of the damage caused",
     "": ""
   },
   {
@@ -1894,7 +1894,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Gain Minor Force at all times, increasing your Critical Damage done by 12%.",
+    "i5": "Gain Minor Force at all times, increasing your Critical Damage done by 12%",
     "": ""
   },
   {
@@ -1907,7 +1907,7 @@
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you block a spell projectile, you have a 25% chance to reflect the spell back to the enemy.",
+    "i5": "When you block a spell projectile, you have a 25% chance to reflect the spell back to the enemy",
     "": ""
   },
   {
@@ -1920,7 +1920,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Gain Major Sorcery at all times, increasing your Spell Damage by 20%. Adds 100 Spell Damage.",
+    "i5": "Gain Major Sorcery at all times, increasing your Spell Damage by 20%. Adds 100 Spell Damage",
     "": ""
   },
   {
@@ -1933,7 +1933,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Increases the damage of your fully-charged Heavy Attacks by 1634.",
+    "i5": "Increases the damage of your fully-charged Heavy Attacks by 1634",
     "": ""
   },
   {
@@ -1946,7 +1946,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 4% Healing Taken",
-    "i5": "When you deal damage with a Charge ability, you gain 3642 Physical and Spell Resistance and taunt the enemy to attack you for 15 seconds.",
+    "i5": "When you deal damage with a Charge ability, you gain 3642 Physical and Spell Resistance and taunt the enemy to attack you for 15 seconds",
     "": ""
   },
   {
@@ -1959,7 +1959,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "When you taunt an enemy while you are under 60% Health, gain a damage shield that absorbs 13760 damage for 6 seconds. This effect can occur once every 10 seconds.",
+    "i5": "When you taunt an enemy while you are under 60% Health, gain a damage shield that absorbs 13760 damage for 6 seconds. This effect can occur once every 10 seconds",
     "": ""
   },
   {
@@ -1972,7 +1972,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "While you are in combat, you gain a rotating bonus to Flame, Shock, or Frost Damage. The active element changes every 4 seconds. Your attacks dealing damage with the active element gain 515 Spell Damage.",
+    "i5": "While you are in combat, you gain a rotating bonus to Flame, Shock, or Frost Damage. The active element changes every 4 seconds. Your attacks dealing damage with the active element gain 515 Spell Damage",
     "": ""
   },
   {
@@ -1985,7 +1985,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Gain Minor Mending at all times, increasing your healing done by 8%.",
+    "i5": "Gain Minor Mending at all times, increasing your healing done by 8%",
     "": ""
   },
   {
@@ -1998,7 +1998,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
-    "i5": "While you have a Destruction Staff equipped, your Max Magicka is increased by 2400.",
+    "i5": "While you have a Destruction Staff equipped, your Maximum Magicka is increased by 2400",
     "": ""
   },
   {
@@ -2011,7 +2011,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you deal damage with a Cold Damage ability, you have a 8% chance to summon an ice pillar that deals 6020 Cold Damage to all enemies in a 3 meter radius. The ice pillar persists for 2 seconds and reduces the Movement Speed of all enemies within the radius by 60%.",
+    "i5": "When you deal damage with a Cold Damage ability, you have a 8% chance to summon an ice pillar that deals 6020 Cold Damage to all enemies in a 3 meter radius. The ice pillar persists for 2 seconds and reduces the Movement Speed of all enemies within the radius by 60%",
     "": ""
   },
   {
@@ -2024,7 +2024,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "Increases your Critical Damage done by 5%. Increases your Critical Damage done by an additional 10% when attacking from Sneak or invisibility.",
+    "i5": "Increases your Critical Damage done by 5%. Increases your Critical Damage done by an additional 10% when attacking from Sneak or invisibility",
     "": ""
   },
   {
@@ -2037,7 +2037,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When your pets attack an enemy you have also attacked recently, you heal for 2433 Health and restore 1216 Stamina. This effect can occur once every 5 seconds.",
+    "i5": "When your pets attack an enemy you have also attacked recently, you heal for 2433 Health and restore 1216 Stamina. This effect can occur once every 5 seconds",
     "": ""
   },
   {
@@ -2050,7 +2050,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 1062 Maximum Health",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Gain a damage shield that absorbs 12040 damage if you have not taken any damage in the last 10 seconds.",
+    "i5": "Gain a damage shield that absorbs 12040 damage if you have not taken any damage in the last 10 seconds",
     "": ""
   },
   {
@@ -2063,7 +2063,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "Increases the amount of damage you block by 8%.",
+    "i5": "Increases the amount of damage you block by 8%",
     "": ""
   },
   {
@@ -2076,7 +2076,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal damage with a Light or Heavy Attack, you have a 9% chance to gain 100% dodge chance against the next attack.",
+    "i5": "When you deal damage with a Light or Heavy Attack, you have a 9% chance to gain 100% dodge chance against the next attack",
     "": ""
   },
   {
@@ -2087,9 +2087,9 @@
     "Style": "Reach Winter",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
-    "i3": "Adds 967 Max Magicka",
+    "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "While you have a damage shield on you, your Health Recovery is increased by 885.",
+    "i5": "While you have a damage shield on you, your Health Recovery is increased by 885",
     "": ""
   },
   {
@@ -2102,7 +2102,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you deal damage with a fully-charged Heavy Attack, you place a bomb on the enemy for 10 seconds. When another player hits the same enemy with a fully-charged Heavy Attack they detonate the bomb, dealing 7500 Magic Damage all enemies within 8 meters. This effect can occur once every 10 seconds.",
+    "i5": "When you deal damage with a fully-charged Heavy Attack, you place a bomb on the enemy for 10 seconds. When another player hits the same enemy with a fully-charged Heavy Attack they detonate the bomb, dealing 7500 Magic Damage all enemies within 8 meters. This effect can occur once every 10 seconds",
     "": ""
   },
   {
@@ -2115,7 +2115,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 2% Healing Done",
-    "i5": "When you use an area of effect heal ability, you reduce the Weapon Damage of all enemies within 10 meters of you by 430 for 3 seconds.",
+    "i5": "When you use an area of effect heal ability, you reduce the Weapon Damage of all enemies within 10 meters of you by 430 for 3 seconds",
     "": ""
   },
   {
@@ -2128,7 +2128,7 @@
     "i2": "Adds 688 Spell Critical",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Enemies you damage with fully-charged Heavy Attacks are afflicted with Minor Vulnerability for 10 seconds, increasing their damage taken by 8%.",
+    "i5": "Enemies you damage with fully-charged Heavy Attacks are afflicted with Minor Vulnerability for 10 seconds, increasing their damage taken by 8%",
     "": ""
   },
   {
@@ -2141,7 +2141,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "When you deal damage with a Light or Heavy Attack against an enemy who has a Poison Damage ability on them, you have a 25% chance to deal an additional 6800 Poison Damage.",
+    "i5": "When you deal damage with a Light or Heavy Attack against an enemy who has a Poison Damage ability on them, you have a 25% chance to deal an additional 6800 Poison Damage",
     "": ""
   },
   {
@@ -2154,7 +2154,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "Reduces the costs of your Stamina abilities by 8%. When you kill an enemy, you gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%.",
+    "i5": "Reduces the costs of your Stamina abilities by 8%. When you kill an enemy, you gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%",
     "": ""
   },
   {
@@ -2167,7 +2167,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal damage, your Physical Penetration is increased by 1000 for 3 seconds, stacking up to 5 times.",
+    "i5": "When you deal damage, your Physical Penetration is increased by 1000 for 3 seconds, stacking up to 5 times",
     "": ""
   },
   {
@@ -2180,7 +2180,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal melee damage, your Critical Strike rating is increased by 400 for 5 seconds, stacking up to 5 times.",
+    "i5": "When you deal melee damage, your Critical Strike rating is increased by 400 for 5 seconds, stacking up to 5 times",
     "": ""
   },
   {
@@ -2193,7 +2193,7 @@
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1604 Maximum Health",
-    "i5": "When you block an attack, you deal 4000 Magic Damage to all enemies within 10 meters of you and heal for 100% of the damage done. This effect can occur once every 10 seconds.",
+    "i5": "When you block an attack, you deal 4000 Magic Damage to all enemies within 10 meters of you and heal for 100% of the damage done. This effect can occur once every 10 seconds",
     "": ""
   },
   {
@@ -2206,7 +2206,7 @@
     "i2": "Adds 4% Healing Taken",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
-    "i5": "When you die, you instead turn into a statue for 3 seconds. While a statue you are immune to all negative effects but can still be healed. This effect can occur once every 20 minutes.",
+    "i5": "When you die, you instead turn into a statue for 3 seconds. While a statue you are immune to all negative effects but can still be healed. This effect can occur once every 20 minutes",
     "": ""
   },
   {
@@ -2217,9 +2217,9 @@
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 688 Spell Critical",
-    "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%.",
+    "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Your fully charged heavy attacks do an additional 903 damage.. Enemies you damage with fully charged Heavy Attacks are afflicted with Minor Vulnerability for 10 seconds, increasing their damage taken by 8%.. Adds 688 Spell Critical.",
+    "i5": "Your fully charged heavy attacks do an additional 903 damage.. Enemies you damage with fully charged Heavy Attacks are afflicted with Minor Vulnerability for 10 seconds, increasing their damage taken by 8%.. Adds 688 Spell Critical",
     "": ""
   },
   {
@@ -2230,9 +2230,9 @@
     "Style": "Dro-m’Athra",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
-    "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%.",
+    "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you activate a synergy, you gain a shadow blessing that increases your Spell Damage by 448 or a lunar blessing that increases your Magicka Recovery by 448 for 30 seconds. You can only have one blessing active at a time.",
+    "i5": "When you activate a synergy, you gain a shadow blessing that increases your Spell Damage by 448 or a lunar blessing that increases your Magicka Recovery by 448 for 30 seconds. You can only have one blessing active at a time",
     "": ""
   },
   {
@@ -2243,7 +2243,7 @@
     "Style": "Dro-m’Athra",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
-    "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%.",
+    "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%",
     "i4": "Adds 129 Spell Damage",
     "i5": "When an ally activates your synergy, they heal themselves for 18920 Health over 10 seconds and gain Minor Force, increasing their Critical Damage done by 12%",
     "": ""
@@ -2256,9 +2256,9 @@
     "Style": "Dro-m’Athra",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
-    "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%.",
+    "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you activate a synergy, you send a shockwave from your position that deals 1720 Physical Damage and an additional 12040 Physical Damage over 10 seconds. Reduces the Physical and Spell Resistance of any enemy hit by 3010 for 10 seconds.",
+    "i5": "When you activate a synergy, you send a shockwave from your position that deals 1720 Physical Damage and an additional 12040 Physical Damage over 10 seconds. Reduces the Physical and Spell Resistance of any enemy hit by 3010 for 10 seconds",
     "": ""
   },
   {
@@ -2269,9 +2269,9 @@
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
-    "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%.",
+    "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "Reduces the cost of your Stamina abilities by 8%.. When you kill an enemy, you restore 2150 Stamina and gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%. Adds 129 Weapon Damage.",
+    "i5": "Reduces the cost of your Stamina abilities by 8%.. When you kill an enemy, you restore 2150 Stamina and gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%. Adds 129 Weapon Damage",
     "": ""
   },
   {
@@ -2282,9 +2282,9 @@
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 4% Healing Taken",
-    "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%.",
+    "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you die, you instead turn into a statue for 3 seconds and gain 200 Ultimate. While a statue you are immune to all negative effects but can still be healed. This effect can occur once every 10 minutes. Adds 4% Healing Taken.",
+    "i5": "When you die, you instead turn into a statue for 3 seconds and gain 200 Ultimate. While a statue you are immune to all negative effects but can still be healed. This effect can occur once every 10 minutes. Adds 4% Healing Taken",
     "": ""
   },
   {
@@ -2295,9 +2295,9 @@
     "Style": "Dro-m’Athra",
     "i1": "",
     "i2": "Adds 4% Healing Taken",
-    "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%.",
+    "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you activate a synergy, you create a lunar blessing underneath you for 10 seconds. The blessing grants a damage shield every 2 seconds that absorbs 2399 damage for you and your allies within 8 meters.",
+    "i5": "When you activate a synergy, you create a lunar blessing underneath you for 10 seconds. The blessing grants a damage shield every 2 seconds that absorbs 2399 damage for you and your allies within 8 meters",
     "": ""
   },
   {
@@ -2308,7 +2308,7 @@
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
-    "i3": "Increases your Max Magicka by 4%.",
+    "i3": "Increases your Maximum Magicka by 4%",
     "i4": "",
     "i5": "",
     "": ""
@@ -2336,7 +2336,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "When you take damage, you have a 20% chance to heal you and your allies within 7 meters of you for 2429 Health. This effect can occur once every 3 seconds.",
+    "i5": "When you take damage, you have a 20% chance to heal you and your allies within 7 meters of you for 2429 Health. This effect can occur once every 3 seconds",
     "": ""
   },
   {
@@ -2349,7 +2349,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you deal damage with a fully-charged Heavy Attack, you restore 834 Magicka.",
+    "i5": "When you deal damage with a fully-charged Heavy Attack, you restore 834 Magicka",
     "": ""
   },
   {
@@ -2361,8 +2361,8 @@
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
-    "i4": "Reduces your damage taken from Players by 5%.",
-    "i5": "When you take damage from a spell, you have a 10% chance to gain a damage shield that absorbs 2580 damage for 6 seconds. This effect can occur once every 4 seconds.",
+    "i4": "Reduces your damage taken from Players by 5%",
+    "i5": "When you take damage from a spell, you have a 10% chance to gain a damage shield that absorbs 2580 damage for 6 seconds. This effect can occur once every 4 seconds",
     "": ""
   },
   {
@@ -2375,7 +2375,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
-    "i5": "Reduces the duration of all negative effects applied to you by 20%.",
+    "i5": "Reduces the duration of all negative effects applied to you by 20%",
     "": ""
   },
   {
@@ -2388,7 +2388,7 @@
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you take damage, you have a 10% to restore 2408 Magicka. This effect can occur once every 1 second.",
+    "i5": "When you take damage, you have a 10% to restore 2408 Magicka. This effect can occur once every 1 second",
     "": ""
   },
   {
@@ -2401,7 +2401,7 @@
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "While you are casting or channeling an ability, your damage taken is reduced by 15%.",
+    "i5": "While you are casting or channeling an ability, your damage taken is reduced by 15%",
     "": ""
   },
   {
@@ -2414,7 +2414,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 688 Spell Critical",
-    "i5": "Reduces the cost of all your abilities by 6%.",
+    "i5": "Reduces the cost of all your abilities by 6%",
     "": ""
   },
   {
@@ -2427,7 +2427,7 @@
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 688 Spell Critical",
-    "i5": "When you heal a target with a healing over time ability, grant them 1304 Critical Resistance for 20 seconds.",
+    "i5": "When you heal a target with a healing over time ability, grant them 1304 Critical Resistance for 20 seconds",
     "": ""
   },
   {
@@ -2440,7 +2440,7 @@
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 688 Spell Critical",
-    "i5": "When you kill a Player, they violently explode for 15815 Flame Damage to all other enemies in a 4 meter radius.",
+    "i5": "When you kill a Player, they violently explode for 15815 Flame Damage to all other enemies in a 4 meter radius",
     "": ""
   },
   {
@@ -2451,7 +2451,7 @@
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
-    "i3": "Increases the range of your Bow abilities by 3 meters.",
+    "i3": "Increases the range of your Bow abilities by 3 meters",
     "i4": "",
     "i5": "",
     "": ""
@@ -2464,7 +2464,7 @@
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
-    "i3": "When you kill an enemy, you heal for 1505 Health and restore 1505 Magicka and Stamina.",
+    "i3": "When you kill an enemy, you heal for 1505 Health and restore 1505 Magicka and Stamina",
     "i4": "",
     "i5": "",
     "": ""
@@ -2479,7 +2479,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Reduces the cost and increases the damage of your Bow abilities by 5%.",
+    "i5": "Reduces the cost and increases the damage of your Bow abilities by 5%",
     "": ""
   },
   {
@@ -2492,7 +2492,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "When you deal direct damage with a Bow ability, you have a 10% chance to heal for 1216 Health and restore 1216 Stamina.",
+    "i5": "When you deal direct damage with a Bow ability, you have a 10% chance to heal for 1216 Health and restore 1216 Stamina",
     "": ""
   },
   {
@@ -2505,7 +2505,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "Reduces your damage taken from area of effect abilities by 25%, but the damage and healing of your own area of effect abilities is also reduced by 25%.",
+    "i5": "Reduces your damage taken from area of effect abilities by 25%, but the damage and healing of your own area of effect abilities is also reduced by 25%",
     "": ""
   },
   {
@@ -2518,7 +2518,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "Reduces the cost of your Stamina abilities by 5% and increases the damage of your Bow abilities against Players by 8%.",
+    "i5": "Reduces the cost of your Stamina abilities by 5% and increases the damage of your Bow abilities against Players by 8%",
     "": ""
   },
   {
@@ -2531,7 +2531,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal direct damage, you cause the enemy to take 10% more damage from all Poison Damage abilities for 5 seconds.",
+    "i5": "When you deal direct damage, you cause the enemy to take 10% more damage from all Poison Damage abilities for 5 seconds",
     "": ""
   },
   {
@@ -2544,7 +2544,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
-    "i5": "Increases the radius you can detect Sneaking enemies by 50%. Increases your damage done to Sneaking enemeis by 20%.",
+    "i5": "Increases the radius you can detect Sneaking enemies by 50%. Increases your damage done to Sneaking enemeis by 20%",
     "": ""
   },
   {
@@ -2557,7 +2557,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "While you are Sneaking or invisible and are not moving, heal for 2150 Health and restore 2150 Stamina every 1 second.",
+    "i5": "While you are Sneaking or invisible and are not moving, heal for 2150 Health and restore 2150 Stamina every 1 second",
     "": ""
   },
   {
@@ -2569,8 +2569,8 @@
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
-    "i4": "Reduces your damage taken from Players by 5%.",
-    "i5": "Reduces the cost of Break Free by 40%.",
+    "i4": "Reduces your damage taken from Players by 5%",
+    "i5": "Reduces the cost of Break Free by 40%",
     "": ""
   },
   {
@@ -2581,9 +2581,9 @@
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
-    "i3": "Increases your Mounted Movement Speed by 15%.",
+    "i3": "Increases your Mounted Movement Speed by 15%",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "Increases the amount of damage you block by 8%.",
+    "i5": "Increases the amount of damage you block by 8%",
     "": ""
   },
   {
@@ -2594,7 +2594,7 @@
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
-    "i3": "Reduces the cost of your Ultimate abilites by 10%.",
+    "i3": "Reduces the cost of your Ultimate abilites by 10%",
     "i4": "",
     "i5": "",
     "": ""
@@ -2622,7 +2622,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "When you deal damage, you have a 50% chance to deal an additional 2838 Disease Damage. This effect can occur once every 4 seconds.",
+    "i5": "When you deal damage, you have a 50% chance to deal an additional 2838 Disease Damage. This effect can occur once every 4 seconds",
     "": ""
   },
   {
@@ -2635,7 +2635,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "Increases the immunity to disabling effects after using Break Free by 3 seconds.",
+    "i5": "Increases the immunity to disabling effects after using Break Free by 3 seconds",
     "": ""
   },
   {
@@ -2647,8 +2647,8 @@
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
-    "i4": "Reduces your damage taken from Players by 5%.",
-    "i5": "Reduces your damage taken from Siege Weapons and Player Area of Effect abilities by 20%.",
+    "i4": "Reduces your damage taken from Players by 5%",
+    "i5": "Reduces your damage taken from Siege Weapons and Player Area of Effect abilities by 20%",
     "": ""
   },
   {
@@ -2661,7 +2661,7 @@
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1935 Spell Resistance",
-    "i5": "You have a 40% chance to intercept any projectile cast on an ally within 5 meters of you.",
+    "i5": "You have a 40% chance to intercept any projectile cast on an ally within 5 meters of you",
     "": ""
   },
   {
@@ -2674,7 +2674,7 @@
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
-    "i5": "When you deal melee damage, you apply Major Defile to the enemy for 5 seconds, reducing their healing received by 30%. This effect can occur once every 5 seconds.",
+    "i5": "When you deal melee damage, you apply Major Defile to the enemy for 5 seconds, reducing their healing received by 30%. This effect can occur once every 5 seconds",
     "": ""
   },
   {
@@ -2687,7 +2687,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
-    "i5": "Increases the duration of your Flame Damage abilities by 2 seconds.",
+    "i5": "Increases the duration of your Flame Damage abilities by 2 seconds",
     "": ""
   },
   {
@@ -2700,7 +2700,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
-    "i5": "When you take direct damage or damage from a ground-targeted attack, you reduce the attacker's healing received by 50% for 2 seconds.",
+    "i5": "When you take direct damage or damage from a ground-targeted attack, you reduce the attacker's healing received by 50% for 2 seconds",
     "": ""
   },
   {
@@ -2713,7 +2713,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "When you take damage while under 30% Health, heal for 18060 Health. This effect can occur once every 1 minute.",
+    "i5": "When you take damage while under 30% Health, heal for 18060 Health. This effect can occur once every 1 minute",
     "": ""
   },
   {
@@ -2726,7 +2726,7 @@
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal melee damage, you have a 8% chance to increase your Weapon Damage by 645 for 10 seconds.",
+    "i5": "When you deal melee damage, you have a 8% chance to increase your Weapon Damage by 645 for 10 seconds",
     "": ""
   },
   {
@@ -2739,7 +2739,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you take Critical Damage, your Weapon Damage is increased by 30 for 6 seconds, stacking up to 25 times.",
+    "i5": "When you take Critical Damage, your Weapon Damage is increased by 30 for 6 seconds, stacking up to 25 times",
     "": ""
   },
   {
@@ -2752,7 +2752,7 @@
     "i2": "Adds 688 Spell Critical",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you deal damage with a Light of Heavy Attack, you put a Mark of Revenge on the enemy for 15 seconds. After stacking 6 Marks of Revenge on an enemy they detonate for 4730 Magic Damage.",
+    "i5": "When you deal damage with a Light of Heavy Attack, you put a Mark of Revenge on the enemy for 15 seconds. After stacking 6 Marks of Revenge on an enemy they detonate for 4730 Magic Damage",
     "": ""
   },
   {
@@ -2765,7 +2765,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you case a Support ability, you increase the Physical and Spell Resistance of up to 4 friendly targets with 10 meters by 3010 for 2 minutes.",
+    "i5": "When you case a Support ability, you increase the Physical and Spell Resistance of up to 4 friendly targets with 10 meters by 3010 for 2 minutes",
     "": ""
   },
   {
@@ -2778,7 +2778,7 @@
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
-    "i5": "When you die, you instead become immune to all negative effects and healing for 3 seconds. When the effect ends, you heal for 17200 Health and explode for 8600 Flame Damage to all enemies within 8 meters. This effect can occur once every 10 minutes.",
+    "i5": "When you die, you instead become immune to all negative effects and healing for 3 seconds. When the effect ends, you heal for 17200 Health and explode for 8600 Flame Damage to all enemies within 8 meters. This effect can occur once every 10 minutes",
     "": ""
   },
   {
@@ -2791,7 +2791,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you cast an Assault ability, you increase the Weapon and Spell Damage of up to 4 friendly targets within 10 meters by 164 for 15 seconds.",
+    "i5": "When you cast an Assault ability, you increase the Weapon and Spell Damage of up to 4 friendly targets within 10 meters by 164 for 15 seconds",
     "": ""
   },
   {
@@ -2804,7 +2804,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Weapon Damage",
-    "i5": "When you deal damage with a Light or Heavy Attack against a Player with a damage shield, you deal an additional 2150 Oblivion Damage to them.",
+    "i5": "When you deal damage with a Light or Heavy Attack against a Player with a damage shield, you deal an additional 2150 Oblivion Damage to them",
     "": ""
   },
   {
@@ -2817,7 +2817,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 129 Stamina Recovery",
-    "i5": "When you deal Critical Damage to an enemy from Sneak, you inject a leeching poison that deals 13760 Poison Damage over 15 seconds to them and heals you for 100% of the damage done.",
+    "i5": "When you deal Critical Damage to an enemy from Sneak, you inject a leeching poison that deals 13760 Poison Damage over 15 seconds to them and heals you for 100% of the damage done",
     "": ""
   },
   {
@@ -2830,7 +2830,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
-    "i5": "Increases your Weapon and Spell Damage by 154. Increases the Magicka and Stamina restored from the Constitution passive ability by 40%.",
+    "i5": "Increases your Weapon and Spell Damage by 154. Increases the Magicka and Stamina restored from the Constitution passive ability by 40%",
     "": ""
   },
   {
@@ -2843,7 +2843,7 @@
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 1064 Maximum Health",
-    "i5": "While you are affected by a disabling effect, your damage taken is reduced by 35%.",
+    "i5": "While you are affected by a disabling effect, your damage taken is reduced by 35%",
     "": ""
   },
   {
@@ -2856,7 +2856,7 @@
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 967 Maximum Stamina",
-    "i5": "When you block a direct damage attack, you deal damage to your attacker equal to 4% of your current Health.",
+    "i5": "When you block a direct damage attack, you deal damage to your attacker equal to 4% of your current Health",
     "": ""
   },
   {
@@ -2869,7 +2869,7 @@
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Weapon Damage. Adds 129 Spell Damage",
-    "i5": "While you are in Imperial City, you tap into the power of the Tel Var Stones you are carrying, increasing your Health, Magicka, and Stamina by 1032. While you have a 4x Tel Var Stone multiplier this effect is increased by 600%.",
+    "i5": "While you are in Imperial City, you tap into the power of the Tel Var Stones you are carrying, increasing your Health, Magicka, and Stamina by 1032. While you have a 4x Tel Var Stone multiplier this effect is increased by 600%",
     "": ""
   },
   {
@@ -2879,10 +2879,10 @@
     "Location": "Auridon/Glenumbra/Stonefalls",
     "Style": "",
     "i1": "",
-    "i2": "Adds 1935 Physical Resistance.",
-    "i3": "Adds 1064 Maximum Health.",
-    "i4": "Adds 1064 Maximum Health.",
-    "i5": "If struck by a melee attack while below 35% Health, nearby enemies are knocked back and stunned for 4 seconds. This effect can only happen once every 30 seconds.",
+    "i2": "Adds 1935 Physical Resistance",
+    "i3": "Adds 1064 Maximum Health",
+    "i4": "Adds 1064 Maximum Health",
+    "i5": "If struck by a melee attack while below 35% Health, nearby enemies are knocked back and stunned for 4 seconds. This effect can only happen once every 30 seconds",
     "": ""
   },
   {
@@ -2893,9 +2893,9 @@
     "Style": "",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
-    "i3": "Adds 129 Stamina Recovery.",
-    "i4": "Adds 688 Weapon Critical.",
-    "i5": "Ignore Movement Speed penalty while Stealthing.",
+    "i3": "Adds 129 Stamina Recovery",
+    "i4": "Adds 688 Weapon Critical",
+    "i5": "Ignore Movement Speed penalty while Stealthing",
     "": ""
   },
   {
@@ -2905,9 +2905,9 @@
     "Location": "Auridon/Glenumbra/Stonefalls",
     "Style": "",
     "i1": "",
-    "i2": "Adds 1064 Maximum Health.",
-    "i3": "Adds 129 Weapon Damage.",
-    "i4": "Adds 688 Weapon Critical.",
+    "i2": "Adds 1064 Maximum Health",
+    "i3": "Adds 129 Weapon Damage",
+    "i4": "Adds 688 Weapon Critical",
     "i5": "10% chance to breathe fire for 1397 Flame Damage on melee hits. This effect can occur once every 4 seconds",
     "": ""
   },
@@ -2918,10 +2918,10 @@
     "Location": "",
     "Style": "",
     "i1": "",
-    "i2": "Adds 129 Spell Damage.",
-    "i3": "Adds 1064 Maximum Health.",
-    "i4": "Adds 1935 Spell Resistance.",
-    "i5": "Reduce weapon enchantment’s internal cooldown by 1 second. Increases enchantment potency by 30%.",
+    "i2": "Adds 129 Spell Damage",
+    "i3": "Adds 1064 Maximum Health",
+    "i4": "Adds 1935 Spell Resistance",
+    "i5": "Reduce weapon enchantment’s internal cooldown by 1 second. Increases enchantment potency by 30%",
     "": ""
   },
   {
@@ -2931,10 +2931,10 @@
     "Location": "Wrothgar",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 1935 Spell Resistance.",
-    "i4" : "Adds 4% Healing Taken.",
-    "i5" : "When you take elemental damage, gain 7727 Resistance to that element for 4 seconds. You can only be resistant to one element at a time.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 1935 Spell Resistance",
+    "i4" : "Adds 4% Healing Taken",
+    "i5" : "When you take elemental damage, gain 7727 Resistance to that element for 4 seconds. You can only be resistant to one element at a time",
     "": ""
   },
   {
@@ -2944,10 +2944,10 @@
     "Location": "Grahtwood/Stormhaven/Deshaan",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 688 Spell Critical.",
-    "i4" : "Adds 129 Spell Damage.",
-    "i5" : "When you are healed, gain 10% additional healing.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 688 Spell Critical",
+    "i4" : "Adds 129 Spell Damage",
+    "i5" : "When you are healed, gain 10% additional healing",
     "": ""
   },
   {
@@ -2957,10 +2957,10 @@
     "Location": "Grahtwood/Stormhaven/Deshaan",
     "Style": "",
     "i1": "",
-    "i2": "Adds 129 Magicka Recovery.",
-    "i3": "Adds 967 Maximum Magicka.",
-    "i4": "Adds 129 Magicka Recovery.",
-    "i5": "Reduce the Magicka cost of abilities by 8%.",
+    "i2": "Adds 129 Magicka Recovery",
+    "i3": "Adds 967 Maximum Magicka",
+    "i4": "Adds 129 Magicka Recovery",
+    "i5": "Reduce the Magicka cost of abilities by 8%",
     "": ""
   },
   {
@@ -2970,10 +2970,10 @@
     "Location": "Greenshade/Rivenspire/Shadowfen",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 967 Maximum Magicka.",
-    "i3" : "Adds 129 Magicka Recovery.",
-    "i4" : "Adds 129 Spell Damage.",
-    "i5" : "8% Chance to negate the Magicka cost of a spell.",
+    "i2" : "Adds 967 Maximum Magicka",
+    "i3" : "Adds 129 Magicka Recovery",
+    "i4" : "Adds 129 Spell Damage",
+    "i5" : "8% Chance to negate the Magicka cost of a spell",
     "": ""
   },
   {
@@ -2983,10 +2983,10 @@
     "Location": "Greenshade/Rivenspire/Shadowfen",
     "Style": "",
     "i1": "",
-    "i2" : "1935 Physical Resistance.",
-    "i3" : "Adds 129 Health Recovery.",
-    "i4" : "Adds 1064 Maximum Health.",
-    "i5" : "Gain Major Evasion while blocking, increasing Dodge chance by 20%.",
+    "i2" : "1935 Physical Resistance",
+    "i3" : "Adds 129 Health Recovery",
+    "i4" : "Adds 1064 Maximum Health",
+    "i5" : "Gain Major Evasion while blocking, increasing Dodge chance by 20%",
     "": ""
   },
   {
@@ -2996,10 +2996,10 @@
     "Location": "Greenshade/Rivenspire/Shadowfen",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 1935 Spell Resistance.",
-    "i4" : "Adds 129 Health Recovery.",
-    "i5" : "If wearers Health is below 30%, gain a 10320 Damage Shield for 8 seconds. This effect can occur no more than once per 15 seconds.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 1935 Spell Resistance",
+    "i4" : "Adds 129 Health Recovery",
+    "i5" : "If wearers Health is below 30%, gain a 10320 Damage Shield for 8 seconds. This effect can occur no more than once per 15 seconds",
     "": ""
   },
   {
@@ -3009,10 +3009,10 @@
     "Location": "Malabal Tor/Alki’r Desert/Eastmarch",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1935 Physical Resistance.",
-    "i3" : "Adds 1064 Maximum Health.",
-    "i4" : "Adds 1935 Physical Resistance.",
-    "i5" : "Being damaged by a melee attack has a 15% chance to reduce attacker’s Weapon Damage by 10% for 5 seconds.",
+    "i2" : "Adds 1935 Physical Resistance",
+    "i3" : "Adds 1064 Maximum Health",
+    "i4" : "Adds 1935 Physical Resistance",
+    "i5" : "Being damaged by a melee attack has a 15% chance to reduce attacker’s Weapon Damage by 10% for 5 seconds",
     "": ""
   },
   {
@@ -3022,10 +3022,10 @@
     "Location": "Gold Coast",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 688 Weapon Critical.",
-    "i3" : "Adds 688 Weapon Critical.",
-    "i4" : "Adds 129 Weapon Damage.",
-    "i5" : "Your Light and Heavy Attacks deal an additional 690 Weapon Damage to targets below 25% Health.",
+    "i2" : "Adds 688 Weapon Critical",
+    "i3" : "Adds 688 Weapon Critical",
+    "i4" : "Adds 129 Weapon Damage",
+    "i5" : "Your Light and Heavy Attacks deal an additional 690 Weapon Damage to targets below 25% Health",
     "": ""
   },
   {
@@ -3035,10 +3035,10 @@
     "Location": "Imperial City – Nobles District",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 967 Maximum Stamina.",
-    "i4" : "Adds 4% Healing Taken.",
-    "i5" : "Interrupting an enemy causes them to take 8% increased damage for 5 seconds and heals you for 4300.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 967 Maximum Stamina",
+    "i4" : "Adds 4% Healing Taken",
+    "i5" : "Interrupting an enemy causes them to take 8% increased damage for 5 seconds and heals you for 4300",
     "": ""
   },
   {
@@ -3048,10 +3048,10 @@
     "Location": "Malabal Tor/Alki’r Desert/Eastmarch",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1935 Spell Resistance.",
-    "i3" : "Adds 1935 Physical Resistance.",
-    "i4" : "Adds 1064 Maximum Health.",
-    "i5" : "When Health drops below 30%, deal 3870 Magic Damage to the attacker and recover 3870 Health. This can only happen once every 30 seconds.",
+    "i2" : "Adds 1935 Spell Resistance",
+    "i3" : "Adds 1935 Physical Resistance",
+    "i4" : "Adds 1064 Maximum Health",
+    "i5" : "When Health drops below 30%, deal 3870 Magic Damage to the attacker and recover 3870 Health. This can only happen once every 30 seconds",
     "": ""
   },
   {
@@ -3061,10 +3061,10 @@
     "Location": "Hew’s Bane",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 129 Stamina Recovery.",
-    "i4" : "Adds 129 Magicka Recovery.",
-    "i5" : "When you dodge an attack you receive the blessing of Tava and gain 9 Ultimate over 3 seconds.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 129 Stamina Recovery",
+    "i4" : "Adds 129 Magicka Recovery",
+    "i5" : "When you dodge an attack you receive the blessing of Tava and gain 9 Ultimate over 3 seconds",
     "": ""
   },
   {
@@ -3074,10 +3074,10 @@
     "Location": "Malabal Tor/Alki’r Desert/Eastmarch",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 967 Maximum Stamina.",
-    "i3" : "Adds 129 Stamina Recovery.",
-    "i4" : "Adds 688 Weapon Critical.",
-    "i5" : "Bow attacks have a 10% chance to restore 1216 Stamina and Health. This effect will not proc off damage over time attacks.",
+    "i2" : "Adds 967 Maximum Stamina",
+    "i3" : "Adds 129 Stamina Recovery",
+    "i4" : "Adds 688 Weapon Critical",
+    "i5" : "Bow attacks have a 10% chance to restore 1216 Stamina and Health. This effect will not proc off damage over time attacks",
     "": ""
   },
   {
@@ -3087,10 +3087,10 @@
     "Location": "Reapers March/Bangkorai/The Rift",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 688 Weapon Critical.",
-    "i3" : "Adds 967 Maximum Stamina.",
-    "i4" : "Adds 688 Weapon Critical.",
-    "i5" : "Adds 299 Weapon Damage.",
+    "i2" : "Adds 688 Weapon Critical",
+    "i3" : "Adds 967 Maximum Stamina",
+    "i4" : "Adds 688 Weapon Critical",
+    "i5" : "Adds 299 Weapon Damage",
     "": ""
   },
   {
@@ -3100,10 +3100,10 @@
     "Location": "Wrothgar",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 688 Spell Critical.",
-    "i3" : "Adds 967 Maximum Magicka.",
-    "i4" : "Adds 688 Spell Critical.",
-    "i5" : "Adds 299 Spell Damage.",
+    "i2" : "Adds 688 Spell Critical",
+    "i3" : "Adds 967 Maximum Magicka",
+    "i4" : "Adds 688 Spell Critical",
+    "i5" : "Adds 299 Spell Damage",
     "": ""
   },
   {
@@ -3113,10 +3113,10 @@
     "Location": "Reapers March/Bangkorai/The Rift",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 688 Weapon Critical.",
-    "i3" : "Adds 129 Weapon Damage.",
-    "i4" : "Adds 688 Weapon Critical.",
-    "i5" : "Critical attacks also reduce the target’s Physical Resistance by 2580 for 6 seconds.",
+    "i2" : "Adds 688 Weapon Critical",
+    "i3" : "Adds 129 Weapon Damage",
+    "i4" : "Adds 688 Weapon Critical",
+    "i5" : "Critical attacks also reduce the target’s Physical Resistance by 2580 for 6 seconds",
     "": ""
   },
   {
@@ -3126,10 +3126,10 @@
     "Location": "Reapers March/Bangkorai/The Rift",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 129 Magicka Recovery.",
-    "i3" : "Adds 129 Stamina Recovery.",
-    "i4" : "Adds 129 Health Recovery.",
-    "i5" : "Increase all recovery in combat by 15%.",
+    "i2" : "Adds 129 Magicka Recovery",
+    "i3" : "Adds 129 Stamina Recovery",
+    "i4" : "Adds 129 Health Recovery",
+    "i5" : "Increase all recovery in combat by 15%",
     "": ""
   },
   {
@@ -3139,10 +3139,10 @@
     "Location": "Hew's Bane",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 1064 Maximum Health.",
-    "i4" : "Adds 129 Weapon Damage. Adds 129 Spell Damage.",
-    "i5" : "When you drink a potion you feel a rush of energy, gaining 661 Weapon and Spell Damage for 15 seconds.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 1064 Maximum Health",
+    "i4" : "Adds 129 Weapon Damage. Adds 129 Spell Damage",
+    "i5" : "When you drink a potion you feel a rush of energy, gaining 661 Weapon and Spell Damage for 15 seconds",
     "": ""
   },
   {
@@ -3152,10 +3152,10 @@
     "Location": "Imperial City – Arboretum District",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 967 Maximum Stamina.",
-    "i4" : "Adds 967 Maximum Magicka.",
-    "i5" : "When you heal yourself while at full Health, heal a nearby ally for 2347. This effect can happen once every 3 seconds.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 967 Maximum Stamina",
+    "i4" : "Adds 967 Maximum Magicka",
+    "i5" : "When you heal yourself while at full Health, heal a nearby ally for 2347. This effect can happen once every 3 seconds",
     "": ""
   },
   {
@@ -3168,7 +3168,7 @@
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 967 Maximum Stamina",
     "i4" : "Adds 4% Healing Taken",
-    "i5" : "10% chance on Block that the next Area of Effect Attack you use will deal an additional 3450 Damage.",
+    "i5" : "10% chance on Block that the next Area of Effect Attack you use will deal an additional 3450 Damage",
     "": ""
   },
   {
@@ -3178,10 +3178,10 @@
     "Location": "Eyevea",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 129 Magicka Recovery.",
-    "i3" : "Adds 967 Maximum Magicka.",
-    "i4" : "Adds 129 Spell Damage.",
-    "i5" : "Reduce the Magicka cost of restoration staff abilities by 12%.",
+    "i2" : "Adds 129 Magicka Recovery",
+    "i3" : "Adds 967 Maximum Magicka",
+    "i4" : "Adds 129 Spell Damage",
+    "i5" : "Reduce the Magicka cost of restoration staff abilities by 12%",
     "": ""
   },
   {
@@ -3191,10 +3191,10 @@
     "Location": "Earth Forge",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 967 Maximum Magicka.",
-    "i3" : "Adds 129 Magicka Recovery.",
-    "i4" : "Adds 1064 Maximum Health.",
-    "i5" : "Decrease time to resurrect an ally by 25% and restore 1720. Also, decrease time to resurrect an ally by 25% and restore 1720 Magicka when you successfully resurrect an ally. Adds 222 Spell Damage.",
+    "i2" : "Adds 967 Maximum Magicka",
+    "i3" : "Adds 129 Magicka Recovery",
+    "i4" : "Adds 1064 Maximum Health",
+    "i5" : "Decrease time to resurrect an ally by 25% and restore 1720. Also, decrease time to resurrect an ally by 25% and restore 1720 Magicka when you successfully resurrect an ally. Adds 222 Spell Damage",
     "": ""
   },
   {
@@ -3204,10 +3204,10 @@
     "Location": "Coldharbor",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 129 Health Recovery.",
-    "i3" : "Adds 129 Stamina Recovery.",
-    "i4" : "Adds 129 Magicka Recovery.",
-    "i5" : "Increase the damage of your Soul Trap abilities by 100%.",
+    "i2" : "Adds 129 Health Recovery",
+    "i3" : "Adds 129 Stamina Recovery",
+    "i4" : "Adds 129 Magicka Recovery",
+    "i5" : "Increase the damage of your Soul Trap abilities by 100%",
     "": ""
   },
   {
@@ -3217,10 +3217,10 @@
     "Location": "Earth Forge",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 129 Health Recovery.",
-    "i3" : "Adds 1064 Maximum Health.",
-    "i4" : "Adds 1064 Maximum Health.",
-    "i5" : "If below 60% Health, increase Health Recovery by 50%.",
+    "i2" : "Adds 129 Health Recovery",
+    "i3" : "Adds 1064 Maximum Health",
+    "i4" : "Adds 1064 Maximum Health",
+    "i5" : "If below 60% Health, increase Health Recovery by 50%",
     "": ""
   },
   {
@@ -3230,10 +3230,10 @@
     "Location": "Eyevea",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 4% Healing Taken.",
-    "i4" : "Adds 1064 Maximum Health.",
-    "i5" : "While you are below 50% Health, light attacks restore 559 Health.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 4% Healing Taken",
+    "i4" : "Adds 1064 Maximum Health",
+    "i5" : "While you are below 50% Health, light attacks restore 559 Health",
     "": ""
   },
   {
@@ -3243,10 +3243,10 @@
     "Location": "Coldharbor",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1935 Physical Resistance.",
-    "i3" : "Adds 967 Maximum Magicka.",
-    "i4" : "Adds 1064 Maximum Health.",
-    "i5" : "Gain Major Evasion for 3 seconds after casting a spell that costs Magicka. This effect can apply once every 6 seconds.",
+    "i2" : "Adds 1935 Physical Resistance",
+    "i3" : "Adds 967 Maximum Magicka",
+    "i4" : "Adds 1064 Maximum Health",
+    "i5" : "Gain Major Evasion for 3 seconds after casting a spell that costs Magicka. This effect can apply once every 6 seconds",
     "": ""
   },
   {
@@ -3256,10 +3256,10 @@
     "Location": "Craglorn",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 967 Maximum Magicka.",
-    "i4" : "Adds 967 Maximum Stamina.",
-    "i5" : "Reduce cost of Break Free by 40%.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 967 Maximum Magicka",
+    "i4" : "Adds 967 Maximum Stamina",
+    "i5" : "Reduce cost of Break Free by 40%",
     "": ""
   },
   {
@@ -3269,10 +3269,10 @@
     "Location": "Imperial City – Memorial District",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 1935 Physical Resistance.",
-    "i4" : "Adds 1935 Spell Resistance.",
-    "i5" : "While you have an Armor Ability slotted, increase your Maximum Health by 5%. When you activate an Armor Ability you gain 5332 Physical and Spell Resistance for 10 seconds.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 1935 Physical Resistance",
+    "i4" : "Adds 1935 Spell Resistance",
+    "i5" : "While you have an Armor Ability slotted, increase your Maximum Health by 5%. When you activate an Armor Ability you gain 5332 Physical and Spell Resistance for 10 seconds",
     "": ""
   },
   {
@@ -3282,10 +3282,10 @@
     "Location": "Hew's Bane",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 967 Maximum Stamina.",
-    "i3" : "Adds 129 Stamina Recovery.",
-    "i4" : "Adds 129 Stamina Recovery.",
-    "i5" : "When you use Roll Dodge you leave behind a rune that detonates when enemies come close, dealing 7701 Poison Damage and immobilizing them for 1.5 seconds.",
+    "i2" : "Adds 967 Maximum Stamina",
+    "i3" : "Adds 129 Stamina Recovery",
+    "i4" : "Adds 129 Stamina Recovery",
+    "i5" : "When you use Roll Dodge you leave behind a rune that detonates when enemies come close, dealing 7701 Poison Damage and immobilizing them for 1.5 seconds",
     "": ""
   },
   {
@@ -3295,10 +3295,10 @@
     "Location": "Wrothgar",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 967 Maximum Stamina.",
-    "i3" : "Adds 129 Stamina Recovery.",
-    "i4" : "Adds 129 Weapon Damage.",
-    "i5" : "10% chance when using a Light or Heavy Attack to summon an animated weapon to attack your enemies for 15 seconds. The animated weapon’s basic attacks deal 4313 Physical Damage.",
+    "i2" : "Adds 967 Maximum Stamina",
+    "i3" : "Adds 129 Stamina Recovery",
+    "i4" : "Adds 129 Weapon Damage",
+    "i5" : "10% chance when using a Light or Heavy Attack to summon an animated weapon to attack your enemies for 15 seconds. The animated weapon’s basic attacks deal 4313 Physical Damage",
     "": ""
   },
   {
@@ -3311,7 +3311,7 @@
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 129 Magicka Recovery",
-    "i5" : "Your Weapon Damage and Spell Damage both become the highest of the two values.",
+    "i5" : "Your Weapon Damage and Spell Damage both become the highest of the two values",
     "": ""
   },
   {
@@ -3321,10 +3321,10 @@
     "Location": "Craglorn",
     "Style": "",
     "i1": "",
-    "i2" : "Adds 1064 Maximum Health.",
-    "i3" : "Adds 967 Maximum Stamina.",
-    "i4" : "Adds 967 Maximum Magicka.",
-    "i5" : "Allows you to have two Mundus Stone Boons at the same time.",
+    "i2" : "Adds 1064 Maximum Health",
+    "i3" : "Adds 967 Maximum Stamina",
+    "i4" : "Adds 967 Maximum Magicka",
+    "i5" : "Allows you to have two Mundus Stone Boons at the same time",
     "": ""
   }
 ]

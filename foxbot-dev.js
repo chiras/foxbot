@@ -16,6 +16,7 @@ const golden = require('./modules/golden.js');
 const luxury = require('./modules/luxury.js');
 const status = require('./modules/server.js');
 const getset = require('./modules/sets.js');
+const getsetstats = require('./modules/setstats.js');
 const help = require('./modules/help.js');
 const pledges = require('./modules/pledges.js');
 const trials = require('./modules/trials.js');
@@ -73,6 +74,7 @@ bot.on("message", (msg) => {
 		"!luxury" 	: function(){luxury(bot, msg, gsDayNames, request, cheerio);}, 
 		"!status" 	: function(){status(bot, msg, request, cheerio);}, 
 		"!set" 		: function(){msg.channel.sendMessage("Please call the command with at least some characters of the setname, e.g. !set skel")}, 
+		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
 		"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
 		"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
 		"!twitch" 	: function(){gettwitch(bot, msg, tokens["twitch"], util, request);}, 
@@ -86,8 +88,10 @@ bot.on("message", (msg) => {
 
 
 	if (responses[msg]) {responses[msg]();
-	} else if (msg.content.startsWith(prefix + "set")) {
+	} else if (msg.content.startsWith(prefix + "set ")) {
          getset(bot, msg, setitems);
+    } else if (msg.content.startsWith(prefix + "setbonus ")) {
+         getsetstats(bot, msg, setitems, util);
     } // else {
 //          	msg.channel.sendEmbed({
 //   				color: 0x800000,
