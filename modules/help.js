@@ -8,6 +8,7 @@ module.exports = (bot, msg, setitems) => {
 
     var offinfo = "**!status**      -> ESO server status\n";
     offinfo += "**!patch**      -> Latest ESO patch notes\n";
+    offinfo += "**!patchpts**      -> PTS (Morrowind) patch notes\n";
 
     var iteminfo = " **!set SETNAME**      -> Set item information (e.g. !set skel)\n";
 
