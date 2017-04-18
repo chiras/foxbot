@@ -57,7 +57,7 @@ module.exports = (bot, msg, request, cheerio) => {
     var remainingM = 59 - Math.floor(((elapsed % 86400) / 60) % 60);
     
     var baserURL = "https://www.esoleaderboards.com/api/api.php?callType=getPledge&pledgeType="
-    var dayURL = "&daysFromNow=2"
+    var dayURL = "&daysFromNow=1"
     
     var questgiver = {"Maj al-Ragath" : 1, "Glirion the Redbeard" : 2, "Urgarlag Chief-Bane" : 3};
     var pledgeAPI = [	baserURL + questgiver["Maj al-Ragath"], 
