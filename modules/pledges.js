@@ -1,6 +1,59 @@
+//     function httpGet(url, callback) {
+//         const options = {
+//             url: url,
+//             json: true
+//         };
+//         request(options,
+//             function(err, res, body) {
+//                 callback(err, body);
+//             }
+//         );
+//     }
+//     
+    
 module.exports = (bot, msg, request, cheerio) => {
-const async = require('async');
 
+// const async = require('async');
+//     
+// 
+//     var urls = [];
+//     var pledges = [];
+//     
+//     for (var i = 1; i <= 3; i++ ){
+// 		request({
+//         	url: "https://www.esoleaderboards.com/api/api.php?callType=getPledge&pledgeType="+i+"&daysFromNow=0",
+//         	json: true
+//     	}, function(error, response, body) {
+//     	        if (!error && response.statusCode === 200) {
+// 				console.log(body)
+//     			urls[i] = JSON.stringify(body[1]).replace(/\"/g, "")
+//     		}}
+//     		);
+// 	}
+// 
+//     async.map(urls, httpGet, function(err, body) {
+//         if (err) {
+//             msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later.");
+//             return console.log(err);
+//         } else {
+//             //console.log(body);
+// 
+// 		console.log(body)
+// 
+// 
+//         }
+// 
+//     });
+// 
+// // 	var pledgesAPI = "https://www.esoleaderboards.com/api/api.php"
+// // 	// https://www.esoleaderboards.com/api/api.php?callType=getPledge&pledgeType=1&daysFromNow=0
+// // 	
+// // 	var pledges=[];
+// // 	
+// 
+// // 
+//  	console.log(pledges);
+	
     var pledgeurl = "https://esoleaderboards.com/api/getpledges.php"
     var pledgetimeurl = "https://esoleaderboards.com"
 	
