@@ -1,5 +1,5 @@
 // local data
-const tokens = require('./tokens/live.json');
+const tokens = require('./tokens/dev.json');
 const setitems = require('./data/setfile.json');
 
 // required modules
@@ -16,6 +16,7 @@ const golden = require('./modules/golden.js');
 const luxury = require('./modules/luxury.js');
 const status = require('./modules/server.js');
 const getset = require('./modules/sets.js');
+const getsetstats = require('./modules/setstats.js');
 const help = require('./modules/help.js');
 const pledges = require('./modules/pledges.js');
 const trials = require('./modules/trials.js');
@@ -24,6 +25,7 @@ const gettwitch = require('./modules/twitch.js');
 const contact = require('./modules/contact.js');
 const youtube = require('./modules/youtube.js');
 const patchnotes = require('./modules/patchnotes.js');
+const patchpts = require('./modules/patchnotes-pts.js');
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -72,13 +74,14 @@ bot.on("message", (msg) => {
 		"!golden" 	: function(){golden(bot, msg, gsDayNames, request, cheerio);}, 
 		"!luxury" 	: function(){luxury(bot, msg, gsDayNames, request, cheerio);}, 
 		"!status" 	: function(){status(bot, msg, request, cheerio);}, 
-		"!server" 	: function(){status(bot, msg, request, cheerio);}, 
 		"!set" 		: function(){msg.channel.sendMessage("Please call the command with at least some characters of the setname, e.g. !set skel")}, 
-	//	"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
-	//	"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
+		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
+		"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
+		"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
 		"!twitch" 	: function(){gettwitch(bot, msg, tokens["twitch"], util, request);}, 
 		"!youtube" 	: function(){youtube(bot, msg, request, youtube);}, 
 		"!patch" 	: function(){patchnotes(bot, msg, request, cheerio);}, 
+		"!patchpts" : function(){patchpts(bot, msg, request, cheerio);}, 
 		"!contact" 	: function(){contact(bot, msg);}, 
 		};
 
@@ -89,6 +92,8 @@ bot.on("message", (msg) => {
 	if (responses[msg]) {responses[msg]();
 	} else if (msg.content.startsWith(prefix + "set")) {
          getset(bot, msg, setitems);
+  //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
+  //       getsetstats(bot, msg, setitems, util);
     } // else {
 //          	msg.channel.sendEmbed({
 //   				color: 0x800000,
