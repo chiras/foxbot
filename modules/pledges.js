@@ -51,6 +51,7 @@ var baseurluesp = "http://en.uesp.net"
     
 module.exports = (bot, msg, request, cheerio) => {
 
+	// this time calculation has been taken from Seri's code
     let elapsed = moment().unix() - baseTimestamp;
     let diff = Math.floor(elapsed / 86400) + 1;
     var remainingH = 23 - Math.floor((elapsed % 86400) / 3600);
@@ -77,7 +78,7 @@ module.exports = (bot, msg, request, cheerio) => {
         })
         .then(function(articles) {
             for (var i = 0; i < 3; i++) {
-                pledgeText += "* [" + articles[i].body + "](" + baseurluesp + pledges[articles[i].body] + ") (" + Object.keys(questgiver)[i] + ")\n"; //, tomorrow: [" + articles[i+3].body + "](" + baseurluesp + pledges[articles[i+3].body] + ") )\n";
+                pledgeText += "* [" + articles[i].body + "](" + baseurluesp + pledges[articles[i].body] + ") (by " + Object.keys(questgiver)[i] + ")\n"; //, tomorrow: [" + articles[i+3].body + "](" + baseurluesp + pledges[articles[i+3].body] + ") )\n";
 
             }
             pledgeText += "\nNext pledges will be ";
@@ -87,7 +88,7 @@ module.exports = (bot, msg, request, cheerio) => {
 
             }
             pledgeText = pledgeText.slice(0, -2);          
-            pledgeText += " in " + remainingH +" hours and " + remainingM + " min.";
+            pledgeText += " in " + remainingH +" hours and " + remainingM + " minutes.";
       
             msg.channel.sendEmbed({
                 color: 0x800000,
