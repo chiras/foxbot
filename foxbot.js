@@ -1,5 +1,5 @@
 // local data
-const tokens = require('./tokens/dev.json');
+const tokens = require('./tokens/live.json');
 const setitems = require('./data/setfile.json');
 
 // required modules

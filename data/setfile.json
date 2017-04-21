@@ -3459,7 +3459,7 @@
   	},
   {
     "Name": "Coward's Gear",
-    "Type": "PvP",
+    "Type": "PVP",
     "Pieces": "",
     "Location": "Battleground",
     "Style": "",
@@ -3472,20 +3472,7 @@
   	},
   {
     "Name": "Knight Slayer",
-    "Type": "PvP",
-    "Pieces": "",
-    "Location": "Battleground",
-    "Style": "",
-    "i1": "to be disclosed (Morrowind)",
-    "i2" : "",
-    "i3" : "",å
-    "i4" : "",
-    "i5" : "",
-    "": ""
-  	},
-  {
-    "Name": "Impregnable Armor",
-    "Type": "PvP",
+    "Type": "PVP",
     "Pieces": "",
     "Location": "Battleground",
     "Style": "",
@@ -3497,8 +3484,8 @@
     "": ""
   	},
   {
-    "Name": "Vanguard's Challenge",
-    "Type": "PvP",
+    "Name": "Impregnable Armor",
+    "Type": "PVP",
     "Pieces": "",
     "Location": "Battleground",
     "Style": "",
@@ -3511,7 +3498,7 @@
   	},
   {
     "Name": "Wizard's Riposte",
-    "Type": "PvP",
+    "Type": "PVP",
     "Pieces": "",
     "Location": "Battleground",
     "Style": "",
