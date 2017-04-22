@@ -5,12 +5,12 @@ module.exports = (msg, type, fs, logfile, bot) => {
 	if (msg.guild){requesttext = msg.guild.name}else{
 	requesttext = "unknown guild"}
 	
-	requesttext +  "\t"
+	requesttext +=  "\t"
 	
 	if (msg.author){requesttext += msg.author.username}else{
 	requesttext += "unknown author"}	
 
-	requesttext += "\t" + type
+	requesttext += "\t" + type + "\t"
 	
 	if (msg.createdAt){requesttext += msg.createdAt}else{
 	requesttext += "unknown time"}	
