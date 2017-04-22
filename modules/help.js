@@ -11,6 +11,7 @@ module.exports = (bot, msg, setitems) => {
     offinfo += "**!patchpts**      -> PTS (Morrowind) patch notes\n";
 
     var iteminfo = " **!set SETNAME**      -> Set item information (e.g. !set skel)\n";
+     iteminfo += "**!lb** -> Leaderboard scores (e.g. !lb @account, EU, HRC)\n";
 
     var mediainfo = "**!youtube**      -> Hot and new ESO videos\n";
     mediainfo += "**!twitch**      -> Current top 5 ESO streams\n";

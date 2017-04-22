@@ -29,6 +29,7 @@ const patchnotes = require('./modules/patchnotes.js');
 const patchpts = require('./modules/patchnotes-pts.js');
 const lfg = require('./modules/lfg.js');
 const lfm = require('./modules/lfm.js');
+const leaderboards = require('./modules/leaderboards.js');
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -65,6 +66,7 @@ bot.on("message", (msg) => {
 	log(msg, msg.content, fs, logfile, bot);
 
 	
+	
 	var responses = {
 		"!help" 	: function(){help(bot, msg);}, 
 		"!pledges" 	: function(){pledges(bot, msg, request, cheerio);}, 
@@ -87,6 +89,9 @@ bot.on("message", (msg) => {
 		"!patch" 	: function(){patchnotes(bot, msg, request, cheerio);}, 
 		"!patchpts" : function(){patchpts(bot, msg, request, cheerio);}, 
 		"!contact" 	: function(){contact(bot, msg);}, 
+		"!lb" 			: function(){leaderboards(bot, msg);}, 
+		"!leaderboard" 	: function(){leaderboards(bot, msg);}, 
+		"!leaderboards" : function(){leaderboards(bot, msg);}, 
 		};
 
 
@@ -96,6 +101,8 @@ bot.on("message", (msg) => {
 	if (responses[msg]) {responses[msg]();
 	} else if (msg.content.startsWith(prefix + "set")) {
          getset(bot, msg, setitems);
+	} else if (msg.content.startsWith(prefix + "lb") || msg.content.startsWith(prefix + "leaderboard")) {
+         leaderboards(bot, msg);
 	} else if (msg.content.startsWith(prefix + "lfg")) {
          lfg(bot, msg, lfgdb);
 	} else if (msg.content.startsWith(prefix + "lfm")) {
