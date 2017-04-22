@@ -57,6 +57,14 @@ exports.getLongName = function (shortname) {
 	return shortnames[shortname.replace(/\"/g, "")]
 }
 
+exports.getValidTrials = function (shortname) {
+	if (shortnames[shortname]){return true}
+}
+
+exports.getTrialShortnames = function () {
+	return Object.keys(shortnames);
+}
+
 exports.linkify = function (input) {
 	var allnames = input.replace(/\"/g, "").split("/")
 	var output = [];

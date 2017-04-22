@@ -1,6 +1,6 @@
 const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
-var globals = require('../data/globals.js')
+const dnt = require("../data/trials_dungeons.js")
 
 
 function processFeed(feed) {
@@ -26,19 +26,19 @@ module.exports = (bot, msg) => {
 	var trialtolook=[];
 	
     for (var i = 0; i < args.length; i++) {
-    	if(globals.trialsshort[args[i].replace(/ /g, "")]){
+    	if(dnt.getValidTrials(args[i])){
     		trialtolook.push(args[i].replace(/ /g, ""));
     	}
     }
     
     if (trialtolook.length==0){
-    	trialtolook = Object.keys(globals.trialsshort);
+    	trialtolook = dnt.getTrialShortnames();
     }
     	
 	if (server == ""){
 		    msg.channel.sendEmbed({
                 color: 0x800000,
-                description: 'Char/Megaserver information missing (EU/NA). Please call e.g. \n**!lb character name, EU**\n**!lb @account, EU** \n**!lb @account, EU, AA, HRC**\n(for specific scores only, options: "'+ Object.keys(globals.trialsshort).join(", ") +'")  '
+                description: 'Char/Megaserver information missing (EU/NA). Please call e.g. \n**!lb character name, EU**\n**!lb @account, EU** \n**!lb @account, EU, AA, HRC**\n(for specific scores only, options: "'+ getTrialShortnames() +'")  '
  
             });
 	}else{
@@ -75,7 +75,7 @@ module.exports = (bot, msg) => {
         })
         .then(function(articles) {
             for (var i = 0; i < articles.length; i++) {
-                lbText += "* [" + globals.trialsshort[triallist[i]] + "](" + globals.baseurluesp + globals.trials[globals.trialsshort[triallist[i]]] + "): "+ articles[i].body +"\n";
+                lbText += "* " + dnt.linkify(triallist[i])+": "+ articles[i].body +"\n";
 
             }
             msg.channel.sendEmbed({
