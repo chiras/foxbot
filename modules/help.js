@@ -31,7 +31,7 @@ module.exports = (bot, msg, setitems) => {
        			 value: weekendinfo
 			},
       		{
-      			 name: 'Itemization',
+      			 name: 'Game Information',
         		 value: iteminfo
       		},
       		{

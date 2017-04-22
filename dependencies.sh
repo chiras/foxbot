@@ -6,4 +6,5 @@ npm i --save async
 npm i --save moment-timezone
 npm i --save bluebird
 npm i --save util
+npm i --save q
 # npm install twitch-api
