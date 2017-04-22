@@ -63,7 +63,7 @@ bot.on("message", (msg) => {
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
 
-	log(msg, msg.content, fs, logfile, bot);
+	if (tokens["tokenset"] == "live"){ log(msg, msg.content, fs, logfile, bot);}
 
 	
 	
