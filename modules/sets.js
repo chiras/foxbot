@@ -1,4 +1,4 @@
-const dnt = require("../data/trials_dungeons.js")
+const nh = require("../data/name_helper.js")
 
 module.exports = (bot, msg, setitems) => {
 
@@ -25,7 +25,7 @@ module.exports = (bot, msg, setitems) => {
         for (var i = 0; i < results.length; i++) {
         
 			var location = JSON.stringify(results[i].Location)
-			location = dnt.linkify(JSON.stringify(results[i].Location))
+			location = nh.linkify(JSON.stringify(results[i].Location))
 
             outputsets[JSON.stringify(results[i].Name)] =  JSON.stringify(results[i].Pieces) + "," + " obtainable from ";
             outputsets[JSON.stringify(results[i].Name)] += location + " (" + JSON.stringify(results[i].Type) + ")\n";

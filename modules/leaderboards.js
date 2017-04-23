@@ -1,6 +1,6 @@
 const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
-const dnt = require("../data/trials_dungeons.js")
+const nh = require("../data/name_helper.js")
 
 
 function processFeed(feed) {
@@ -13,36 +13,35 @@ module.exports = (bot, msg) => {
         
     var args = msg.content.split(",") //.slice(1).join(" ")
     var server = "";   
-    var servers = {"EU" : "EU" ,"NA" : "NA"}
     
     for (var i = 0; i < args.length; i++) {
-    	if(servers[args[i].replace(/ /g, "")]){
+    	if(nh.getValidServer(args[i])){
     		server = args[i].replace(/ /g, "");
     		args.splice(i,1);
     		break;
     	}
     }
 
+	if (server == ""){
+		    msg.channel.sendEmbed({
+                color: 0x800000,
+                description: 'Char/Megaserver information missing (EU/NA). Please call e.g. \n**!lb character name, EU**\n**!lb @account, EU** \n**!lb @account, EU, AA, HRC**\n(for specific scores only, options: "'+ nh.getTrialShortnames() +'")  '
+ 
+            });
+	}else{
+	
 	var trialtolook=[];
 	
     for (var i = 0; i < args.length; i++) {
-    	if(dnt.getValidTrials(args[i])){
+    	if(nh.getValidTrials(args[i])){
     		trialtolook.push(args[i].replace(/ /g, ""));
     	}
     }
     
     if (trialtolook.length==0){
-    	trialtolook = dnt.getTrialShortnames();
+    	trialtolook = nh.getTrialShortnames();
     }
-    	
-	if (server == ""){
-		    msg.channel.sendEmbed({
-                color: 0x800000,
-                description: 'Char/Megaserver information missing (EU/NA). Please call e.g. \n**!lb character name, EU**\n**!lb @account, EU** \n**!lb @account, EU, AA, HRC**\n(for specific scores only, options: "'+ getTrialShortnames() +'")  '
- 
-            });
-	}else{
-    
+    	    
     var name = args[0].split(" ").slice(1).join(" ").replace(/^ /, "").replace(/ $/, "");
    
 	var characc = "";
@@ -75,7 +74,7 @@ module.exports = (bot, msg) => {
         })
         .then(function(articles) {
             for (var i = 0; i < articles.length; i++) {
-                lbText += "* " + dnt.linkify(triallist[i])+": "+ articles[i].body +"\n";
+                lbText += "* " + nh.linkify(triallist[i])+": "+ articles[i].body +"\n";
 
             }
             msg.channel.sendEmbed({

@@ -1,6 +1,7 @@
 const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
 const moment = require('moment-timezone');
+const nh = require("../data/name_helper.js")
 
 const resetTime = '2:00am';
 const resetZone = 'America/New_York';
@@ -15,39 +16,6 @@ function processFeed(feed) {
     // use the promisified version of 'get'
     return request.getAsync(feed)
 }
-var baseurluesp = "http://en.uesp.net"
-
-	var pledges = {
-		"The Banished Cells I" : "/wiki/Online:The_Banished_Cells_I",
-		"The Banished Cells II" : "/wiki/Online:The_Banished_Cells_II",
-		"Elden Hollow I" : "/wiki/Online:Elden_Hollow_I",
-		"Elden Hollow II" : "/wiki/Online:Elden_Hollow_II",
-		"City of Ash I" : "/wiki/Online:City_of_Ash_I",
-		"City of Ash II" : "/wiki/Online:City_of_Ash_II",
-		"Tempest Island" : "/wiki/Online:Tempest_Island",
-		"Selene's Web" : "/wiki/Online:Selene%27s_Web",
-		"Volenfell" : "/wiki/Online:Volenfell",
-		"Blackheart Haven" : "/wiki/Online:Blackheart_Haven",
-		"Spindleclutch I" : "/wiki/Online:Spindleclutch_I",
-		"Spindleclutch II" : "/wiki/Online:Spindleclutch_II",
-		"Crypt of Hearts I" : "/wiki/Online:Crypt_of_Hearts_I",
-		"Crypt of Hearts II" : "/wiki/Online:Crypt_of_Hearts_II",
-		"Wayrest Sewers I" : "/wiki/Online:Wayrest_Sewers_I",
-		"Wayrest Sewers II" : "/wiki/Online:Wayrest_Sewers_II",
-		"Darkshade Caverns I" : "/wiki/Online:Darkshade_Caverns_I",
-		"Darkshade Caverns II" : "/wiki/Online:Darkshade_Caverns_II",
-		"Direfrost Keep" : "/wiki/Online:Direfrost_Keep",
-		"Blessed Crucible" : "/wiki/Online:Blessed_Crucible",
-		"Arx Corinium" : "/wiki/Online:Arx_Corinium",
-		"Cradle of Shadows" : "/wiki/Online:Cradle_of_Shadows",
-		"Ruins of Mazzatun" : "/wiki/Online:Ruins_of_Mazzatun",
-		"Fungal Grotto I" : "/wiki/Online:Fungal_Grotto_I",
-		"Fungal Grotto II" : "/wiki/Online:Fungal_Grotto_II",
-		"Vaults of Madness" : "/wiki/Online:Vaults_of_Madness",
-		"White-Gold Tower" : "/wiki/Online:White-Gold_Tower",
-		"Imperial City Prison" : "/wiki/Online:Imperial_City_Prison"
-		};
-
     
 module.exports = (bot, msg, request, cheerio) => {
 
@@ -78,13 +46,13 @@ module.exports = (bot, msg, request, cheerio) => {
         })
         .then(function(articles) {
             for (var i = 0; i < 3; i++) {
-                pledgeText += "* [" + articles[i].body + "](" + baseurluesp + pledges[articles[i].body] + ") (by " + Object.keys(questgiver)[i] + ")\n"; //, tomorrow: [" + articles[i+3].body + "](" + baseurluesp + pledges[articles[i+3].body] + ") )\n";
+                pledgeText += "* " + nh.linkify(articles[i].body) + " (by " + Object.keys(questgiver)[i] + ")\n"; //, tomorrow: [" + articles[i+3].body + "](" + baseurluesp + pledges[articles[i+3].body] + ") )\n";
 
             }
             pledgeText += "\nNext pledges will be ";
             
             for (var i = 0; i < 3; i++) {
-                pledgeText += "["+articles[i+3].body + "](" + baseurluesp + pledges[articles[i+3].body] + "), ";
+                pledgeText += nh.linkify(articles[i+3].body) + ", ";
 
             }
             pledgeText = pledgeText.slice(0, -2);          

@@ -1,153 +1,93 @@
 const moment = require('moment-timezone');
-const Promise = require('bluebird');
-const Q = require('q');
-
-  function setupTasks(lfmtext) {
-  		 lfmtext += "dddds";
-  }
-
-  function processEachTask(db, filter, timepoint,lfmtext) {
-
-	db.each("SELECT name, searching, time FROM lfg WHERE searching IS '"+filter+"' ORDER BY time", function(err, row) {
-		var elapsed = 	timepoint - row.time;
-   		let diff = Math.floor(elapsed / 86400) + 1;
-    	var elapsedH = Math.floor((elapsed % 86400) / 3600);
-    	var elapsedM = Math.floor(((elapsed % 86400) / 60) % 60);
-    
-    	lfmtext += row.name + " searched " + elapsedH + " hours and "+ elapsedM+ " minutes ago\n"
-    	console.log(lfmtext)
-    });
-     
-     return(lfmtext)       
-  }
+var Promise = require('promise');
+const nh = require("../data/name_helper.js")
+const dbh = require("../data/db_helper.js")
 
 
-function afterAllTasks(lfmtext,msg,filter) {
-
-   msg.channel.sendEmbed({
-  				color: 0x800000,
-  				fields: [{
-  					name : "Other players searching for " + filter,
-  					value : "a: "+lfmtext
-  				}],
-	});	  
-}
-  
-
-      
+const valid_searches = {
+	"trials" : "Trials",
+	"trial" : "Trials",
+	"random trial" : "Trials",
+	"dungeons" : "Dungeons",
+	"dungeon" : "Dungeons",
+	"random dungeon" : "Dungeons"
+	}   
 
 module.exports = (bot, msg, db, lfmtext) => {
 
 var timepoint = moment().unix();
-var filter = msg.content.split(" ").slice(1)
+args = msg.content.split(" ").slice(1).join(",").split(",")
 
-//async.forEach(setupTasks(lfmtext), processEachTask(db, filter, timepoint,lfmtext), afterAllTasks(lfmtext,msg,filter));
+var server="";
 
+for (var i = 0; i < args.length; i++) {
+    	if(nh.getValidServer(args[i])){
+    		server = args[i].replace(/ /g, "");
+    		args.splice(i,1);
+    		break;
+    	}
+    }
 
-    var display_promise = Q-denodeify(processEachTask)
+	if (server == ""){
+		    msg.channel.sendEmbed({
+                color: 0x800000,
+                description: 'Megaserver information missing (EU/NA). Please call e.g. \n**!lfm EU, trials, AA, HRC, 2h **\noptions komma separated: \n * Trials: trials, "'+ nh.getTrialShortnames() +'"\n * Dungeons: dungeons  '
+ 
+            });
+}else{
+
+//var args = msg.content.replace(/\"/g, "").split(",") //.slice(1).join(" ")
+
+var searches = [];
+
+for (var i = 0; i < args.length; i++) {
+    if (valid_searches[args[i]]){
+    		searches.push(valid_searches[args[i]]);
+    }
+}
+
+console.log(searches)
+var filter; 
+
+for (var i = 0; i < searches.length; i++) {
+
+//filter = searches[i];
+
+dbh.getDbRecords(db, searches[i], server, timepoint,lfmtext, bot, function(err, all, filter, server) {    
+	
+	if (all.length > 0){
+	console.log(all)
+    var lfmtext = "";
+    var searching = "";
     
-    Promise.map(function(lfmtext) {
-	db.each("SELECT name, searching, time FROM lfg WHERE searching IS '"+filter+"' ORDER BY time", function(err, row) {
-		var elapsed = 	timepoint - row.time;
-   		let diff = Math.floor(elapsed / 86400) + 1;
-    	var elapsedH = Math.floor((elapsed % 86400) / 3600);
-    	var elapsedM = Math.floor(((elapsed % 86400) / 60) % 60);
-    
-    	lfmtext += row.name + " searched " + elapsedH + " hours and "+ elapsedM+ " minutes ago\n"
-    	console.log(lfmtext)
-    });
-     
-     return(lfmtext) 
-        })
-        .then(function(articles) {
+	all.forEach(function(obj) { 
+		var time = dbh.getTimeDiff(timepoint, obj.time, "short")
+		lfmtext += "\n<@"+obj.name+"> of "+obj.guild+" ("+ time + ")"; 
+	});
+	
+	var lfmtitle = "Recent searches for " + filter + " Groups ("+server+")";
+	
+	msg.channel.sendEmbed({
+  				color: 0x800000,
+  				fields: [{
+  					name : lfmtitle,
+  					value : lfmtext
+  				}],
+			})	 
+			
+	}else{
 		msg.channel.sendEmbed({
   				color: 0x800000,
   				fields: [{
-  					name : "Other players searching for " + filter,
-  					value : "a: "+articles+ "--"+lfmtext
+  					name : lfmtitle,
+  					value : "Sorry, no entries at the moment"
   				}],
-			})	 
-        })
-        .catch(function(e) {
-            msg.channel.sendEmbed({
-                color: 0x800000,
-                description: "There was a connection error, please try again later.",
-            });
-            console.log(e)
-        })
-
-
-
-Promise.resolve()
-  // Update db schema to the latest version using SQL-based migrations
-  .then(
-  	lfmtext = processEachTask(db, filter, timepoint,lfmtext)
-  )                  // <=
-  // Display error message if something went wrong
-  .catch((err) => console.error(err.stack))
-  // Finally, launch the Node.js app
-  .finally(
-     msg.channel.sendEmbed({
-  				color: 0x800000,
-  				fields: [{
-  					name : "Other players searching for " + filter,
-  					value : "a: "+lfmtext
-  				}],
-	})	  
-  );
-
-// var asyncOps = [
-//     function (done) {
-// db.each("SELECT name, searching, time FROM lfg WHERE searching IS '"+filter+"' ORDER BY time", function(err, row) {
-// 	var elapsed = 	timepoint - row.time;
-//     let diff = Math.floor(elapsed / 86400) + 1;
-//     var elapsedH = Math.floor((elapsed % 86400) / 3600);
-//     var elapsedM = Math.floor(((elapsed % 86400) / 60) % 60);
-//     
-//     lfmtext += row.name + " searched " + elapsedH + " hours and "+ elapsedM+ " minutes ago\n"
-//         });
-// 
-// 	},
-//     function (done) {
-//     msg.channel.sendEmbed({
-//   				color: 0x800000,
-//   				fields: [{
-//   					name : "Other players searching for " + filter,
-//   					value : "a: "+lfmtext
-//   				}],
-// 	});	
-//     }
-// ];
-// 
-// async.series(asyncOps, function (err, results) {
-//     if (err) return console.log(err);
-//     // results = [ row1, row2 ];
-// });
-
-/* 
-db.each("SELECT name, searching, time FROM lfg WHERE searching IS '"+filter+"' ORDER BY time", function(err, row) {
-	var elapsed = 	timepoint - row.time;
-    let diff = Math.floor(elapsed / 86400) + 1;
-    var elapsedH = Math.floor((elapsed % 86400) / 3600);
-    var elapsedM = Math.floor(((elapsed % 86400) / 60) % 60);
-    
-    lfmtext += row.name + " searched " + elapsedH + " hours and "+ elapsedM+ " minutes ago\n"
-
-  //  console.log(row.name + " searched " + elapsedH + " hours and "+ elapsedM+ " minutes ago: " + row.searching);
-
-
-
+			})	 	
+	}
+			
 });
-    msg.channel.sendEmbed({
-  				color: 0x800000,
-  				fields: [{
-  					name : "Other players searching for " + filter,
-  					value : lfmtext
-  				}],
-	});	
- */
+
+
+}};
 
 };
-
-//create table lfg (name varchar(20), searching varchar(20), time varchar(20));
-//insert into lfg values ("@dummy",10);

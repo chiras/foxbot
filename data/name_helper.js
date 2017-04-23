@@ -1,5 +1,7 @@
 const baseurluesp = "http://en.uesp.net/wiki/"
 
+const servers = {"eu" : "EU" ,"na" : "NA", "pts" : "PTS"}
+
 const shortnames = {
     "AA": "Aetherian Archive",
     "HRC": "Hel Ra Citadel",
@@ -52,13 +54,66 @@ const wikilinks = {
 		"Imperial City Prison" : "Online:Imperial_City_Prison"
 };
 
+const groupmode = {
+		"vet" : "veteran",
+		"v" : "veteran",
+		"veteran" : "veteran",
+		"norm" : "normal",
+		"n" : "normal",
+		"normal" : "normal",
+		"hm" : "hard-mode",
+		"hardmode" : "hard-mode",
+		"Hardmode" : "hard-mode",
+		"hard-mode" : "hard-mode",
+		"small scale" : "smallscale", 
+		"smallscale" : "smaallscale",
+		"big group" : "pug",
+		"pug" : "pug",
+		"battleground" : "battleground"
+}
+
+const roles = {
+		"heal" : "Heal",
+		"hps" : "Heal",
+		"healer" : "Heal",
+		"h" : "Heal",
+		"dd" : "DD",
+		"damage dealer" : "DD",
+		"damage" : "DD",
+		"dps" : "DD",
+		"d" : "DD",
+		"tank" : "Tank",
+		"t" : "Tank",
+}
+
+exports.getCpLvl = function (type) {
+	if (type.replace(/\"/g, "").replace(/ /g, "").toLowerCase().startsWith("cp") | type.replace(/\"/g, "").replace(/ /g, "").toLowerCase().startsWith("lvl")) {
+		return type.replace(/\"/g, "").replace(/ /g, "").toLowerCase();
+	} 
+}
+
+exports.getRole = function (type) {
+	return roles[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()]
+}
+
+exports.getServer = function (type) {
+	return servers[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()]
+}
+
+exports.getGroupMode = function (type) {
+	return groupmode[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()]
+}
 
 exports.getLongName = function (shortname) {
 	return shortnames[shortname.replace(/\"/g, "")]
 }
 
 exports.getValidTrials = function (shortname) {
-	if (shortnames[shortname]){return true}
+	if (shortnames[shortname.replace(/ /g, "")]){return true}
+}
+
+exports.getValidServer = function (server) {
+	if (servers[server.replace(/ /g, "")]){return true}
 }
 
 exports.getTrialShortnames = function () {
