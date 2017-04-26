@@ -2,6 +2,30 @@ const baseurluesp = "http://en.uesp.net/wiki/"
 
 const servers = {"eu" : "EU" ,"na" : "NA", "pts" : "PTS"}
 
+const factions = [	{	
+					"shortname" : "EP",
+					"longname" : "Ebonheart Pact",
+					"url" : "",
+					"loc" : "Loc_EP",
+					"locDet" : "LocDet_EP"
+					},
+					{
+					"shortname" : "DC",
+					"longname" : "Daggerfall Covenant",
+					"url" : "",
+					"loc" : "Loc_DC",
+					"locDet" : "LocDet_DC"
+					},
+					{	
+					"shortname" : "AD",
+					"longname" : "Aldmeri Dominion",
+					"url" : "",
+					"loc" : "Loc_AD",
+					"locDet" : "LocDet_AD"
+					},
+					];
+					
+
 const shortnames = {
     "AA": "Aetherian Archive",
     "HRC": "Hel Ra Citadel",
@@ -9,12 +33,26 @@ const shortnames = {
     "MOL": "Maw of Lorkhaj",
     "DSA": "Dragonstar Arena (Veteran)",
     "MSA": "Maelstrom Arena (Veteran)",
+	"EP" : "EP",
+	"DC" : "DC",				
+	"AD" : "AD"	
 };
 
 const wikilinks = {
+		// Factions
+		"EP" : "Online:Ebonheart_Pact",
+		"DC" : "Online:Daggerfall_Covenant",				
+		"AD" : "Online:Aldmeri_Dominion",	
+
+	// Places
+//	"Chill House" : "Online:Chill_House",
+				
 		// Zones
 		"Stonefalls" : "Online:Stonefalls",
-		
+		"Auridon" : "Online:Auridon",
+		"Glenumbra" : "Online:Glenumbra",
+
+	
 	// Trials
     "Aetherian Archive": "Online:Aetherian_Archive",
     "Hel Ra Citadel": "Online:Hel_Ra_Citadel",
@@ -123,9 +161,11 @@ exports.getTrialShortnames = function () {
 exports.linkify = function (input) {
 	var allnames = input.replace(/\"/g, "").split("/")
 	var output = [];
+	console.log(allnames)
 	
 	for (var i = 0; i < allnames.length; i++){
 		var name = allnames[i].replace(/\"/g, "");
+
 		if (name.length < 4){name = shortnames[name]}
 		if (wikilinks[name]){
 			output.push("["+name+"]("+ baseurluesp + wikilinks[name]+")")

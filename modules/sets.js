@@ -24,9 +24,52 @@ module.exports = (bot, msg, setitems) => {
             
         for (var i = 0; i < results.length; i++) {
         
-			var location = JSON.stringify(results[i].Location)
-			location = nh.linkify(JSON.stringify(results[i].Location))
+        	var locations = []
+        	var locationsIDs = Object.keys(results[i].Location)
+        	
+        	//console.log()
+        	
+        	for (var j = 0; j < locationsIDs.length; j++){     
+        	  			        
+	        	var tmpL = "";
+        		var tmpD = "";
+        		var tmp = "";
+        		
+        		if (JSON.stringify(results[i].Location[locationsIDs[j]])!='""'){
+        			var tmpL = JSON.stringify(results[i].Location[locationsIDs[j]]);
+	        		tmp +=  nh.linkify(tmpL)
+	        		
+				//	console.log(JSON.stringify(locationsIDs[j]));
+					
+	        		if (JSON.stringify(locationsIDs[j]) != '"default"'){
+	        			var tmpX = JSON.stringify(locationsIDs[j]);
+	        		//	console.log(tmpX);
 
+	        			tmp +=  " ("+ nh.linkify(tmpX) +")";
+	        		}
+        			
+        		}
+        		if (JSON.stringify(results[i].LocationDetail[locationsIDs[j]]) !='""'){
+        		        	console.log(JSON.stringify(results[i].LocationDetail[locationsIDs[j]]))
+
+        			var tmpD = JSON.stringify(results[i].LocationDetail[locationsIDs[j]]);
+  	        		tmp +=  ": " + nh.linkify(tmpD)
+	      		}
+	      		
+   	          if (tmp != ""){locations.push(tmp)}
+     		
+        	}
+        	
+        	var location = locations.join(", ")
+        	       
+	//		var location = "xx"//JSON.stringify(results[i].Location)
+	//		location = nh.linkify(JSON.stringify(results[i].Location))
+
+			// if (JSON.stringify(results[i].LocationPrecise)){ 
+// 				var location_tmp = JSON.stringify(results[i].LocationPrecise);
+// 				location += ": " + nh.linkify(JSON.stringify(results[i].LocationPrecise))
+// 				}
+		
             outputsets[JSON.stringify(results[i].Name)] =  JSON.stringify(results[i].Pieces) + "," + " obtainable from ";
             outputsets[JSON.stringify(results[i].Name)] += location + " (" + JSON.stringify(results[i].Type) + ")\n";
             if (results[i].i1 != "") {

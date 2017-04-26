@@ -3,3400 +3,6543 @@
     "Name": "Blood Spawn",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Spindleclutch II",
+    "Location": {
+    				"default" : "Spindleclutch II",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Stamina Recovery",
     "i2": "When you take damage, you have a 6% chance to generate 15 Ultimate and increase your Physical and Spell Resistance by 6450 for 6 seconds. This effect can occur once every 6 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Chokethorn",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Elden Hollow I",
+    "Location": {
+    				"default" : "Elden Hollow I",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Magicka Recovery",
     "i2": "When you use a heal ability, you have a 15% chance to summon a strangler sapling that heals you or an ally for 19565 Health over 4 seconds. This effect can occur once every 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Engine Guardian",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Darkshade Caverns II",
+    "Location": {
+    				"default" : "Darkshade Caverns II",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Health Recovery",
     "i2": "When you use an ability, you have a 10% to summon a dwemer automation to restore 1204 Health, Stamina, or Magicka every 0.5 seconds for 6.5 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Grothdarr",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Vaults of Madness",
+    "Location": {
+    				"default" : "Vaults of Madness",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 967 Maximum Magicka",
     "i2": "When you deal damage, you have a 10% chance to create lava pools that swirl around you, dealing 2000 Flame Damage to all enemies within 8 meters of you every 1 second for 5 seconds. This effect can occur once every 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Iceheart",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Direfrost Keep",
+    "Location": {
+    				"default" : "Direfrost Keep",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 688 Spell Critical",
     "i2": "When you deal Critical Damage, you have a 20% chance to gain a damage shield that absorbs 8600 damage for 6 seconds. While the damage shield holds, you deal 770 Cold damage to all enemies within 5 meters of you every 1 second. This effect can occur once every 6 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Ilambris",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Crypt of Hearts I",
+    "Location": {
+    				"default" : "Crypt of Hearts I",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 967 Maximum Magicka",
     "i2": "When you deal Flame or Shock Damage, you have a 10% chance to summon a meteor shower of that damage type that deals 1300 Damage to all enemies within 4 meters every 1 second for 5 seconds. Each effect can occur once every 8 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Infernal Guardian",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "City of Ash I",
+    "Location": {
+    				"default" : "City of Ash I",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 967 Maximum Magicka",
     "i2": "When you use a damage shield ability, you have a 50% chance to lob 3 mortars over 2 seconds at the furthest enemy from you that each deal 5500 Flame Damage to all enemies within 5 meters of the blast area. This effect can occur once every 6 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Kra'gh",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Fungal Grotto I",
+    "Location": {
+    				"default" : "Fungal Grotto I",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1935 Physical Penetration",
     "i2": "When you deal damage, you have a 10% chance to spawn dreugh limbs that creates shockwaves in front of you dealing 1300 Physical Damage every 0.4 seconds for 1.2 seconds. This effect can occur once every 3 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Lord Warden",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Imperial City Prison",
+    "Location": {
+    				"default" : "Imperial City Prison",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1935 Spell Resistance",
     "i2": "When you take damage, you have a 50% chance to summon a shadow orb for 10 seconds that increases the Physical and Spell Resistance of you and your allies within 5 meters by 3870. This effect can occur once every 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Maw of the Infernal",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Banished Cells II",
+    "Location": {
+    				"default" : "Banished Cells II",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you deal damage with a Light of Heavy Attack, you have a 10% chance to summon a fire breathing Daedroth for 15 seconds. The Daedroth's basic attacks deal 4257 Physical Damage. This effect can occur once every 15 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Mighty Chudan",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Ruins of Mazzatun",
+    "Location": {
+    				"default" : "Ruins of Mazzatun",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1376 Spell Resistance. Adds 1376 Physical Resistance",
     "i2": "Gain Major Ward and Major Resolve at all times, increasing your Physical and Spell Resistance by 5280. Adds 1064 Maximum Health",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Molag Kena",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "White-Gold Tower",
+    "Location": {
+    				"default" : "White-Gold Tower",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Weapon Damage. Adds 129 Spell Damage",
     "i2": "When you deal damage with 2 consecutive Light Attacks you trigger Overkill for 6 seconds, which increases your Weapon and Spell Damage by 516 but also increases the cost of your abilities by 33%",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Nerien'eth",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Crypt of Hearts II",
+    "Location": {
+    				"default" : "Crypt of Hearts II",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you deal direct damage, you have a 10% chance to summon a Lich crystal that explodes after 3 seconds, dealing 7335 Magic Damage to all enemies within 4 meters. This effect can occur once every 3 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Nightflame",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Elden Hollow II",
+    "Location": {
+    				"default" : "Elden Hollow II",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you heal a friendly target, you have a 3% chance to summon a totem for 6 seconds that heals you and your allies within 5 meters for 3483 Health every 1 second. This effect can occur once every 6 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Pirate Skeleton",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Blackheart Haven",
+    "Location": {
+    				"default" : "Blackheart Haven",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1935 Physical/Spell Resistance",
     "i2": "When you take damage, you have a 6% chance to transform into a skeleton and gain Major Protection and Minor Defile for 12 seconds, reducing your damage taken by 30% but reducing your healing receieved by 15%. This effect can occur once every 15 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Scourge Harvester",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Wayrest Sewers II",
+    "Location": {
+    				"default" : "Wayrest Sewers II",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you take damage, you have a 6% chance to create a beam that steals 5805 Health over 4 seconds from the attacker. The beam breaks if the enemy moves further than 8 meters away. While the beam holds gained 30% increased healing from all sources",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Selene",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Selene's Web",
+    "Location": {
+    				"default" : "Selene's Web",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 967 Maximum Stamina",
     "i2": "When you deal direct melee damage, you have a 15% chance call on a primal spirit that mauls the closest enemy in front of you for 12000 Physical Damage. This effect can occur once every 4 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sellistrix",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Arx Corinium",
+    "Location": {
+    				"default" : "Arx Corinium",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 967 Maximum Stamina",
     "i2": "When you deal damage, you have a 10% chance to create an earthquake under the enemy that erupts after 2 seconds, dealing 3870 Physical Damage to all enemies within 4 meters and stunning them for 3 seconds. This effect can occur once every 5 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sentinel of Rkugamz",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Darkshade Caverns I",
+    "Location": {
+    				"default" : "Darkshade Caverns I",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 2% Healing Done",
     "i2": "When you heal a friendly target, you have a 10% chance to summon a dwemer spider that heals for 1049 Health and restores 524 Stamina to you and your allies within 5 meters every 1 second for 8 seconds. This effect can occur once every 15 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shadowrend",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Banished Cells I",
+    "Location": {
+    				"default" : "Banished Cells I",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Magicka Recovery",
     "i2": "When you deal damage, you have a 5% chance to summon a shadowy Clannfear for 15 seconds. The Clannfear's basic attacks deal 3440 Physical Damage and apply Minor Maim to any enemy hit for 3 seconds, reducing their damage done by 15%. This effect can occur once every 15 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Slimecraw",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Wayrest Sewers I",
+    "Location": {
+    				"default" : "Wayrest Sewers I",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Health Recovery",
     "i2": "Gain Minor Berserk at all times, increasing your damage done by 8%",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Spawn of Mephala",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Fungal Grotto II",
+    "Location": {
+    				"default" : "Fungal Grotto II",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you deal damage with a fully-charged Heavy attack, you create a web for 10 seconds that deals 1044 Poison Damage every 1 second and reduces the Movement Speed of enemies within by 50%. This effect can occur once every 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Stormfist",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Tempest Island",
+    "Location": {
+    				"default" : "Tempest Island",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Stamina Recovery",
     "i2": "When you deal damage, you have a 10% chance to create a thunderfist to crush the enemy, dealing 1500 Shock Damage every 1 second for 3 seconds to all enemies within 4 meters and a final 8000 Physical Damage when the fist closes. This effect can occur once every 8 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Swarm Mother",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Spindleclutch I",
+    "Location": {
+    				"default" : "Spindleclutch I",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Stamina Recovery",
     "i2": "When you block an attack from an enemy that is further than 5 meters from you, you spin strands of spider silk to pull the enemy to you. This effect can occur once every 2 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "The Troll King",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Blessed Crucible",
+    "Location": {
+    				"default" : "Blessed Crucible",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 2% Healing Done",
     "i2": "When you heal a friendly target, if they are still below 60% Health, their Health Recovery is increased by 1548 for 10 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Tremorscale",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Volenfell",
+    "Location": {
+    				"default" : "Volenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 967 Maximum Stamina",
     "i2": "When you taunt an enemy, you have a 50% chance to cause a duneripper to burst from the ground beneath them, dealing 6500 Physical Damage to all enemies within 4 meters and reducing their Movement Speed by 70% for 8 seconds. This effect can occur once every 4 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Valkyn Skoria",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "City of Ash II",
+    "Location": {
+    				"default" : "City of Ash II",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 1064 Maximum Health",
     "i2": "When you deal damage with a damage over time effect, you have a 8% chance to summon a meteor that deals 9000 Flame Damage to the target and 4000 Flame Damage to all other enemies within 5 meters. This effect can occur once every 5 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Velidreth",
     "Type": "Monster",
     "Pieces": "Head/Shoulder",
-    "Location": "Cradle of Shadows",
+    "Location": {
+    				"default" : "Cradle of Shadows",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "Adds 129 Weapon Damage",
     "i2": "When you deal damage, you have a 20% chance to spawn 3 disease spores in front of you that deal 10320 Disease Damage to the first enemy they hit. This effect can occur once every 9 seconds",
     "i3": "",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Armor of the Trainee",
     "Type": "Overland",
     "Pieces": "All",
-    "Location": "Starter Areas",
+    "Location": {
+    				"default" : "Starter Areas",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "Increases your Maximum Health, Magicka, and Stamina by 2484",
+    "url": "",
     "": ""
   },
   {
     "Name": "Bahraha's Curse",
     "Type": "Overland",
     "Pieces": "Any",
-    "Location": "Hew's Bane",
+    "Location": {
+    				"default" : "Hew's Bane",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Outlaw",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Reduces your damage taken from environmental traps by 40%.. Adds 967 Maximum Stamina",
     "i5": "When you deal damage, you have a 25% chance to create desecrated ground for 5 seconds, which reduces the Movement Speed of enemies within by 70%, damages them for 860 Magic Damage every 1 second, and heals you for 100% of the damage done",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sithis' Touch",
     "Type": "Overland",
     "Pieces": "Any",
-    "Location": "Gold Coast",
+    "Location": {
+    				"default" : "Gold Coast",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dark Brotherhood",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you use Blade of Woe, you gain Major Berserk for 20 seconds, increasing your damage done by 25%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Syvarra's Scales",
     "Type": "Overland",
     "Pieces": "Any",
-    "Location": "Hew's Bane",
+    "Location": {
+    				"default" : "Hew's Bane",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Ra Gada",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Reduces your damage taken from Guards by 20%.. Adds 967 Maximum Magicka",
     "i5": "When you deal damage, you have a 5% chance to cause a burst of lamia poison that deals 967 Poison Damage in a 5 meter radius and an additional 5802 Poison Damage over 6 seconds to all enemies hit. This effect can occur once every 6.5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Bloodthorn's Touch (Adroitness)",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Glenumbra",
+    "Location": {
+    				"default" : "Glenumbra",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Primal",
     "i1": "",
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "When you deal direct damage, you restore 660 Magicka and Stamina. This effect can occur once every 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Dreamer's Mantle (Apprentice Garb)",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Stormhaven",
+    "Location": {
+    				"default" : "Stormhaven",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you take damage while you are under 35% Health, you knockdown all enemies within 4 meters of you for 2 seconds and heal for 7000 Health. This effect can occur once every 20 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Mother's Sorrow",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Deshaan",
+    "Location": {
+    				"default" : "Deshaan",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Argonian",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 688 Spell Critical",
     "i5": "Adds 1643 Spell Critical",
+    "url": "",
     "": ""
   },
   {
     "Name": "Necropotence",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Rivenspire",
+    "Location": {
+    				"default" : "Rivenspire",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Argonian",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "While you have a pet active, your Maximum Magicka is increased by 4000",
+    "url": "",
     "": ""
   },
   {
     "Name": "Prisoner's Rags",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Coldharbour",
+    "Location": {
+    				"default" : "Coldharbour",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Soul-Shriven",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "Reduces the cost of Sprint by 50%. While Sprinting, restore 1000 Magicka every 1 second",
+    "url": "",
     "": ""
   },
   {
     "Name": "Queen's Elegance (Elegance)",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Auridon",
+    "Location": {
+    				"default" : "Auridon",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "Increases your Light and Heavy Attack damage by 20%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Robes of the Hist (Robes of Onslaught)",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Shadowfen",
+    "Location": {
+    				"default" : "Shadowfen",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Argonian",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "Reduces the duration of all disabling effects applied to you by 20%. While you are affected by a disabling effect, heal for 2000 Health every 1 second",
+    "url": "",
     "": ""
   },
   {
     "Name": "Robes of the Withered Hand (Robes of the Necromancer)",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Alik'r",
+    "Location": {
+    				"default" : "Alik'r",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Unused 18",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When an enemy within 28 meters of you dies, heal for 1290 Health and gain 1290 Magicka. This effect can occur once every 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shadow Dancer's Raiment",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Greenshade",
+    "Location": {
+    				"default" : "Greenshade",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Thieves Guild",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "Ignore the Movement Speed penalty of Sneak. Adds 129 Stamina Recovery",
+    "url": "",
     "": ""
   },
   {
     "Name": "Silks of the Sun",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Stonefalls",
+    "Location": {
+    				"default" : "Stonefalls",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "Adds 400 Spell Damage to your Flame Damage abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Skooma Smuggler",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Reaper's March",
+    "Location": {
+    				"default" : "Reaper's March",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Khajiit",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you drink a potion, you gain Major Expedition for 30 seconds, increasing your Movement Speed by 30%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Spinner's Garments",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Malabal Tor",
+    "Location": {
+    				"default" : "Malabal Tor",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "Adds 4000 Spell Penetration",
+    "url": "",
     "": ""
   },
   {
     "Name": "Stendarr's Embrace",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Eastmarch",
+    "Location": {
+    				"default" : "Eastmarch",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you heal a friendly target, you have a 50% chance to remove up to 5 negative effects from them. This effect can occur once every 30 seconds per target",
+    "url": "",
     "": ""
   },
   {
     "Name": "Syrabane's Grip",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Grahtwood",
+    "Location": {
+    				"default" : "Grahtwood",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you block a Flame, Frost, Shock, or Magic Damage ability, you restore 860 Magicka. This effect can occur once every 1 second",
+    "url": "",
     "": ""
   },
   {
     "Name": "Trinimac's Valor",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Orsinium",
+    "Location": {
+    				"default" : "Orsinium",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Trinimac",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "When you cast a damage shield on an ally, you have a 20% chance to call down a fragment of Trinimac that heals you and your allies for 3667 Health and damages enemies for 3667 Magic Damage in a 5 meter radius. This effect can occur once every 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Vampire Lord",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Bangkorai",
+    "Location": {
+    				"default" : "Bangkorai",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 688 Spell Critical",
     "i5": "Adds 400 Spell Damage to your Vampire abilities. Reduces the cost of your Vampire abilities by 5%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Way of Martial Knowledge",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "Craglorn",
+    "Location": {
+    				"default" : "Craglorn",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you deal damage, you cause the enemy to take 10% additional damage from the next attack. This effect can occur once every 4 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Ysgramor's Birthright",
     "Type": "Overland",
     "Pieces": "Light",
-    "Location": "The Rift",
+    "Location": {
+    				"default" : "The Rift",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Nord",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "Adds 400 Spell Damage to your Cold Damage abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Briarheart",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Orsinium",
+    "Location": {
+    				"default" : "Orsinium",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Reach Winter",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal Critical Damage, you have a 10% chance to increase your Weapon Damage by 449 for 10 seconds. While this effect is active your Critical Strikes heal you for 609 Health. This effect can occur once every 15 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shadow of the Red Mountain (Coat of the Red Mountain)",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Stonefalls",
+    "Location": {
+    				"default" : "Stonefalls",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Unused 17",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal damage with a Weapon ability, you have a 10% chance to deal an additional 8400 Flame Damage. This effect can occur once every 2 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Darkstride",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Rivenspire",
+    "Location": {
+    				"default" : "Rivenspire",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Thieves Guild",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "Reduces the cost of Sprint and Sneak by 50%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Fiord's Legacy",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Eastmarch",
+    "Location": {
+    				"default" : "Eastmarch",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Nord",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "Reduces the cost and increases the Movement Speed bonus of Sprint by 15%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Flanking Strategist",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Gold Coast",
+    "Location": {
+    				"default" : "Gold Coast",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Order of the Hour",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Adds 345 Weapon Damage to your damaging abilites when you use them to attack an enemy from behind",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hide of the Werewolf",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Glenumbra",
+    "Location": {
+    				"default" : "Glenumbra",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Primal",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you take damage, you generate 5 Ultimate. This effect can occur once every 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Night Terror (Nightshade)",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Stormhaven",
+    "Location": {
+    				"default" : "Stormhaven",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Reduces the radius you can be detected while Sneaking by 2 meters. Reduces the cost of Sneak by 27%",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When you take melee damage, you deal 2100 Poison Damage to the attacker. This effect can occur once every 1 second",
+    "url": "",
     "": ""
   },
   {
     "Name": "Ranger's Gait",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Grahtwood",
+    "Location": {
+    				"default" : "Grahtwood",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "Reduce the effectiveness of snares applied to you by 50%. Adds 129 Stamina Recovery",
+    "url": "",
     "": ""
   },
   {
     "Name": "Salvation",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Malabal Tor",
+    "Location": {
+    				"default" : "Malabal Tor",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "Reduces the cost of your Werewolf Transformation ability 33%. While in Werewolf form, your Weapon Damage is increased by 150",
+    "url": "",
     "": ""
   },
   {
     "Name": "Senche's Bite (Skirmisher's Bite)",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Reaper's March",
+    "Location": {
+    				"default" : "Reaper's March",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Khajiit",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "When you use Roll Dodge, your Weapon Damage is increased by 430 and Weapon Critical rating is increased by 657 for 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Spriggan's Thorns",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Bangkorai",
+    "Location": {
+    				"default" : "Bangkorai",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Adds 4000 Physical Penetration",
+    "url": "",
     "": ""
   },
   {
     "Name": "Stygian",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Coldharbour",
+    "Location": {
+    				"default" : "Coldharbour",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Draugr",
     "i1": "",
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "While you are Sneaking or invisible, your Spell Damage and Maximum Magicka is increased by 20%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Swamp Raider (Toxic Defiance)",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Shadowfen",
+    "Location": {
+    				"default" : "Shadowfen",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Argonian",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "When you deal damage with a Magicka ability, your Poison and Disease Damage abilities gain an additional 450 Weapon Damage for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sword-Singer",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Alik'r",
+    "Location": {
+    				"default" : "Alik'r",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Redguard",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
     "i5": "Adds 400 Weapon Damage to your Two Handed abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Twin Sisters",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Auridon",
+    "Location": {
+    				"default" : "Auridon",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Redguard",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you block an attack, you have a 20% chance to cause all enemies within 5 meters of you to bleed for 9030 Physical Damage over 8 seconds. This effect can occur once every 8 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Way of Air",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Craglorn",
+    "Location": {
+    				"default" : "Craglorn",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Increases the radius you can detect Sneaking enemies by 2 meters",
     "i5": "When you use Roll Dodge, your Weapon and Spell Damage is increased by 344 for 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Wilderqueen's Arch (Kyne's Flight)",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "Greenshade",
+    "Location": {
+    				"default" : "Greenshade",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "Your Bow abilities reduce the Movement Speed of any enemy they hit by 30% for 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Witchman Armor (Shrouded Armor)",
     "Type": "Overland",
     "Pieces": "Medium",
-    "Location": "The Rift",
+    "Location": {
+    				"default" : "The Rift",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bandit (Breton Style)",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When you use an Ultimate ability, you heal for 6880 Health and restore 6880 Stamina",
+    "url": "",
     "": ""
   },
   {
     "Name": "Akaviri Dragonguard",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Eastmarch",
+    "Location": {
+    				"default" : "Eastmarch",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Nord",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 1064 Maximum Health",
     "i5": "Reduces the cost of your Ultimate abilities by 15%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Armor of the Veiled Heritance (Armor of Rage)",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Auridon",
+    "Location": {
+    				"default" : "Auridon",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal damage, you have a 10% chance to increase your Weapon Damage by 400 for 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Beekeeper's Gear",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Greenshade",
+    "Location": {
+    				"default" : "Greenshade",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Khajiit",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Health Recovery",
     "i4": "Adds 129 Health Recovery",
     "i5": "Adds 500 Health Recovery",
+    "url": "",
     "": ""
   },
   {
     "Name": "Draugr's Heritage",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "The Rift",
+    "Location": {
+    				"default" : "The Rift",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Draugr",
     "i1": "",
     "i2": "Adds 4% Healing Taken",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When you take damage while you are under 35% Health, you knockdown all enemies within 4 meters of you for 2 seconds and heal for 7000 Health. This effect can occur once every 20 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Green Pact",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Grahtwood",
+    "Location": {
+    				"default" : "Grahtwood",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Health Recovery",
     "i4": "Adds 1064 Maximum Health",
     "i5": "While you have a food buff active, your Maximum Health is increased by 400 and Health Recovery by 200",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hatchling's Shell (Armor of the Construct)",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Shadowfen",
+    "Location": {
+    				"default" : "Shadowfen",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Argonian",
     "i1": "",
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 4% Healing Taken",
     "i5": "Gain a damage shield that absorbs 5000 damage every 15 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hide of Morihaus",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Gold Coast",
+    "Location": {
+    				"default" : "Gold Coast",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Minotaur",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "When you Roll Dodge through an enemy, you deal 1840 Physical Damage and knock them down for 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Mark of the Pariah",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Orsinium",
+    "Location": {
+    				"default" : "Orsinium",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Trinimac",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "Increases your Physical and Spell Resistance by up to 11094 based on your missing Health",
+    "url": "",
     "": ""
   },
   {
     "Name": "Meridia's Blessed Armor (Akatosh's Blessed Armor)",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Coldharbour",
+    "Location": {
+    				"default" : "Coldharbour",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Ancient Elf",
     "i1": "",
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "When you block an attack, you have a 33% chance to blind the attacker, causing them to miss all of their attacks for 5 seconds. This effect can occur once every 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Night Mother's Embrace",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Deshaan",
+    "Location": {
+    				"default" : "Deshaan",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Thieves Guild",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "Reduces the radius you can be detected while Sneaking by 2 meters. Reduces the cost of Sneak by 25%. Adds 129 Weapon Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Order of Diagna",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Alik'r",
+    "Location": {
+    				"default" : "Alik'r",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Redguard",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
     "i5": "Gain Minor Vitality at all times, increasing your healing recieved by 8%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Plague Doctor",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Deshaan",
+    "Location": {
+    				"default" : "Deshaan",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
     "i5": "Adds 6000 Maximum Health",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shalk Exoskeleton",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Stonefalls",
+    "Location": {
+    				"default" : "Stonefalls",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bandit (Breton Style)",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 688 Spell Critical",
     "i5": "Gain Minor Heroism at all times while you are in combat, generating 1 Ultimate every 1.5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Seventh Legion Brute (The Brute)",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Bangkorai",
+    "Location": {
+    				"default" : "Bangkorai",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Orc",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 129 Health Recovery",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you take damage, you have a 10% to gain 500 Weapon Damage for 5 seconds and heal for 1290 Haelth",
+    "url": "",
     "": ""
   },
   {
     "Name": "Soulshine",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Reaper's March",
+    "Location": {
+    				"default" : "Reaper's March",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Khajiit",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
     "i5": "Adds 450 Spell Damage to your cast time and channeled abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Storm Knight's Plate",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Stormhaven",
+    "Location": {
+    				"default" : "Stormhaven",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When you take non-physical damage, you have a 10% to deal 4591 Shock Damage all enemies within 5 meters of you every 2 seconds for 6 seconds. This effect can occur once every 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Thunderbug's Carapace (Thunderous Plate Mail)",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Malabal Tor",
+    "Location": {
+    				"default" : "Malabal Tor",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Primal",
     "i1": "",
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you take Physical Damage, you have a 50% chance to deal 5418 Shock Damage in a 5 meter radius around you. This effect can occur once every 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Vampire Cloak",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Rivenspire",
+    "Location": {
+    				"default" : "Rivenspire",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 1064 Maximum Health",
     "i5": "Gain Minor Protection at all times, reducing your damage taken by 8%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Way of Fire",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Craglorn",
+    "Location": {
+    				"default" : "Craglorn",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal damage with a Weapon Ability, you have a 20% chance to deal an additional 4200 Flame Damage. This effect can occur once every 2 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Wyrd Tree's Blessing (Lord's Mail)",
     "Type": "Overland",
     "Pieces": "Heavy",
-    "Location": "Glenumbra",
+    "Location": {
+    				"default" : "Glenumbra",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "When you cast a Magicka abiltiy, you remove up to 5 negative effects from yourself. This effect can occur once every 15 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Agility",
     "Type": "Dungeon",
     "Pieces": "R/N/Wep",
-    "Location": "Random Daily",
+    "Location": {
+    				"default" : "Random Daily",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Various",
     "i1": "",
     "i2": "Adds 1451 Maximum Stamina",
     "i3": "Adds 193 Weapon Damage",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Willpower",
     "Type": "Dungeon",
     "Pieces": "R/N/Wep",
-    "Location": "Random Daily",
+    "Location": {
+    				"default" : "Random Daily",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Various",
     "i1": "",
     "i2": "Adds 1541 Maximum Magicka",
     "i3": "Adds 193 Spell Damage",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Endurance",
     "Type": "Dungeon",
     "Pieces": "R/N/Wep",
-    "Location": "Random Daily",
+    "Location": {
+    				"default" : "Random Daily",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Various",
     "i1": "",
     "i2": "Adds 1596 Maximum Health",
     "i3": "Adds 193 Stamina Recovery",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Amber Plasm",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Ruins of Mazzatun",
+    "Location": {
+    				"default" : "Ruins of Mazzatun",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Grim Harlequin",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
     "i5": "Adds 300 Stamina Recovery. Adds 300 Magicka Recovery",
+    "url": "",
     "": ""
   },
   {
     "Name": "Burning Spellweave",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "City of Ash",
+    "Location": {
+    				"default" : "City of Ash",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 688 Spell Critical",
     "i5": "When you deal damage with a Flame Damage ability, you have a 20% chance apply the Burning status effect to the enemy and increase your Spell Damage by 600 for 8 seconds. This effect can occuer once every 12 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Combat Physician",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Wayrest Sewers",
+    "Location": {
+    				"default" : "Wayrest Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Redguard",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 688 Spell Critical",
     "i5": "When you critically heal a friendly target, you grant them a damage shield that absorbs 8195 damage for 6 seconds. This effect can occur once every 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Gossamer",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Cradle of Shadows",
+    "Location": {
+    				"default" : "Cradle of Shadows",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Unused 19",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you heal a friendly target, you have a 10% chance to grant them Major Evasion for 6 seconds, increasing their dodge chance by 20%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Lamia's Song",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Arx Corinium",
+    "Location": {
+    				"default" : "Arx Corinium",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you activate your Ultimate, you heal you and your allies within 20 meters of you for 7500 Health",
+    "url": "",
     "": ""
   },
   {
     "Name": "Light Speaker",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Elden Hollow",
+    "Location": {
+    				"default" : "Elden Hollow",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "Adds 400 Spell Damage to your Restoration Staff abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Magicka Furnace",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Direfrost Keep",
+    "Location": {
+    				"default" : "Direfrost Keep",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dunmer",
     "i1": "",
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you take damage from a melee attack while you are under 80% Magicka, restore 8000 Magicka. This effect can occur once every 30 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Netch's Touch",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Darkshade Caverns",
+    "Location": {
+    				"default" : "Darkshade Caverns",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bandit (Breton Style)",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "Adds 400 Spell Damage to your Shock Damage abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Noble Duelist's Silks",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Blessed Crucible",
+    "Location": {
+    				"default" : "Blessed Crucible",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you dodge an attack, your Light and Heavy Attacks deal an additional 1225 damage for 8 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Overwhelming Surge",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Tempest Island",
+    "Location": {
+    				"default" : "Tempest Island",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Maormer",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you activate a Class ability, you have a 15% chance to surround yourself with a torrent that deals 1986 Shock Damage to the closest enemy within 12 meters of you every 1 second for 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Prayer Shawl",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Spindleclutch",
+    "Location": {
+    				"default" : "Spindleclutch",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dunmer",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "When you heal a friendly target, you have a 6% chance to grant them a damage shield that absorbs 2425 damage for 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sanctuary",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Banished Cells",
+    "Location": {
+    				"default" : "Banished Cells",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Orc",
     "i1": "",
     "i2": "Adds 1062 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "Increases your healing received by 12% for you and your group",
+    "url": "",
     "": ""
   },
   {
     "Name": "Scathing Mage",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Imperial City Prison",
+    "Location": {
+    				"default" : "Imperial City Prison",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Xivkyn",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 688 Spell Critical",
     "i5": "When you deal direct Critical Damage, you have a 20% chance to increase your Spell Damage by 516 for 6 seconds. This effect can occur once every 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shroud of the Lich",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Crypt of Hearts",
+    "Location": {
+    				"default" : "Crypt of Hearts",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "When you fall below 33% Magicka increase your Magicka Recovery by 1032 for 20 seconds. This effect can occuer once every 1 minute",
+    "url": "",
     "": ""
   },
   {
     "Name": "Spell Power Cure",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "White-Gold Tower",
+    "Location": {
+    				"default" : "White-Gold Tower",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Xivkyn",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you heal a friendly target that is at 100% Health, you have a 50% chance to increase their Weapon and Spell Damage by 258 for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Spider Cultist Cowl",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Fungal Grotto",
+    "Location": {
+    				"default" : "Fungal Grotto",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "Adds 400 Spell Damage to your Destruction Staff abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Treasure Hunter",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Volenfell",
+    "Location": {
+    				"default" : "Volenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Mercenary",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 688 Spell Critical",
     "i5": "Gain Major Prophecy at all times, increasing your Spell Critical rating by 2191. Adds 100 Spell Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Undaunted Unweaver",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Blackheart Haven",
+    "Location": {
+    				"default" : "Blackheart Haven",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Mercenary",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Spell Critical",
     "i5": "When you use an ability that costs Stamina, your Light Attacks deal an additional 774 damage and Heavy Attacks deal an additional 1161 damage for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Vestments of the Warlock",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Selene's Web",
+    "Location": {
+    				"default" : "Selene's Web",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "When you fall below 33% Magicka, restore 9000 Magicka. This effect can occur once every 1 minute",
+    "url": "",
     "": ""
   },
   {
     "Name": "The Worm's Raiment",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Vaults of Madness",
+    "Location": {
+    				"default" : "Vaults of Madness",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Soul-Shriven",
     "i1": "",
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "Reduces the cost of your Magicka abilities by 5% for you and your group",
+    "url": "",
     "": ""
   },
   {
     "Name": "Barkskin",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Elden Hollow",
+    "Location": {
+    				"default" : "Elden Hollow",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 1935 Physical Resistance",
     "i5": "Reduces the duration of immobilizations and snares applied to you by 50%. When an immobilization or snare is applied to you, heal for 2000 Health and restore 1000 Stamina. This effect can occur once every 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Bone Pirate's Tatters",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Blackheart Haven",
+    "Location": {
+    				"default" : "Blackheart Haven",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Draugr",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "While you have a drink buff active, your Maximum Stamina is increased by 2000 and Stamina Recovery by 300",
+    "url": "",
     "": ""
   },
   {
     "Name": "Crusader",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Volenfell",
+    "Location": {
+    				"default" : "Volenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "Increases the duration of the dodge chance bonus of Roll Dodge by 0.3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Draugr Hulk",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Direfrost Keep",
+    "Location": {
+    				"default" : "Direfrost Keep",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Draugr",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "Adds 3000 Maximum Stamina",
+    "url": "",
     "": ""
   },
   {
     "Name": "Essence Thief",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "White-Gold Tower",
+    "Location": {
+    				"default" : "White-Gold Tower",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Xivkyn",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal damage with a Light Attack, you have a 15% chance to draw essence from the enemy. Collecting the essence heals you for 4300 Health, restores 4300 Stamina, and increases your damage done by 12% for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Heem-Jas' Retribution",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Ruins of Mazzatun",
+    "Location": {
+    				"default" : "Ruins of Mazzatun",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Grim Harlequin",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When an enemy within 28 meters of you dies, you gain Major Berserk for 3 seconds, increasing your damage done by 25%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hircine's Veneer",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Selene's Web",
+    "Location": {
+    				"default" : "Selene's Web",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Soul-Shriven",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "Increases your Stamina Recovery by 10% for you and your group",
+    "url": "",
     "": ""
   },
   {
     "Name": "Jailbreaker",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Banished Cells",
+    "Location": {
+    				"default" : "Banished Cells",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Khajiit",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "Gain Minor Expedition at all times, increasing your Movement speed by 10%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Leviathan",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Crypt of Hearts",
+    "Location": {
+    				"default" : "Crypt of Hearts",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bandit (Breton Style)",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 688 Weapon Critical",
     "i5": "Adds 1643 Weapon Critical",
+    "url": "",
     "": ""
   },
   {
     "Name": "Oblivion's Edge",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Vaults of Madness",
+    "Location": {
+    				"default" : "Vaults of Madness",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "When you kill an enemy, you fill an empty soul gem and heal for 1720 Health. Adds 129 Weapon Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sheer Venom",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Imperial City Prison",
+    "Location": {
+    				"default" : "Imperial City Prison",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Xivkyn",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal damage with an Execute ability you infect the enemy, dealing 8428 Poison Damage over 6 seconds. This effect can occur once every 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Spelunker",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Spindleclutch",
+    "Location": {
+    				"default" : "Spindleclutch",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Mercenary",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Adds 400 Weapon and Spell Damage to your Undaunted abilities. When an ally uses one of your Undaunted ability synergies you restore 1500 Stamina",
+    "url": "",
     "": ""
   },
   {
     "Name": "Strength of the Automaton",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Darkshade Caverns",
+    "Location": {
+    				"default" : "Darkshade Caverns",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dwemer",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Adds 400 Weapon Damage to your Physical Damage abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Storm Master (Shock Master)",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Tempest Island",
+    "Location": {
+    				"default" : "Tempest Island",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Maormer",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal Critical Damage with a fully-charged Heavy Attack, your Light Attacks deal an additional 1399 Shock Damage for 20 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sunderflame",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "City of Ash",
+    "Location": {
+    				"default" : "City of Ash",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal damage with a fully-charged Heavy Attack, you deal an additional 812 Flame Damage and reduce the enemy's Physical Resistance by 3440 for 8 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sword Dancer",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Blessed Crucible",
+    "Location": {
+    				"default" : "Blessed Crucible",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Redguard",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Adds 400 Weapon Damage to your Dual Wield abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Toothrow",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Wayrest Sewers",
+    "Location": {
+    				"default" : "Wayrest Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Primal",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 688 Weapon Critical",
     "i5": "Gain Major Savagery at all times, increasing your Weapon Critical rating by 2191. Adds 100 Weapon Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Undaunted Infiltrator",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Arx Corinium",
+    "Location": {
+    				"default" : "Arx Corinium",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Mercenary",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you use an ability that costs Magicka, your Light Attacks deal an additional 774 damage and Heavy Attacks deal an additional 1164 damage for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Viper's Sting",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Fungal Grotto",
+    "Location": {
+    				"default" : "Fungal Grotto",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Argonian",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal damage with a melee attack, you deal an additional 6720 Poison Damage. This effect can occur once every 4 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Widowmaker",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Cradle of Shadows",
+    "Location": {
+    				"default" : "Cradle of Shadows",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Unused 19",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "When your alchemical poison fires, deal 7740 Poison Damage to all enemies within 5 meters of you",
+    "url": "",
     "": ""
   },
   {
     "Name": "Aspect of Mazzatun",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Ruins of Mazzatun",
+    "Location": {
+    				"default" : "Ruins of Mazzatun",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Grim Harlequin",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you fall below 30% Health, heal for 7502 Health and Restore 6020 Magicka and Stamina. This effect can occur once every 45 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Armor of Truth",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Darkshade Caverns",
+    "Location": {
+    				"default" : "Darkshade Caverns",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Breton",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you set an enemy off-balance, your Weapon Damage is increased by 450 for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Brands of Imperium",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "White-Gold Tower",
+    "Location": {
+    				"default" : "White-Gold Tower",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Xivkyn",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
     "i5": "When you take damage, you have a 10% chance to grant you and your allies within 8 meters a damage shield that absorbs 12040 damage for 6 seconds. This effect can occur once every 15 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Dreugh King Slayer",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Fungal Grotto",
+    "Location": {
+    				"default" : "Fungal Grotto",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dunmer",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
     "i5": "Gain Major Brutality at all times, increasing your Weapon Damage by 20%. When you kill an enemy, you gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Duneripper's Scales (Unassailable)",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Volenfell",
+    "Location": {
+    				"default" : "Volenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Primal",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 4% Healing Taken",
     "i5": "While you are blocking, your Physical and Spell Resistance is increased by 4300",
+    "url": "",
     "": ""
   },
   {
     "Name": "Durok's Bane",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Selene's Web",
+    "Location": {
+    				"default" : "Selene's Web",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Redguard",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Health Recovery",
     "i4": "Adds 4% Healing Taken",
     "i5": "When you take damage, you apply Major Defile to the attacker for 10 seconds, reducing their healing received by 30%. This effect can occur once every 1 second",
+    "url": "",
     "": ""
   },
   {
     "Name": "Ebon Armory",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Crypt of Hearts",
+    "Location": {
+    				"default" : "Crypt of Hearts",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Soul-Shriven",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
     "i5": "Increases your Maximum Health by 1118 for you and your group",
+    "url": "",
     "": ""
   },
   {
     "Name": "Embershield",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "City of Ash",
+    "Location": {
+    				"default" : "City of Ash",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "When you deal damage with a fully-charged Heavy Attack, you have a 50% chance increase your Spell Resistance by 3440 and deal 1083 Flame Damage to all enemies within 5 meters of you every 1 second for 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hand of Mephala",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Cradle of Shadows",
+    "Location": {
+    				"default" : "Cradle of Shadows",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Kothringi",
     "i1": "",
     "i2": "Adds 4% Healing Taken",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1935 Physical Resistance",
     "i5": "When you take damage, you have a 10% chance to cast a web around you for 5 seconds, reducing the Movement Speed of enemies with by 50%. After 5 seconds the webs burst into venom, dealing 2580 Poison Damage and applying Minor Fracture to any enemy hit for 5 seconds, reducing their Physical Resistance by 1320",
+    "url": "",
     "": ""
   },
   {
     "Name": "Ice Furnace",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Direfrost Keep",
+    "Location": {
+    				"default" : "Direfrost Keep",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Nord",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal direct damage with a Frost Damage ability, you have a 50% chance to deal an additional 1046 Flame Damage to all enemies within 8 meters around the initial target. This effect can occur once every 1 second",
+    "url": "",
     "": ""
   },
   {
     "Name": "Jolting Arms",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Tempest Island",
+    "Location": {
+    				"default" : "Tempest Island",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Maormer",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "When you block an attack, you have a 50% chance to charge your arms, causing your next Bash ability to deal an additional 6095 Shock Damage and increase your Spell Resistance by 6450 for 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Knight-Errant's Mail",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Blackheart Haven",
+    "Location": {
+    				"default" : "Blackheart Haven",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Mercenary",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Adds 200 Weapon Damage to your One Handed and Shield abilities. When you use a One Hand and Shield ability, you heal for 1250 Health",
+    "url": "",
     "": ""
   },
   {
     "Name": "Knightmare",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Spindleclutch",
+    "Location": {
+    				"default" : "Spindleclutch",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal melee damage, you have a 20% chance to apply Minor Maim to all enemies within 8 meters of you for 5 seconds, reducing their damage done by 15%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Leeching Plate",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Imperial City Prison",
+    "Location": {
+    				"default" : "Imperial City Prison",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Xivkyn",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 4% Healing Taken",
     "i5": "When you take damage, you have a 8% chance to summon a cloud of leeching poison under the attack that deals 1204 Poison Damage in a 4 meter radius every 1 second for 5 seconds and heals you for 100% of the damage caused",
+    "url": "",
     "": ""
   },
   {
     "Name": "Medusa",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Arx Corinium",
+    "Location": {
+    				"default" : "Arx Corinium",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Argonian",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "Gain Minor Force at all times, increasing your Critical Damage done by 12%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Nikulas' Heavy Armor",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Blessed Crucible",
+    "Location": {
+    				"default" : "Blessed Crucible",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Nord",
     "i1": "",
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When you block a spell projectile, you have a 25% chance to reflect the spell back to the enemy",
+    "url": "",
     "": ""
   },
   {
     "Name": "Rattlecage",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Vaults of Madness",
+    "Location": {
+    				"default" : "Vaults of Madness",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
     "i5": "Gain Major Sorcery at all times, increasing your Spell Damage by 20%. Adds 100 Spell Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sergeant's Mail",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Wayrest Sewers",
+    "Location": {
+    				"default" : "Wayrest Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dunmer",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Increases the damage of your fully-charged Heavy Attacks by 1634",
+    "url": "",
     "": ""
   },
   {
     "Name": "Tormenter",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Banished Cells",
+    "Location": {
+    				"default" : "Banished Cells",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Daedric",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 4% Healing Taken",
     "i5": "When you deal damage with a Charge ability, you gain 3642 Physical and Spell Resistance and taunt the enemy to attack you for 15 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Undaunted Bastion",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Elden Hollow",
+    "Location": {
+    				"default" : "Elden Hollow",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Mercenary",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "When you taunt an enemy while you are under 60% Health, gain a damage shield that absorbs 13760 damage for 6 seconds. This effect can occur once every 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Elemental Succession",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Maelstrom Arena",
+    "Location": {
+    				"default" : "Maelstrom Arena",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Malacath",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "While you are in combat, you gain a rotating bonus to Flame, Shock, or Frost Damage. The active element changes every 4 seconds. Your attacks dealing damage with the active element gain 515 Spell Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Healer's Habit",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "DSA",
+    "Location": {
+    				"default" : "DSA",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Ancient Elf",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
     "i5": "Gain Minor Mending at all times, increasing your healing done by 8%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Robes of Destruction Mastery",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "DSA",
+    "Location": {
+    				"default" : "DSA",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
     "i5": "While you have a Destruction Staff equipped, your Maximum Magicka is increased by 2400",
+    "url": "",
     "": ""
   },
   {
     "Name": "Winterborn",
     "Type": "Dungeon",
     "Pieces": "Light",
-    "Location": "Maelstrom Arena",
+    "Location": {
+    				"default" : "Maelstrom Arena",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Reach Winter",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you deal damage with a Cold Damage ability, you have a 8% chance to summon an ice pillar that deals 6020 Cold Damage to all enemies in a 3 meter radius. The ice pillar persists for 2 seconds and reduces the Movement Speed of all enemies within the radius by 60%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Archer's Mind",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "DSA",
+    "Location": {
+    				"default" : "DSA",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Bosmer",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 688 Weapon Critical",
     "i4": "Adds 688 Weapon Critical",
     "i5": "Increases your Critical Damage done by 5%. Increases your Critical Damage done by an additional 10% when attacking from Sneak or invisibility",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hunt Leader",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Maelstrom Arena",
+    "Location": {
+    				"default" : "Maelstrom Arena",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Malacath",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When your pets attack an enemy you have also attacked recently, you heal for 2433 Health and restore 1216 Stamina. This effect can occur once every 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Para Bellum",
     "Type": "Dungeon",
     "Pieces": "Medium",
-    "Location": "Maelstrom Arena",
+    "Location": {
+    				"default" : "Maelstrom Arena",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Trinimac",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 1062 Maximum Health",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "Gain a damage shield that absorbs 12040 damage if you have not taken any damage in the last 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Footman's Fortune",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "DSA",
+    "Location": {
+    				"default" : "DSA",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Orc",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "Increases the amount of damage you block by 8%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Glorious Defender",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Maelstrom Arena",
+    "Location": {
+    				"default" : "Maelstrom Arena",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Trinimac",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal damage with a Light or Heavy Attack, you have a 9% chance to gain 100% dodge chance against the next attack",
+    "url": "",
     "": ""
   },
   {
     "Name": "Permafrost (also VMA shield)",
     "Type": "Dungeon",
     "Pieces": "Heavy",
-    "Location": "Maelstrom Arena",
+    "Location": {
+    				"default" : "Maelstrom Arena",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Reach Winter",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "While you have a damage shield on you, your Health Recovery is increased by 885",
+    "url": "",
     "": ""
   },
   {
     "Name": "Destructive Mage",
     "Type": "Trial",
     "Pieces": "Light",
-    "Location": "HRC",
+    "Location": {
+    				"default" : "HRC",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you deal damage with a fully-charged Heavy Attack, you place a bomb on the enemy for 10 seconds. When another player hits the same enemy with a fully-charged Heavy Attack they detonate the bomb, dealing 7500 Magic Damage all enemies within 8 meters. This effect can occur once every 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Healing Mage",
     "Type": "Trial",
     "Pieces": "Light",
-    "Location": "AA",
+    "Location": {
+    				"default" : "AA",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 2% Healing Done",
     "i5": "When you use an area of effect heal ability, you reduce the Weapon Damage of all enemies within 10 meters of you by 430 for 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Wise Mage",
     "Type": "Trial",
     "Pieces": "Light",
-    "Location": "SO",
+    "Location": {
+    				"default" : "SO",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 688 Spell Critical",
     "i3": "Adds 688 Spell Critical",
     "i4": "Adds 129 Spell Damage",
     "i5": "Enemies you damage with fully-charged Heavy Attacks are afflicted with Minor Vulnerability for 10 seconds, increasing their damage taken by 8%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Poisonous Serpent",
     "Type": "Trial",
     "Pieces": "Medium",
-    "Location": "HRC",
+    "Location": {
+    				"default" : "HRC",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "When you deal damage with a Light or Heavy Attack against an enemy who has a Poison Damage ability on them, you have a 25% chance to deal an additional 6800 Poison Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Quick Serpent",
     "Type": "Trial",
     "Pieces": "Medium",
-    "Location": "AA",
+    "Location": {
+    				"default" : "AA",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "Reduces the costs of your Stamina abilities by 8%. When you kill an enemy, you gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Twice-Fanged Serpent",
     "Type": "Trial",
     "Pieces": "Medium",
-    "Location": "SO",
+    "Location": {
+    				"default" : "SO",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal damage, your Physical Penetration is increased by 1000 for 3 seconds, stacking up to 5 times",
+    "url": "",
     "": ""
   },
   {
     "Name": "Berserking Warrior",
     "Type": "Trial",
     "Pieces": "Heavy",
-    "Location": "HRC",
+    "Location": {
+    				"default" : "HRC",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal melee damage, your Critical Strike rating is increased by 400 for 5 seconds, stacking up to 5 times",
+    "url": "",
     "": ""
   },
   {
     "Name": "Defending Warrior",
     "Type": "Trial",
     "Pieces": "Heavy",
-    "Location": "AA",
+    "Location": {
+    				"default" : "AA",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1604 Maximum Health",
     "i5": "When you block an attack, you deal 4000 Magic Damage to all enemies within 10 meters of you and heal for 100% of the damage done. This effect can occur once every 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Immortal Warrior",
     "Type": "Trial",
     "Pieces": "Heavy",
-    "Location": "SO",
+    "Location": {
+    				"default" : "SO",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Celestial",
     "i1": "",
     "i2": "Adds 4% Healing Taken",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
     "i5": "When you die, you instead turn into a statue for 3 seconds. While a statue you are immune to all negative effects but can still be healed. This effect can occur once every 20 minutes",
+    "url": "",
     "": ""
   },
   {
     "Name": "Infallible Mage",
     "Type": "Trial",
     "Pieces": "Light",
-    "Location": "AA/HRC/SO",
+    "Location": {
+    				"default" : "",
+    				"EP" : "SO",
+    				"AD" : "AA",
+    				"DC" : "HRC"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 688 Spell Critical",
     "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%",
     "i4": "Adds 129 Spell Damage",
     "i5": "Your fully charged heavy attacks do an additional 903 damage.. Enemies you damage with fully charged Heavy Attacks are afflicted with Minor Vulnerability for 10 seconds, increasing their damage taken by 8%.. Adds 688 Spell Critical",
+    "url": "",
     "": ""
   },
   {
     "Name": "Moondancer",
     "Type": "Trial",
     "Pieces": "Light",
-    "Location": "Maw of Lorkhaj",
+    "Location": {
+    				"default" : "Maw of Lorkhaj",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dro-m’Athra",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you activate a synergy, you gain a shadow blessing that increases your Spell Damage by 448 or a lunar blessing that increases your Magicka Recovery by 448 for 30 seconds. You can only have one blessing active at a time",
+    "url": "",
     "": ""
   },
   {
     "Name": "Twilight Remedy",
     "Type": "Trial",
     "Pieces": "Light",
-    "Location": "Maw of Lorkhaj",
+    "Location": {
+    				"default" : "Maw of Lorkhaj",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dro-m’Athra",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%",
     "i4": "Adds 129 Spell Damage",
     "i5": "When an ally activates your synergy, they heal themselves for 18920 Health over 10 seconds and gain Minor Force, increasing their Critical Damage done by 12%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Roar of Alkosh",
     "Type": "Trial",
     "Pieces": "Medium",
-    "Location": "Maw of Lorkhaj",
+    "Location": {
+    				"default" : "Maw of Lorkhaj",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dro-m’Athra",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you activate a synergy, you send a shockwave from your position that deals 1720 Physical Damage and an additional 12040 Physical Damage over 10 seconds. Reduces the Physical and Spell Resistance of any enemy hit by 3010 for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Vicious Serpent",
     "Type": "Trial",
     "Pieces": "Medium",
-    "Location": "AA/HRC/SO",
+    "Location": {
+    				"default" : "",
+    				"EP" : "SO",
+    				"AD" : "AA",
+    				"DC" : "HRC"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Gain Minor Slayer at all times, increasing your damage done to Dungeon and Trial Monsters by 5%",
     "i4": "Adds 688 Weapon Critical",
     "i5": "Reduces the cost of your Stamina abilities by 8%.. When you kill an enemy, you restore 2150 Stamina and gain Major Expedition for 20 seconds, increasing your Movement Speed by 30%. Adds 129 Weapon Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Eternal Warrior",
     "Type": "Trial",
     "Pieces": "Heavy",
-    "Location": "AA/HRC/SO",
+    "Location": {
+    				"default" : "",
+    				"EP" : "SO",
+    				"AD" : "AA",
+    				"DC" : "HRC"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Yokudan",
     "i1": "",
     "i2": "Adds 4% Healing Taken",
     "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When you die, you instead turn into a statue for 3 seconds and gain 200 Ultimate. While a statue you are immune to all negative effects but can still be healed. This effect can occur once every 10 minutes. Adds 4% Healing Taken",
+    "url": "",
     "": ""
   },
   {
     "Name": "Lunar Bastion",
     "Type": "Trial",
     "Pieces": "Heavy",
-    "Location": "Maw of Lorkhaj",
+    "Location": {
+    				"default" : "Maw of Lorkhaj",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Dro-m’Athra",
     "i1": "",
     "i2": "Adds 4% Healing Taken",
     "i3": "Gain Minor Aegis at all times, reducing your damage taken from Dungeon and Trial Monsters by 5%",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When you activate a synergy, you create a lunar blessing underneath you for 10 seconds. The blessing grants a damage shield every 2 seconds that absorbs 2399 damage for you and your allies within 8 meters",
+    "url": "",
     "": ""
   },
   {
     "Name": "Grace of the Ancients",
     "Type": "PVP",
     "Pieces": "R/N/Wep",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Increases your Maximum Magicka by 4%",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Wrath of the Imperium",
     "Type": "PVP",
     "Pieces": "R/N/Wep",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 688 Spell Critical",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Almalexia's Mercy",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Spell Resistance",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "When you take damage, you have a 20% chance to heal you and your allies within 7 meters of you for 2429 Health. This effect can occur once every 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "The Arch-Mage",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you deal damage with a fully-charged Heavy Attack, you restore 834 Magicka",
+    "url": "",
     "": ""
   },
   {
     "Name": "Buffer of the Swift",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Reduces your damage taken from Players by 5%",
     "i5": "When you take damage from a spell, you have a 10% chance to gain a damage shield that absorbs 2580 damage for 6 seconds. This effect can occur once every 4 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Curse Eater",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Unused 18",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "Reduces the duration of all negative effects applied to you by 20%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Desert Rose",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you take damage, you have a 10% to restore 2408 Magicka. This effect can occur once every 1 second",
+    "url": "",
     "": ""
   },
   {
     "Name": "Light of Cyrodiil",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "While you are casting or channeling an ability, your damage taken is reduced by 15%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Robes of Alteration Mastery",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Cyrodiil - Cropsford",
+    "Location": {
+    				"default" : "Cyrodiil - Cropsford",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 688 Spell Critical",
     "i5": "Reduces the cost of all your abilities by 6%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Robes of Transmutation",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Rewards for the Worthy",
+    "Location": {
+    				"default" : "Rewards for the Worthy",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Abah's Watch",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 688 Spell Critical",
     "i5": "When you heal a target with a healing over time ability, grant them 1304 Critical Resistance for 20 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Vicious Death",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Rewards for the Worthy",
+    "Location": {
+    				"default" : "Rewards for the Worthy",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Abah's Watch",
     "i1": "",
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 688 Spell Critical",
     "i5": "When you kill a Player, they violently explode for 15815 Flame Damage to all other enemies in a 4 meter radius",
+    "url": "",
     "": ""
   },
   {
     "Name": "Eagle Eye",
     "Type": "PVP",
     "Pieces": "R/N/Wep",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Increases the range of your Bow abilities by 3 meters",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Vengeance Leech",
     "Type": "PVP",
     "Pieces": "R/N/Wep",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "When you kill an enemy, you heal for 1505 Health and restore 1505 Magicka and Stamina",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hawk's Eye",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Reduces the cost and increases the damage of your Bow abilities by 5%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Kyne's Kiss",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 688 Weapon Critical",
     "i5": "When you deal direct damage with a Bow ability, you have a 10% chance to heal for 1216 Health and restore 1216 Stamina",
+    "url": "",
     "": ""
   },
   {
     "Name": "Leki's Focus",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Rewards for the Worthy",
+    "Location": {
+    				"default" : "Rewards for the Worthy",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Abah's Watch",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "Reduces your damage taken from area of effect abilities by 25%, but the damage and healing of your own area of effect abilities is also reduced by 25%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Marksman's Crest",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Rewards for the Worthy",
+    "Location": {
+    				"default" : "Rewards for the Worthy",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Abah's Watch",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Weapon Damage",
     "i5": "Reduces the cost of your Stamina abilities by 5% and increases the damage of your Bow abilities against Players by 8%",
+    "url": "",
     "": ""
   },
   {
     "Name": "The Morag Tong",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal direct damage, you cause the enemy to take 10% more damage from all Poison Damage abilities for 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Sentry",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
     "i5": "Increases the radius you can detect Sneaking enemies by 50%. Increases your damage done to Sneaking enemeis by 20%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shadow Walker",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "While you are Sneaking or invisible and are not moving, heal for 2150 Health and restore 2150 Stamina every 1 second",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shield of the Valiant",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Reduces your damage taken from Players by 5%",
     "i5": "Reduces the cost of Break Free by 40%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Ward of Cyrodiil",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Cyrodiil - Bruma",
+    "Location": {
+    				"default" : "Cyrodiil - Bruma",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Increases your Mounted Movement Speed by 15%",
     "i4": "Adds 1064 Maximum Health",
     "i5": "Increases the amount of damage you block by 8%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Blessing of the Potentates",
     "Type": "PVP",
     "Pieces": "R/N/Wep",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Reduces the cost of your Ultimate abilites by 10%",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Deadly Strike",
     "Type": "PVP",
     "Pieces": "R/N/Wep",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 688 Weapon Critical",
     "i4": "",
     "i5": "",
+    "url": "",
     "": ""
   },
   {
     "Name": "Affliction",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "When you deal damage, you have a 50% chance to deal an additional 2838 Disease Damage. This effect can occur once every 4 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Alessian Order",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 4% Healing Taken",
     "i4": "Adds 1064 Maximum Health",
     "i5": "Increases the immunity to disabling effects after using Break Free by 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Bastion of the Heartland",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 4% Healing Taken",
     "i4": "Reduces your damage taken from Players by 5%",
     "i5": "Reduces your damage taken from Siege Weapons and Player Area of Effect abilities by 20%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Beckoning Steel",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1935 Spell Resistance",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "You have a 40% chance to intercept any projectile cast on an ally within 5 meters of you",
+    "url": "",
     "": ""
   },
   {
     "Name": "Crest of Cyrodiil",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 129 Weapon Damage",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
     "i5": "When you deal melee damage, you apply Major Defile to the enemy for 5 seconds, reducing their healing received by 30%. This effect can occur once every 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Elf Bane",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Spell Damage",
     "i4": "Adds 129 Spell Damage",
     "i5": "Increases the duration of your Flame Damage abilities by 2 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Fasalla's Guile",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Rewards for the Worthy",
+    "Location": {
+    				"default" : "Rewards for the Worthy",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Abah's Watch",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 4% Healing Taken",
     "i5": "When you take direct damage or damage from a ground-targeted attack, you reduce the attacker's healing received by 50% for 2 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Juggernaut",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1935 Physical Resistance",
     "i4": "Adds 1064 Maximum Health",
     "i5": "When you take damage while under 30% Health, heal for 18060 Health. This effect can occur once every 1 minute",
+    "url": "",
     "": ""
   },
   {
     "Name": "Ravager",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Cyrodiil - Vlastarus",
+    "Location": {
+    				"default" : "Cyrodiil - Vlastarus",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Ebony",
     "i1": "",
     "i2": "Adds 688 Weapon Critical",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal melee damage, you have a 8% chance to increase your Weapon Damage by 645 for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Warrior's Fury",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Rewards for the Worthy",
+    "Location": {
+    				"default" : "Rewards for the Worthy",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Abah's Watch",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you take Critical Damage, your Weapon Damage is increased by 30 for 6 seconds, stacking up to 25 times",
+    "url": "",
     "": ""
   },
   {
     "Name": "Galerion's Revenge",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Altmer",
     "i1": "",
     "i2": "Adds 688 Spell Critical",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you deal damage with a Light of Heavy Attack, you put a Mark of Revenge on the enemy for 15 seconds. After stacking 6 Marks of Revenge on an enemy they detonate for 4730 Magic Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Meritorious Service",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you case a Support ability, you increase the Physical and Spell Resistance of up to 4 friendly targets with 10 meters by 3010 for 2 minutes",
+    "url": "",
     "": ""
   },
   {
     "Name": "Phoenix",
     "Type": "PVP",
     "Pieces": "Light",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Magicka",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Spell Damage",
     "i5": "When you die, you instead become immune to all negative effects and healing for 3 seconds. When the effect ends, you heal for 17200 Health and explode for 8600 Flame Damage to all enemies within 8 meters. This effect can occur once every 10 minutes",
+    "url": "",
     "": ""
   },
   {
     "Name": "Powerful Assault",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you cast an Assault ability, you increase the Weapon and Spell Damage of up to 4 friendly targets within 10 meters by 164 for 15 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shield Breaker",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 129 Weapon Damage",
     "i5": "When you deal damage with a Light or Heavy Attack against a Player with a damage shield, you deal an additional 2150 Oblivion Damage to them",
+    "url": "",
     "": ""
   },
   {
     "Name": "Vicecanon of Venom",
     "Type": "PVP",
     "Pieces": "Medium",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Argonian",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 129 Stamina Recovery",
     "i5": "When you deal Critical Damage to an enemy from Sneak, you inject a leeching poison that deals 13760 Poison Damage over 15 seconds to them and heals you for 100% of the damage done",
+    "url": "",
     "": ""
   },
   {
     "Name": "Black Rose",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 967 Maximum Stamina",
     "i4": "Adds 967 Maximum Magicka",
     "i5": "Increases your Weapon and Spell Damage by 154. Increases the Magicka and Stamina restored from the Constitution passive ability by 40%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Reactive Armor",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Faction",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 1064 Maximum Health",
     "i5": "While you are affected by a disabling effect, your damage taken is reduced by 35%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Thews of the Harbinger",
     "Type": "PVP",
     "Pieces": "Heavy",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Nord",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 967 Maximum Stamina",
     "i5": "When you block a direct damage attack, you deal damage to your attacker equal to 4% of your current Health",
+    "url": "",
     "": ""
   },
   {
     "Name": "Imperial Physique",
     "Type": "PVP",
     "Pieces": "Any",
-    "Location": "Imperial City Sewers",
+    "Location": {
+    				"default" : "Imperial City Sewers",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "Order of the Hour",
     "i1": "",
     "i2": "Adds 129 Stamina Recovery",
     "i3": "Adds 129 Magicka Recovery",
     "i4": "Adds 129 Weapon Damage. Adds 129 Spell Damage",
     "i5": "While you are in Imperial City, you tap into the power of the Tel Var Stones you are carrying, increasing your Health, Magicka, and Stamina by 1032. While you have a 4x Tel Var Stone multiplier this effect is increased by 600%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Death's Wind",
     "Type": "Crafted 2 Traits",
     "Pieces": "Any",
-    "Location": "Auridon/Glenumbra/Stonefalls",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Stonefalls",
+    				"AD" : "Auridon",
+    				"DC" : "Glenumbra"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "Eastshore Islets Camp",
+    				"AD" : "Chill House",
+    				"DC" : "Armature's Upheaval"
+    			},
     "Style": "",
     "i1": "",
     "i2": "Adds 1935 Physical Resistance",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1064 Maximum Health",
     "i5": "If struck by a melee attack while below 35% Health, nearby enemies are knocked back and stunned for 4 seconds. This effect can only happen once every 30 seconds",
+    "url": "Online:Death%27s_Wind",
     "": ""
   },
   {
     "Name": "Night's Silence",
     "Type": "Crafted 2 Traits",
     "Pieces": "Any",
-    "Location": "Auridon/Glenumbra/Stonefalls",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Stonefalls",
+    				"AD" : "Auridon",
+    				"DC" : "Glenumbra"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2": "Adds 967 Maximum Stamina",
     "i3": "Adds 129 Stamina Recovery",
     "i4": "Adds 688 Weapon Critical",
     "i5": "Ignore Movement Speed penalty while Stealthing",
+    "url": "",
     "": ""
   },
   {
     "Name": "Ashen Grip",
     "Type": "Crafted 2 Traits",
     "Pieces": "Any",
-    "Location": "Auridon/Glenumbra/Stonefalls",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Stonefalls",
+    				"AD" : "Auridon",
+    				"DC" : "Glenumbra"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2": "Adds 1064 Maximum Health",
     "i3": "Adds 129 Weapon Damage",
     "i4": "Adds 688 Weapon Critical",
     "i5": "10% chance to breathe fire for 1397 Flame Damage on melee hits. This effect can occur once every 4 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Torug's Pact",
     "Type": "Crafted 3 Traits",
     "Pieces": "Any",
-    "Location": "",
+    "Location": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2": "Adds 129 Spell Damage",
     "i3": "Adds 1064 Maximum Health",
     "i4": "Adds 1935 Spell Resistance",
     "i5": "Reduce weapon enchantment’s internal cooldown by 1 second. Increases enchantment potency by 30%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Trial by Fire",
     "Type": "Crafted 3 Traits",
     "Pieces": "Any",
-    "Location": "Wrothgar",
+    "Location": {
+    				"default" : "Wrothgar",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 1935 Spell Resistance",
     "i4" : "Adds 4% Healing Taken",
     "i5" : "When you take elemental damage, gain 7727 Resistance to that element for 4 seconds. You can only be resistant to one element at a time",
+    "url": "",
     "": ""
   },
   {
     "Name": "Twilight's Embrace",
     "Type": "Crafted 3 Traits",
     "Pieces": "Any",
-    "Location": "Grahtwood/Stormhaven/Deshaan",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Deshaan",
+    				"AD" : "Grahtwood",
+    				"DC" : "Stormhaven"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 688 Spell Critical",
     "i4" : "Adds 129 Spell Damage",
     "i5" : "When you are healed, gain 10% additional healing",
+    "url": "",
     "": ""
   },
   {
     "Name": "Armor of the Seducer",
     "Type": "Crafted 3 Traits",
     "Pieces": "Any",
-    "Location": "Grahtwood/Stormhaven/Deshaan",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Deshaan",
+    				"AD" : "Grahtwood",
+    				"DC" : "Stormhaven"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2": "Adds 129 Magicka Recovery",
     "i3": "Adds 967 Maximum Magicka",
     "i4": "Adds 129 Magicka Recovery",
     "i5": "Reduce the Magicka cost of abilities by 8%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Magnus' Gift",
     "Type": "Crafted 4 Traits",
     "Pieces": "Any",
-    "Location": "Greenshade/Rivenspire/Shadowfen",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Shadowfen",
+    				"AD" : "Greenshade",
+    				"DC" : "Rivenspire"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 967 Maximum Magicka",
     "i3" : "Adds 129 Magicka Recovery",
     "i4" : "Adds 129 Spell Damage",
     "i5" : "8% Chance to negate the Magicka cost of a spell",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hist Bark",
     "Type": "Crafted 4 Traits",
     "Pieces": "Any",
-    "Location": "Greenshade/Rivenspire/Shadowfen",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Shadowfen",
+    				"AD" : "Greenshade",
+    				"DC" : "Rivenspire"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "1935 Physical Resistance",
     "i3" : "Adds 129 Health Recovery",
     "i4" : "Adds 1064 Maximum Health",
     "i5" : "Gain Major Evasion while blocking, increasing Dodge chance by 20%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Whitestrake's Retribution",
     "Type": "Crafted 4 Traits",
     "Pieces": "Any",
-    "Location": "Greenshade/Rivenspire/Shadowfen",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Shadowfen",
+    				"AD" : "Greenshade",
+    				"DC" : "Rivenspire"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 1935 Spell Resistance",
     "i4" : "Adds 129 Health Recovery",
     "i5" : "If wearers Health is below 30%, gain a 10320 Damage Shield for 8 seconds. This effect can occur no more than once per 15 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Alessia’s Bulwark",
     "Type": "Crafted 5 Traits",
     "Pieces": "Any",
-    "Location": "Malabal Tor/Alki’r Desert/Eastmarch",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Eastmarch",
+    				"AD" : "Malabal Tor",
+    				"DC" : "Alki’r Desert"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1935 Physical Resistance",
     "i3" : "Adds 1064 Maximum Health",
     "i4" : "Adds 1935 Physical Resistance",
     "i5" : "Being damaged by a melee attack has a 15% chance to reduce attacker’s Weapon Damage by 10% for 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Kvatch Gladiator",
     "Type": "Crafted 5 Traits",
     "Pieces": "Any",
-    "Location": "Gold Coast",
+    "Location": {
+    				"default" : "Gold Coast",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 688 Weapon Critical",
     "i3" : "Adds 688 Weapon Critical",
     "i4" : "Adds 129 Weapon Damage",
     "i5" : "Your Light and Heavy Attacks deal an additional 690 Weapon Damage to targets below 25% Health",
+    "url": "",
     "": ""
   },
   {
     "Name": "Noble’s Conquest",
     "Type": "Crafted 5 Traits",
     "Pieces": "Any",
-    "Location": "Imperial City – Nobles District",
+    "Location": {
+    				"default" : "Imperial City – Nobles District",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 967 Maximum Stamina",
     "i4" : "Adds 4% Healing Taken",
     "i5" : "Interrupting an enemy causes them to take 8% increased damage for 5 seconds and heals you for 4300",
+    "url": "",
     "": ""
   },
   {
     "Name": "Song of Lamae",
     "Type": "Crafted 5 Traits",
     "Pieces": "Any",
-    "Location": "Malabal Tor/Alki’r Desert/Eastmarch",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Eastmarch",
+    				"AD" : "Malabal Tor",
+    				"DC" : "Alki’r Desert"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1935 Spell Resistance",
     "i3" : "Adds 1935 Physical Resistance",
     "i4" : "Adds 1064 Maximum Health",
     "i5" : "When Health drops below 30%, deal 3870 Magic Damage to the attacker and recover 3870 Health. This can only happen once every 30 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Tava’s Favor",
     "Type": "Crafted 5 Traits",
     "Pieces": "Any",
-    "Location": "Hew’s Bane",
+    "Location": {
+    				"default" : "Hew’s Bane",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 129 Magicka Recovery",
     "i5" : "When you dodge an attack you receive the blessing of Tava and gain 9 Ultimate over 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Vampire’s Kiss",
     "Type": "Crafted 5 Traits",
     "Pieces": "Any",
-    "Location": "Malabal Tor/Alki’r Desert/Eastmarch",
+    "Location": {
+    				"default" : "",
+    				"EP" : "Eastmarch",
+    				"AD" : "Malabal Tor",
+    				"DC" : "Alki’r Desert"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 967 Maximum Stamina",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 688 Weapon Critical",
     "i5" : "Bow attacks have a 10% chance to restore 1216 Stamina and Health. This effect will not proc off damage over time attacks",
+    "url": "",
     "": ""
   },
   {
     "Name": "Hunding’s Rage",
     "Type": "Crafted 6 Traits",
     "Pieces": "Any",
-    "Location": "Reapers March/Bangkorai/The Rift",
+    "Location": {
+    				"default" : "",
+    				"EP" : "The Rift",
+    				"AD" : "Reapers March",
+    				"DC" : "Bangkorai"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 688 Weapon Critical",
     "i3" : "Adds 967 Maximum Stamina",
     "i4" : "Adds 688 Weapon Critical",
     "i5" : "Adds 299 Weapon Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Law of Julianos",
     "Type": "Crafted 6 Traits",
     "Pieces": "Any",
-    "Location": "Wrothgar",
+    "Location": {
+    				"default" : "Wrothgar",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 688 Spell Critical",
     "i3" : "Adds 967 Maximum Magicka",
     "i4" : "Adds 688 Spell Critical",
     "i5" : "Adds 299 Spell Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Night Mother’s Gaze",
     "Type": "Crafted 6 Traits",
     "Pieces": "Any",
-    "Location": "Reapers March/Bangkorai/The Rift",
+    "Location": {
+    				"default" : "",
+    				"EP" : "The Rift",
+    				"AD" : "Reapers March",
+    				"DC" : "Bangkorai"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 688 Weapon Critical",
     "i3" : "Adds 129 Weapon Damage",
     "i4" : "Adds 688 Weapon Critical",
     "i5" : "Critical attacks also reduce the target’s Physical Resistance by 2580 for 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Willow’s Path",
     "Type": "Crafted 6 Traits",
     "Pieces": "Any",
-    "Location": "Reapers March/Bangkorai/The Rift",
+    "Location": {
+    				"default" : "",
+    				"EP" : "The Rift",
+    				"AD" : "Reapers March",
+    				"DC" : "Bangkorai"
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 129 Magicka Recovery",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 129 Health Recovery",
     "i5" : "Increase all recovery in combat by 15%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Clever Alchemist",
     "Type": "Crafted 7 Traits",
     "Pieces": "Any",
-    "Location": "Hew's Bane",
+    "Location": {
+    				"default" : "Hew's Bane",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 1064 Maximum Health",
     "i4" : "Adds 129 Weapon Damage. Adds 129 Spell Damage",
     "i5" : "When you drink a potion you feel a rush of energy, gaining 661 Weapon and Spell Damage for 15 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Redistributor",
     "Type": "Crafted 7 Traits",
     "Pieces": "Any",
-    "Location": "Imperial City – Arboretum District",
+    "Location": {
+    				"default" : "Imperial City – Arboretum District",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 967 Maximum Stamina",
     "i4" : "Adds 967 Maximum Magicka",
     "i5" : "When you heal yourself while at full Health, heal a nearby ally for 2347. This effect can happen once every 3 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Varen’s Legacy",
     "Type": "Crafted 7 Traits",
     "Pieces": "Any",
-    "Location": "Gold Coast",
+    "Location": {
+    				"default" : "Gold Coast",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 967 Maximum Stamina",
     "i4" : "Adds 4% Healing Taken",
     "i5" : "10% chance on Block that the next Area of Effect Attack you use will deal an additional 3450 Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Eyes of Mara",
     "Type": "Crafted 8 Traits",
     "Pieces": "Any",
-    "Location": "Eyevea",
+    "Location": {
+    				"default" : "Eyevea",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 129 Magicka Recovery",
     "i3" : "Adds 967 Maximum Magicka",
     "i4" : "Adds 129 Spell Damage",
     "i5" : "Reduce the Magicka cost of restoration staff abilities by 12%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Kagrenac’s Hope",
     "Type": "Crafted 8 Traits",
     "Pieces": "Any",
-    "Location": "Earth Forge",
+    "Location": {
+    				"default" : "Earth Forge",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 967 Maximum Magicka",
     "i3" : "Adds 129 Magicka Recovery",
     "i4" : "Adds 1064 Maximum Health",
     "i5" : "Decrease time to resurrect an ally by 25% and restore 1720. Also, decrease time to resurrect an ally by 25% and restore 1720 Magicka when you successfully resurrect an ally. Adds 222 Spell Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Oblivion’s Foe",
     "Type": "Crafted 8 Traits",
     "Pieces": "Any",
-    "Location": "Coldharbor",
+    "Location": {
+    				"default" : "Coldharbor",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 129 Health Recovery",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 129 Magicka Recovery",
     "i5" : "Increase the damage of your Soul Trap abilities by 100%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Orgnum’s Scales",
     "Type": "Crafted 8 Traits",
     "Pieces": "Any",
-    "Location": "Earth Forge",
+    "Location": {
+    				"default" : "Earth Forge",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 129 Health Recovery",
     "i3" : "Adds 1064 Maximum Health",
     "i4" : "Adds 1064 Maximum Health",
     "i5" : "If below 60% Health, increase Health Recovery by 50%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shalidor’s Curse",
     "Type": "Crafted 8 Traits",
     "Pieces": "Any",
-    "Location": "Eyevea",
+    "Location": {
+    				"default" : "Eyevea",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 4% Healing Taken",
     "i4" : "Adds 1064 Maximum Health",
     "i5" : "While you are below 50% Health, light attacks restore 559 Health",
+    "url": "",
     "": ""
   },
   {
     "Name": "Spectre’s Eye",
     "Type": "Crafted 8 Traits",
     "Pieces": "Any",
-    "Location": "Coldharbor",
+    "Location": {
+    				"default" : "Coldharbor",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1935 Physical Resistance",
     "i3" : "Adds 967 Maximum Magicka",
     "i4" : "Adds 1064 Maximum Health",
     "i5" : "Gain Major Evasion for 3 seconds after casting a spell that costs Magicka. This effect can apply once every 6 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Way of the Arena",
     "Type": "Crafted 8 Traits",
     "Pieces": "Any",
-    "Location": "Craglorn",
+    "Location": {
+    				"default" : "Craglorn",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 967 Maximum Magicka",
     "i4" : "Adds 967 Maximum Stamina",
     "i5" : "Reduce cost of Break Free by 40%",
+    "url": "",
     "": ""
   },
   {
     "Name": "Armor Master",
     "Type": "Crafted 9 Traits",
     "Pieces": "Any",
-    "Location": "Imperial City – Memorial District",
+    "Location": {
+    				"default" : "Imperial City – Memorial District",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 1935 Physical Resistance",
     "i4" : "Adds 1935 Spell Resistance",
     "i5" : "While you have an Armor Ability slotted, increase your Maximum Health by 5%. When you activate an Armor Ability you gain 5332 Physical and Spell Resistance for 10 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Eternal Hunt",
     "Type": "Crafted 9 Traits",
     "Pieces": "Any",
-    "Location": "Hew's Bane",
+    "Location": {
+    				"default" : "Hew's Bane",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 967 Maximum Stamina",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 129 Stamina Recovery",
     "i5" : "When you use Roll Dodge you leave behind a rune that detonates when enemies come close, dealing 7701 Poison Damage and immobilizing them for 1.5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Morkuldin",
     "Type": "Crafted 9 Traits",
     "Pieces": "Any",
-    "Location": "Wrothgar",
+    "Location": {
+    				"default" : "Wrothgar",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 967 Maximum Stamina",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 129 Weapon Damage",
     "i5" : "10% chance when using a Light or Heavy Attack to summon an animated weapon to attack your enemies for 15 seconds. The animated weapon’s basic attacks deal 4313 Physical Damage",
+    "url": "",
     "": ""
   },
   {
     "Name": "Pelinal’s Aptitude",
     "Type": "Crafted 9 Traits",
     "Pieces": "Any",
-    "Location": "Gold Coast",
+    "Location": {
+    				"default" : "Gold Coast",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 129 Magicka Recovery",
     "i5" : "Your Weapon Damage and Spell Damage both become the highest of the two values",
+    "url": "",
     "": ""
   },
   {
     "Name": "Twice-Born Star",
     "Type": "Crafted 9 Traits",
     "Pieces": "Any",
-    "Location": "Craglorn",
+    "Location": {
+    				"default" : "Craglorn",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Maximum Health",
     "i3" : "Adds 967 Maximum Stamina",
     "i4" : "Adds 967 Maximum Magicka",
     "i5" : "Allows you to have two Mundus Stone Boons at the same time",
+    "url": "",
     "": ""
   },
   {
     "Name": "Assassin's Guile (coming with Morrowind)",
     "Type": "Crafted 3 Traits",
     "Pieces": "Any",
-    "Location": "Vvardenfell",
+    "Location": {
+    				"default" : "Vvardenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 688 Spell Critical",
     "i3" : "Adds 688 Weapon Critical",
     "i4" : "Adds 129 Spell Damage and Weapon Damage",
     "i5" : "Increases the duration of your alchemical poisons by 4 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "Daedric Trickery (coming with Morrowind)",
     "Type": "Crafted 8 Traits",
     "Pieces": "Any",
-    "Location": "Vvardenfell",
+    "Location": {
+    				"default" : "Vvardenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Max Health",
     "i3" : "Adds 967 Max Stamina",
     "i4" : "Adds 967 Max Magicka",
     "i5" : "While in combat you gain one of 5 random Major Buffs for 10 seconds every 20 seconds. Eligible buffs are Expedition, Protection, Mending, Heroism or Vitality",
+    "url": "",
     "": ""
   },
   {
     "Name": "Shacklebreaker (coming with Morrowind)",
     "Type": "Crafted 6 Traits",
     "Pieces": "Any",
-    "Location": "Vvardenfell",
+    "Location": {
+    				"default" : "Vvardenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 129 Weapon Damage",
     "i3" : "Adds 129 Spell Damage",
     "i4" : "Adds 129 Magicka Recovery and Stamina Recovery",
     "i5" : "Adds 2000 Max Magicka and Max Stamina",
+    "url": "",
     "": ""
   },
   {
     "Name": "Infector (coming with Morrowind)",
     "Type": "Overland",
     "Pieces": "All",
-    "Location": "Vvardenfell",
+    "Location": {
+    				"default" : "Vvardenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 129 Weapon Damage",
     "i3" : "Adds 688 Weapon Critical",
     "i4" : "Adds 688 Weapon Critical",
     "i5" : "When you deal Critical Damage, you have an 8% chance to summon a Hunger that spews poison to all enemies in front of it, dealing 9999 Poison Damage and stunning enemies hit for 5 seconds. This effect can occur once every 5 seconds",
+    "url": "",
     "": ""
   },
   {
     "Name": "War Maiden (coming with Morrowind)",
     "Type": "Overland",
     "Pieces": "All",
-    "Location": "Vvardenfell",
+    "Location": {
+    				"default" : "Vvardenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Max Health",
     "i3" : "Adds 967 Max Magicka",
     "i4" : "Adds 129 Spell Damage",
     "i5" : "Adds 400 Spell Damage to your Magic Damage abilities",
+    "url": "",
     "": ""
   },
   {
     "Name": "Warrior-Poet (coming with Morrowind)",
     "Type": "Overland",
     "Pieces": "All",
-    "Location": "Vvardenfell",
+    "Location": {
+    				"default" : "Vvardenfell",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Max Health",
@@ -3409,117 +6552,225 @@
     "Name": "Automated Defense (coming with Morrowind)",
     "Type": "Trial",
     "Pieces": "",
-    "Location": "Halls of Fabrication",
+    "Location": {
+    				"default" : "Halls of Fabrication",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Max Health",
     "i3" : "Gain Minor Slayer at all times",
     "i4" : "Adds 4% Healing Taken",
     "i5" : "When you use an Ultimate ability, you and the closest 2 allies within 28 meters of you gain Major Aegis for 10 seconds, reducing your damage taken from Dungeons and Trials Monsters by 15%",
+    "url": "",
     "": ""
   	},
   {
     "Name": "Inventor's Guard (coming with Morrowind)",
     "Type": "Trial",
     "Pieces": "",
-    "Location": "Halls of Fabrication",
+    "Location": {
+    				"default" : "Halls of Fabrication",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 129 Magicka Recovery",
     "i3" : "Gain Minor Slayer at all times",
     "i4" : "Adds 2% Healing Done",
     "i5" : "When you use an Ultimate ability, you and the closest 2 allies within 28 meters of you gain Major Aegis for 10 seconds, reducing your damage taken from Dungeons and Trials Monsters by 15%",
+    "url": "",
     "": ""
   	},
   {
     "Name": "Master Architect (coming with Morrowind)",
     "Type": "Trial",
     "Pieces": "",
-    "Location": "Halls of Fabrication",
+    "Location": {
+    				"default" : "Halls of Fabrication",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 967 Max Magicka",
     "i3" : "Gain Minor Slayer at all times",
     "i4" : "Adds 129 Spell Damage",
     "i5" : "When you use an Ultimate ability, you and the closest 2 allies within 28 meters of you gain Major Slayer for 10 seconds, increasing your damage done to Dungeons and Trials Monsters by 15%",
+    "url": "",
     "": ""
   	},
   {
     "Name": "War Machine (coming with Morrowind)",
     "Type": "Trial",
     "Pieces": "",
-    "Location": "Halls of Fabrication",
+    "Location": {
+    				"default" : "Halls of Fabrication",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 967 Max Stamina",
     "i3" : "Gain Minor Slayer at all times",
     "i4" : "Adds 129 Weapon Damage",
     "i5" : "When you use an Ultimate ability, you and the closest 2 allies within 28 meters of you gain Major Slayer for 10 seconds, increasing your damage done to Dungeons and Trials Monsters by 15%",
+    "url": "",
     "": ""
   	},
   {
     "Name": "Coward's Gear (coming with Morrowind)",
     "Type": "PVP",
     "Pieces": "",
-    "Location": "Battleground",
+    "Location": {
+    				"default" : "Battleground",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Max Health",
     "i3" : "Adds 129 Stamina Recovery",
     "i4" : "Adds 129 Stamina Recovery",
     "i5" : "While Sprinting you gain Major Expedition and Major Protection, increasing your Movement Speed and reducing your damage taken by 30%",
+    "url": "",
     "": ""
   	},
   {
     "Name": "Knight Slayer (coming with Morrowind)",
     "Type": "PVP",
     "Pieces": "",
-    "Location": "Battleground",
+    "Location": {
+    				"default" : "Battleground",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 967 Max Magicka",
     "i3" : "Adds 129 Spell Damage",
     "i4" : "Adds 1064 Max Health",
     "i5" : "Your fully-charged Heavy Attacks against Players deal and additional 10% of their Max Health as Oblivion Damage",
+    "url": "",
     "": ""
   	},
   {
     "Name": "Impregnable Armor (coming with Morrowind)",
     "Type": "PVP",
     "Pieces": "",
-    "Location": "Battleground",
+    "Location": {
+    				"default" : "Battleground",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Max Health",
     "i3" : "Adds 967 Max Stamina",
     "i4" : "Adds 967 Max Magicka",
     "i5" : "Adds 2500 Critical Resistance",
+    "url": "",
     "": ""
   	},
   {
     "Name": "Vanguard's challenge (coming with Morrowind)",
     "Type": "PVP",
     "Pieces": "",
-    "Location": "Battleground",
+    "Location": {
+    				"default" : "Battleground",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Max Health",
     "i3" : "Adds 1064 Max Health",
     "i4" : "Adds 4% Healing Taken",
     "i5" : "When you taunt an enemy Player, they deal 50% less damage to all other Players, but 100% more damage to you for 15 seconds",
+    "url": "",
     "": ""
   	},
   {
     "Name": "Wizard's Riposte (coming with Morrowind)",
     "Type": "PVP",
     "Pieces": "",
-    "Location": "Battleground",
+    "Location": {
+    				"default" : "Battleground",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
+    "LocationDetail": {
+    				"default" : "",
+    				"EP" : "",
+    				"AD" : "",
+    				"DC" : ""
+    			},
     "Style": "",
     "i1": "",
     "i2" : "Adds 1064 Max Health",
     "i3" : "Adds 129 Spell Damage",
     "i4" : "Adds 129 Magicka Recovery",
     "i5" : "When you take Critical Damage, you apply Minor Maim to the enemy for 15 seconds, reducing their damage done by 15%",
+    "url": "",
     "": ""
   	}
   

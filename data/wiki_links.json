@@ -1,0 +1,614 @@
+{  
+      "zones":{  
+         "3252":{  
+            "pageid":3252,
+            "ns":130,
+            "title":"Black Marsh"
+         },
+         "12713":{  
+            "pageid":12713,
+            "ns":130,
+            "title":"Colovia"
+         },
+         "3255":{  
+            "pageid":3255,
+            "ns":130,
+            "title":"Elsweyr"
+         },
+         "3257":{  
+            "pageid":3257,
+            "ns":130,
+            "title":"Hammerfell"
+         },
+         "3256":{  
+            "pageid":3256,
+            "ns":130,
+            "title":"High Rock"
+         },
+         "20890":{  
+            "pageid":20890,
+            "ns":130,
+            "title":"Iliac Bay"
+         },
+         "202186":{  
+            "pageid":202186,
+            "ns":130,
+            "title":"Khefrem"
+         },
+         "3258":{  
+            "pageid":3258,
+            "ns":130,
+            "title":"Morrowind"
+         },
+         "3260":{  
+            "pageid":3260,
+            "ns":130,
+            "title":"Skyrim"
+         },
+         "44706":{  
+            "pageid":44706,
+            "ns":130,
+            "title":"Summerset Isles"
+         },
+         "3261":{  
+            "pageid":3261,
+            "ns":130,
+            "title":"Valenwood"
+         },
+         "190455":{  
+            "pageid":190455,
+            "ns":144,
+            "title":"Abecean Sea"
+         },
+         "186322":{  
+            "pageid":186322,
+            "ns":144,
+            "title":"Adventure Zones"
+         },
+         "170776":{  
+            "pageid":170776,
+            "ns":144,
+            "title":"Alcaire"
+         },
+         "125339":{  
+            "pageid":125339,
+            "ns":144,
+            "title":"Aldmeri Dominion"
+         },
+         "170969":{  
+            "pageid":170969,
+            "ns":144,
+            "title":"Aldmeri Territory"
+         },
+         "157814":{  
+            "pageid":157814,
+            "ns":144,
+            "title":"Alik'r Desert"
+         },
+         "157962":{  
+            "pageid":157962,
+            "ns":144,
+            "title":"Alliance War"
+         },
+         "157314":{  
+            "pageid":157314,
+            "ns":144,
+            "title":"Auridon"
+         },
+         "158067":{  
+            "pageid":158067,
+            "ns":144,
+            "title":"Bal Foyen"
+         },
+         "157877":{  
+            "pageid":157877,
+            "ns":144,
+            "title":"Bangkorai"
+         },
+         "204432":{  
+            "pageid":204432,
+            "ns":144,
+            "title":"Battle Leveling"
+         },
+         "157322":{  
+            "pageid":157322,
+            "ns":144,
+            "title":"Betnikh"
+         },
+         "170939":{  
+            "pageid":170939,
+            "ns":144,
+            "title":"Black Garrison"
+         },
+         "157321":{  
+            "pageid":157321,
+            "ns":144,
+            "title":"Bleakrock Isle"
+         },
+         "170773":{  
+            "pageid":170773,
+            "ns":144,
+            "title":"Boralis"
+         },
+         "170943":{  
+            "pageid":170943,
+            "ns":144,
+            "title":"Broken Coast"
+         },
+         "186216":{  
+            "pageid":186216,
+            "ns":144,
+            "title":"Cadwell's Almanac"
+         },
+         "170548":{  
+            "pageid":170548,
+            "ns":144,
+            "title":"Calambar"
+         },
+         "170770":{  
+            "pageid":170770,
+            "ns":144,
+            "title":"Cambray Hills"
+         },
+         "204941":{  
+            "pageid":204941,
+            "ns":144,
+            "title":"Central Wrothgar"
+         },
+         "195606":{  
+            "pageid":195606,
+            "ns":144,
+            "title":"Champion"
+         },
+         "125345":{  
+            "pageid":125345,
+            "ns":144,
+            "title":"Coldharbour"
+         },
+         "168702":{  
+            "pageid":168702,
+            "ns":144,
+            "title":"Craglorn"
+         },
+         "195174":{  
+            "pageid":195174,
+            "ns":144,
+            "title":"Crown Store"
+         },
+         "156620":{  
+            "pageid":156620,
+            "ns":144,
+            "title":"Cyrodiil"
+         },
+         "170936":{  
+            "pageid":170936,
+            "ns":144,
+            "title":"Daen Seeth"
+         },
+         "170771":{  
+            "pageid":170771,
+            "ns":144,
+            "title":"Daenia"
+         },
+         "125340":{  
+            "pageid":125340,
+            "ns":144,
+            "title":"Daggerfall Covenant"
+         },
+         "170972":{  
+            "pageid":170972,
+            "ns":144,
+            "title":"Daggerfall Territory"
+         },
+         "170559":{  
+            "pageid":170559,
+            "ns":144,
+            "title":"Dawnmead"
+         },
+         "157924":{  
+            "pageid":157924,
+            "ns":144,
+            "title":"Deshaan"
+         },
+         "170554":{  
+            "pageid":170554,
+            "ns":144,
+            "title":"Drowned Coast"
+         },
+         "204942":{  
+            "pageid":204942,
+            "ns":144,
+            "title":"Eastern Wrothgar"
+         },
+         "157753":{  
+            "pageid":157753,
+            "ns":144,
+            "title":"Eastmarch"
+         },
+         "125341":{  
+            "pageid":125341,
+            "ns":144,
+            "title":"Ebonheart Pact"
+         },
+         "170974":{  
+            "pageid":170974,
+            "ns":144,
+            "title":"Ebonheart Territory"
+         },
+         "148582":{  
+            "pageid":148582,
+            "ns":144,
+            "title":"Elden Root"
+         },
+         "170762":{  
+            "pageid":170762,
+            "ns":144,
+            "title":"Ephesus"
+         },
+         "170774":{  
+            "pageid":170774,
+            "ns":144,
+            "title":"Eyebright Feld"
+         },
+         "170763":{  
+            "pageid":170763,
+            "ns":144,
+            "title":"Fallen Wastes"
+         },
+         "160885":{  
+            "pageid":160885,
+            "ns":144,
+            "title":"Firsthold"
+         },
+         "170940":{  
+            "pageid":170940,
+            "ns":144,
+            "title":"Fist of Stone"
+         },
+         "170823":{  
+            "pageid":170823,
+            "ns":144,
+            "title":"Frostwater Tundra"
+         },
+         "170777":{  
+            "pageid":170777,
+            "ns":144,
+            "title":"Gavaudon"
+         },
+         "170824":{  
+            "pageid":170824,
+            "ns":144,
+            "title":"Giant's Run"
+         },
+         "157931":{  
+            "pageid":157931,
+            "ns":144,
+            "title":"Glenumbra"
+         },
+         "204943":{  
+            "pageid":204943,
+            "ns":144,
+            "title":"Gold Coast"
+         },
+         "157315":{  
+            "pageid":157315,
+            "ns":144,
+            "title":"Grahtwood"
+         },
+         "170555":{  
+            "pageid":170555,
+            "ns":144,
+            "title":"Green's Marrow"
+         },
+         "170551":{  
+            "pageid":170551,
+            "ns":144,
+            "title":"Green Hall"
+         },
+         "157316":{  
+            "pageid":157316,
+            "ns":144,
+            "title":"Greenshade"
+         },
+         "206658":{  
+            "pageid":206658,
+            "ns":144,
+            "title":"Hew's Bane"
+         },
+         "170756":{  
+            "pageid":170756,
+            "ns":144,
+            "title":"Hollow Wastes"
+         },
+         "170825":{  
+            "pageid":170825,
+            "ns":144,
+            "title":"Icewind Peaks"
+         },
+         "131938":{  
+            "pageid":131938,
+            "ns":144,
+            "title":"Imperial"
+         },
+         "169689":{  
+            "pageid":169689,
+            "ns":144,
+            "title":"Imperial City"
+         },
+         "170557":{  
+            "pageid":170557,
+            "ns":144,
+            "title":"Jodewood"
+         },
+         "131934":{  
+            "pageid":131934,
+            "ns":144,
+            "title":"Khajiit"
+         },
+         "157317":{  
+            "pageid":157317,
+            "ns":144,
+            "title":"Khenarthi's Roost"
+         },
+         "170772":{  
+            "pageid":170772,
+            "ns":144,
+            "title":"King's Guard"
+         },
+         "170820":{  
+            "pageid":170820,
+            "ns":144,
+            "title":"Lagomere"
+         },
+         "170933":{  
+            "pageid":170933,
+            "ns":144,
+            "title":"Leafwater"
+         },
+         "170549":{  
+            "pageid":170549,
+            "ns":144,
+            "title":"Lluvamir"
+         },
+         "170552":{  
+            "pageid":170552,
+            "ns":144,
+            "title":"Long Coast"
+         },
+         "188411":{  
+            "pageid":188411,
+            "ns":144,
+            "title":"Lower Craglorn"
+         },
+         "157319":{  
+            "pageid":157319,
+            "ns":144,
+            "title":"Malabal Tor"
+         },
+         "136469":{  
+            "pageid":136469,
+            "ns":144,
+            "title":"Maormer"
+         },
+         "170778":{  
+            "pageid":170778,
+            "ns":144,
+            "title":"Menevia"
+         },
+         "125343":{  
+            "pageid":125343,
+            "ns":144,
+            "title":"Molag Bal"
+         },
+         "225988":{  
+            "pageid":225988,
+            "ns":144,
+            "title":"Morrowind"
+         },
+         "170764":{  
+            "pageid":170764,
+            "ns":144,
+            "title":"Mournoth"
+         },
+         "186041":{  
+            "pageid":186041,
+            "ns":144,
+            "title":"Murkmire"
+         },
+         "170760":{  
+            "pageid":170760,
+            "ns":144,
+            "title":"Myrkwasa"
+         },
+         "170558":{  
+            "pageid":170558,
+            "ns":144,
+            "title":"Northern Woods"
+         },
+         "211266":{  
+            "pageid":211266,
+            "ns":144,
+            "title":"One Tamriel"
+         },
+         "149873":{  
+            "pageid":149873,
+            "ns":144,
+            "title":"Online"
+         },
+         "147236":{  
+            "pageid":147236,
+            "ns":144,
+            "title":"Places"
+         },
+         "170930":{  
+            "pageid":170930,
+            "ns":144,
+            "title":"Ragged Hills"
+         },
+         "157320":{  
+            "pageid":157320,
+            "ns":144,
+            "title":"Reaper's March"
+         },
+         "170821":{  
+            "pageid":170821,
+            "ns":144,
+            "title":"Redolent Loam"
+         },
+         "170934":{  
+            "pageid":170934,
+            "ns":144,
+            "title":"Reticulated Spine"
+         },
+         "157933":{  
+            "pageid":157933,
+            "ns":144,
+            "title":"Rivenspire"
+         },
+         "156032":{  
+            "pageid":156032,
+            "ns":144,
+            "title":"Shadowfen"
+         },
+         "170942":{  
+            "pageid":170942,
+            "ns":144,
+            "title":"Shrouded Plain"
+         },
+         "170822":{  
+            "pageid":170822,
+            "ns":144,
+            "title":"Siltreen"
+         },
+         "170945":{  
+            "pageid":170945,
+            "ns":144,
+            "title":"Silvenar Vale"
+         },
+         "170931":{  
+            "pageid":170931,
+            "ns":144,
+            "title":"Smokefrost Peaks"
+         },
+         "157938":{  
+            "pageid":157938,
+            "ns":144,
+            "title":"Stonefalls"
+         },
+         "170932":{  
+            "pageid":170932,
+            "ns":144,
+            "title":"Stony Basin"
+         },
+         "157934":{  
+            "pageid":157934,
+            "ns":144,
+            "title":"Stormhaven"
+         },
+         "154336":{  
+            "pageid":154336,
+            "ns":144,
+            "title":"Stros M'Kai"
+         },
+         "170486":{  
+            "pageid":170486,
+            "ns":144,
+            "title":"Subzones"
+         },
+         "188458":{  
+            "pageid":188458,
+            "ns":144,
+            "title":"Tamriel"
+         },
+         "170553":{  
+            "pageid":170553,
+            "ns":144,
+            "title":"Tarlain Heights"
+         },
+         "157937":{  
+            "pageid":157937,
+            "ns":144,
+            "title":"The Rift"
+         },
+         "160998":{  
+            "pageid":160998,
+            "ns":144,
+            "title":"The Wailing Prison"
+         },
+         "170761":{  
+            "pageid":170761,
+            "ns":144,
+            "title":"Tigonus"
+         },
+         "201312":{  
+            "pageid":201312,
+            "ns":144,
+            "title":"Unzoned"
+         },
+         "188412":{  
+            "pageid":188412,
+            "ns":144,
+            "title":"Upper Craglorn"
+         },
+         "170550":{  
+            "pageid":170550,
+            "ns":144,
+            "title":"Vafe"
+         },
+         "170937":{  
+            "pageid":170937,
+            "ns":144,
+            "title":"Varanis"
+         },
+         "170935":{  
+            "pageid":170935,
+            "ns":144,
+            "title":"Venomous Fens"
+         },
+         "197509":{  
+            "pageid":197509,
+            "ns":144,
+            "title":"Veteran"
+         },
+         "213737":{  
+            "pageid":213737,
+            "ns":144,
+            "title":"Vvardenfell"
+         },
+         "204940":{  
+            "pageid":204940,
+            "ns":144,
+            "title":"Western Wrothgar"
+         },
+         "170775":{  
+            "pageid":170775,
+            "ns":144,
+            "title":"Westmark Moor"
+         },
+         "170556":{  
+            "pageid":170556,
+            "ns":144,
+            "title":"Wilderking Court"
+         },
+         "186047":{  
+            "pageid":186047,
+            "ns":144,
+            "title":"Wrothgar"
+         },
+         "170944":{  
+            "pageid":170944,
+            "ns":144,
+            "title":"Xylo River Basin"
+         },
+         "170938":{  
+            "pageid":170938,
+            "ns":144,
+            "title":"Zabamat"
+         },
+         "3068":{  
+            "pageid":3068,
+            "ns":130,
+            "title":"Khajiit"
+         }
+      }
+}
