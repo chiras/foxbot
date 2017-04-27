@@ -62,7 +62,7 @@ dbh.getDbRecords(db, search_parameters, function(err, all, args) {
 		lfmtext += "\n<@"+obj.name+"> ("+ obj.lvlcp +") of "+obj.guild+" as "+ obj.role +" ("+ time + ")"; 
 	});
 	
-	var lfmtitle = "Others recently searching for "+ search_parameters["vetnormal"] + " " + args["searching"] + " Groups ("+args["megaserver"]+")";
+	var lfmtitle = "Others recently searching for a "+ search_parameters["vetnormal"] + " " + args["searching"] + " Group ("+args["megaserver"]+")";
 	
 	msg.channel.sendEmbed({
   				color: 0x800000,

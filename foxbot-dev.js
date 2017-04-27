@@ -70,7 +70,7 @@ bot.on("message", (msg) => {
 	
 	var responses = {
 		"!help" 	: function(){help(bot, msg);}, 
-		"!poll" 	: function(){poll(bot, msg);}, 
+		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!pledges" 	: function(){pledges(bot, msg, request, cheerio);}, 
 		"!pledge" 	: function(){pledges(bot, msg, request, cheerio);}, 
 		"!dailies" 	: function(){pledges(bot, msg, request, cheerio);}, 
@@ -104,7 +104,7 @@ bot.on("message", (msg) => {
 	} else if (msg.content.startsWith(prefix + "set")) {
          getset(bot, msg, setitems);
 	} else if (msg.content.startsWith(prefix + "poll") || msg.content.startsWith(prefix + "vote")) {
-         poll(bot, msg);
+         poll(bot, msg, tokens, Discord);
 	} else if (msg.content.startsWith(prefix + "lb") || msg.content.startsWith(prefix + "leaderboard")) {
          leaderboards(bot, msg);
 	} else if (msg.content.startsWith(prefix + "lfg")) {

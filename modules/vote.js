@@ -36,12 +36,12 @@ jsonfile.readFile(file, function(err, obj) {
 	ongoingPolls = obj;
 })
 
-module.exports = (bot, msg) => {
-		
-		jsonfile.writeFile(file, ongoingPolls, function (err) {
- 			 console.error(err)
-		})
-
+module.exports = (bot, msg, tokens,Discord) => {
+		if (tokens["tokenset"] == "live"){ 
+			jsonfile.writeFile(file, ongoingPolls, function (err) {
+ 				 console.error(err)
+			})
+		}
         var curChannel = msg.channel.id;       
  		console.error(curChannel)
 
@@ -170,6 +170,8 @@ module.exports = (bot, msg) => {
 
             		var endTxt = "";
 					var maxValue = 0; 
+					var options = [];
+					var values = [];
 
             		for (var i = 1; i < ongoingPolls[curChannel].votes.length; i++){           			
             				var votesz = ongoingPolls[curChannel].votes[i];								
@@ -180,38 +182,54 @@ module.exports = (bot, msg) => {
 					}
 
             		for (var i = 1; i < ongoingPolls[curChannel].votes.length; i++){           			
-            			
+            			var optTxt = ongoingPolls[curChannel].options[i].substring(0,20)
+            			if (ongoingPolls[curChannel].options[i].length > 20){
+            				optTxt +="..."
+            			}
             			if (ongoingPolls[curChannel].votes[i].length > 0){
+            				options.push(optTxt)
+            				values.push(ongoingPolls[curChannel].votes[i].length)
+            				
             				var votesz = ongoingPolls[curChannel].votes[i];	
             				if (votesz.length == maxValue){
-	            				endTxt += "\n **" +i+ " ("+ ongoingPolls[curChannel].options[i]+"): "+ votesz.length+ " votes (" + votesz.join(", ") + ")**";
+	            				endTxt += "\n**" +i+ " ("+ ongoingPolls[curChannel].options[i]+"): "+ votesz.length+ " votes (" + votesz.join(", ") + ")**";
             				}else{
 	            				endTxt += "\n" +i+  " ("+ ongoingPolls[curChannel].options[i]+"): " + votesz.length+ " votes (" + votesz.join(", ") + ")";            				
             				}							
 
             			}else{
+  
+              				options.push(optTxt)
+            				values.push(0)
+
             				endTxt += "\n" +i+ ":  0 votes";		
             			}
             			
             		}
             		var winTxt
             		if (maxValue > 0){
-            			 winTxt = "\n\nThe winners are in bold!"
+            			 winTxt = "the winners are in bold"
             		}else{
-            			 winTxt = "\n\nNo votes have been cast!"            		
+            			 winTxt = "no votes have been cast"            		
             		}
-            		
-            		
-            		
-                        msg.channel.sendEmbed({
-              				color: 0x800000,
-              				title: ongoingPolls[curChannel].question,
-              				description: "Poll has been ended: " + endTxt + winTxt + "\n\n The poll has been deleted from this channel."
-             			});			
-             			
-             			
-             			
-            			delete ongoingPolls[curChannel];          
+            	
+            	var height = values.length * 30;
+            	
+				var image = "https://chart.googleapis.com/chart?cht=bhs&chs=400x"+height+"&chd=t:"+values.join(',')+"&chxl=0:|"+options.reverse().join('|')+"&chds=a&chco=4D89F9,C6D9FD&chxt=y&chf=bg,s,32363c&chxs=0,ffffff,14";
+				image=image.replace(/ /g, "%20")
+				//console.log(image);
+				            		
+  				const embed = new Discord.RichEmbed()
+ 				  	.setTitle(ongoingPolls[curChannel].question)
+  				 //	.setAuthor('Author Name', 'https://i.imgur.com/lm8s41J.png')
+  					.setColor(0x800000)
+    				.setDescription("Poll has been ended ("+winTxt +"):\n"  + endTxt + "\n\n The poll has been deleted from this channel.")
+    				.setImage(image)
+
+
+  				msg.channel.sendEmbed(embed);          		
+            				
+            	delete ongoingPolls[curChannel];          
             return;
             }
 
