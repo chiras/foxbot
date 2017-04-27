@@ -102,7 +102,7 @@ bot.on("message", (msg) => {
 	} else if (msg.content.startsWith(prefix + "set")) {
          getset(bot, msg, setitems);
 	} else if (msg.content.startsWith(prefix + "poll") || msg.content.startsWith(prefix + "vote")) {
-         poll(bot, msg);
+         poll(bot, msg, tokens, Discord);
 	} else if (msg.content.startsWith(prefix + "lb") || msg.content.startsWith(prefix + "leaderboard")) {
          leaderboards(bot, msg);
 	} else if (msg.content.startsWith(prefix + "lfg")) {
