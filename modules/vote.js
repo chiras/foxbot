@@ -1,6 +1,13 @@
+const util = require('util')
+var jsonfile = require('jsonfile')
+
 const nh = require("../data/name_helper.js")
 const dbh = require("../data/db_helper.js")
 const moment = require('moment-timezone');
+
+
+var file = './data/polldump.json'
+
 
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -23,11 +30,21 @@ function uniq(a) {
     })
 }
 
-var ongoingPolls = []
+var ongoingPolls = {};
+
+jsonfile.readFile(file, function(err, obj) {
+	ongoingPolls = obj;
+})
 
 module.exports = (bot, msg) => {
+		
+		jsonfile.writeFile(file, ongoingPolls, function (err) {
+ 			 console.error(err)
+		})
 
         var curChannel = msg.channel.id;       
+ 		console.error(curChannel)
+
         var args = msg.content.split(" ").slice(1).join(" ");
 
         if (!msg.guild) {
@@ -95,6 +112,7 @@ module.exports = (bot, msg) => {
                                 votes: start_votes,
                                 started: ""
                             }
+                            
 							
 							var len = ongoingPolls[curChannel].options.length - 1;
 							
