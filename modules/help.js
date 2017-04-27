@@ -13,6 +13,8 @@ module.exports = (bot, msg, setitems) => {
     var iteminfo = " **!set SETNAME**      -> Set item information (e.g. !set skel)\n";
      iteminfo += "**!lb** -> Leaderboard scores (e.g. !lb @account, EU, HRC)\n";
 
+    var grouptools = " **!poll**      -> Start a poll, vote and end it\n";
+
     var mediainfo = "**!youtube**      -> Hot and new ESO videos\n";
     mediainfo += "**!twitch**      -> Current top 5 ESO streams\n";
 
@@ -33,6 +35,10 @@ module.exports = (bot, msg, setitems) => {
       		{
       			 name: 'Game Information',
         		 value: iteminfo
+      		},
+      		{
+      			 name: 'Group Tools',
+        		 value: grouptools
       		},
       		{
       			 name: 'Official Information',

@@ -27,5 +27,3 @@ exports.getDbInserts = function(db, args, callback) {
 		}	
 	});
 }; 
-
-

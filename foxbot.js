@@ -29,6 +29,7 @@ const patchpts = require('./modules/patchnotes-pts.js');
 const lfg = require('./modules/lfg.js');
 const lfm = require('./modules/lfm.js');
 const leaderboards = require('./modules/leaderboards.js');
+const poll = require('./modules/vote.js');
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -100,6 +101,8 @@ bot.on("message", (msg) => {
 	if (responses[msg]) {responses[msg]();
 	} else if (msg.content.startsWith(prefix + "set")) {
          getset(bot, msg, setitems);
+	} else if (msg.content.startsWith(prefix + "poll") || msg.content.startsWith(prefix + "vote")) {
+         poll(bot, msg);
 	} else if (msg.content.startsWith(prefix + "lb") || msg.content.startsWith(prefix + "leaderboard")) {
          leaderboards(bot, msg);
 	} else if (msg.content.startsWith(prefix + "lfg")) {

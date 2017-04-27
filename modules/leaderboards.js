@@ -25,7 +25,7 @@ module.exports = (bot, msg) => {
 	if (server == ""){
 		    msg.channel.sendEmbed({
                 color: 0x800000,
-                description: 'Char/Megaserver information missing (EU/NA). Please call e.g. \n**!lb character name, EU**\n**!lb @account, EU** \n**!lb @account, EU, AA, HRC**\n(for specific scores only, options: "'+ nh.getTrialShortnames() +'")  '
+                description: 'Char/Megaserver information missing (EU/NA). Please call e.g. \n**!lb game-character name, EU**\n**!lb @game-account, EU** \n**!lb @game-account, EU, AA, HRC**\n(for specific scores only, options: "'+ nh.getTrialShortnames() +'")  '
  
             });
 	}else{

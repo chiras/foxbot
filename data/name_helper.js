@@ -1,6 +1,11 @@
 const baseurluesp = "http://en.uesp.net/wiki/"
 
-const servers = {"eu" : "EU" ,"na" : "NA", "pts" : "PTS"}
+const servers = { 	"eu" : "EU" ,
+					"na" : "NA", 
+					"pts" : "PTS",
+					"EU" : "EU" ,
+					"NA" : "NA", 
+					"PTS" : "PTS"}
 
 const factions = [	{	
 					"shortname" : "EP",
@@ -36,6 +41,16 @@ const shortnames = {
 	"EP" : "EP",
 	"DC" : "DC",				
 	"AD" : "AD"	
+};
+
+
+const trailnames = {
+    "AA": "Aetherian Archive",
+    "HRC": "Hel Ra Citadel",
+    "SO": "Sanctum Ophidia",
+    "MOL": "Maw of Lorkhaj",
+    "DSA": "Dragonstar Arena (Veteran)",
+    "MSA": "Maelstrom Arena (Veteran)"
 };
 
 const wikilinks = {
@@ -151,17 +166,18 @@ exports.getValidTrials = function (shortname) {
 }
 
 exports.getValidServer = function (server) {
+	//console.log(server, servers)
 	if (servers[server.replace(/ /g, "")]){return true}
 }
 
 exports.getTrialShortnames = function () {
-	return Object.keys(shortnames);
+	return Object.keys(trailnames);
 }
 
 exports.linkify = function (input) {
 	var allnames = input.replace(/\"/g, "").split("/")
 	var output = [];
-	console.log(allnames)
+//	console.log(allnames)
 	
 	for (var i = 0; i < allnames.length; i++){
 		var name = allnames[i].replace(/\"/g, "");
