@@ -43,7 +43,7 @@ module.exports = (bot, msg, tokens,Discord) => {
 			})
 		}
         var curChannel = msg.channel.id;       
- 		console.error(curChannel)
+ 		//console.error(curChannel)
 
         var args = msg.content.split(" ").slice(1).join(" ");
 
