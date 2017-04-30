@@ -37,11 +37,11 @@ jsonfile.readFile(file, function(err, obj) {
 })
 
 module.exports = (bot, msg, tokens,Discord) => {
-		if (tokens["tokenset"] == "live"){ 
+	//	if (tokens["tokenset"] == "live"){ 
 			jsonfile.writeFile(file, ongoingPolls, function (err) {
  				 console.error(err)
 			})
-		}
+	//	}
         var curChannel = msg.channel.id;       
  		console.error(curChannel)
 
