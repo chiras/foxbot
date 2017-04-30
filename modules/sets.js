@@ -2,6 +2,9 @@ const nh = require("../data/name_helper.js")
 
 module.exports = (bot, msg, setitems) => {
 
+		var limit = 21;
+		if (msg.guild){limit = 6}
+		
         var results = [];
         var searchField = "Name";
         var filter = new RegExp(msg.content.split(" ").slice(1).join(" "), "i")
@@ -19,7 +22,7 @@ module.exports = (bot, msg, setitems) => {
   			description: setTextTitle,
 		});		
 		
-		if (results.length < 6 && results.length > 0){
+		if (results.length < limit && results.length > 0){
         var outputsets = [];
             
         for (var i = 0; i < results.length; i++) {
@@ -113,7 +116,7 @@ module.exports = (bot, msg, setitems) => {
 	//		msg.channel.sendMessage("Please narrow down your request to avoid spam by providing more characters.");
         msg.channel.sendEmbed({
   			color: 0x800000,
-  			description: "Please narrow down your request to avoid spam by providing more characters.",
+  			description: "In guild channels, only a maximum of 5 results will be printed. Please narrow down your request to avoid spam by providing more characters. \n\nTip: You can also whisper the bot directly, there the limit is set to a maximum of 20",
 		});		
 		}
 		

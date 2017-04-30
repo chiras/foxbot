@@ -9,5 +9,6 @@ npm i --save util
 npm i --save q
 npm i --save promise
 npm i --save sqlite3
+npm i --save fuzzy-matching
 
 # npm install twitch-api

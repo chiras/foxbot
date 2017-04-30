@@ -5,6 +5,7 @@ const request = require("request");
 const cheerio = require('cheerio');
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
+const FuzzyMatching = require('fuzzy-matching');
 //const TwitchApi = require('twitch-api');
 
 // local data
@@ -54,8 +55,6 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-
-
 // listening for messages
 bot.on("message", (msg) => {
     // Set the prefix
@@ -63,31 +62,29 @@ bot.on("message", (msg) => {
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
-
-	if (tokens["tokenset"] == "live"){ log(msg, msg.content, fs, logfile, bot);}
-
-	
 	
 	var responses = {
 		"!help" 	: function(){help(bot, msg);}, 
 		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
+		"!vote" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!pledges" 	: function(){pledges(bot, msg, request, cheerio);}, 
 		"!pledge" 	: function(){pledges(bot, msg, request, cheerio);}, 
 		"!dailies" 	: function(){pledges(bot, msg, request, cheerio);}, 
 		"!daily" 	: function(){pledges(bot, msg, request, cheerio);}, 
+		"!weekly" 	: function(){trials(bot, msg, request, cheerio, util);}, 
 		"!trials" 	: function(){trials(bot, msg, request, cheerio, util);}, 
 		"!trial" 	: function(){trials(bot, msg, request, cheerio, util);}, 
 		"!golden" 	: function(){golden(bot, msg, gsDayNames, request, cheerio);}, 
 		"!luxury" 	: function(){luxury(bot, msg, gsDayNames, request, cheerio);}, 
 		"!status" 	: function(){status(bot, msg, request, cheerio);}, 
-		"!set" 		: function(){msg.channel.sendMessage("Please call the command with at least some characters of the setname, e.g. !set skel")}, 
-		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
-		"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
-		"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
+		"!set" 		: function(){getset(bot, msg, setitems);}, 
+//		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
+//		"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
+//		"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
 		"!twitch" 	: function(){gettwitch(bot, msg, tokens["twitch"], util, request);}, 
 		"!youtube" 	: function(){youtube(bot, msg, request, youtube);}, 
-		"!lfg" 		: function(){lfg(bot, msg, lfgdb)}, 
-		"!lfm" 		: function(){lfm(bot, msg, lfgdb)}, 
+//		"!lfg" 		: function(){lfg(bot, msg, lfgdb)}, 
+//		"!lfm" 		: function(){lfm(bot, msg, lfgdb)}, 
 		"!patch" 	: function(){patchnotes(bot, msg, request, cheerio);}, 
 		"!patchpts" : function(){patchpts(bot, msg, request, cheerio);}, 
 		"!contact" 	: function(){contact(bot, msg);}, 
@@ -95,22 +92,32 @@ bot.on("message", (msg) => {
 		"!leaderboard" 	: function(){leaderboards(bot, msg);}, 
 		"!leaderboards" : function(){leaderboards(bot, msg);}, 
 		};
+	
+	var fm = new FuzzyMatching(Object.keys(responses));
+	
+	var cmd = msg.content.split(" ")[0];
 
+//	console.log(fm.get(cmd)); // --> { distance: 1, value: 'tough' } 
+	
+	if (fm.get(cmd).distance > 0.7){
+		cmd = fm.get(cmd).value
+		
+		if (tokens["tokenset"] == "live"){ 
+			log(msg, cmd + " ("+msg.content+")", fs, logfile, bot);
+		}
 
-	// var yyy = pledges(bot, msg, request, cheerio);
-
-
-	if (responses[msg]) {responses[msg]();
-	} else if (msg.content.startsWith(prefix + "set")) {
-         getset(bot, msg, setitems);
-	} else if (msg.content.startsWith(prefix + "poll") || msg.content.startsWith(prefix + "vote")) {
-         poll(bot, msg, tokens, Discord);
-	} else if (msg.content.startsWith(prefix + "lb") || msg.content.startsWith(prefix + "leaderboard")) {
-         leaderboards(bot, msg);
-	} else if (msg.content.startsWith(prefix + "lfg")) {
-         lfg(bot, msg, lfgdb);
-	} else if (msg.content.startsWith(prefix + "lfm")) {
-         lfm(bot, msg, lfgdb, "");         
+		if (responses[cmd]) {responses[cmd]();
+	
+// 	} else if (msg.content.startsWith(prefix + "set")) {
+//          getset(bot, msg, setitems);
+// 	} else if (msg.content.startsWith(prefix + "poll") || msg.content.startsWith(prefix + "vote")) {
+//          poll(bot, msg, tokens, Discord);
+// 	} else if (msg.content.startsWith(prefix + "lb") || msg.content.startsWith(prefix + "leaderboard")) {
+//          leaderboards(bot, msg);
+// 	} else if (msg.content.startsWith(prefix + "lfg")) {
+//          lfg(bot, msg, lfgdb);
+// 	} else if (msg.content.startsWith(prefix + "lfm")) {
+//          lfm(bot, msg, lfgdb, "");         
   //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
   //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
   //       getsetstats(bot, msg, setitems, util);
@@ -128,6 +135,8 @@ bot.on("message", (msg) => {
 //     }  
         
 //currently disabled the unknown command because of other both's interferring
+
+	} // end fuzzy search
 
 });
 

@@ -43,7 +43,7 @@ module.exports = (bot, msg) => {
     }
     	    
     var name = args[0].split(" ").slice(1).join(" ").replace(/^ /, "").replace(/ $/, "");
-   	console.log(name.substring(0,2));
+  // 	console.log(name.substring(0,2));
     if (name.substring(0,2) == "<@"){
 		    msg.channel.sendEmbed({
                 color: 0x800000,
