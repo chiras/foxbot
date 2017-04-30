@@ -43,7 +43,7 @@ module.exports = (bot, msg, tokens,Discord) => {
 			})
 	//	}
         var curChannel = msg.channel.id;       
- 		console.error(curChannel)
+ 		//console.error(curChannel)
 
         var args = msg.content.split(" ").slice(1).join(" ");
 
@@ -119,7 +119,7 @@ module.exports = (bot, msg, tokens,Discord) => {
                             msg.channel.sendEmbed({
                                 color: 0x800000,
                                 title: "Poll has been created",
-                                description: "The question is: " + ongoingPolls[curChannel].question + "\n Valid answer options for voting are: " + ongoingPolls[curChannel].optionsTxt + "\n\n You can vote by typing \n**!poll 1," + len + "** \nVoting of multiple options is allowed, but not voting the same option twice.\n\n Intermediate results can be called by \n**!poll status** \n\nThe poll can be ended with \n**!poll end**"
+                                description: "The question is: " + ongoingPolls[curChannel].question + "\n Valid answer options for voting are: " + ongoingPolls[curChannel].optionsTxt + "\n\nYou can vote by typing \n**!poll 1," + len + "** \nVoting of multiple options is allowed, but not voting the same option twice.\n\n Intermediate results can be called by \n**!poll status** \n\nThe poll can be ended with \n**!poll end**"
                             });
                         } else {
                             msg.channel.sendEmbed({
@@ -202,7 +202,7 @@ module.exports = (bot, msg, tokens,Discord) => {
               				options.push(optTxt)
             				values.push(0)
 
-            				endTxt += "\n" +i+ ":  0 votes";		
+            				endTxt += "\n" +i+  " ("+ ongoingPolls[curChannel].options[i]+"): 0 votes";		
             			}
             			
             		}
@@ -213,9 +213,10 @@ module.exports = (bot, msg, tokens,Discord) => {
             			 winTxt = "no votes have been cast"            		
             		}
             	
-            	var height = values.length * 30;
+            	var height = values.length * 30 + 30;
             	
-				var image = "https://chart.googleapis.com/chart?cht=bhs&chs=400x"+height+"&chd=t:"+values.join(',')+"&chxl=0:|"+options.reverse().join('|')+"&chds=a&chco=4D89F9,C6D9FD&chxt=y&chf=bg,s,32363c&chxs=0,ffffff,14";
+				var image = "https://chart.googleapis.com/chart?cht=bhs&chs=400x"+height+"&chd=t:"+values.join(',')+"&chxl=0:|0|"+maxValue+"|1:|"+options.reverse().join('|')+"&chds=a&chco=4D89F9,C6D9FD&chxt=x,y&chf=bg,s,32363c&chxs=0,ffffff,14|1,ffffff,14";
+			//	console.log(image);
 				image=image.replace(/ /g, "%20")
 				//console.log(image);
 				            		
@@ -223,7 +224,7 @@ module.exports = (bot, msg, tokens,Discord) => {
  				  	.setTitle(ongoingPolls[curChannel].question)
   				 //	.setAuthor('Author Name', 'https://i.imgur.com/lm8s41J.png')
   					.setColor(0x800000)
-    				.setDescription("Poll has been ended ("+winTxt +"):\n"  + endTxt + "\n\n The poll has been deleted from this channel.")
+    				.setDescription("Poll has been ended ("+winTxt +"):\n"  + endTxt + "\n\nThe poll has been deleted from this channel.")
     				.setImage(image)
 
 
