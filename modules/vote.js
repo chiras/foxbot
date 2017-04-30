@@ -39,7 +39,7 @@ jsonfile.readFile(file, function(err, obj) {
 module.exports = (bot, msg, tokens,Discord) => {
 	//	if (tokens["tokenset"] == "live"){ 
 			jsonfile.writeFile(file, ongoingPolls, function (err) {
- 				 console.error(err)
+ 				 if(err){console.error(err)}
 			})
 	//	}
         var curChannel = msg.channel.id;       
@@ -129,6 +129,9 @@ module.exports = (bot, msg, tokens,Discord) => {
                             });
                         } //end if/else more than one answer in setup
                     } //end if/else ongoing in setup
+			jsonfile.writeFile(file, ongoingPolls, function (err) {
+ 				 if(err){console.error(err)}
+			})
             return;
             }
             
@@ -138,6 +141,9 @@ module.exports = (bot, msg, tokens,Discord) => {
                         title: "Currently, there is no poll in this channel",
                         description: "You can create one by typing \n\n**!poll Do we need a healer? No. Yes. Only Off-Heal.**\n\nYou can provide a lot of answer options, just keep them separated by a point.  "
                     });
+			jsonfile.writeFile(file, ongoingPolls, function (err) {
+ 				 if(err){console.error(err)}
+			})
             return;      
             }
 
@@ -162,7 +168,9 @@ module.exports = (bot, msg, tokens,Discord) => {
               				title: ongoingPolls[curChannel].question,
               				description: "Poll is ongoing, but current votes are: " + statTxt + "\n\nYou can still vote: " + ongoingPolls[curChannel].optionsTxt + "\n\n You can vote by typing \n**!poll 1," + len + "** \nVoting of multiple options is allowed, but not voting the same option twice."
              			});			
-             			
+ 			jsonfile.writeFile(file, ongoingPolls, function (err) {
+ 				 if(err){console.error(err)}
+			})            			
             return;
             }
             
@@ -231,7 +239,10 @@ module.exports = (bot, msg, tokens,Discord) => {
   				msg.channel.sendEmbed(embed);          		
             				
             	delete ongoingPolls[curChannel];          
-            return;
+			jsonfile.writeFile(file, ongoingPolls, function (err) {
+ 				 if(err){console.error(err)}
+			})            
+			return;
             }
 
                            
@@ -299,6 +310,8 @@ module.exports = (bot, msg, tokens,Discord) => {
                             });
 
 
-
+			jsonfile.writeFile(file, ongoingPolls, function (err) {
+ 				 if(err){console.error(err)}
+			})
                     } // end if/else ongoing	
 };
