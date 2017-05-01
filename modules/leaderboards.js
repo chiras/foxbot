@@ -44,16 +44,20 @@ module.exports = (bot, msg) => {
     	    
     var name = args[0].split(" ").slice(1).join(" ").replace(/^ /, "").replace(/ $/, "");
   // 	console.log(name.substring(0,2));
-    if (name.substring(0,2) == "<@"){
+    if (name.substring(0,2) == "<@" | name.substring(0,3) == "$<@"){
 		    msg.channel.sendEmbed({
                 color: 0x800000,
-                description: "Please don't use the Discord account name, but the ESO game account. If Discord is autocompleting the name, try to avoid that by typing multiple @ signs, like\n**@@game-account, EU, HRC **"
+                description: "Please don't use the Discord account name, but the ESO game account. If Discord is autocompleting the name, try to avoid that by typing multiple $ instead of an @ signs, like\n**$ame-account, EU, HRC **"
  
             });
     return;
 	}
    
 	var characc = "";
+
+	if (name.substring(0,1) == "$"){
+		name = "@" + name.replace(/\$/g, "")
+	}
 	
 	if (name.substring(0,1) == "@"){
 		name = "@" + name.replace(/@/g, "")
