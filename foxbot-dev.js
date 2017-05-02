@@ -1,3 +1,7 @@
+// local data
+const tokens = require('./tokens/dev.json');
+const setitems = require('./data/setfile.json');
+
 // required modules
 const util = require('util')
 const Discord = require("discord.js");
@@ -7,11 +11,6 @@ const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const FuzzyMatching = require('fuzzy-matching');
 //const TwitchApi = require('twitch-api');
-
-// local data
-const tokens = require('./tokens/dev.json');
-const setitems = require('./data/setfile.json');
-const lfgdb = new sqlite3.Database('./data/lfg.db');
 
 // local modules
 const golden = require('./modules/golden.js');
@@ -32,10 +31,12 @@ const lfg = require('./modules/lfg.js');
 const lfm = require('./modules/lfm.js');
 const leaderboards = require('./modules/leaderboards.js');
 const poll = require('./modules/vote.js');
+const esoDBhook = require('./modules/esoDBhook.js');
 
 // logging requests 
 const logfile = "logs/requests.log";
 const logchannel = "301074654301388800"
+const listenchannel = "308950442866507776"
 
 // setting up global variables
 var bot = new Discord.Client();
@@ -55,17 +56,24 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+const roleID = tokens["id"];
+
 // listening for messages
 bot.on("message", (msg) => {
+
+	if(msg.channel.id == listenchannel){
+		console.log("LISTENING")
+		esoDBhook(bot, msg,Discord);
+		return;
+	}	
+
     // Set the prefix
     let prefix = "!";
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
-
-    if (msg.author.webhook) return;
-	console.log(msg.content);
-	
     if (msg.author.bot) return;
+
+
 	
 	var responses = {
 		"!help" 	: function(){help(bot, msg);}, 
@@ -99,7 +107,7 @@ bot.on("message", (msg) => {
 	
 	var fm = new FuzzyMatching(Object.keys(responses));
 	
-	
+	var cmd = msg.content.split(" ")[0];
 
 //	console.log(fm.get(cmd)); // --> { distance: 1, value: 'tough' } 
 	
@@ -110,7 +118,35 @@ bot.on("message", (msg) => {
 			log(msg, cmd + " ("+msg.content+")", fs, logfile, bot);
 		}
 
-		if (responses[cmd]) {responses[cmd]();
+		var permission = 1;
+		
+        if (msg.guild) {
+			
+		if (!msg.channel.permissionsFor(roleID).hasPermission("READ_MESSAGES")){
+			console.log("NOT READ_MESSAGES")
+			msg.author.sendMessage("I do not have rights to READ MESSAGES in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
+			permission = 0;
+		}
+
+		if (!msg.channel.permissionsFor(roleID).hasPermission("SEND_MESSAGES")){
+			console.log("NOT SEND_MESSAGES")
+			msg.author.sendMessage("I do not have rights to SEND MESSAGES in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
+			permission = 0;
+		}
+	
+		if (!msg.channel.permissionsFor(roleID).hasPermission("EMBED_LINKS")){
+		console.log("NOT EMBED_LINKS")
+			msg.author.sendMessage("I do not have rights to EMBED LINKS in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
+			permission = 0;
+		}
+		
+		} // end if guild
+	
+		if (permission){
+			if (responses[cmd]) {responses[cmd]();	
+		}}
+
+		
 	
 // 	} else if (msg.content.startsWith(prefix + "set")) {
 //          getset(bot, msg, setitems);
@@ -125,7 +161,7 @@ bot.on("message", (msg) => {
   //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
   //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
   //       getsetstats(bot, msg, setitems, util);
-    } // else {
+ //   } // else {
 //          	msg.channel.sendEmbed({
 //   				color: 0x800000,
 //   				title:"Command not found",
@@ -139,7 +175,6 @@ bot.on("message", (msg) => {
 //     }  
         
 //currently disabled the unknown command because of other both's interferring
-
 	} // end fuzzy search
 
 });
@@ -173,7 +208,6 @@ bot.on('error', error => {
 
 process.on('unhandledRejection', error => {
   	bot.channels.get(logchannel).sendMessage('-- Warning: unhandled Rejection received')
-
 });
 
 bot.login(tokens["discord"]);

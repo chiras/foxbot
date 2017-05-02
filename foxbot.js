@@ -54,6 +54,8 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+const roleID = "251443671541481472";
+
 // listening for messages
 bot.on("message", (msg) => {
     // Set the prefix
@@ -61,6 +63,8 @@ bot.on("message", (msg) => {
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
+
+    if (!msg.content.startsWith(prefix)) return;
 	
 	var responses = {
 		"!help" 	: function(){help(bot, msg);}, 
@@ -105,7 +109,35 @@ bot.on("message", (msg) => {
 			log(msg, cmd + " ("+msg.content+")", fs, logfile, bot);
 		}
 
-		if (responses[cmd]) {responses[cmd]();
+		var permission = 1;
+		
+        if (msg.guild) {
+			
+		if (!msg.channel.permissionsFor(roleID).hasPermission("READ_MESSAGES")){
+			console.log("NOT READ_MESSAGES")
+			msg.author.sendMessage("I do not have rights to READ MESSAGES in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
+			permission = 0;
+		}
+
+		if (!msg.channel.permissionsFor(roleID).hasPermission("SEND_MESSAGES")){
+			console.log("NOT SEND_MESSAGES")
+			msg.author.sendMessage("I do not have rights to SEND MESSAGES in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
+			permission = 0;
+		}
+	
+		if (!msg.channel.permissionsFor(roleID).hasPermission("EMBED_LINKS")){
+		console.log("NOT EMBED_LINKS")
+			msg.author.sendMessage("I do not have rights to EMBED LINKS in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
+			permission = 0;
+		}
+		
+		} // end if guild
+	
+		if (permission){
+			if (responses[cmd]) {responses[cmd]();	
+		}}
+
+		
 	
 // 	} else if (msg.content.startsWith(prefix + "set")) {
 //          getset(bot, msg, setitems);
@@ -120,7 +152,7 @@ bot.on("message", (msg) => {
   //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
   //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
   //       getsetstats(bot, msg, setitems, util);
-    } // else {
+ //   } // else {
 //          	msg.channel.sendEmbed({
 //   				color: 0x800000,
 //   				title:"Command not found",
@@ -134,7 +166,6 @@ bot.on("message", (msg) => {
 //     }  
         
 //currently disabled the unknown command because of other both's interferring
-
 	} // end fuzzy search
 
 });
@@ -168,7 +199,6 @@ bot.on('error', error => {
 
 process.on('unhandledRejection', error => {
   	bot.channels.get(logchannel).sendMessage('-- Warning: unhandled Rejection received')
-
 });
 
 bot.login(tokens["discord"]);
