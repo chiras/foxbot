@@ -61,6 +61,10 @@ bot.on("message", (msg) => {
     let prefix = "!";
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
+
+    if (msg.author.webhook) return;
+	console.log(msg.content);
+	
     if (msg.author.bot) return;
 	
 	var responses = {
@@ -95,7 +99,7 @@ bot.on("message", (msg) => {
 	
 	var fm = new FuzzyMatching(Object.keys(responses));
 	
-	var cmd = msg.content.split(" ")[0];
+	
 
 //	console.log(fm.get(cmd)); // --> { distance: 1, value: 'tough' } 
 	
