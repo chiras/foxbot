@@ -8,6 +8,11 @@ jsonfile.readFile(file, function(err, obj) {
         data = obj;
 })
 
+const distributors = {
+	"ESO-Database.com" : "news",
+	"Fox" : "bot",
+}
+
 
 module.exports = (bot, msg, Discord) => {
     
@@ -27,7 +32,9 @@ var p2 = new Promise(function(resolve, reject) {
             var channel = Object.keys(value)[i]
 //            console.log(channel)
             if (value[channel] != "none") {
+            if (distributors[msg.author.username] == value[channel] | value[channel] == "all"){
                 subchannels.push(channel);
+            }
             }
 
         }
@@ -47,3 +54,5 @@ var p2 = new Promise(function(resolve, reject) {
 });
 
 };
+
+// testing: https://woeler.eu/test/discord.php

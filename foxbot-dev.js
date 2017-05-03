@@ -32,11 +32,12 @@ const lfm = require('./modules/lfm.js');
 const leaderboards = require('./modules/leaderboards.js');
 const poll = require('./modules/vote.js');
 const esoDBhook = require('./modules/esoDBhook.js');
+const subscribe = require('./modules/subscribe.js');
 
 // logging requests 
 const logfile = "logs/requests.log";
-const logchannel = "301074654301388800"
-const listenchannel = "308950442866507776"
+const logchannel = tokens["logging"]; 
+const listenchannel = tokens["listening"];
 
 // setting up global variables
 var bot = new Discord.Client();
@@ -63,7 +64,7 @@ bot.on("message", (msg) => {
 
 	if(msg.channel.id == listenchannel){
 		console.log("LISTENING")
-		esoDBhook(bot, msg,Discord);
+		esoDBhook(bot, msg, Discord);
 		return;
 	}	
 
@@ -77,6 +78,7 @@ bot.on("message", (msg) => {
 	
 	var responses = {
 		"!help" 	: function(){help(bot, msg);}, 
+		"!subscribe": function(){subscribe(bot, msg, Discord);}, 
 		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!vote" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!pledges" 	: function(){pledges(bot, msg, request, cheerio);}, 

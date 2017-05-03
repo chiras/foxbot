@@ -1,5 +1,8 @@
 {
-"tokenset" : "dev",
-"twitch" : "",
-"discord" : ""
+"tokenset" 	: "dev",
+"twitch" 	: "",
+"discord" 	: "",
+"id" 		: "",
+"listening" : "",
+"logging" 	: ""
 }
