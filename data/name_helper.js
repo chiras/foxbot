@@ -77,8 +77,8 @@ const wikilinks = {
     "Maelstrom Arena (Veteran)": "Online:Maelstrom_Arena",
     
 		// Dungeons
-		"The Banished Cells I" : "Online:The_Banished_Cells_I",
-		"The Banished Cells II" : "Online:The_Banished_Cells_II",
+		"Banished Cells I" : "Online:The_Banished_Cells_I",
+		"Banished Cells II" : "Online:The_Banished_Cells_II",
 		"Elden Hollow I" : "Online:Elden_Hollow_I",
 		"Elden Hollow II" : "Online:Elden_Hollow_II",
 		"City of Ash I" : "Online:City_of_Ash_I",

@@ -144,7 +144,10 @@ bot.on("message", (msg) => {
 	
 		if (permission){
 			if (responses[cmd]) {responses[cmd]();	
-		}}
+		}}else{
+			log(msg, cmd + " <--- wrong permissions ", fs, logfile, bot);
+		}
+
 
 		
 	
