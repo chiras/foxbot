@@ -41,7 +41,7 @@ module.exports = (bot, msg, request, cheerio, Discord) => {
 
     var promise = Promise.resolve(3);
 	var embed = new Discord.RichEmbed()
-    embed.setAuthor("Undaunted Quartermaster Ilmeni Arelas","http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png")
+    embed.setAuthor("Undaunted Quartermaster Ilmeni Arelas says")//,"http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png")
     embed.setColor(0x800000)
    	embed.setFooter('Data obtained from www.esoleaderboards.com')
 //   	embed.setThumbnail('http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png')
