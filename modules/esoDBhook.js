@@ -11,10 +11,20 @@ jsonfile.readFile(file, function(err, obj) {
 const distributors = {
 	"ESO-Database.com" : "news",
 	"Fox" : "bot",
+	"Undaunted Quartermaster Ilmeni Arelas" : "regular"
 }
 
+const distributor_icons = {
+	"ESO-Database.com" : "",
+	"Fox" : "",
+	"Undaunted Quartermaster Ilmeni Arelas" : "http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png"
+}
 
 module.exports = (bot, msg, Discord) => {
+
+if (msg.content.startsWith("!")){
+	return;	
+}
     
 var p2 = new Promise(function(resolve, reject) {
 	jsonfile.readFile(file, function(err, obj) {
@@ -43,7 +53,7 @@ var p2 = new Promise(function(resolve, reject) {
 }).then(function(value){
  //  console.log(value); // 2
 
-        const embed = new Discord.RichEmbed()
+        var embed = new Discord.RichEmbed()
             .setAuthor("Announcement from "+ msg.author.username)
             .setColor(0x800000)
             .setDescription(msg.content)

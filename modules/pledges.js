@@ -17,7 +17,7 @@ function processFeed(feed) {
     return request.getAsync(feed)
 }
     
-module.exports = (bot, msg, request, cheerio) => {
+module.exports = (bot, msg, request, cheerio, Discord) => {
 
 	// this time calculation has been taken from Seri's code
     let elapsed = moment().unix() - baseTimestamp;
@@ -40,7 +40,12 @@ module.exports = (bot, msg, request, cheerio) => {
     var pledgeText = "";
 
     var promise = Promise.resolve(3);
-    
+	var embed = new Discord.RichEmbed()
+    embed.setAuthor("Undaunted Quartermaster Ilmeni Arelas","http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png")
+    embed.setColor(0x800000)
+   	embed.setFooter('Data obtained from www.esoleaderboards.com')
+//   	embed.setThumbnail('http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png')
+  
     Promise.map(pledgeAPI, function(feed) {
             return processFeed(feed)
         })
@@ -49,25 +54,34 @@ module.exports = (bot, msg, request, cheerio) => {
                 pledgeText += "* " + nh.linkify(articles[i].body) + " (by " + Object.keys(questgiver)[i] + ")\n"; //, tomorrow: [" + articles[i+3].body + "](" + baseurluesp + pledges[articles[i+3].body] + ") )\n";
 
             }
-            pledgeText += "\nNext pledges will be ";
+
+			embed.addField("Today's pledges are",pledgeText)
+
+            pledgeText = "";
             
             for (var i = 0; i < 3; i++) {
                 pledgeText += nh.linkify(articles[i+3].body) + ", ";
 
             }
+            
             pledgeText = pledgeText.slice(0, -2);          
             pledgeText += " in " + remainingH +" hours and " + remainingM + " minutes.";
+			embed.addField("Next pledges will be ",pledgeText)
+
+           	//.setDescription(msg.content)
+			
+			msg.channel.sendEmbed(embed);
       
-            msg.channel.sendEmbed({
-                color: 0x800000,
-                fields: [{
-                    name: "Today's pledges are" ,
-                    value: pledgeText
-                }],
-                footer: {
-                    text: 'Data obtained from www.esoleaderboards.com'
-                }
-            });
+//             msg.channel.sendEmbed({
+//                 color: 0x800000,
+//                 fields: [{
+//                     name: "Today's pledges are" ,
+//                     value: pledgeText
+//                 }],
+//                 footer: {
+//                     text: 'Data obtained from www.esoleaderboards.com'
+//                 }
+//             });
         })
         .catch(function(e) {
             msg.channel.sendEmbed({

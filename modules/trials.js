@@ -16,13 +16,18 @@ var trials = {
     "Maelstrom Arena (Veteran)": "/wiki/Online:Maelstrom_Arena_(place)",
 };
 
-module.exports = (bot, msg, request, cheerio, util) => {
+module.exports = (bot, msg, request, cheerio, util, Discord) => {
 
     var baserURL = "https://www.esoleaderboards.com/api/api.php?callType=getWeeklyTrial&megaserver="
     var servers = ["EU", "NA"]
     var trialAPI = [baserURL + servers[0], baserURL + servers[1]];
 
     var trialText = "";
+    
+	var embed = new Discord.RichEmbed()
+    embed.setAuthor("The Celestial Mage","https://vignette3.wikia.nocookie.net/elderscrolls/images/c/ca/Celestial_Mage_concept.png/revision/latest?cb=20140422172906")
+    embed.setColor(0x800000)
+   	embed.setFooter('Data obtained from www.esoleaderboards.com')
 
     var promise = Promise.resolve(3);
     Promise.map(trialAPI, function(feed) {
@@ -33,16 +38,10 @@ module.exports = (bot, msg, request, cheerio, util) => {
                 trialText += "* [" + articles[i].body + "](" + baseurluesp + trials[articles[i].body] + ") (" + servers[i] + ")\n";
 
             }
-            msg.channel.sendEmbed({
-                color: 0x800000,
-                fields: [{
-                    name: "This week's special trials are",
-                    value: trialText
-                }],
-                footer: {
-                    text: 'Data obtained from www.esoleaderboards.com'
-                }
-            });
+            
+    		embed.addField("This week's special trials are",trialText)
+			msg.channel.sendEmbed(embed);
+
         })
         .catch(function(e) {
             msg.channel.sendEmbed({
