@@ -31,10 +31,13 @@ const lfg = require('./modules/lfg.js');
 const lfm = require('./modules/lfm.js');
 const leaderboards = require('./modules/leaderboards.js');
 const poll = require('./modules/vote.js');
+const esoDBhook = require('./modules/esoDBhook.js');
+const subscribe = require('./modules/subscribe.js');
 
 // logging requests 
 const logfile = "logs/requests.log";
-const logchannel = "301074654301388800"
+const logchannel = tokens["logging"]; 
+const listenchannel = tokens["listening"];
 
 // setting up global variables
 var bot = new Discord.Client();
@@ -54,20 +57,28 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-const roleID = "251443671541481472";
+const roleID = tokens["id"];
 
 // listening for messages
 bot.on("message", (msg) => {
+
+	if(msg.channel.id == listenchannel){
+		console.log("LISTENING")
+		esoDBhook(bot, msg, Discord);
+		return;
+	}	
+
     // Set the prefix
     let prefix = "!";
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
 
-    if (!msg.content.startsWith(prefix)) return;
+
 	
 	var responses = {
 		"!help" 	: function(){help(bot, msg);}, 
+//		"!subscribe": function(){subscribe(bot, msg, Discord);}, 
 		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!vote" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!pledges" 	: function(){pledges(bot, msg, request, cheerio, Discord);}, 
@@ -77,8 +88,8 @@ bot.on("message", (msg) => {
 		"!weekly" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
 		"!trials" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
 		"!trial" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
-		"!golden" 	: function(){golden(bot, msg, gsDayNames, request, cheerio);}, 
-		"!luxury" 	: function(){luxury(bot, msg, gsDayNames, request, cheerio);}, 
+		"!golden" 	: function(){golden(bot, msg, gsDayNames, request, cheerio, Discord);}, 
+		"!luxury" 	: function(){luxury(bot, msg, gsDayNames, request, cheerio, Discord);}, 
 		"!status" 	: function(){status(bot, msg, request, cheerio);}, 
 		"!set" 		: function(){getset(bot, msg, setitems);}, 
 //		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
@@ -138,6 +149,7 @@ bot.on("message", (msg) => {
 		}}else{
 			log(msg, cmd + " <--- wrong permissions ", fs, logfile, bot);
 		}
+
 
 		
 	
