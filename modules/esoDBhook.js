@@ -1,12 +1,11 @@
+const util = require('util')
+const sqlite3 = require('sqlite3').verbose(); // db module
 const Promise = require('bluebird');
 var request = Promise.promisifyAll(require('request'));
-var jsonfile = require('jsonfile')
-var file = './data/subsdump.json'
 
-var data = {};
-jsonfile.readFile(file, function(err, obj) {
-        data = obj;
-})
+var dbguilds = new sqlite3.Database('./data/guilds.db'); // database file
+
+var notiNames = {	"news" : "latest ESO news", "regular" : "regular Events", "bot" : "major Bot updates"}
 
 const distributors = {
 	"ESO-Database.com" : "news",
@@ -20,48 +19,49 @@ const distributor_icons = {
 	"Undaunted Quartermaster Ilmeni Arelas" : "http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png"
 }
 
+
+function getDbRecords(db, callback) {
+db.serialize(function() {
+    db.all("SELECT * FROM subscription", function(err, all) {
+        if (err) {
+            console.log(err)
+        };
+        //     console.log(all)
+        callback(err, all);
+    });
+});
+};
+
+
 module.exports = (bot, msg, Discord) => {
 
 if (msg.content.startsWith("!")){
 	return;	
 }
-    
-var p2 = new Promise(function(resolve, reject) {
-	jsonfile.readFile(file, function(err, obj) {
-        resolve(obj);
-	})
-
-}).then(function(value){
-  //      console.log("ongoing"); 
-   //     console.log(value); 
-
-        var subchannels = []
-
-
-        for (i = 0; i < Object.keys(value).length; i++) {
-            var channel = Object.keys(value)[i]
-//            console.log(channel)
-            if (value[channel] != "none") {
-            if (distributors[msg.author.username] == value[channel] | value[channel] == "all"){
-                subchannels.push(channel);
-            }
-            }
-
-        }
-        return subchannels;
-
-}).then(function(value){
- //  console.log(value); // 2
 
         var embed = new Discord.RichEmbed()
             .setAuthor("Announcement from "+ msg.author.username)
             .setColor(0x800000)
             .setDescription(msg.content)
 
-        for (i = 0; i < value.length; i++) {
-            bot.channels.get(value[i]).sendEmbed(embed);
-        }
-});
+    
+var p2 = new Promise(function(resolve, reject) {
+	getDbRecords(dbguilds, function(err, obj) {
+        resolve(obj);
+	})
+}).then(function(value){
+	     //console.log(value); 
+	       
+         for (i = 0; i < Object.keys(value).length; i++) {
+         	if (value[i][distributors[msg.author.username]]){
+         	
+             bot.channels.get(value[i].channel).sendEmbed(embed)
+  //       		console.log("Pushing " + value[i].guild)
+         	}
+         }
+	       
+
+})
 
 };
 

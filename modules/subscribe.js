@@ -1,20 +1,28 @@
+const sqlite3 = require('sqlite3').verbose(); // db module
 const util = require('util')
-var jsonfile = require('jsonfile')
 
-var file = './data/subsdump.json'
+var dbguilds = new sqlite3.Database('./data/guilds.db'); // database file
+
+var notiNames = {	"news" : "latest ESO news", "regular" : "regular Events", "bot" : "major Bot updates"}
+
+function getDbInserts(db, args, callback) {
+db.serialize(function() {
+        db.each("INSERT OR REPLACE into subscription (guild, channel, news, bot, regular) VALUES ('" + args['guild'] + "', '" + args['channel'] + "','" + args['news'] + "','" + args['bot'] + "','" + args['regular'] + "')", function(err, row) {
+            if (err) {
+                console.log(err)
+            } else {
+
+            }
+        });
+});
+};
+
 
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-var ongoingSubs = {};
-
-jsonfile.readFile(file, function(err, obj) {
-	ongoingSubs = obj;
-})
-
-
-module.exports = (bot, msg, Discord) => {
+module.exports = (bot, msg, Discord, firsttime) => {
 
         if (!msg.guild) {
             msg.channel.sendEmbed({
@@ -23,49 +31,57 @@ module.exports = (bot, msg, Discord) => {
             });
         return;    
     	}
-        var curChannel = msg.channel.id;       
 
 		let can_manage_chans = msg.channel.permissionsFor(msg.author).hasPermission("MANAGE_CHANNELS");
-		console.log(can_manage_chans);
+	//	console.log(can_manage_chans);
     	
     	if (can_manage_chans){
-    	 
- 		//console.error(curChannel)
-
-        var args = msg.content.split(" ").slice(1);
+    	   	
+    	var insertArgs = {"guild" : msg.guild.id, "channel" : msg.channel.id, "news" : 0, "bot" : 0, "regular" : 0}
+    	
+        var args = msg.content.split(" ").slice(1).join(" ").replace(/ /g, "").split(",");
         const embed = new Discord.RichEmbed()
-            .setAuthor("Channel subscription!")
+            .setAuthor("The Prophet says")
             .setColor(0x800000)
-                    	
-    	
-      	ongoingSubs[curChannel] = "all";
+                    	    	
   	
-
     	if(args[0]){
-    	if (args[0].startsWith("unsub")){
-    	    	ongoingSubs[curChannel] = "none";
-    	    	embed.setDescription("All subscriptions have been removed!")   
-    	}else if (args[0].startsWith("new")){
-     	    	ongoingSubs[curChannel] = "news";
-    	    	embed.setDescription("You now receive only news for ESO!")   
-    	}else if (args[0].startsWith("bot")){
-     	    	ongoingSubs[curChannel] = "bot";
-    	    	embed.setDescription("You now receive only updates on the Bot!")   
-    	}
-				embed.setDescription("No valid options provided, you can use \n**!subscribe**   --> News on ESO and Bot\n**!subscribe bot**   --> Only Bot updates (e.g. new commands)\n**!subscribe news**   --> News on ESO only\n**!subscribe unsub**   --> unsubscribe this channel\n\nYou are now subscribed to news for ESO and updates on the Bot!")  
+    	for (var i = 0; i < args.length; i++){
     	
+    	if (args[i].startsWith("unsub")){
+    	    	embed.setDescription("All subscriptions have been removed!")   
+    	}else if (args[i].startsWith("new")){
+    	    	insertArgs["news"] = 1;
+    	}else if (args[i].startsWith("bot")){
+    	    	insertArgs["bot"] = 1;
+    	}else if (args[i].startsWith("reg")){
+    	    	insertArgs["regular"] = 1;
+    	}
+       	} // end for
+ 	
 		}else{
-	    	    embed.setDescription("You are now subscribed to news for ESO and updates on the Bot!")   
+    			insertArgs = {"guild" : msg.guild.id, "channel" : msg.channel.id, "news" : 1, "bot" : 1, "regular" : 1}
 		}
 		
-    	msg.channel.sendEmbed(embed);
+		var tmpText = "...";
+    	for (var i = 2; i < Object.keys(insertArgs).length; i++){
+    		tmpText += "\n* "+ notiNames[Object.keys(insertArgs)[i]]+": ";
+    		if (insertArgs[Object.keys(insertArgs)[i]]){
+    			tmpText += "yes"
+    		}else{
+    			tmpText += "no"
+    		}	
+		}
+		
+		if (firsttime){
+	    	embed.setDescription("I am now able to tell you about new things happening in the world of Tamriel, almost instantly when they come alight. I will now tell you whenever there is need, about" + tmpText + "\n\n If you want to change this, or want this to happen in a different channel, you can tell me in the desired channel with \n**!subscribe** (for all options) \n**!subscribe news, bot** (options: \"news\", \"bot\", \"regular\")  \n**!subscribe unsub** (to quiet me). \n\n This message is only send once!")   		
+		}else{		
+	    	embed.setDescription("You have changed the ways you want to get new insights into the world of Tamriel. I will now tell you whenever there is need, about" + tmpText + "\n\n If you change your mind, you can tell me with \n**!subscribe** (for all options) \n**!subscribe news, bot** (options: \"news\", \"bot\", \"regular\")  \n**!subscribe unsub** (to quiet me)")   
+		}
+		
+     	getDbInserts(dbguilds,insertArgs)     	
+   		msg.channel.sendEmbed(embed);
 
-            
-   		jsonfile.writeFile(file, ongoingSubs, function (err) {
- 				 if(err){console.error(err)}
-		}) 	
-
-		console.log(ongoingSubs);
 		}else{
             msg.channel.sendEmbed({
                 color: 0x800000,

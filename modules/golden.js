@@ -186,7 +186,7 @@ getDbMaxId(db,  function(err, all) {
 
 	var remainingOn = moment.unix(vendorOnDate).fromNow();
 	var remainingOff = moment.unix(vendorOffDate).fromNow();
-	console.log(remainingOn +"-->"+remainingOff)
+	//console.log(remainingOn +"-->"+remainingOff)
 
     // set up message content
     var goldentext = "";

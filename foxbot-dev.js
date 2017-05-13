@@ -57,6 +57,20 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+var dbguilds = new sqlite3.Database('./data/guilds.db'); // database file
+
+function getDbRecords(db, arg, callback) {
+db.serialize(function() {
+    db.all("SELECT * FROM subscription WHERE guild IS '"+ arg+"'", function(err, all) {
+        if (err) {
+            console.log(err)
+        };
+        //     console.log(all)
+        callback(err, all);
+    });
+});
+};
+
 const roleID = tokens["id"];
 
 // listening for messages
@@ -73,12 +87,10 @@ bot.on("message", (msg) => {
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
-
-
-	
+    	
 	var responses = {
 		"!help" 	: function(){help(bot, msg);}, 
-		"!subscribe": function(){subscribe(bot, msg, Discord);}, 
+		"!subscribe": function(){subscribe(bot, msg, Discord, 0);}, 
 		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!vote" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!pledges" 	: function(){pledges(bot, msg, request, cheerio, Discord);}, 
@@ -141,6 +153,23 @@ bot.on("message", (msg) => {
 			msg.author.sendMessage("I do not have rights to EMBED LINKS in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
 			permission = 0;
 		}
+		
+		if (permission){
+		var p = new Promise(function(resolve, reject) {
+			getDbRecords(dbguilds, msg.guild.id ,function(err, obj) {
+        		resolve(obj);
+			})
+		}).then(function(value){
+	     //console.log(value); 
+	       
+		if (value.length == 0){
+			subscribe(bot, msg, Discord, 1); 
+			console.log("new subscription")
+		}
+
+		}) // end promise guild channel
+		}
+		
 		
 		} // end if guild
 	
