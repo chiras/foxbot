@@ -77,7 +77,7 @@ bot.on("message", (msg) => {
 
 	
 	var responses = {
-		"!help" 	: function(){help(bot, msg);}, 
+		"!help" 	: function(){help(bot, msg, Discord);}, 
 //		"!subscribe": function(){subscribe(bot, msg, Discord);}, 
 		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!vote" 	: function(){poll(bot, msg, tokens, Discord);}, 

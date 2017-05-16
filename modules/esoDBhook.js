@@ -20,6 +20,29 @@ const distributor_icons = {
 }
 
 
+// notification encoding: 4-bit
+/**
+    var ConvertBase = function (num) {
+        return {
+            from : function (baseFrom) {
+                return {
+                    to : function (baseTo) {
+                        return parseInt(num, baseFrom).toString(baseTo);
+                    }
+                };
+            }
+        };
+    };
+    
+    ConvertBase.dec2bin = function (num) {
+        return ConvertBase(num).from(10).to(2);
+    };
+    
+    ConvertBase.bin2dec = function (num) {
+        return ConvertBase(num).from(2).to(10);
+    };
+**/
+
 function getDbRecords(db, callback) {
 db.serialize(function() {
     db.all("SELECT * FROM subscription", function(err, all) {

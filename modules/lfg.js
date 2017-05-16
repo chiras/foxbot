@@ -1,10 +1,31 @@
+// CREATE userchannels and invites those that form a grp
+
 const moment = require('moment-timezone');
 const nh = require("../data/name_helper.js")
 const dbh = require("../data/db_helper.js")
+const vch = require("../helper/voicechannels.js")
 //const lfm = require('./modules/lfm.js');
 
-module.exports = (bot, msg, db) => {
+module.exports = (bot, msg, Discord) => {
 var args = msg.content.split(" ").slice(1).join("").split(",")
+
+/**
+vch.createTemporaryChannel(bot, "a name", function(err, channel){
+	channelID = channel.replace(/\>/g, "").replace(/\</g, "").replace(/\#/g, "")
+	console.log(err+"--"+channelID)
+	vch.deleteTemporaryChannel(bot, channelID , function(){})
+	
+})
+**/
+vch.addToGuild(bot, "306222107094941697", function(){
+	//console.log("##"+groups)	
+})
+
+vch.checkTemporaryChannel(bot, channel, Discord, function(groups){
+	console.log("##"+groups)	
+})
+
+return;
 
 console.log(args)
 

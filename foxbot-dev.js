@@ -30,9 +30,10 @@ const patchpts = require('./modules/patchnotes-pts.js');
 const lfg = require('./modules/lfg.js');
 const lfm = require('./modules/lfm.js');
 const leaderboards = require('./modules/leaderboards.js');
-const poll = require('./modules/vote.js');
+const poll = require('./modules/vote.db.js');
 const esoDBhook = require('./modules/esoDBhook.js');
 const subscribe = require('./modules/subscribe.js');
+const ttc = require('./modules/ttc.js');
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -40,7 +41,7 @@ const logchannel = tokens["logging"];
 const listenchannel = tokens["listening"];
 
 // setting up global variables
-var bot = new Discord.Client();
+var bot = new Discord.Client({autoReconnect:true});
 
 var gsDayNames = new Array(
     'Sunday',
@@ -89,7 +90,8 @@ bot.on("message", (msg) => {
     if (msg.author.bot) return;
     	
 	var responses = {
-		"!help" 	: function(){help(bot, msg);}, 
+		"!help" 	: function(){help(bot, msg, Discord);}, 
+		"!ttc"		: function(){ttc(bot, msg, Discord);}, 
 		"!subscribe": function(){subscribe(bot, msg, Discord, 0);}, 
 		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!vote" 	: function(){poll(bot, msg, tokens, Discord);}, 
@@ -109,7 +111,7 @@ bot.on("message", (msg) => {
 //		"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
 		"!twitch" 	: function(){gettwitch(bot, msg, tokens["twitch"], util, request);}, 
 		"!youtube" 	: function(){youtube(bot, msg, request, youtube);}, 
-//		"!lfg" 		: function(){lfg(bot, msg, lfgdb)}, 
+		"!lfg" 		: function(){lfg(bot, msg, Discord)}, 
 //		"!lfm" 		: function(){lfm(bot, msg, lfgdb)}, 
 		"!patch" 	: function(){patchnotes(bot, msg, request, cheerio);}, 
 		"!patchpts" : function(){patchpts(bot, msg, request, cheerio);}, 
@@ -229,19 +231,25 @@ bot.on('guildCreate', guild => {
 	var guildCreate =  guild +  "\t" +  guild.owner + "\tGuild added\t\t";// + msg.createdAt;
 	fs.appendFile(logfile, guildCreate , function (err) {});
 	console.log(guildCreate);
-  	bot.channels.get(logchannel).sendMessage(guildCreate)
-
+    if (typeof bot.channels.get(logchannel) !=="undefined"){
+  		bot.channels.get(logchannel).sendMessage(guildCreate)
+	}
 });
 
 bot.on('error', error => {
     console.log(error);
-  	bot.channels.get(logchannel).sendMessage(error)
+    if (typeof bot.channels.get(logchannel) !=="undefined"){
+	  	bot.channels.get(logchannel).sendMessage(error)
+    }
 
     process.exit(1);
 });
 
 process.on('unhandledRejection', error => {
-  	bot.channels.get(logchannel).sendMessage('-- Warning: unhandled Rejection received')
+    console.log(error);
+     if (typeof bot.channels.get(logchannel) !=="undefined"){
+ 			bot.channels.get(logchannel).sendMessage('-- Warning: unhandled Rejection received')
+    }
 });
 
 bot.login(tokens["discord"]);
