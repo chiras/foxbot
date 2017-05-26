@@ -1,0 +1,45 @@
+{
+  "name": "fox-bot",
+  "version": "2.0.0",
+  "description": "FoX Bot",
+  "main": "foxbot.js",
+  "author": "chi-ras",
+  "dependencies": {
+    "async": "2.4.0",
+    "bluebird": "3.5.0",
+    "cheerio": "0.22.0",
+    "discord.js": "^11.1.0",
+    "fs": "0.0.1-security",
+    "fuzzy-matching": "0.4.3",
+    "moment-timezone": "^0.5.13",
+    "node-schedule": "1.2.1",
+    "promise": "7.1.1",
+    "q": "1.5.0",
+    "request": "^2.81.0",
+    "sqlite3": "3.1.8",
+    "util": "0.10.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiras/foxbot.git"
+  },
+  "keywords": [
+    "eso",
+    "elder",
+    "scrolls",
+    "online",
+    "bot",
+    "discord"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiras/foxbot/issues"
+  },
+  "homepage": "https://github.com/chiras/foxbot#readme",
+  "devDependencies": {
+    "request": "^2.81.0"
+  }
+}

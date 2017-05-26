@@ -19,6 +19,10 @@ traits
 !command $account, NA, -op1 -op2 ballal 1,2  superior, 
 **/
 
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 function definePollQuestion(input,callback){
 		pollObject = {
 			"options" : [],
@@ -121,6 +125,8 @@ exports.argumentSlicer = function(args, callback){ // add required / optional?
     			returnObj["item_quality"].push(Number(nh.getQuality(argsArray[i])))
 	    	}else if(nh.getTrait(argsArray[i])){
     			returnObj["item_trait"].push(Number(nh.getTrait(argsArray[i])))
+	    	}else if(isNumeric(argsArray[i])){
+    			returnObj["value_num"].push(Number(argsArray[i]))
 	    	}else{
     			returnObj["others"].push(argsArray[i])	    	
 	    	}

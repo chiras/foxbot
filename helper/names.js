@@ -96,6 +96,10 @@ exports.getServer = function (type) {
 	}
 }
 
+exports.listServers = function (){
+	return servers;
+}
+
 exports.getQuality = function (type) {
 	if (typeof quality[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()]!=="undefined"){
 		return quality[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()].toString();

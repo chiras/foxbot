@@ -1,3 +1,4 @@
+const util = require('util')
 const sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('./data/dbs/guilds.db');
 
@@ -7,6 +8,12 @@ function getDbRecords(args, callback) {
         callback(err, all);  
     });
 }; 
+
+// function logMapElements(value, key, map, callback) {
+// 	var roles = `${value}`
+//     console.log(`m[${key}] = ${value}`);
+//     callback(roles);
+// }
 
 function getDbInserts(args, callback) {
 	
@@ -25,8 +32,15 @@ getDbMaxId(db, function(err, all) {
 }; 
 
 
-exports.getGuildRoles = function(Discord, callback) {
+exports.getGuildRoles = function(msg, callback) {
+	var roles =  [ ...msg.guild.roles.keys() ]
+	var rolehash = {}
 	
+	for (var i = 0; i < roles.length; i++){
+		rolehash[roles[i]] = msg.guild.roles.get(roles[i]).name
+		console.log(i +" "+roles[i] + "-->" +  msg.guild.roles.get(roles[i]).name)
+	}
+	callback(rolehash)
 }; 
 
 exports.setGuildRoles = function(Discord, callback) {
