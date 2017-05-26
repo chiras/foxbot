@@ -34,6 +34,7 @@ const poll = require('./modules/vote.db.js');
 const esoDBhook = require('./modules/esoDBhook.js');
 const subscribe = require('./modules/subscribe.js');
 const ttc = require('./modules/ttc.js');
+const configure = require('./modules/settings.js');
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -119,6 +120,7 @@ bot.on("message", (msg) => {
 		"!lb" 			: function(){leaderboards(bot, msg);}, 
 		"!leaderboard" 	: function(){leaderboards(bot, msg);}, 
 		"!leaderboards" : function(){leaderboards(bot, msg);}, 
+		"!config" 		: function(){configure(bot, msg, Discord);}, 
 		};
 	
 	var fm = new FuzzyMatching(Object.keys(responses));
@@ -248,7 +250,7 @@ bot.on('error', error => {
 process.on('unhandledRejection', error => {
     console.log(error);
      if (typeof bot.channels.get(logchannel) !=="undefined"){
- 			bot.channels.get(logchannel).sendMessage('-- Warning: unhandled Rejection received')
+ 			bot.channels.get(logchannel).sendMessage('-- Warning: unhandled Rejection received: '+error)
     }
 });
 

@@ -1,3 +1,5 @@
+// toDO: only creator + admins can end polls
+
 const util = require('util')
 const sqlite3 = require('sqlite3').verbose(); // db module
 const Promise = require('bluebird');

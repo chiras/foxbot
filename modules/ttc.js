@@ -50,7 +50,7 @@ module.exports = (bot, msg, Discord) => { // these arguments must be passed thro
 		all.forEach(function(item){
 			getDbRecords(dbttc, "prices", "id == '"+item.id+"'",function(err, prices){
 			prices.forEach(function(price){
-				console.log(quality[price["quality"]]+"/"+traits[price["trait"]]+"/"+price["avg"])
+				console.log(price["level"]+"/"+quality[price["quality"]]+"/"+traits[price["trait"]]+"/"+price["avg"])
 			})		
 		})		
 		

@@ -1,4 +1,6 @@
 // Set user preferences
+const mh = require("../helper/messages.js")
+const ah = require("../helper/arguments.js")
 
 /** 
 #### user: = direct messages
@@ -31,6 +33,12 @@ guild, channel,
 **/ 
 
 module.exports = (bot, msg) => {
+
+	ah.argumentSlicer(msg.content, function(options){
+		console.log(options)
+
+	})
+	
 //     let [message] = msg.content.split(" ").slice(1);
 //     
 // 		var contactmsg = "Please contact <@218803587491299328> (Fox#6800) or ingame (EU/PC) @chi-ras directly for requests about the discord bot!\n\n";

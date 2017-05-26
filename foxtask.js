@@ -5,28 +5,15 @@ const traverse = require('traverse');
 const schedule = require('node-schedule');
 const moment = require('moment-timezone');
 const https = require('https');
-var WebHooks = require('node-webhooks')
+const Discord = require("discord.js");
+const WebHooks = require('node-webhooks')
+
+const eh = require("./helper/events.js")
  
  
 var webHooks = new WebHooks({
-    db: './webHooksDB.json', // json file that store webhook URLs 
+    db: './tokens/webHooksDB.json', // json file that store webhook URLs 
 })
- 
-// sync instantation - add a new webhook called 'shortname1' 
-webHooks.add('foxhook', 'https://discordapp.com/api/webhooks/308950470293192706/ZF4lmpAhReO-WuAAfJJjnwQ1ztyV_GXSYnn6RoK3QLkKcuSwHsXcRRMdiJsIwupiRkKb').then(function(){
-    // done 
-}).catch(function(err){
-    console.log(err)
-})
-
-
-const db   = new sqlite3.Database('./data/dbs/ttc.db');
-const realmStatus = ['live-services.elderscrollsonline.com','/status/realms'];
-const launcherMessage = ['live-services.elderscrollsonline.com', '/announcement/message?announcer_id=2'];
-
-var timestamp = "";
-var megaserver = "EU";
-
 
 ///// TTC FUNCTIONS
 function create_table(json, megaserver) {
@@ -133,16 +120,41 @@ function getXml(uri, callback) {
     });
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+/// PLEDGES UPDATE
+	
+// scheduled to do everyday on 8:01 am
+var pledgeupdate = schedule.scheduleJob('0 1 8 * * *', function(){
+	console.log("Pledges Update started")
+	eh.pledges(function(pledgesTxt,pledgesTxtNext){
+	        webHooks.trigger('quartermaster', {"username":"the Undaunted Quartermaster","title": "Pledges update","content": "Today's new pledges are: \n " + pledgesTxt})			
+	})
+	
+});
 
 /// REALM STATUS UPDATE
-var maint = {};
-if (!maint['lastStatusCheck'])
-    maint['lastStatusCheck'] = moment().unix();
+const realmStatus = ['live-services.elderscrollsonline.com','/status/realms'];
+const launcherMessage = ['live-services.elderscrollsonline.com', '/announcement/message?announcer_id=2'];
 
-var realmupdate = schedule.scheduleJob('*/1 * * * *', function(){
-	console.log("Realm update started")
+var realms ={
+		"EU" : "",
+		"NA" : "",
+		"PTS" : "",
+		"PS4 - EU" : "",
+		"PS4 - US" : "",
+		"XBox - US" : "",
+		"XBox - EU" : ""
+	}
+	
+var launcher = "";
+var botStartup = 1;
+
+// scheduled to do every 5 mins
+var realmupdate = schedule.scheduleJob('*/5 * * * *', function(){
+
 	   getXml(realmStatus, function (data) {
         let dirty = false;
+		var changedTxt = "";
         data = JSON.parse(data);
         let r = data['zos_platform_response'];
         if (!r)
@@ -151,15 +163,25 @@ var realmupdate = schedule.scheduleJob('*/1 * * * *', function(){
         r = r['response'];
         if (!r)
             return;
+		
+		//console.log(r)
+		for (i = 0; i < Object.keys(realms).length;i++){
+   		     let x = r['The Elder Scrolls Online ('+Object.keys(realms)[i]+')'];
 
-        r = r['The Elder Scrolls Online (NA)'];
-
-        if (!maint['lastStatus'] || maint['lastStatus'] != r) {
-                          console.log('NA PC server status is now ' + r);               
-                          webHooks.trigger('foxhook', {"username":"The Watcher","title": "Status update","content":'NA PC server status is now ' + r})
+        if (realms[Object.keys(realms)[i]] != x) {
+             //console.log(Object.keys(realms)[i]+ ' server status is now ' + x); 
+             changedTxt += Object.keys(realms)[i]+ ' server status is now ' + x+"\n";              
            dirty = true;
-            maint['lastStatus'] = r;
-        }
+           realms[Object.keys(realms)[i]] = x;
+        }		
+		}
+
+		if (changedTxt && !botStartup){
+			console.log("Realm update: changed")
+	        webHooks.trigger('realm', {"username":"The Watcher","title": "Status update","content": changedTxt})	
+		}else{
+			console.log("Realm update: not changed")		
+		}
 
         getXml(launcherMessage, function (data) {
             data = JSON.parse(data);
@@ -178,16 +200,17 @@ var realmupdate = schedule.scheduleJob('*/1 * * * *', function(){
                     message += r[i]['message'] + '\n';
             }
 
-            if (!maint['lastMessage'] || maint['lastMessage'] != message) {
+            if ( message != "" && launcher != message && !botStartup) {
             
-                console.log('Launcher Message:\n' + message);
+                console.log('New Launcher Message:\n' + message);
+	       		webHooks.trigger('realm', {"username":"The Watcher","title": "Launcher Message","content": message})	
 
                 dirty = true;
-                maint['lastMessage'] = message;
             }
-
-            maint['lastStatusCheck'] = moment().unix();
+	        launcher = message;
         });
+        botStartup = 0;
+        
     });
 	
 	
@@ -196,6 +219,11 @@ var realmupdate = schedule.scheduleJob('*/1 * * * *', function(){
 return;
 
 /// TTC UPDATE
+const db   = new sqlite3.Database('./data/dbs/ttc.db');
+
+var timestamp = "";
+var megaserver = "EU";
+
 var itemtable = "/Users/alexanderkeller/Downloads/PriceTable/ItemLookUpTable_EN.lua"
 var pricetable = "/Users/alexanderkeller/Downloads/PriceTable/PriceTable.lua"
 
