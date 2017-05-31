@@ -3,8 +3,10 @@
 const util = require('util')
 const sqlite3 = require('sqlite3').verbose(); // db module
 const Promise = require('bluebird');
-const nh = require("../data/name_helper.js")
 const moment = require('moment-timezone');
+const nh = require("../data/name_helper.js")
+const mh = require("../helper/messages.js")
+const ah = require("../helper/arguments.js")
 
 //const request = Promise.promisifyAll(require('request'));
 
@@ -12,6 +14,12 @@ const dbPolls = new sqlite3.Database('./data/dbs/polls.db'); // database file
 const dbUsers = new sqlite3.Database('./data/dbs/guilds.db'); // database file
 
 var options = ["start", "status", "vote", "end", "revive", "reset"]
+
+var polltexts = {
+	"changes" 	: ["Changes to the poll command:","Use ** !vote $ID** for votes now, you can whisper the bot directly. The ** !poll ** command** is now only used for start/status/end of polls!\nYou can make our vote anonymous by adding '-anonym' after the last option in a whisper to the bot."],
+	"wrongID"	: ["Wrong Poll ID","IDs are usually only numbers."],
+	"creation" 	: ["Poll creation:","You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal.**\nYou can make all votes in this poll anonymous by adding '-anonym' after the last option."]		
+}
 
 // functions
 
@@ -37,6 +45,33 @@ function uniq(a) {
 }
 
 // database functions
+
+function getUserPolls(db, msg, bot, callback){
+			console.log("get user guilds")
+				var guilds_allowed=[]
+				var polls_allowed={}
+				var query = {"active" : 1}
+        		getDbData(dbPolls, "polls", query, function(err, polls){
+        		
+        			if (msg.guild){
+						guilds_allowed = [msg.guild]
+					}else{
+					
+						for (var i = 0; i < polls.length;i++){							
+							getUserPermissionGuild(bot, polls[i].guild, msg, function(allowed, declinetxt){
+		      					if (allowed){
+		      					//	console.log(polls[i])
+      								polls_allowed[polls[i].ID] = polls[i]
+      							}
+      						})
+						}
+					}
+  				
+   		//		console.log(polls_allowed)
+   				callback(polls_allowed)
+     			
+        		})
+}
 
 function setupQuery(array){
 	var query = "";
@@ -161,6 +196,29 @@ db.serialize(function() {
 })
 };
 
+function getUserPermissionGuild(bot, guild, msg, callback){
+
+		  var allowed = 0;
+		  var declineTxt = "";
+		  var user = msg.author.id
+		 // var user = "219009482024419328"
+
+		  console.log("Permission check 2"+guild)
+//		  console.log(bot.guilds.get(guild))
+		  
+		  var validUser = bot.guilds.get(guild).members.find('id', user)
+		  console.log("Valid"+user+"-->"+validUser)
+
+		  if (validUser  != null ){
+		  	 allowed = 1;
+		  }else{
+			 declineTxt += "It seems to belong to a different guild."
+		  }
+		  
+		callback(allowed, declineTxt);
+	//	})
+}
+
 function getUserPermission(bot, db, pollinfo, msg, type, callback){
 
 		  var userquery = {"channel" : pollinfo[0].channel}
@@ -168,38 +226,57 @@ function getUserPermission(bot, db, pollinfo, msg, type, callback){
 		  var allowed = 0;
 		  var declineTxt = "";
 		  
-		  getDbData(db, "channels", userquery, function (err, userinfo){
+		//  getDbData(db, "channels", userquery, function (err, userinfo){
 		  
-//		  var user = "219009482024419328"
 		  var user = msg.author.id
+		 // var user = "219009482024419328"
+		  console.log("Permission check")
 		  
-		  for (var r = 0; r < userinfo.length; r++){
-			  var roleId = bot.channels.get(pollinfo[0].channel).guild.roles.find('name', userinfo[r].role).id
-			  if (bot.channels.get(pollinfo[0].channel).guild.member(user) != null){
-			  	if (bot.channels.get(pollinfo[0].channel).guild.member(user).roles.has(roleId)){
-		 	 		allowed = 1;
-		 	 	 }else{
-		 	  		declineTxt += "You don't have the necessary permissions."		 	  
-		 	 	 }
-		 	  }else{
-		 	  		declineTxt += "It seems to belong to a different guild."
-		 	  }
+		  var validUser = bot.channels.get(pollinfo[0].channel).guild.members.find('id', user)
+		  console.log("Valid"+user+"-->"+validUser)
+
+		  if (validUser  != null ){
+		  	 allowed = 1;
+		  }else{
+			 declineTxt += "It seems to belong to a different guild."
 		  }
+		  // 
+// 		  for (var r = 0; r < userinfo.length; r++){
+// 			  var roleId = bot.channels.get(pollinfo[0].channel).guild.roles.find('name', userinfo[r].role).id
+// 			  if (bot.channels.get(pollinfo[0].channel).guild.member(user) != null){
+// 			  	if (bot.channels.get(pollinfo[0].channel).guild.member(user).roles.has(roleId)){
+// 		 	 		allowed = 1;
+// 		 	 	 }else{
+// 		 	  		declineTxt += "You don't have the necessary permissions."		 	  
+// 		 	 	 }
+// 		 	  }else{
+// 		 	  		declineTxt += "It seems to belong to a different guild."
+// 		 	  }
+// 		  }
 		  
 		callback(allowed, declineTxt);
-		})
+	//	})
 }
 
-module.exports = (bot, msg, tokens, Discord) => {
 
+module.exports = (bot, msg, tokens, Discord) => {
+	ah.argumentSlicer(msg.content, function(options){
+   		
+   		console.log(options)
+   		
+   		var embed = mh.prepare(Discord)
+	
         var args = msg.content.split(" ").slice(1);
 
         var pollID = 0;
         var option = 0;
         var anonym = 0;
-        var vargs = [];
+        var vargs = options.value_num;
         
-        if(args.length == 0){
+        if(options.accounts.length == 0 & options.question.length == 0){
+        	// case: no arguments provided --> list existing and help
+        	// only in channels? guilds? direct messages?
+        	// in direct messages, skip poll creation
         
         	var query = {"channel" : msg.channel.id, "active" : 1}
         	getDbData(dbPolls, "polls", query, function(err, polls){
@@ -211,44 +288,48 @@ module.exports = (bot, msg, tokens, Discord) => {
         				activesTxt += "\n$"+entry["ID"]+": "+entry["question"]
         			})
         		}else{
-        			activesTxt = "There are no active polls in this channel"
+        			activesTxt = "There are no active polls for you to vote"
         		}
         	
-   				var embed = new Discord.RichEmbed()
-  					.setColor(0x800000)
-					.addField("Active polls in this channel: ",activesTxt)
-					.addField("Poll creation:","You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal.**\nYou can make all votes anonymous by adding 'anonymous' after the last option.")		
+				embed.addField("Active polls in this channel: ",activesTxt)
+				console.log("gID"+msg.guild)
+				if (msg.guild){
+					embed.addField(polltexts["creation"][0],polltexts["creation"][1])		
+				}
+				embed.addField(polltexts["changes"][0],polltexts["changes"][1])
 				//	.addField("Vote:","You can now vote with \n**!poll $"+ID+" 1," + answers.length+"**\nVoting of multiple options is allowed, but not voting the same option twice.")		
 
-  				msg.channel.sendEmbed(embed);   
-       	
+				mh.send(msg.channel,embed)       	
         	
         	})
         
         return;
         }
         
-        args.forEach(function(entry) {
-          	if (entry.startsWith("$")){ 
-          		if (isNumeric(parseInt(entry.substring(1, entry.length)))){
-		      		pollID = parseInt(entry.substring(1, entry.length));
-		      	}else{
-		      		pollID = entry.substring(1, entry.length) + " (IDs are usually only numbers)"; 	
-		      	}
-		    }else if (options.includes(entry.replace(/ /g, ""))){
-		    	option = entry
-		    }else if (entry.startsWith("anonym")){
+ 		for (var i = 0; i < options.accounts.length; i++){
+ 			if (isNumeric(parseInt(options.accounts[i].substring(1, options.accounts[i].length)))){
+		      	pollID = parseInt(options.accounts[i].substring(1, options.accounts[i].length));
+ 			}else{
+				embed.addField(polltexts["wrongID"][0],polltexts["wrongID"][1])
+ 			}
+ 		}
+
+  		for (var i = 0; i < options.options.length; i++){
+ 			if (options.options[i] == "-anonym"){
 		    	anonym = 1;
-		    }else{
-		    	vargs.push(entry)
-		    }
-		});
+ 		}}
+ 		
+
+		// not sure about this
+		  //  }else if (options.includes(entry.replace(/ /g, ""))){
+		  //  	option = entry
 		        
-    	if (msg.content.includes("?")){
-         	var qargs = args.join(" ").split("?");
-   		
-        	var question = qargs[0].substr(0,200).trim() + "?";
-        	var answers = qargs.slice(1).join("").split(".")
+		
+    	if (options.question.length != 0){
+    	   	// setting up a new poll
+    	   	
+        	var question = options.question[0];
+        	var answers = options.answers;
 
      		answers = answers.filter(function (item) {
 			   return item.trim().indexOf("anonym") !== 0;
@@ -260,12 +341,11 @@ module.exports = (bot, msg, tokens, Discord) => {
 			
      		if (answers.length > 1){
      		
-     		    var anonymTxt = "\nVotes are not anonymous by default, but can be made such by adding 'anonym' to the vote call.";
+     		    var anonymTxt = " Votes are not anonymous by default, but can be made such by adding '-anonym' to the vote call.";
      			if (anonym){
-     				anonymTxt = "\nAll votes are anonymous in this poll."
+     				anonymTxt = " All votes are anonymous in this poll."
      			}
 
-     		
      			setDbPoll(dbPolls, msg, question, answers, anonym, function (err, ID){ 
      			
      			var answerTxt = "";
@@ -274,19 +354,18 @@ module.exports = (bot, msg, tokens, Discord) => {
      				answerTxt += "\n"+k+": \t"+ answers[k-1]
      			}
      			
-  				var embed = new Discord.RichEmbed()
-  					.setColor(0x800000)
-					.addField("Poll $"+ID+" has been created", "Options:\n**!poll $"+ID+" status** --> Intermediate results\n**!poll $"+ID+" reset** --> Clear all votes\n**!poll $"+ID+" end** --> End poll"+ anonymTxt)
-					.addField(question, answerTxt)		
-					.addField("Vote:","You can now vote with \n**!poll $"+ID+" 1," + answers.length+"**\nVoting of multiple options is allowed, but not voting the same option twice.")		
+				embed.addField("Poll $"+ID+" has been created", "Options:\n**!poll $"+ID+" status** --> Intermediate results\n**!poll $"+ID+" reset** --> Clear all votes\n**!poll $"+ID+" end** --> End poll")
+				embed.addField(question, answerTxt)		
+				embed.addField("Vote:","You can now vote with \n**!vote $"+ID+" 1," + answers.length+"**\nVoting of multiple options is allowed, but not voting the same option twice. Votes should be made in direct whisper to the bot."+ anonymTxt)		
 
-  				msg.channel.sendEmbed(embed);   
-  				
+				mh.send(msg.channel,embed)       	
+				
   				})
      		
      		}
     		return;
     	}
+		console.log("pollID = "+pollID)
 	    
 	    if (pollID != 0){	
 	    
@@ -297,31 +376,51 @@ module.exports = (bot, msg, tokens, Discord) => {
 		  getDbData(dbPolls, "polls", query, function (err, pollinfo){
 	        	
 	  	  if (pollinfo.length == 0){
-		
 	  	  
-        	var query2 = {"channel" : msg.channel.id, "active" : 1}
-        	getDbData(dbPolls, "polls", query2, function(err2, polls){
-        		
-        		var activesTxt = "";
-        		
-        		if (polls.length > 0) {
-        			polls.forEach(function(entry) {
-        				activesTxt += "\n$"+entry["ID"]+": "+entry["question"]
-        			})
-        		}else{
-        			activesTxt = "There are no active polls in this channel"
-        		}
-        	
-   				var embed = new Discord.RichEmbed()
-  					.setColor(0x800000)
-					.addField("Poll $"+pollID,"No poll with that ID has been found")
-					.addField("Active polls in this channel: ",activesTxt)
-					.addField("Poll creation:","You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal.**\nYou can make all votes anonymous by adding 'anonymous' after the last option.")		
+	  	  getUserPolls(dbPolls, msg, bot, function(polls){
+	  	  			var guilds = {};
+	  	  			for (var i = 0; i< Object.keys(polls).length;i++){
+	  	  				console.log(polls[Object.keys(polls)[i]].guild)
+	  	  				if(typeof guilds[polls[Object.keys(polls)[i]].guild] === "undefined"){
+	  	  					guilds[polls[Object.keys(polls)[i]].guild] = []
+	  	  				}
+	  	  				guilds[polls[Object.keys(polls)[i]].guild].push(polls[Object.keys(polls)[i]].ID)
+	  	  			}
+	  	  			console.log(guilds)
+	  	  			//embed.addTitle("All polls you currently have access to:")
+	  	  			
+	  	  			for (var i = 0; i< Object.keys(guilds).length;i++){
+	  	  			var polltxt=""
+	  	  			for (var j = 0; j< guilds[Object.keys(guilds)[i]].length;j++){
+	  	  					polltxt+= "\n$"+guilds[Object.keys(guilds)[i]][j]+": "+polls[guilds[Object.keys(guilds)[i]][j]].question
+	  	  				}
+						embed.addField(bot.guilds.get(Object.keys(guilds)[i]),polltxt)
+	  	  			}	 
+	  	  			 	  			
+			//		.addField("Poll $"+pollID,"No poll with that ID has been found")
+			//		.addField("Active polls in this channel: ",activesTxt)
+			//		.addField("Poll creation:","You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal.**\nYou can make all votes anonymous by adding 'anonymous' after the last option.")		
 
   				msg.channel.sendEmbed(embed);   
+	  	  
+	  	  })		
+	  	  
+//         	var query2 = {"channel" : msg.channel.id, "active" : 1}
+//         	getDbData(dbPolls, "polls", query2, function(err2, polls){
+//         		
+//         		var activesTxt = "";
+//         		
+//         		if (polls.length > 0) {
+//         			polls.forEach(function(entry) {
+//         				activesTxt += "\n$"+entry["ID"]+": "+entry["question"]
+//         			})
+//         		}else{
+//         			activesTxt = "There are no active polls in this channel"
+//         		}
+        	
        	
         	
-        	})	  	  	  	
+        	//})	  	  	  	
 	  	  return;
 	  	  }
 		getDbData(dbPolls, "answers", query, function (err, answers){	
@@ -774,4 +873,5 @@ module.exports = (bot, msg, tokens, Discord) => {
 //  				 if(err){console.error(err)}
 // 			})
 //                     } // end if/else ongoing	
+}) // argument slicer
 };

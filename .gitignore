@@ -5,3 +5,4 @@ logs
 logs/requests.log
 tokens/dev.json
 tokens/live.json
+tokens/webHooksDB.json
