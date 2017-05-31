@@ -58,7 +58,7 @@ module.exports = (bot, msg, gsDayNames, request, cheerio) => {
                 	//scrape content
                     results = $('h3').filter(function() {
                             return $(this).text().trim() === lookupdates[i];
-                        }).next('ul')
+                        }).next('h4').next('ul').next('h4').next('ul')
                         .find('li')
                         .each(function() {
                             var $el = $(this);

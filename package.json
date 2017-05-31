@@ -13,10 +13,12 @@
     "fuzzy-matching": "0.4.3",
     "moment-timezone": "^0.5.13",
     "node-schedule": "1.2.1",
+    "node-webhooks": "^1.1.32",
     "promise": "7.1.1",
     "q": "1.5.0",
     "request": "^2.81.0",
     "sqlite3": "3.1.8",
+    "traverse": "0.6.6",
     "util": "0.10.3"
   },
   "scripts": {

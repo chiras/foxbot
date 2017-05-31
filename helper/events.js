@@ -89,7 +89,7 @@ if (fs.existsSync(file))
 
     var remainingH = 23 - Math.floor((elapsed % 86400) / 3600);
     var remainingM = 59 - Math.floor(((elapsed % 86400) / 60) % 60);
-	console.log(elapsed)
+	// console.log(elapsed)
     
     // caching, but not implemented atm
 //     if (todaysPledges["updated"] == "" || elapsed < (60 * 60)){

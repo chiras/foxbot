@@ -57,69 +57,6 @@ getDbMaxId(db, function(err, all) {
 
 // Data:
 // URL of the golden history
-var goldenurl = "http://benevolentbowd.ca/games/esotu/esotu-chronicle-of-alliance-point-vendor-items/";
-
-var j = schedule.scheduleJob('1 59 * * 6', function(){		// vendor comes online, try to refresh stores
-//var j = schedule.scheduleJob('27 16 * * 5', function(){
-
-	// current date
-	var searchdate = moment().tz("America/New_York").format("YYYY-MM-DD");
-	//var searchdate = new Date(Date.now()).toISOString().substring(0, 10);
-//	var searchdate = new Date(Date.parse("April 29, 2017")).toISOString().substring(0, 10); // just for control
-	
-	console.log( "Golden Vendor came online, refreshing: " + searchdate);
-	
-	let startTime = new Date(Date.now()+5000);
-	let endTime = new Date(startTime.getTime() + 60000 * 10); // do the searching for 10 minutes after start
-	
-	console.log (startTime + "-->"+ endTime)
-	var k = schedule.scheduleJob({ start: startTime, end: endTime, rule: '10 * * * * *' }, function(){	// refresh every minute	
-		var goldentext = "";
-	
-		request(goldenurl, function(error, response, body) {
-            if (error) {
-                // on error
-                console.log("Error: " + error);
-            } else {
-				// check wether we got a website (redundant to previous check?)
-                if (response.statusCode === 200) {
-                    var $ = cheerio.load(body);
-                }
-
-                // check today, yesterday and day before whether there is a hit
-          //      for (var i = 0, len = lookupdates.length; i < len; i++) {
-          
-                	//scrape the site for the day
-                    results = $('h3').filter(function() {
-                            return $(this).text().trim() === searchdate;
-                        }).next('ul')
-                        .find('li')
-                        .each(function() {
-                            var $el = $(this);
-                            // extend the return message by all hits
-                            goldentext += " * " + $(this).text() + "\n";
-                    		var argsg =  [searchdate,$(this).text()]
-							getDbInserts(db, argsg)
-
-                        }); // end each
-         //       } // end for dates
-
-            } // end check for successful request
-		if(goldentext == ""){
-			console.log("FAILED vendor update: " + new Date(Date.now()));
-		
-		}else{
-			console.log("SUCCESS vendor update: "+ new Date(Date.now()));
-			console.log(goldentext);			
-			k.cancel()
-		}
-
-        }); // end request
-        	
-	});
-});
-
-
 
 // return of the module
 module.exports = (bot, msg, gsDayNames, request, cheerio, Discord) => {

@@ -3,5 +3,6 @@ node*
 .DS_Store
 logs
 logs/requests.log
+tokens/webHooksDB.json
 tokens/dev.json
 tokens/live.json

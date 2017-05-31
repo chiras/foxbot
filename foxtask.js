@@ -7,13 +7,20 @@ const moment = require('moment-timezone');
 const https = require('https');
 const Discord = require("discord.js");
 const WebHooks = require('node-webhooks')
+const request = require('request')
+const cheerio = require('cheerio')
 
 const eh = require("./helper/events.js")
- 
+
  
 var webHooks = new WebHooks({
     db: './tokens/webHooksDB.json', // json file that store webhook URLs 
 })
+
+function getLogDate(){
+	var currentdate =  moment().tz("Europe/Berlin").format() + " -> ";
+	return currentdate
+}
 
 ///// TTC FUNCTIONS
 function create_table(json, megaserver) {
@@ -121,17 +128,105 @@ function getXml(uri, callback) {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
+/// GOLDEN UPDATE
+function getDbMaxId(db, callback) {
+	db.all("SELECT MAX(dateid) FROM golden", function(err, all) {
+        if (err){console.log(err)};
+        callback(err, all);  
+    });
+}; 
+
+function getDbInserts(db, args, callback) {
+	
+getDbMaxId(db, function(err, all) { 
+	var day = Number(all[0]['MAX(dateid)'])+1;
+
+	db.each("INSERT into golden (dateid, date, item) VALUES ('"+day+"', '"+args[0]+"', '"+args[1]+"')", function(err, row) {
+		if (err){
+			console.log(err)
+		}else{
+
+		}	
+	});
+	
+})
+}; 
+
+var goldendb = new sqlite3.Database('./data/history_golden.sqlite');
+
+var goldenurl = "http://benevolentbowd.ca/games/esotu/esotu-chronicle-of-alliance-point-vendor-items/";
+
+var schedGolden = schedule.scheduleJob('1 1 59 * * 6', function(){		// vendor comes online, try to refresh stores
+
+	// current date
+	var searchdate = moment().tz("America/New_York").format("YYYY-MM-DD");
+	
+	console.log( getLogDate() + "Golden Vendor came online, refreshing: " + searchdate);
+	
+	let startTime = new Date(Date.now()+5000);
+	let endTime = new Date(startTime.getTime() + 60000 * 10); // do the searching for 10 minutes after start
+	
+	console.log (startTime + "-->"+ endTime)
+	var k = schedule.scheduleJob({ start: startTime, end: endTime, rule: '10 * * * * *' }, function(){	// refresh every minute	
+		var goldentext = "";
+	
+		request(goldenurl, function(error, response, body) {
+            if (error) {
+                // on error
+                console.log("Error: " + error);
+            } else {
+				// check wether we got a website (redundant to previous check?)
+                if (response.statusCode === 200) {
+                    var $ = cheerio.load(body);
+                }
+
+                // check today, yesterday and day before whether there is a hit
+          //      for (var i = 0, len = lookupdates.length; i < len; i++) {
+          
+                	//scrape the site for the day
+                    results = $('h3').filter(function() {
+                            return $(this).text().trim() === searchdate;
+                        }).next('ul')
+                        .find('li')
+                        .each(function() {
+                            var $el = $(this);
+                            // extend the return message by all hits
+                            goldentext += " * " + $(this).text() + "\n";
+                    		var argsg =  [searchdate,$(this).text()]
+							getDbInserts(goldendb, argsg)
+
+                        }); // end each
+         //       } // end for dates
+
+            } // end check for successful request
+		if(goldentext == ""){
+			console.log(currentdate + "FAILED vendor update: " + new Date(Date.now()));
+		
+		}else{
+			console.log(currentdate + "SUCCESS vendor update: "+ new Date(Date.now()));
+			console.log(goldentext);			
+			k.cancel()
+		}
+
+        }); // end request
+        	
+	});
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 /// PLEDGES UPDATE
 	
 // scheduled to do everyday on 8:01 am
-var pledgeupdate = schedule.scheduleJob('0 1 8 * * *', function(){
-	console.log("Pledges Update started")
+var pledgeupdate = schedule.scheduleJob('30 0 8 * * *', function(){
+	console.log(getLogDate() + "Pledges Update started")
 	eh.pledges(function(pledgesTxt,pledgesTxtNext){
-	        webHooks.trigger('quartermaster', {"username":"the Undaunted Quartermaster","title": "Pledges update","content": "Today's new pledges are: \n " + pledgesTxt})			
+	        webHooks.trigger('quartermaster', {"username":"The Undaunted Quartermaster","title": "Pledges update","content": "Today's new pledges are: \n" + pledgesTxt})			
 	})
 	
 });
 
+//////////////////////////////////////////////////////////////////////////////////////////
 /// REALM STATUS UPDATE
 const realmStatus = ['live-services.elderscrollsonline.com','/status/realms'];
 const launcherMessage = ['live-services.elderscrollsonline.com', '/announcement/message?announcer_id=2'];
@@ -177,10 +272,10 @@ var realmupdate = schedule.scheduleJob('*/5 * * * *', function(){
 		}
 
 		if (changedTxt && !botStartup){
-			console.log("Realm update: changed")
+			console.log(getLogDate() + "Realm update: changed")
 	        webHooks.trigger('realm', {"username":"The Watcher","title": "Status update","content": changedTxt})	
 		}else{
-			console.log("Realm update: not changed")		
+//			console.log(getLogDate() + "Realm update: not changed")		
 		}
 
         getXml(launcherMessage, function (data) {
@@ -202,7 +297,7 @@ var realmupdate = schedule.scheduleJob('*/5 * * * *', function(){
 
             if ( message != "" && launcher != message && !botStartup) {
             
-                console.log('New Launcher Message:\n' + message);
+                console.log(getLogDate() + 'New Launcher Message:\n' + message);
 	       		webHooks.trigger('realm', {"username":"The Watcher","title": "Launcher Message","content": message})	
 
                 dirty = true;
@@ -248,7 +343,7 @@ var contents_price = fs.readFileSync(pricetable, 'utf8');
 
 //    fs.writeFileSync(itemtable+".json", contents, 'utf8');
 
-console.log("Importing Price table")
+console.log(getLogDate() + "Importing Price table")
 
 var jsonprice = JSON.parse(contents_price, megaserver);
 
