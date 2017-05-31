@@ -6,3 +6,4 @@ logs/requests.log
 tokens/webHooksDB.json
 tokens/dev.json
 tokens/live.json
+tokens/webHooksDB.json

@@ -102,7 +102,7 @@ exports.argumentSlicer = function(args, callback){ // add required / optional?
 			})
 		
 		}
-		console.log("got no question here")	
+		// console.log("got no question here")	
 
 		var argsArray = args.replace(/ /g, ",").split(",")
 
