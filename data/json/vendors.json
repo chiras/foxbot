@@ -1,0 +1,14 @@
+{
+"golden" : 	{	"name"		:"golden",
+				"username"	: "Adhazabi Aba-daro",
+				"url" 		: "http://benevolentbowd.ca/games/esotu/esotu-chronicle-of-alliance-point-vendor-items/",
+				"items" 	: [],
+				"updating" 	: 1						
+					},
+"luxury": 	{	"name"		: "luxury",
+				"username"	: "Zenil Theran",
+				"url" 		: "http://benevolentbowd.ca/games/esotu/esotu-chronicle-of-luxury-furnisher-vendor-items/",
+				"items" 	: [],
+				"updating" 	: 1						
+					}
+}
