@@ -538,7 +538,10 @@ var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
 const esoitemUrl = "https://esolog.uesp.net/exportJson.php?table=setSummary"
 const esoskillUrl = "https://esolog.uesp.net/exportJson.php?table=playerSkills"
 // https://esolog.uesp.net/exportJson.php?table=cpSkills
+// http://esolog.uesp.net/exportJson.php?table=minedItemSummary
 
+
+/// DOC: http://en.uesp.net/wiki/User:Daveh/ESO_Log_Collector#ItemLinkImage_Documentation
 
 const itemdb = new sqlite3.Database('./data/dbs/item.db');
 const skilldb = new sqlite3.Database('./data/dbs/skill.db');

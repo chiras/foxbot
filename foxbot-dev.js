@@ -16,7 +16,7 @@ const FuzzyMatching = require('fuzzy-matching');
 const golden = require('./modules/golden.js');
 const luxury = require('./modules/luxury.js');
 const status = require('./modules/server.js');
-const getset = require('./modules/sets.js');
+const getset = require('./modules/sets.db.js');
 const getsetstats = require('./modules/setstats.js');
 const help = require('./modules/help.js');
 const pledges = require('./modules/pledges.js');
@@ -106,7 +106,7 @@ bot.on("message", (msg) => {
 		"!golden" 	: function(){golden(bot, msg, gsDayNames, request, cheerio, Discord);}, 
 		"!luxury" 	: function(){luxury(bot, msg, gsDayNames, request, cheerio, Discord);}, 
 		"!status" 	: function(){status(bot, msg, request, cheerio);}, 
-		"!set" 		: function(){getset(bot, msg, setitems);}, 
+		"!set" 		: function(){getset(bot, msg, Discord);}, 
 //		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
 //		"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
 //		"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
