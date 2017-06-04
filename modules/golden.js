@@ -5,8 +5,11 @@ const sqlite3 = require('sqlite3').verbose();
 const cheerio = require('cheerio');
 const request = require("request");
 const moment = require('moment-timezone');
-var schedule = require('node-schedule');
+
+const mh = require("../helper/messages.js")
+
 var db = new sqlite3.Database('./data/history_golden.sqlite');
+var goldenurl = "http://benevolentbowd.ca/games/esotu/esotu-chronicle-of-alliance-point-vendor-items/";
 
 // Functions:
 // need to get dates with zeros padded on days/months <10
@@ -62,11 +65,11 @@ getDbMaxId(db, function(err, all) {
 module.exports = (bot, msg, gsDayNames, request, cheerio, Discord) => {
 
 var args = msg.content.split(" ").slice(1);
-var embedHistory = new Discord.RichEmbed()
-var embed = new Discord.RichEmbed()
+var embed = mh.prepare(Discord)
 embed.setAuthor("Adhazabi Aba-daro the Golden says")//,"http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png")
-embed.setColor(0x800000)
-embedHistory.setColor(0x800000)
+
+var embedHistory = embed
+
     
 if (args[0]){
 
@@ -103,13 +106,13 @@ getDbMaxId(db,  function(err, all) {
 		
 		embedHistory.addField("With fair and low prices, this honest cat sold " + -requestdiff + " weeks ago:", lagacytxt+"\n\nIt is not Adhazabi's fault, and can not take back this, if a buyer has trouble to kill well with it. ")		
 		embedHistory.setFooter("Khajiit got this data from www.benevolentbowd.ca")		
-		msg.channel.sendEmbed(embedHistory);				
+		mh.send("",embedHistory,msg);				
 
 	});
 
 	}else{
 		embedHistory.setDescription("Khajiit does not understand your talk, you have to tell her \n**!golden** for todays wares\n**!golden -1** for last week,\n**!golden -13** for 13 weeks ago.")		
-		msg.channel.sendEmbed(embedHistory);
+		mh.send("",embedHistory,msg);				
 	}
 	}
 })
@@ -145,7 +148,7 @@ getDbMaxId(db,  function(err, all) {
 	if (remainingOn.startsWith("in")){
 	
 			embed.addField("This cat's store has not yet opened.","Adhazabi will start to sell some beautiful wares " + remainingOn + ", this she can tell.")		
-			msg.channel.sendEmbed(embed);	
+			mh.send("",embed,msg);	
 	} else{
 
     if (dayName == 'Sunday' || dayName == 'Saturday') {
@@ -165,7 +168,6 @@ getDbMaxId(db,  function(err, all) {
                 }
 
                 // starting the return text (redundant to previous?)
-                goldentext += "This weekend, Adhazabi has plenty of \n";
 
                 // check today, yesterday and day before whether there is a hit
                 for (var i = 0, len = lookupdates.length; i < len; i++) {
@@ -182,19 +184,19 @@ getDbMaxId(db,  function(err, all) {
                 } // end for dates
 
 				// send the message
-                msg.channel.sendEmbed({
-                    color: 0x800000,
-                    description: goldentext,
-                    footer: {
-                        text: 'Khajiit got this data from www.benevolentbowd.ca'
-                    }
-                }); // end message
+				var embedCurrent = mh.prepare(Discord)
+//				embedCurrent.setAuthor("Adhazabi Aba-daro the Golden says")//,"http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png")
+				embedCurrent.setFooter("Khajiit got this from www.benevolentbowd.ca")
+                embedCurrent.setTitle("This weekend, Adhazabi has plenty of");
+				embedCurrent.setDescription(goldentext)
+				mh.send(msg,embedCurrent);	
+
             } // end check for successful request
         }); // end request
     }    
    		//	embed.setFooter('Data obtained from www.benevolentbowd.ca')
 			embed.addField("Hurry up with your dealings","Adhazabi will close her crates again " + remainingOff + ".")		
-			msg.channel.sendEmbed(embed);				
+			mh.send(msg.channel,embed);	
 	} 
 };
 

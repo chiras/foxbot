@@ -19,9 +19,12 @@ traits
 !command $account, NA, -op1 -op2 ballal 1,2  superior, 
 **/
 
+
+
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
+
 
 function definePollQuestion(input,callback){
 		pollObject = {
@@ -67,9 +70,13 @@ function definePollQuestion(input,callback){
 		callback(pollObject)
 }
 
-exports.argumentSlicer = function(args, callback){ // add required / optional?
+exports.argumentSlicer = function(msg, mysql, callback){ // add required / optional?
+	var args = msg.content;
 
 	var returnObj = {
+		"user" 			: msg.author.id,
+		"channel" 		: msg.channel.id,
+		"guild" 		: "DM",
 		"command" 		: [],
 		"options" 		: [],
 		"question"		: [],
@@ -82,10 +89,16 @@ exports.argumentSlicer = function(args, callback){ // add required / optional?
 		"item_trait" 	: [],
 		"value_num" 	: [],
 		"value_char"	: [],
+		"date"			: [],
 		"others"		: [],
 		"slice_info"	: []
 	}
+	
+	if (msg.guild){
+		returnObj["guild"] = msg.guild.id
+	}
 	var command = new RegExp("\![a-zA-Z]+","i")
+	var isDate = new RegExp('[0-9]{4}-[0-9]{2}-[0-9]{2}', 'i');	
 	returnObj["command"].push(args.match(command)[0].trim())
 	
 	args = args.replace(command,"").trim();
@@ -113,7 +126,8 @@ exports.argumentSlicer = function(args, callback){ // add required / optional?
     		
     		if (argsArray[i].startsWith("-")){
     	    	returnObj["options"].push(argsArray[i])   
-    		}else if (argsArray[i].startsWith("$")){
+    		}else if (argsArray[i] == ""){
+     		}else if (argsArray[i].startsWith("$")){
     	    	returnObj["accounts"].push(argsArray[i])   
      		}else if (nh.getServer(argsArray[i])){
     	    	returnObj["megaservers"].push(nh.getServer(argsArray[i]))   				
@@ -127,11 +141,13 @@ exports.argumentSlicer = function(args, callback){ // add required / optional?
     			returnObj["item_trait"].push(Number(nh.getTrait(argsArray[i])))
 	    	}else if(isNumeric(argsArray[i])){
     			returnObj["value_num"].push(Number(argsArray[i]))
+	    	}else if(argsArray[i].match(isDate)){
+    			returnObj["date"].push(argsArray[i])
 	    	}else{
     			returnObj["others"].push(argsArray[i])	    	
 	    	}
        	} // end for		
 	}
-	
-callback(returnObj);
+	console.log(returnObj)
+	callback(returnObj);
 }

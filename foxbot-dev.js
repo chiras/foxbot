@@ -5,16 +5,16 @@ const setitems = require('./data/setfile.json');
 // required modules
 const util = require('util')
 const Discord = require("discord.js");
-const request = require("request");
+const request = require("request"); // necessary?
 const cheerio = require('cheerio');
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const FuzzyMatching = require('fuzzy-matching');
+const sql      = require('mysql');
 //const TwitchApi = require('twitch-api');
 
 // local modules
-const golden = require('./modules/golden.js');
-const luxury = require('./modules/luxury.js');
+const vendor = require('./modules/vendor.sql.js'); // v2 ready
 const status = require('./modules/server.js');
 const getset = require('./modules/sets.db.js');
 const getsetstats = require('./modules/setstats.js');
@@ -22,7 +22,7 @@ const help = require('./modules/help.js');
 const pledges = require('./modules/pledges.js');
 const trials = require('./modules/trials.js');
 const log = require('./modules/log.js');
-const gettwitch = require('./modules/twitch.js');
+const gettwitch = require('./modules/twitch.js'); // v2 ready
 const contact = require('./modules/contact.js');
 const youtube = require('./modules/youtube.js');
 const patchnotes = require('./modules/patchnotes.js');
@@ -35,6 +35,9 @@ const esoDBhook = require('./modules/esoDBhook.js');
 const subscribe = require('./modules/subscribe.js');
 const ttc = require('./modules/ttc.js');
 const configure = require('./modules/settings.js');
+
+// helper functions
+const ah = require("./helper/arguments.js")
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -53,6 +56,16 @@ var gsDayNames = new Array(
     'Friday',
     'Saturday'
 );
+
+// mysql database
+var mysql = sql.createPool({
+  host     : 'localhost',
+  user     : tokens["mysqluser"],
+  password : tokens["mysqlpass"],
+  database : 'foxbot'
+});
+
+
 
 // functions
 function isNumber(n) {
@@ -73,6 +86,17 @@ db.serialize(function() {
 });
 };
 
+function saveStats(options, sql){
+	var key = options["command"]+":"+options["user"]+"@"+options["guild"]
+	var query = 'INSERT into stats (id, guild, user, command, count) VALUES ("' + key +'", "' + options["guild"] +'", "' + options["user"]+'", "' + options["command"]+'", 1) ON DUPLICATE KEY UPDATE count = count + 1';
+	//console.log(query)
+	
+	sql.query(query, function (error, results, fields) {
+	  	if (error) console.log(error);
+	});
+}
+
+
 const roleID = tokens["id"];
 
 // listening for messages
@@ -89,8 +113,19 @@ bot.on("message", (msg) => {
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
+   	
+   	ah.argumentSlicer(msg, mysql, function(options){
     	
 	var responses = {
+		//v2 ready
+		"!golden" 	: function(){vendor(bot, msg, options, mysql, "golden", Discord);}, 
+		"!luxury" 	: function(){vendor(bot, msg, options, mysql, "luxury", Discord);}, 
+		"!twitch" 	: function(){gettwitch(bot, msg, tokens["twitch"], Discord);}, //no help yet
+		"!youtube" 	: function(){youtube(bot, msg, tokens["youtube"], options, mysql, Discord);}, 
+		"!contact" 	: function(){contact(bot, msg, Discord);}, 
+		//v2 preparation
+
+		//not ready
 		"!help" 	: function(){help(bot, msg, Discord);}, 
 		"!ttc"		: function(){ttc(bot, msg, Discord);}, 
 		"!subscribe": function(){subscribe(bot, msg, Discord, 0);}, 
@@ -103,34 +138,30 @@ bot.on("message", (msg) => {
 		"!weekly" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
 		"!trials" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
 		"!trial" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
-		"!golden" 	: function(){golden(bot, msg, gsDayNames, request, cheerio, Discord);}, 
-		"!luxury" 	: function(){luxury(bot, msg, gsDayNames, request, cheerio, Discord);}, 
 		"!status" 	: function(){status(bot, msg, request, cheerio);}, 
 		"!set" 		: function(){getset(bot, msg, Discord);}, 
 //		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
 //		"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
 //		"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
-		"!twitch" 	: function(){gettwitch(bot, msg, tokens["twitch"], util, request);}, 
-		"!youtube" 	: function(){youtube(bot, msg, request, youtube);}, 
 		"!lfg" 		: function(){lfg(bot, msg, Discord)}, 
 //		"!lfm" 		: function(){lfm(bot, msg, lfgdb)}, 
 		"!patch" 	: function(){patchnotes(bot, msg, request, cheerio);}, 
 		"!patchpts" : function(){patchpts(bot, msg, request, cheerio);}, 
-		"!contact" 	: function(){contact(bot, msg);}, 
 		"!lb" 			: function(){leaderboards(bot, msg);}, 
 		"!leaderboard" 	: function(){leaderboards(bot, msg);}, 
 		"!leaderboards" : function(){leaderboards(bot, msg);}, 
 		"!config" 		: function(){configure(bot, msg, Discord);}, 
 		};
-	
+    	
 	var fm = new FuzzyMatching(Object.keys(responses));
 	
 	var cmd = msg.content.split(" ")[0];
-
+	
 //	console.log(fm.get(cmd)); // --> { distance: 1, value: 'tough' } 
 	
 	if (fm.get(cmd).distance > 0.7){
-		cmd = fm.get(cmd).value
+		options["command"] = fm.get(cmd).value
+		saveStats(options, mysql)
 		
 		if (tokens["tokenset"] == "live"){ 
 			log(msg, cmd + " ("+msg.content+")", fs, logfile, bot);
@@ -178,7 +209,7 @@ bot.on("message", (msg) => {
 		} // end if guild
 	
 		if (permission){
-			if (responses[cmd]) {responses[cmd]();	
+			if (responses[options["command"]]) {responses[options["command"]]();	
 		}}else{
 			log(msg, cmd + " <--- wrong permissions ", fs, logfile, bot);
 		}
@@ -214,6 +245,7 @@ bot.on("message", (msg) => {
         
 //currently disabled the unknown command because of other both's interferring
 	} // end fuzzy search
+  }) // end argument slicer
 
 });
 
@@ -226,7 +258,7 @@ bot.on('ready', () => {
 
     var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
     console.log(guildNames);
-
+	//mysql.connect();
 });
 
 bot.on('guildCreate', guild => {

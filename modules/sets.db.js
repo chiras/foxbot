@@ -19,7 +19,7 @@ module.exports = (bot, msg, Discord) => {
 		var embed = mh.prepare(Discord)
   		embed.setFooter('Data obtained from www.uesp.net')
 		
-		var limit = 21;
+		var limit = 25;
 		if (msg.guild){limit = 6}
 		
         var results = [];
@@ -28,9 +28,13 @@ module.exports = (bot, msg, Discord) => {
         
         getDbRecords(itemdb, filter, function(results){
     		embed.setTitle("Found " + results.length + " sets matching your request.")
+ 		if (results.length == 1){
+ 			embed.setImage("http://esoitem.uesp.net/itemLinkImage.php?itemid=70&level=66&quality=5")
+ 		}
  			if (results.length < limit && results.length > 0){
         	 	for (var i = 0; i < results.length; i++) {
-        	 		embed.addField(results[i].setName, 	results[i].itemSlots.replace(/\(/g, " (").replace(/container/g, "") + "\n\n"+
+        	 		embed.addField(results[i].setName, 	"**Items: **"+results[i].itemSlots.replace(/ /g, ", ").replace(/\(/g, " (").replace(/container/g, "") + "\n\n"+
+        	 											"**Boni: **\n"+
         	 											results[i].setBonusDesc1 + "\n"+
         	 											results[i].setBonusDesc2 + "\n"+
         	 											results[i].setBonusDesc3 + "\n"+
@@ -43,9 +47,7 @@ module.exports = (bot, msg, Discord) => {
         	 	}
 				
    			}
- 		if (results.length == 1){
- 			embed.setImage("http://esoitem.uesp.net/item-70-66-5.png")
- 		}
+
 
         mh.send(msg.channel,embed)
     		

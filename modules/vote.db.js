@@ -260,7 +260,7 @@ function getUserPermission(bot, db, pollinfo, msg, type, callback){
 
 
 module.exports = (bot, msg, tokens, Discord) => {
-	ah.argumentSlicer(msg.content, function(options){
+	ah.argumentSlicer(msg, function(options){
    		
    		console.log(options)
    		

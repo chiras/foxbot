@@ -1,12 +1,15 @@
-module.exports = (bot, msg) => {
-    let [message] = msg.content.split(" ").slice(1);
-    
-		var contactmsg = "Please contact <@218803587491299328> (Fox#6800) or ingame (EU/PC) @chi-ras directly for requests about the discord bot!\n\n";
+const mh = require("../helper/messages.js")
+
+module.exports = (bot, msg, Discord) => {
 		
-		contactmsg += "Golden/Luxury info: <http://www.benevolentbowd.ca>\n";
-		contactmsg += "Pledges info: <http://www.esoleaderboards.com>\n";
-		contactmsg += "Maintainance/Patchnotes: <http://www.forums.elderscrollsonline.com>";
-			
-        msg.channel.sendMessage(contactmsg);
+		var embed = mh.prepare(Discord)
+		
+		embed.setTitle("Contact options")
+		embed.addField("Discord Server", "Join the Fox-Server and contact me there: https://discord.gg/xY4jwrQ")
+		embed.addField("Discord PM", "Fox#6800 (or directly <@218803587491299328> if we share a server)")
+		embed.addField("Ingame", "EU-PC: @chi-ras")
+		embed.addField("ESO Forums", "Join the [Forum discussion](https://forums.elderscrollsonline.com/en/discussion/334414/discord-bot-with-eso-information/p1)")
+					
+        mh.send("", embed, msg);
 
 };

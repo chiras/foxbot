@@ -1,3 +1,6 @@
+// better sales: http://esosales.uesp.net/pricesNA/uespSalesPrices.lua
+// http://esosales.uesp.net/salesPrices.shtml
+
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const util = require('util')
@@ -52,7 +55,7 @@ function insertVendorDB(db, items, searchdate, vendor, callback) {
     })
 };
 
-var excludeUpdates = ["soon", "TBD", "soon(TM)", "soon (TM)"]
+var excludeUpdates = ["soon", "TBD", "soon(TM)", "soon (TM)","Soon(tm)"]
 
 var findOne = function(haystack, arr) {
     return arr.some(function(v) {
@@ -124,7 +127,7 @@ function vendorUpdate(url, searchdate, db, vendor) {
 var vendors = JSON.parse(fs.readFileSync('data/json/vendors.json', 'utf8'));
 var vendordb = new sqlite3.Database('./data/dbs/vendors.db');
 
-var scheduleVendor = schedule.scheduleJob('1 1 59 * * 6', function() { // vendor comes online, try to refresh stores
+var scheduleVendor = schedule.scheduleJob('1 14 2 * * 6', function() { // vendor comes online, try to refresh stores
     //var schedGolden = schedule.scheduleJob(debugtime, function(){		// for debugging only
     webHooks.trigger('service', {
         "content": "Update Vendors: started"
@@ -801,7 +804,7 @@ var scheduleEsoItem = schedule.scheduleJob('0 0 5 * * 3', function(){
 
 })
 
-
+console.log("Tasking activated")
 
 
 

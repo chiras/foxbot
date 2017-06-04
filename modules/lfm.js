@@ -1,5 +1,5 @@
 const moment = require('moment-timezone');
-var Promise = require('promise');
+const Promise = require('promise');
 const nh = require("../data/name_helper.js")
 const dbh = require("../data/db_helper.js")
 

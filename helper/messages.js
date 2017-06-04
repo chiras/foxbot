@@ -7,8 +7,13 @@ exports.prepare = function(Discord, callback) {
     return embed;	
 }; 
 
-exports.send = function(channel, embed, callback) {
-
-    channel.send({embed: embed});	
+exports.send = function(where, embed, msg, callback) {
+	if (where.channel){
+		console.log("1")
+	    where.channel.send({embed: embed});	
+	}else{
+	console.log("2" + where)
+	   where.send({embed: embed});	
+	}
     
 }; 
