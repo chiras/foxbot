@@ -135,9 +135,10 @@ module.exports = (bot, msg, options, mysql, type, Discord) => {
                         });
 
                     }
-                    var vendorOn = moment().startOf('isoweek').add(5, 'days').add(2, 'hours')
-                    var vendorOnDate = vendorOn.tz("Europe/Berlin").unix()
-                    var vendorOffDate = vendorOn.add(48, 'hours').tz("Europe/Berlin").unix()
+                    var vendorOn = moment().tz("UTC").startOf('isoweek').add(5, 'days')
+                    var vendorOnDate = vendorOn.unix()
+                  	var vendorOffDate = vendorOn.add(2, 'days').unix()
+                    
                     var remainingOn = moment.unix(vendorOnDate).fromNow();
                     var remainingOff = moment.unix(vendorOffDate).fromNow();
 
@@ -151,9 +152,10 @@ module.exports = (bot, msg, options, mysql, type, Discord) => {
                     } else if (remainingOff.startsWith("in")) {
                         var searchdate1 = moment().tz("America/New_York").format("YYYY-MM-DD");
                         var searchdate2 = moment().tz("America/New_York").add(-1, 'days').format("YYYY-MM-DD");
+                        var searchdate3 = moment().tz("America/New_York").add(-2, 'days').format("YYYY-MM-DD");
 
                         console.log(max.date + "-" + searchdate1 + "/" + searchdate2)
-                        if (max.date == searchdate1 || max.date == searchdate2) {
+                        if (max.date == searchdate1 || max.date == searchdate2 || max.date == searchdate3) {
                             embed.addField(vendorTexts[type]["currentT"], lagacytxt + vendorTexts[type]["currentF"] + remainingOff);
                         } else {
                             embed.addField(vendorTexts[type]["currentT"], vendorTexts[type]["soon"]);

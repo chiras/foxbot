@@ -154,7 +154,7 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
                             youtubeout += "\n" + curcount + ". **[" + results[z].youtuber + '](http://youtube.com/watch?v=' + results[z].id + ')**: ' + results[z].title;
                             curcount++;
                         }
-                        embed.addField("Recommended by other Fox-Bot users:", youtubeout)
+                        embed.addField("Recently recommended by other Fox-Bot users:", youtubeout)
                     }
                     mh.send(msg, embed)
                 })
