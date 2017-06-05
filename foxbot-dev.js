@@ -15,7 +15,7 @@ const sql      = require('mysql');
 
 // local modules
 const vendor = require('./modules/vendor.sql.js'); // v2 ready
-const status = require('./modules/server.js');
+const status = require('./modules/server.sql.js');
 const getset = require('./modules/sets.db.js');
 const getsetstats = require('./modules/setstats.js');
 const help = require('./modules/help.js');
@@ -123,10 +123,12 @@ bot.on("message", (msg) => {
 		"!twitch" 	: function(){gettwitch(bot, msg, tokens["twitch"], Discord);}, //no help yet
 		"!youtube" 	: function(){youtube(bot, msg, tokens["youtube"], options, mysql, Discord);}, 
 		"!contact" 	: function(){contact(bot, msg, Discord);}, 
+		"!help" 	: function(){help(bot, msg, options, Discord);}, 
+		"!status" 	: function(){status(bot, msg, options, mysql, Discord);}, 
+		
 		//v2 preparation
 
-		//not ready
-		"!help" 	: function(){help(bot, msg, Discord);}, 
+/**			//not ready
 		"!ttc"		: function(){ttc(bot, msg, Discord);}, 
 		"!subscribe": function(){subscribe(bot, msg, Discord, 0);}, 
 		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
@@ -138,7 +140,6 @@ bot.on("message", (msg) => {
 		"!weekly" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
 		"!trials" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
 		"!trial" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
-		"!status" 	: function(){status(bot, msg, request, cheerio);}, 
 		"!set" 		: function(){getset(bot, msg, Discord);}, 
 //		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
 //		"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
@@ -151,6 +152,7 @@ bot.on("message", (msg) => {
 		"!leaderboard" 	: function(){leaderboards(bot, msg);}, 
 		"!leaderboards" : function(){leaderboards(bot, msg);}, 
 		"!config" 		: function(){configure(bot, msg, Discord);}, 
+**/
 		};
     	
 	var fm = new FuzzyMatching(Object.keys(responses));

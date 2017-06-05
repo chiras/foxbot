@@ -1,5 +1,6 @@
 // better sales: http://esosales.uesp.net/pricesNA/uespSalesPrices.lua
 // http://esosales.uesp.net/salesPrices.shtml
+const tokens = require('./tokens/dev.json');
 
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
@@ -15,8 +16,18 @@ const cheerio = require('cheerio')
 const Promise = require('bluebird');
 const extract = require('extract-zip')
 const fileExists = require('file-exists');
+const sql = require('mysql');
 
 const eh = require("./helper/events.js")
+const dh = require("./helper/db.js")
+
+// mysql database
+var mysql = sql.createPool({
+  host     : 'localhost',
+  user     : tokens["mysqluser"],
+  password : tokens["mysqlpass"],
+  database : 'foxbot'
+});
 
 var webHooks = new WebHooks({
     db: './tokens/webHooksDB.json', // json file that store webhook URLs 
@@ -256,10 +267,15 @@ var scheduleRealm = schedule.scheduleJob('*/5 * * * *', function() {
             if (realms[Object.keys(realms)[i]] != x) {
                 //console.log(Object.keys(realms)[i]+ ' server status is now ' + x); 
                 changedTxt += Object.keys(realms)[i] + ' server status is now ' + x + "\n";
+				var query = "UPDATE `servers` SET time = NOW(), status = '" +x+ "' WHERE id = '"+Object.keys(realms)[i]+"'";
+				dh.mysqlQuery(mysql, query, function(error, results) {
+				})
                 dirty = true;
                 realms[Object.keys(realms)[i]] = x;
             }
         }
+
+
 
         if (changedTxt && !botStartup) {
             console.log(getLogDate() + "Realm update: changed")
@@ -288,8 +304,12 @@ var scheduleRealm = schedule.scheduleJob('*/5 * * * *', function() {
                 if (r[i] && r[i]['message'] && r[i]['message'].length > 0)
                     message += r[i]['message'] + '\n';
             }
-
-            if (message != "" && launcher != message && !botStartup) {
+			
+			var query = "UPDATE `servers` SET time = NOW(), status = '"+message+ "' WHERE id = '_launcher'";
+            dh.mysqlQuery(mysql, query, function(error, results) {
+			})
+			
+            if (message != "" && !botStartup && launcher != message ) {
 
                 console.log(getLogDate() + 'New Launcher Message:\n' + message);
                 webHooks.trigger('realm', {
@@ -306,7 +326,34 @@ var scheduleRealm = schedule.scheduleJob('*/5 * * * *', function() {
 
     });
 
+    var statusurl = "https://forums.elderscrollsonline.com/en";
 
+    request(statusurl, function(error, response, body) {
+        if (error) {
+            msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
+
+            console.log("Error: " + error);
+        }else{
+        var forumtxt = ""
+        var $statusbin = 0;
+        if (response.statusCode === 200) {
+            var $ = cheerio.load(body);
+        }
+        $('div[class="DismissMessage AlertMessage"]')
+            .each(function() {
+                $statusbin = 1;
+                var $el = $(this);
+                forumtxt += $(this).text();
+
+            });
+        if ($statusbin == "0") {					
+			}           
+        var query = "UPDATE `servers` SET time = NOW(), status = '" +forumtxt+ "' WHERE id = '_forums'";
+        dh.mysqlQuery(mysql, query, function(error, results) {
+		})
+		}
+    });
+    
 });
 
 

@@ -1,46 +1,87 @@
+// const vendor = require('../modules/vendor.sql.js'); // v2 ready
+// const status = require('../modules/server.js');
+// const getset = require('../modules/sets.db.js');
+// const getsetstats = require('../modules/setstats.js');
+// const pledges = require('../modules/pledges.js');
+// const trials = require('../modules/trials.js');
+// const log = require('../modules/log.js');
+// const gettwitch = require('../modules/twitch.js'); // v2 ready
+// const contact = require('../modules/contact.js');
+// const youtube = require('../modules/youtube.js');
+// const patchnotes = require('../modules/patchnotes.js');
+// const patchpts = require('../modules/patchnotes-pts.js');
+// const lfg = require('../modules/lfg.js');
+// const lfm = require('../modules/lfm.js');
+// const lb = require('../modules/leaderboards.js');
+// const poll = require('../modules/vote.db.js');
+// const esoDBhook = require('../modules/esoDBhook.js');
+// const subscribe = require('../modules/subscribe.js');
+// const ttc = require('../modules/ttc.js');
+// const configure = require('../modules/settings.js');
+
 const mh = require("../helper/messages.js")
 
-module.exports = (bot, msg, Discord) => {
-	
-	var helptext = mh.prepare(Discord);
-	
-	helptext.addField('Regular Events',	
-							 "**!pledges** \t -> Today's Undaunted pledges\n"
-							+"**!trials** \t -> This weeks's special trials\n"	
-							)
+var help = {
+	'Regular Events':{
+							 "!pledges": "Today's Undaunted pledges",
+							 "!trials":"This weeks's special trials"	
+							},
 							
-	helptext.addField('Weekend Vendors',	
-							 "**!golden** \t -> Cyrodiil Golden Vendor Items\n"
-							+"**!luxury** \t -> Luxury Housing Vendor Items\n"	
-							)
+	'Weekend Vendors':	{
+							 "!golden":"Cyrodiil Golden Vendor Items",
+							 "!luxury":"Luxury Housing Vendor Items"	
+							},
 														
 
-	helptext.addField('Official Information',	
-							 "**!status** \t -> ESO server status\n"
-							+"**!patch** \t -> Latest ESO patch notes\n"	
-							+"**!patchpts** \t -> PTS (Morrowind) patch notes\n"	
-							)
+	'Official Information':{	
+							 "!status":"ESO server status",
+							 "!patch":"Latest ESO patch notes",	
+							 "!patchpts":"PTS (Morrowind) patch notes"	
+							},
 
-	helptext.addField('Game Information',	
-							 "**!set SETNAME** \t -> Set item information (e.g. !set skel)\n"
-							+"**!lb** \t -> Leaderboard scores (e.g. !lb $account, EU, HRC)\n"	
-							)
+	'Game Information':{	
+							 "!set":"Set item information (e.g. !set skel)",
+							 "!lb":"Leaderboard scores (e.g. !lb $account, EU, HRC)"	
+							},
 
-	helptext.addField('Group Tools',	
-							 " **!poll** \t -> Start a poll, vote and end it\n"
-							)
+	'Group Tools':{	
+							 "!poll":"Start a poll, vote and end it",
+							},
 
-	helptext.addField('Media',	
-							 "**!youtube** \t -> Hot and new ESO videos\n"
-							+"**!twitch** \t -> Current top 5 ESO streams\n"	
-							)
+	'Media':	{
+							 "!youtube":"Hot, new and recommended ESO videos",
+							 "!twitch":"Current top 5 ESO streams"	
+							},
 
-	helptext.addField('Bot',	
-							 "**!contact** \t -> Contact information for the Bot author\n"
-//							+"**!subscribe** \t -> Automatic messages on events\n"
-							+"**!help** \t -> This help page\n"	
-							)
+	'Bot':	{
+							 "!contact":"Contact information for the Bot author",
+//							 "!subscribe":"Automatic messages on events"
+							 "!help":"This help page"	
+							}							
+}
+
+module.exports = (bot, msg, options, Discord) => {
+	var helptext = mh.prepare(Discord);
+
+	if (options.options[0]=="-full"){
+	for (var helpGrp in help){
+		var helptxt = ""
+		for (var helpCommand in help[helpGrp]){
+		 	helptxt += "**"+helpCommand+"**: "+ help[helpGrp][helpCommand]+"\n"
+		}
+		helptext.addField(helpGrp,helptxt)
+	}
+	}else{
+		var helptxt = ""
+		for (var helpGrp in help){
+			helptxt += "**"+helpGrp+"**: " +  Object.keys(help[helpGrp]).join(", ")	+ "\n"
+		}		
+		helptext.addField("Available commands: ", helptxt)		
+		helptext.addField("Do you need more details: ", "**!help -full**: more details about all commands\n**!golden -help**: more details about the specific commands (in this case !golden)")				
+
+	}
+	
 																												
-	mh.send(msg.channel, helptext)
+	mh.send(msg, helptext)
 	
 };
