@@ -1,3 +1,5 @@
+const baseurluesp = "http://en.uesp.net/wiki/"
+
 const servers = { 	"eu" : "EU" ,
 					"na" : "NA", 
 					"pts" : "PTS",
@@ -38,20 +40,51 @@ const instances = {
     "mol": "Maw of Lorkhaj",
     "hof": "Halls of Fabrication",
     "dsa": "Dragonstar Arena",	// needs " (Veteran)" for leaderboards
-    "msa": "Maelstrom Arena"	// needs " (Veteran)" for leaderboards
+    "msa": "Maelstrom Arena",	// needs " (Veteran)" for leaderboards
   //  "bg": "Battlegrounds",
+
+	"fg2" 	: 'Fungal Grotto II',
+	"sc1" 	: 'Spindleclutch I',
+	"dc2" 	: 'Darkshade Caverns II',
+	"eh1" 	: 'Elden Hollow I',
+	"ws2" 	: 'Wayrest Sewers II',
+	"fg1" 	: 'Fungal Grotto I',
+	"bc2" 	: 'Banished Cells II',
+	"dc1"	: 'Darkshade Cavern I',
+	"eh2"	: 'Elden Hollow II',
+	"ws1"	: 'Wayrest Sewers I',
+	"sc2"	: 'Spindleclutch II',
+	"bc1"	: 'Banished Cells I',
+	
+	"coh2"	: 'Crypt of Hearts II',
+	"coa1"	: 'City of Ash I',
+	"ti"	: 'Tempest Island',
+	"bh"	: 'Blackheart Haven',
+	"arx"	: 'Arx Corinium',
+	"sw"	: "Selene's Web",
+	"coa2"	: 'City of Ash II',
+	"coh1"	: 'Crypt of Hearts I',
+	"vol"	: 'Volenfell',
+	"bc"	: 'Blessed Crucible',
+	"dire"	: 'Direfrost Keep',
+	"vom"	: 'Vaults of Madness',
+	
+	"cos"	: 'Cradle of Shadows',
+	"icp"	: 'Imperial City Prison',
+	"rom"	: 'Ruins of Mazzatun',
+	"wgt"	: 'White-Gold Tower'
 };
 
-
-var instanceGroup = { 	"all" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
+var instancesGroup = { 	"lbAll" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
 						"solo" : ["msa"],
 						"trials" : ["aa", "hrc", "so", "mol", "hof"],
 			//			"pvp" : [],
 			//			"bg" : [],
 						"pve" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
 						"group" : ["aa", "hrc", "so", "mol", "hof", "dsa"]	,
+						"dungeon" : ["fg2" ,"sc1" ,"dc2" ,"eh1" ,"ws2" ,"fg1" ,"bc2" ,"dc1","eh2","ws1","sc2","bc1","coh2","coa1","ti","bh","arx","sw","coa2","coh","vol","bc","dire","vom","cos","icp","rom","wgt"]	,
 
-						"instanceGrpOptions" : ["all","solo","group","trials","pve"]
+						"lbOptions" : ["all","solo","group","trials","pve"]
 					}
 
 const groupmode = {
@@ -91,8 +124,7 @@ exports.getCpLvl = function (type) {
 	var lvl = new RegExp("lvl","i")
 	var number = new RegExp("[0-9]+","i")
 	var result = 0;
-	console.log("level"+type)
-	
+		
 	if (type.match(cp)){
 		result = Number(type.match(number)[0])+50;
 	}else if(type.match(lvl)){
@@ -151,13 +183,21 @@ exports.getLongName = function (shortname) {
 	return instances[shortname.replace(/\"/g, "")]
 }
 
-exports.getValidInstances = function (shortname) {
-//	console.log(">>>"+shortname+"<<<")
-	if (instances[shortname.replace(/ /g, "")]){return true
+exports.getValidInstances = function (name) {
+	var shortname = name.trim();
+	console.log("!>>>"+shortname+"<<<!")
+	if (instances[shortname]){return shortname;
 	}else{
-		if (instanceGroup[shortname.replace(/ /g, "")]){return true
+		if (instancesGroup[shortname]){return shortname;
 		}else{
-			return false;	
+			var longname = false;
+			for (var i = 0; i < Object.keys(instances).length;i++){
+				if (instances[Object.keys(instances)[i]] == shortname) {
+					longname = Object.keys(instances)[i]
+					console.log(longname+"/"+shortname)
+					};
+			}
+			return longname;	
 	}}
 		
 }
@@ -169,8 +209,8 @@ exports.getInstances = function (instance) {
 		
 	if (typeof instance !== "undefined" | instance != ""){
 		
-		if (Object.keys(instanceGroup).includes(instance)){
-			arrayoOfInstances = instanceGroup[instance]
+		if (Object.keys(instancesGroup).includes(instance)){
+			arrayoOfInstances = instancesGroup[instance]
 		}else{
 			arrayoOfInstances = [instance]
 		}
@@ -178,9 +218,9 @@ exports.getInstances = function (instance) {
 			shortnames.push(arrayoOfInstances[i])
 		}
 		
-	}else{
-		shortnames = Object.keys(instances)
-	}
+	}// else{
+// 		shortnames = Object.keys(instances)
+// 	}
 
 	if (shortnames.length > 0){
 		return shortnames;
@@ -195,14 +235,16 @@ exports.linkify = function (input) {
 	for (var i = 0; i < allnames.length; i++){
 		var name = allnames[i].replace(/\"/g, "");
 
-		if (name.length < 4){name = shortnames[name]}
-		if (wikilinks[name]){
-			output.push("["+name+"]("+ baseurluesp + wikilinks[name]+")")
-		}else if (wikilinks[name + " I"]){
-			output.push("["+name+" I]("+ baseurluesp + wikilinks[name + " I"]+") and [II]("+ baseurluesp + wikilinks[name + " II"]+")")
-		}else{
-			output.push(name);
-		}		
+//		if (name.length < 4){name = shortnames[name]}
+		output.push("["+name+"]("+ baseurluesp + "Online:"+name.replace(/ /g, "_")+")")
+		
+// 		if (wikilinks[name]){
+// 			output.push("["+name+"]("+ baseurluesp + wikilinks[name]+")")
+// 		}else if (wikilinks[name + " I"]){
+// 			output.push("["+name+" I]("+ baseurluesp + wikilinks[name + " I"]+") and [II]("+ baseurluesp + wikilinks[name + " II"]+")")
+// 		}else{
+// 			output.push(name);
+// 		}		
 	}
 	
 	return output.join(", ");

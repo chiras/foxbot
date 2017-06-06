@@ -1,9 +1,6 @@
-const Promise = require('bluebird');
-const request = Promise.promisifyAll(require('request'));
 const moment = require('moment-timezone');
-const fs = require('fs');
 
-const nh = require("../data/name_helper.js")
+const nh = require("../helper/names.js")
 
 const resetTime = '2:00am';
 const resetZone = 'America/New_York';
@@ -13,100 +10,77 @@ const Maj = 0;
 const Glirion = 1;
 const Urgalag = 2;
 
-var basePledgeURL = "https://www.esoleaderboards.com/api/api.php?callType=getPledge&pledgeType="
-var dayURL = "&daysFromNow=1"
 
-var questgiver = {
-    "Maj al-Ragath": 1,
-    "Glirion the Redbeard": 2,
-    "Urgarlag Chief-Bane": 3
-};
-var pledgeAPI = [basePledgeURL + questgiver["Maj al-Ragath"],
-    basePledgeURL + questgiver["Glirion the Redbeard"],
-    basePledgeURL + questgiver["Urgarlag Chief-Bane"],
-    basePledgeURL + questgiver["Maj al-Ragath"] + dayURL,
-    basePledgeURL + questgiver["Glirion the Redbeard"] + dayURL,
-    basePledgeURL + questgiver["Urgarlag Chief-Bane"] + dayURL
-];
+var questgiver = ["Maj al-Ragath", "Glirion the Redbeard", "Urgarlag Chief-Bane"]
+
+const rotation = [	['Fungal Grotto II', 'Spindleclutch I', 'Darkshade Caverns II', 'Elden Hollow I', 'Wayrest Sewers II', 'Fungal Grotto I', 'Banished Cells II', 'Darkshade Cavern I', 'Elden Hollow II', 'Wayrest Sewers I','Spindleclutch II', 'Banished Cells I'],
+    				['Crypt of Hearts II', 'City of Ash I', 'Tempest Island', 'Blackheart Haven', 'Arx Corinium', "Selene's Web",'City of Ash II', 'Crypt of Hearts I', 'Volenfell', 'Blessed Crucible', 'Direfrost Keep', 'Vaults of Madness'],
+    				['Cradle of Shadows', 'Imperial City Prison', 'Ruins of Mazzatun', 'White-Gold Tower']];
 
 
-function processFeed(feed) {
-    // use the promisified version of 'get'
-    return request.getAsync(feed)
+function getDungeon(npc, idx) {
+    if (!rotation[npc])
+        return;
+    return rotation[npc][idx % rotation[npc].length];
 }
 
-function updatePledges(callback) {
-    var pledgeText = "";
-    var pledgeTextNext = "";
-    var promise = Promise.resolve(3);
-
-Promise.map(pledgeAPI, function(feed) {
-            return processFeed(feed)
-        })
-        .then(function(articles) {
-            for (var i = 0; i < 3; i++) {
-                pledgeText += "* " + nh.linkify(articles[i].body) + " (by " + Object.keys(questgiver)[i] + ")\n"; 
-
-            }
-
-
-            for (var i = 0; i < 3; i++) {
-                pledgeTextNext += nh.linkify(articles[i + 3].body) + ", ";
-
-            }
-
-            pledgeTextNext = pledgeTextNext.slice(0, -2);
-            //pledgeTextNext += " in " + remainingH + " hours and " + remainingM + " minutes.";
-
-            callback(pledgeText, pledgeTextNext);
-
-        })
-        .catch(function(e) {
-            console.log(e)
-        })
-
-}
-
-file = "./data/events.json"
-// 
-// function saveFile(data) {
-//     fs.writeFileSync(file, JSON.stringify(data));
-// }
-
-
-exports.pledges = function(callback) {
-
-let todaysPledges = {"updated":"", "pledgeTxt" :"", "pledgeTxtNext" : ""}
-
-if (fs.existsSync(file))
-//    todaysPledges = JSON.parse(fs.readFileSync(file, 'utf8'));
+exports.pledges = function(time, callback) {
 
     // this time calculation has been taken from Seri's code
-    var elapsed = moment().unix() - baseTimestamp;
-
-    let diff = Math.floor(elapsed / 86400) + 1;
-    let diff_updated = Math.floor(elapsed / 86400) + 1;
-
+    var elapsed = time - baseTimestamp;
+    let diff_rot = Math.floor(elapsed / 86400);
+    
+    pledgeText = [];
+    pledgeNext = [];
+    for (var i = 0; i < questgiver.length;i++){
+        pledgeText.push("* " + nh.linkify(getDungeon(i, diff_rot)) + " (by " + questgiver[i] + ")"); 
+        pledgeNext.push(nh.linkify(getDungeon(i, diff_rot + 1)));
+    }
+        
     var remainingH = 23 - Math.floor((elapsed % 86400) / 3600);
     var remainingM = 59 - Math.floor(((elapsed % 86400) / 60) % 60);
-	// console.log(elapsed)
     
-    // caching, but not implemented atm
-//     if (todaysPledges["updated"] == "" || elapsed < (60 * 60)){
-//     	console.log("NEW")
-    	todaysPledges["updated"] = moment().unix();
-    	updatePledges(function(pledgeText, pledgeTextNext){
-      		todaysPledges["pledgeTxt"] = pledgeText;
-      		todaysPledges["pledgeTxtNext"] = pledgeTextNext;
- //		 	saveFile(todaysPledges);  			      		
-			callback(todaysPledges.pledgeTxt,todaysPledges.pledgeTxtNext + " in " + remainingH + " hours and " + remainingM + " minutes." )
-    	})
+	callback(pledgeText.join("\n"),pledgeNext.join(", ") + " in " + remainingH + " hours and " + remainingM + " minutes." )
     	
+};
+
+exports.dungeon = function(input, callback) {
+	
+	var shortname = nh.getValidInstances(input)
+
+	if (shortname){
+	var query = nh.getLongName(shortname)
+	
+    var elapsed = moment().unix() - baseTimestamp;
+    let diff_rot = Math.floor(elapsed / 86400);
     
-//     }else{
-//      	console.log("OLD")
-//   		let diffupdate = moment().unix() - todaysPledges.updated;   
-//     }
+	var remaining = "";	
+    for (var i = 0; i < rotation.length;i++){
+    	if (rotation[i].includes(query)){
+    		var index = rotation[i].indexOf(query)
+    		var today = rotation[i].indexOf(getDungeon(i, diff_rot))
+			var diffp;
+			if (today > index){
+				diffp = rotation[i].length + index - today
+			}else if(today < index){
+				diffp = index - today			
+			}
+			
+    		remaining += ""+nh.linkify(rotation[i][index]) + " will be a pledge in **" + diffp + " days**."
+			
+			if (today == index){
+				remaining = ""+nh.linkify(rotation[i][index]) + " is pledge today!"
+			}
+			
+    	}	
+    }
+    if (remaining == ""){
+		remaining = "I was not able to identify your requested dungeon."        
+    }
+    }else{
+		remaining = "I was not able to identify your requested dungeon."    
+    }    
+	callback(remaining)	
 };
 
 

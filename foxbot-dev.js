@@ -118,15 +118,18 @@ bot.on("message", (msg) => {
     	
 	var responses = {
 		//v2 ready
-		"!golden" 	: function(){vendor(bot, msg, options, mysql, "golden", Discord);}, 
-		"!luxury" 	: function(){vendor(bot, msg, options, mysql, "luxury", Discord);}, 
-		"!twitch" 	: function(){gettwitch(bot, msg, tokens["twitch"], Discord);}, //no help yet
-		"!youtube" 	: function(){youtube(bot, msg, tokens["youtube"], options, mysql, Discord);}, 
-		"!contact" 	: function(){contact(bot, msg, Discord);}, 
-		"!help" 	: function(){help(bot, msg, options, Discord);}, 
-		"!status" 	: function(){status(bot, msg, options, mysql, Discord);}, 
+		"!golden" 		: function(){vendor(bot, msg, options, mysql, "golden", Discord);}, 
+		"!luxury" 		: function(){vendor(bot, msg, options, mysql, "luxury", Discord);}, 
+		"!twitch" 		: function(){gettwitch(bot, msg, tokens["twitch"], Discord);}, //no help yet
+		"!youtube" 		: function(){youtube(bot, msg, tokens["youtube"], options, mysql, Discord);}, 
+		"!contact"	 	: function(){contact(bot, msg, Discord);}, 
+		"!help" 		: function(){help(bot, msg, options, Discord);}, 
+		"!status" 		: function(){status(bot, msg, options, mysql, Discord);}, 
 		"!lb" 			: function(){leaderboards(bot, msg, options, Discord);}, 
 		"!leaderboard" 	: function(){leaderboards(bot, msg, options, Discord);}, 
+		"!pledge" 		: function(){pledges(bot, msg, options,  Discord);}, 
+		"!dailies" 		: function(){pledges(bot, msg, options,  Discord);}, 
+		"!daily" 		: function(){pledges(bot, msg, options,  Discord);}, 
 		
 		//v2 preparation
 
@@ -135,10 +138,6 @@ bot.on("message", (msg) => {
 		"!subscribe": function(){subscribe(bot, msg, Discord, 0);}, 
 		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
 		"!vote" 	: function(){poll(bot, msg, tokens, Discord);}, 
-		"!pledges" 	: function(){pledges(bot, msg, request, cheerio, Discord);}, 
-		"!pledge" 	: function(){pledges(bot, msg, request, cheerio, Discord);}, 
-		"!dailies" 	: function(){pledges(bot, msg, request, cheerio, Discord);}, 
-		"!daily" 	: function(){pledges(bot, msg, request, cheerio, Discord);}, 
 		"!weekly" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
 		"!trials" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
 		"!trial" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 

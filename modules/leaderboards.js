@@ -17,7 +17,7 @@ function getHelp(embed, options){
     embed.setDescription("Arguments for account/character and megaserver are required.")
     embed.addField(options.command + " $account EU", "Shows all scores for this account on the EU megaserver")
     embed.addField(options.command + " character NA", "Shows all scores for this character on the NA megaserver")
-    embed.addField(options.command + " $account EU DSA, MSA, trials", "Shows scores only for these specific instances. \nValid single instance options are: '"+ nh.getInstances("all").join(', ').toUpperCase() +"'\nValid combinatory options '"+ nh.getInstances("instanceGrpOptions").join(', ') + "'")
+    embed.addField(options.command + " $account EU DSA, MSA, trials", "Shows scores only for these specific instances. \nValid single instance options are: '"+ nh.getInstances("lbAll").join(', ').toUpperCase() +"'\nValid combinatory options '"+ nh.getInstances("lbOptions").join(', ') + "'")
 	return embed
 }
 
@@ -44,7 +44,7 @@ if (options.options == "!help"){
 	var trialtolook= [];
 	
 	if (options.instance.length== 0){
-			trialtolook= nh.getInstances("all");
+			trialtolook= nh.getInstances("lbAll");
 		}else{
 			trialtolook= options.instance;
 		}
