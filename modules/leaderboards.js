@@ -3,7 +3,8 @@
 
 const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
-const nh = require("../data/name_helper.js")
+const nh = require("../helper/names.js")
+const mh = require("../helper/messages.js")
 
 
 function processFeed(feed) {
@@ -11,79 +12,69 @@ function processFeed(feed) {
     return request.getAsync(feed)
 }
 
+function getHelp(embed, options){
+    embed.setTitle("Options for " + options.command)
+    embed.setDescription("Arguments for account/character and megaserver are required.")
+    embed.addField(options.command + " $account EU", "Shows all scores for this account on the EU megaserver")
+    embed.addField(options.command + " character NA", "Shows all scores for this character on the NA megaserver")
+    embed.addField(options.command + " $account EU DSA, MSA, trials", "Shows scores only for these specific instances. \nValid single instance options are: '"+ nh.getInstances("all").join(', ').toUpperCase() +"'\nValid combinatory options '"+ nh.getInstances("instanceGrpOptions").join(', ') + "'")
+	return embed
+}
 
-module.exports = (bot, msg) => {
-        
-    var args = msg.content.split(",") //.slice(1).join(" ")
-    var server = "";   
-    
-    for (var i = 0; i < args.length; i++) {
-    	if(nh.getValidServer(args[i])){
-    		server = args[i].replace(/ /g, "");
-    		args.splice(i,1);
-    		break;
-    	}
-    }
+var helptit = "Options for !lb"
+var helptxt = 'Please call e.g. \n**!lb game-character name, EU**\n**!lb $game-account, EU** \n**!lb $game-account, EU, AA, HRC**\n(for specific scores only, '
 
-	if (server == ""){
-		    msg.channel.sendEmbed({
-                color: 0x800000,
-                description: 'Char/Megaserver information missing (EU/NA). Please call e.g. \n**!lb game-character name, EU**\n**!lb @game-account, EU** \n**!lb @game-account, EU, AA, HRC**\n(for specific scores only, options: "'+ nh.getTrialShortnames() +'")  '
- 
-            });
+
+module.exports = (bot, msg, options, Discord) => {
+var embed = mh.prepare(Discord)
+
+if (options.options == "!help"){
+
+	embed = getHelp(embed, options)
+	mh.send(embed)
+
+}else{
+
+	if (options.megaservers.length == 0 || (options.accounts.length == 0 && options.others.length == 0)){
+			embed = getHelp(embed, options)
+		//	embed.addField("Char/Megaserver information missing (EU/NA)", "please provide this information to proceed.")
+        	mh.send(msg,embed)
 	}else{
 	
-	var trialtolook=[];
+	var trialtolook= [];
 	
-    for (var i = 0; i < args.length; i++) {
-    	if(nh.getValidTrials(args[i])){
-    		trialtolook.push(args[i].replace(/ /g, ""));
-    	}
-    }
-    
-    if (trialtolook.length==0){
-    	trialtolook = nh.getTrialShortnames();
-    }
-    	    
-    var name = args[0].split(" ").slice(1).join(" ").replace(/^ /, "").replace(/ $/, "");
-  // 	console.log(name.substring(0,2));
-    if (name.substring(0,2) == "<@" | name.substring(0,3) == "$<@"){
-		    msg.channel.sendEmbed({
-                color: 0x800000,
-                description: "Please don't use the Discord account name, but the ESO game account. If Discord is autocompleting the name, try to avoid that by typing multiple $ instead of an @ signs, like\n**$ame-account, EU, HRC **"
- 
-            });
-    return;
-	}
+	if (options.instance.length== 0){
+			trialtolook= nh.getInstances("all");
+		}else{
+			trialtolook= options.instance;
+		}
    
-	var characc = "";
-
-	if (name.substring(0,1) == "$"){
-		name = "@" + name.replace(/\$/g, "")
+	var characc = "Account";
+	var nameorg = "";
+	
+	if (options.accounts.length > 0){
+		nameorg = "@" + options.accounts[0].replace(/\$/g, "")		
+	}else{
+		nameorg = options.others.join(" ");
+		if (!nameorg.startsWith("@")) characc = "Character";
 	}
 	
-	if (name.substring(0,1) == "@"){
-		name = "@" + name.replace(/@/g, "")
-		characc = "Account";
-	}else{
-		characc = "Character";
-	}
+	name = encodeURI(nameorg)
 	
     var baserURL = "https://www.esoleaderboards.com/api/api.php?callType=getScoreBy"+characc+"Name&megaserver="
-//    var lbAPI = baserURL + server + "&" + characc + "Name=" + name;
+
     var lbAPI = [];
     var triallist = [];
 
     var lbText = "";
 
-   // for (var i = 0; i < 1; i++) {
     for (var j = 0; j < trialtolook.length; j++) {
-    	var tmpURL = baserURL + server + "&" + characc.toLowerCase() + "Name=" + name + "&trialIdentifier=" + trialtolook[j];
+    	var tmpURL = baserURL + options.megaservers[0] + "&" + characc.toLowerCase() + "Name=" + name + "&trialIdentifier=" + trialtolook[j].toUpperCase();
     	lbAPI.push(tmpURL)
      	triallist.push(trialtolook[j])
     }//}
 	
-	//console.log(lbAPI)
+//	console.log(lbAPI)
 
     var promise = Promise.resolve(3);
     Promise.map(lbAPI, function(feed) {
@@ -91,28 +82,23 @@ module.exports = (bot, msg) => {
         })
         .then(function(articles) {
             for (var i = 0; i < articles.length; i++) {
-                lbText += "* " + nh.linkify(triallist[i])+": "+ articles[i].body +"\n";
+            //    lbText += "* " + nh.linkify(triallist[i])+": "+ articles[i].body +"\n";
+                lbText += "* **" + nh.getLongName(triallist[i])+"**: "+ articles[i].body +"\n";
 
             }
-            msg.channel.sendEmbed({
-                color: 0x800000,
-                fields: [{
-                    name: "Highest scores for " + name + " on the "+ server+ " megaserver are:",
-                    value: lbText
-                }],
-                footer: {
-                    text: 'Data obtained from www.esoleaderboards.com'
-                }
-            });
-        })
-        .catch(function(e) {
-            msg.channel.sendEmbed({
-                color: 0x800000,
-                description: "There was a connection error, please try again later.",
-            });
+            embed.addField("Highest scores for " + nameorg + " on the "+ options.megaservers[0]+ " megaserver are:", lbText)
+            embed.setFooter('Data obtained from www.esoleaderboards.com')
+            
+        }).then(function() {
+        	mh.send(msg,embed)
+        }).catch(function(e) {
+            embed.setDescription("There was a connection error, please try again later.")
+        	mh.send(msg,embed)
             console.log(e);
         })
 
 
 	}
+}
+
 };

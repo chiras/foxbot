@@ -36,10 +36,23 @@ const instances = {
     "hrc": "Hel Ra Citadel",
     "so": "Sanctum Ophidia",
     "mol": "Maw of Lorkhaj",
+    "hof": "Halls of Fabrication",
     "dsa": "Dragonstar Arena",	// needs " (Veteran)" for leaderboards
-    "msa": "Maelstrom Arena",	// needs " (Veteran)" for leaderboards
-    "bg": "Battlegrounds",
+    "msa": "Maelstrom Arena"	// needs " (Veteran)" for leaderboards
+  //  "bg": "Battlegrounds",
 };
+
+
+var instanceGroup = { 	"all" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
+						"solo" : ["msa"],
+						"trials" : ["aa", "hrc", "so", "mol", "hof"],
+			//			"pvp" : [],
+			//			"bg" : [],
+						"pve" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
+						"group" : ["aa", "hrc", "so", "mol", "hof", "dsa"]	,
+
+						"instanceGrpOptions" : ["all","solo","group","trials","pve"]
+					}
 
 const groupmode = {
 		"vet" : "veteran",
@@ -116,13 +129,13 @@ exports.getTrait = function (type) {
 	}
 }
 
-exports.getInstance = function (type) {
-	if (instances[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()]){ 
-		return instances[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()];
-	}else{
-		return false;
-	}
-}
+// exports.getInstance = function (type) {
+// 	if (instances[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()]){ 
+// 		return instances[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()];
+// 	}else{
+// 		return false;
+// 	}
+// }
 
 
 //// old functions
@@ -135,16 +148,43 @@ exports.getGroupMode = function (type) {
 }
 
 exports.getLongName = function (shortname) {
-	return shortnames[shortname.replace(/\"/g, "")]
+	return instances[shortname.replace(/\"/g, "")]
 }
 
-exports.getValidTrials = function (shortname) {
-	if (shortnames[shortname.replace(/ /g, "")]){return true}
+exports.getValidInstances = function (shortname) {
+//	console.log(">>>"+shortname+"<<<")
+	if (instances[shortname.replace(/ /g, "")]){return true
+	}else{
+		if (instanceGroup[shortname.replace(/ /g, "")]){return true
+		}else{
+			return false;	
+	}}
+		
 }
 
 
-exports.getTrialShortnames = function () {
-	return Object.keys(trailnames);
+exports.getInstances = function (instance) {
+	var arrayoOfInstances= [];
+	var shortnames = [];
+		
+	if (typeof instance !== "undefined" | instance != ""){
+		
+		if (Object.keys(instanceGroup).includes(instance)){
+			arrayoOfInstances = instanceGroup[instance]
+		}else{
+			arrayoOfInstances = [instance]
+		}
+		for (var i = 0; i < arrayoOfInstances.length; i ++){
+			shortnames.push(arrayoOfInstances[i])
+		}
+		
+	}else{
+		shortnames = Object.keys(instances)
+	}
+
+	if (shortnames.length > 0){
+		return shortnames;
+	}
 }
 
 exports.linkify = function (input) {

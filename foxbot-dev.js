@@ -125,6 +125,8 @@ bot.on("message", (msg) => {
 		"!contact" 	: function(){contact(bot, msg, Discord);}, 
 		"!help" 	: function(){help(bot, msg, options, Discord);}, 
 		"!status" 	: function(){status(bot, msg, options, mysql, Discord);}, 
+		"!lb" 			: function(){leaderboards(bot, msg, options, Discord);}, 
+		"!leaderboard" 	: function(){leaderboards(bot, msg, options, Discord);}, 
 		
 		//v2 preparation
 
@@ -148,9 +150,6 @@ bot.on("message", (msg) => {
 //		"!lfm" 		: function(){lfm(bot, msg, lfgdb)}, 
 		"!patch" 	: function(){patchnotes(bot, msg, request, cheerio);}, 
 		"!patchpts" : function(){patchpts(bot, msg, request, cheerio);}, 
-		"!lb" 			: function(){leaderboards(bot, msg);}, 
-		"!leaderboard" 	: function(){leaderboards(bot, msg);}, 
-		"!leaderboards" : function(){leaderboards(bot, msg);}, 
 		"!config" 		: function(){configure(bot, msg, Discord);}, 
 **/
 		};

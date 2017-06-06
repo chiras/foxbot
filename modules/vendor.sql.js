@@ -24,6 +24,7 @@ vendorTexts = {
         "truncT": "This was a lot",
         "truncF": "Khajitt only tells you the last 15 you searched for, give more details to list all.",
         "sorryT" : "Khajiit does not know what to do",
+        "sorryFdate" : "She does not think that was a day she sold something",
         "sorryF" : "She does not think she sold something like that before"
     },
     "luxury": {
@@ -41,6 +42,7 @@ vendorTexts = {
         "truncT": "Not all results are displayed",
         "truncF": "Please be more specific in your search, the results here have been truncated after the 15th hit, sorted by date.",
         "sorryT" : "I really apologize",
+        "sorryFdate" : "Unfortunately, we didn't have our store open at this day.",
         "sorryF" : "Unfortunately, we never had such in stock."        
     }
 }
@@ -145,8 +147,12 @@ module.exports = (bot, msg, options, mysql, type, Discord) => {
                     if (weeks > 0) {
                         embed.addField(vendorTexts[type]["pastT"] + weeks + " weeks ago:", lagacytxt + vendorTexts[type]["pastF"])
                     } else if (column == "date") {
-                        var newdate = options.date[0].split("-").reverse().join(".")
-                        embed.addField(vendorTexts[type]["pastT"] + " at the " + newdate, lagacytxt + vendorTexts[type]["pastF"])
+                    	if (lagacytxt == ""){
+                    		embed.addField(vendorTexts[type]["sorryT"], vendorTexts[type]["sorryFdate"]);
+                    	}else{
+                        	var newdate = options.date[0].split("-").reverse().join(".")
+                        	embed.addField(vendorTexts[type]["pastT"] + " at the " + newdate, lagacytxt + vendorTexts[type]["pastF"])
+                        }
                     } else if (remainingOn.startsWith("in")) {
                         embed.addField(vendorTexts[type]["futureT"], vendorTexts[type]["futureF"] + remainingOn)
                     } else if (remainingOff.startsWith("in")) {

@@ -122,7 +122,7 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
     	for (var i = 0; i < argsArray.length; i++){
     	
     		argsArray[i]=argsArray[i].trim();
-    		console.log(">"+argsArray[i]+"<")
+    		//console.log(">"+argsArray[i]+"<")
     		
     		if (argsArray[i].startsWith("-")){
     	    	returnObj["options"].push(argsArray[i])   
@@ -130,9 +130,9 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
      		}else if (argsArray[i].startsWith("$")){
     	    	returnObj["accounts"].push(argsArray[i])   
      		}else if (nh.getServer(argsArray[i])){
-    	    	returnObj["megaservers"].push(nh.getServer(argsArray[i]))   				
-     		}else if (nh.getInstance(argsArray[i])){
-    	    	returnObj["instance"].push(nh.getInstance(argsArray[i]))   				
+    	    	returnObj["megaservers"].push(nh.getServer(argsArray[i]))       	    					
+     		}else if (nh.getValidInstances(argsArray[i].toLowerCase())){
+    	    	returnObj["instance"] = returnObj["instance"].concat(nh.getInstances(argsArray[i].toLowerCase()))       	    					
     		}else if(nh.getCpLvl(argsArray[i])){
     			returnObj["level"].push(nh.getCpLvl(argsArray[i]))
 	    	}else if(nh.getQuality(argsArray[i])){

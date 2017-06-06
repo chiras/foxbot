@@ -20,8 +20,9 @@ const trials = {
     "Hel Ra Citadel": "/wiki/Online:Hel_Ra_Citadel",
     "Sanctum Ophidia": "/wiki/Online:Sanctum_Ophidia",
     "Maw of Lorkhaj": "/wiki/Online:Maw_of_Lorkhaj",
+ //   "Halls of Fabrication": "/wiki/Online:Maelstrom_Arena_(place)",
     "Dragonstar Arena (Veteran)": "/wiki/Online:Dragonstar_Arena",
-    "Maelstrom Arena (Veteran)": "/wiki/Online:Maelstrom_Arena_(place)",
+    "Maelstrom Arena (Veteran)": "/wiki/Online:Maelstrom_Arena_(place)"
 };
 
 

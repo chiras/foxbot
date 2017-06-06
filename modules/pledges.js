@@ -3,6 +3,10 @@ const eh = require("../helper/events.js")
 
 
 module.exports = (bot, msg, request, cheerio, Discord) => {
+
+// !pledges Volenfell
+// !pledges 2017-03-01
+
 	console.log("HERE")
 
 	eh.pledges(function(pledgesTxt, pledgesTxtNext){
