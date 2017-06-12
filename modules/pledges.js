@@ -50,6 +50,6 @@ if (options.others.length > 0 | options.instance.length > 0){ // end  date
 	}
 		
 } // end not help
-mh.send(msg.channel, embed)
+mh.send(msg, embed, options)
 
 };

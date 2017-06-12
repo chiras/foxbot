@@ -1,4 +1,4 @@
-const nh = require("../data/name_helper.js")
+const nh = require("../helper/names.js")
 
 module.exports = (bot, msg, setitems) => {
 

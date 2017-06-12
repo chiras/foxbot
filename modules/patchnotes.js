@@ -1,9 +1,39 @@
-module.exports = (bot, msg, request, cheerio) => {
-    var patchUrl = "https://forums.elderscrollsonline.com/en/categories/patch-notes";
+// TO DO: cache the data and not make an API request every time it's called
+// required modules
+var Promise = require('bluebird');
+var request = Promise.promisifyAll(require('request'));
+var cheerio = require('cheerio');
 
-    request(patchUrl, function(error, response, body) {
+const nh = require("../helper/names.js")
+const mh = require("../helper/messages.js")
+
+var patchUrl = "https://forums.elderscrollsonline.com/en/categories/patch-notes";
+var patchPTSUrl = "https://forums.elderscrollsonline.com/en/categories/pts";
+
+// Functions
+// need to do async processing through prmoises
+function processFeed(feed) {
+    // use the promisified version of 'get'
+    return request.getAsync(feed)
+}
+
+// module returns
+module.exports = (bot, msg, options, Discord) => {
+var embed = mh.prepare(Discord)
+
+if (options.options.includes("-help")){
+    embed.setTitle("Options for " + options.command)
+    embed.addField(options.command, "Shows current patchnotes for the live servers")
+    embed.addField(options.command + " PTS", "Patchnotes for the PTS (if available)")
+    mh.send(msg, embed, options)
+
+}else{
+	var url = patchUrl
+	if (options.megaservers.includes("PTS")) url =patchPTSUrl
+	
+    request(url, function(error, response, body) {
         if (error) {
-            msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
+            embed.setDescription("Sorry there was an unexpected connection error, please try again later." );
             console.log("Error: " + error);
         }else{
         var $statusbin = 0;
@@ -23,42 +53,29 @@ module.exports = (bot, msg, request, cheerio) => {
   			titles.push($(element).text().replace(/^ /g, ""));
 		});
 		
- 		var patchOutStickies = "\n"; //"\n...................................................................................................\n"
-        var patchOutOthers = "\n";// patchOutStickies + "### ** Other recent:**\n";
-      //  patchOutStickies +=  "### **Current announcements:**\n";
-       
+ 		var patchOutStickies = []; 
+        var patchOutOthers = [];
+        
         var lastcurrent = 0;
         for (var i = 0; i < titles.length; i++) {
         	if (stickies[i]){
-        		patchOutStickies += "\n[" + titles[i] + ']('+list[i]+')\n';
+        		patchOutStickies.push("[" + titles[i] + ']('+list[i]+')');
         	}else{
         		if (lastcurrent < 3){
-        			patchOutOthers += "\n[" + titles[i] + ']('+list[i]+')\n';
+        			patchOutOthers.push("[" + titles[i] + ']('+list[i]+')');
         			lastcurrent ++;
         		}
         	}
         }
-		
-		var patchOut = patchOutStickies + patchOutOthers;
- 		//patchOut += "..................................................................................................."
-		
-  //      msg.channel.sendMessage(patchOut);
-        
-        msg.channel.sendEmbed({
-  			color: 0x800000,
-  		//	description: helpinfo,
-  			fields: [{
-       			 name: 'Current Announcements',
-       			 value: patchOutStickies
-     		 },
-     		 {
-       			 name: 'Other recent',
-       			 value: patchOutOthers
-			}
-    		]
-		});
-		
+		if (patchOutStickies.length>0){
+			embed.setTitle('Current Announcements')		
+			embed.setDescription(patchOutStickies)		
+			embed.addField('Other recent',patchOutOthers)
+		}else{
+			embed.setDescription("No announcements available")				
+		}		
         }
+        mh.send(msg, embed, options)
     });
-
+}
 };

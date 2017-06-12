@@ -4,6 +4,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 const nh = require("../data/name_helper.js")
 const mh = require("../helper/messages.js")
+const dh = require("../helper/db.js")
 
 var itemdb = new sqlite3.Database('./data/dbs/item.db');
 

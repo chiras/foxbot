@@ -3,7 +3,7 @@
 const request = require("request");
 const mh = require("../helper/messages.js")
 
-module.exports = (bot, msg, clientid, Discord) => {  
+module.exports = (bot, msg, clientid, options, Discord) => {  
 		var embed = mh.prepare(Discord)
 		
         var twitchurl = "https://api.twitch.tv/kraken/streams?game=The%20Elder%20Scrolls%20Online&live=true&language=en&client_id="+clientid;
@@ -26,12 +26,12 @@ module.exports = (bot, msg, clientid, Discord) => {
 					curcount++;
 				}
   			}
-		embed.addField
 		
-		mh.send(msg, embed)
+		mh.send(msg, embed, options);
 		
         }else{
-          msg.channel.sendMessage("Sorry there was an unexpected connection error, please try again later." );
+         embed.setDescription("Sorry there was an unexpected connection error, please try again later." );
+		mh.send(msg, embed, options);
 
         }
     })

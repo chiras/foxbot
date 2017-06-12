@@ -1,23 +1,3 @@
-// const vendor = require('../modules/vendor.sql.js'); // v2 ready
-// const status = require('../modules/server.js');
-// const getset = require('../modules/sets.db.js');
-// const getsetstats = require('../modules/setstats.js');
-// const pledges = require('../modules/pledges.js');
-// const trials = require('../modules/trials.js');
-// const log = require('../modules/log.js');
-// const gettwitch = require('../modules/twitch.js'); // v2 ready
-// const contact = require('../modules/contact.js');
-// const youtube = require('../modules/youtube.js');
-// const patchnotes = require('../modules/patchnotes.js');
-// const patchpts = require('../modules/patchnotes-pts.js');
-// const lfg = require('../modules/lfg.js');
-// const lfm = require('../modules/lfm.js');
-// const lb = require('../modules/leaderboards.js');
-// const poll = require('../modules/vote.db.js');
-// const esoDBhook = require('../modules/esoDBhook.js');
-// const subscribe = require('../modules/subscribe.js');
-// const ttc = require('../modules/ttc.js');
-// const configure = require('../modules/settings.js');
 
 const mh = require("../helper/messages.js")
 
@@ -36,16 +16,17 @@ var help = {
 	'Official Information':{	
 							 "!status":"ESO server status",
 							 "!patch":"Latest ESO patch notes",	
-							 "!patchpts":"PTS (Morrowind) patch notes"	
 							},
 
 	'Game Information':{	
 							 "!set":"Set item information (e.g. !set skel)",
+							 "!price":"Prices of listed items in guild vendor",
 							 "!lb":"Leaderboard scores (e.g. !lb $account, EU, HRC)"	
 							},
 
 	'Group Tools':{	
-							 "!poll":"Start a poll, vote and end it",
+							 "!poll":"Start and end a poll",
+							 "!vote":"Vote on an existing poll"
 							},
 
 	'Media':	{
@@ -54,34 +35,45 @@ var help = {
 							},
 
 	'Bot':	{
+							 "!config":"Configuration options for guilds and users",
 							 "!contact":"Contact information for the Bot author",
-//							 "!subscribe":"Automatic messages on events"
 							 "!help":"This help page"	
 							}							
 }
 
-module.exports = (bot, msg, options, Discord) => {
-	var helptext = mh.prepare(Discord);
+var golden = function(embed){
 
-	if (options.options[0]=="-full"){
+        embed.setTitle("Options for " + options.command)
+        embed.addField(options.command, "Shows this help")
+        embed.addField(options.command + " text", "Shows matches for this text in the set name. Partial names and single types should also yield results. If no set with that name can be found, it will search through the set boni for your query. Try: \n**!set Pirate Skeleton** \n**!set skel** \n**!set spell damage**")
+        embed.addField(options.command + " -bonus ", "Searches only through boni, not the names. This will help when set names are prioritized but interested in the boni. Try: \n**!set magicka** \n**!set -bonus magicka** \n**!set max magicka** ")
+        embed.addField(options.command + " -all ", "Forces a list of all set names")
+        embed.addField(options.command + " -tooltip ", "Will also produce directly viewable tooltips instead of links for every resulting set (very slow and needs a lot of space!)")
+        return embed;
+}
+
+module.exports = (bot, msg, options, Discord) => {
+	var embed = mh.prepare(Discord);
+
+	if (options.options[0]=="-details"){
 	for (var helpGrp in help){
 		var helptxt = ""
 		for (var helpCommand in help[helpGrp]){
 		 	helptxt += "**"+helpCommand+"**: "+ help[helpGrp][helpCommand]+"\n"
 		}
-		helptext.addField(helpGrp,helptxt)
+		embed.addField(helpGrp,helptxt)
 	}
 	}else{
 		var helptxt = ""
 		for (var helpGrp in help){
 			helptxt += "**"+helpGrp+"**: " +  Object.keys(help[helpGrp]).join(", ")	+ "\n"
 		}		
-		helptext.addField("Available commands: ", helptxt)		
-		helptext.addField("Do you need more details: ", "**!help -full**: more details about all commands\n**!golden -help**: more details about the specific commands (in this case !golden)")				
+		embed.addField("Available commands: ", helptxt)		
+		embed.addField("Do you need more details? ", "**!help -details**: some more details")
+		embed.addField("Command help", "**Every** command now has a help page with a lot of new options listed, check out! \ne.g. **!set -help** or **!price -help**")
 
-	}
-	
+	}	
 																												
-	mh.send(msg, helptext)
+	mh.send(msg, embed, options)
 	
 };

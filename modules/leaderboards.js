@@ -31,14 +31,14 @@ var embed = mh.prepare(Discord)
 if (options.options == "!help"){
 
 	embed = getHelp(embed, options)
-	mh.send(embed)
+	mh.send(msg, embed, options)
 
 }else{
 
 	if (options.megaservers.length == 0 || (options.accounts.length == 0 && options.others.length == 0)){
 			embed = getHelp(embed, options)
 		//	embed.addField("Char/Megaserver information missing (EU/NA)", "please provide this information to proceed.")
-        	mh.send(msg,embed)
+        	mh.send(msg,embed, options)
 	}else{
 	
 	var trialtolook= [];
@@ -90,10 +90,10 @@ if (options.options == "!help"){
             embed.setFooter('Data obtained from www.esoleaderboards.com')
             
         }).then(function() {
-        	mh.send(msg,embed)
+        	mh.send(msg,embed, options)
         }).catch(function(e) {
             embed.setDescription("There was a connection error, please try again later.")
-        	mh.send(msg,embed)
+        	mh.send(msg,embed, options)
             console.log(e);
         })
 

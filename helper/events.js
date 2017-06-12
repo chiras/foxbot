@@ -27,6 +27,7 @@ function getDungeon(npc, idx) {
 exports.pledges = function(time, callback) {
 
     // this time calculation has been taken from Seri's code
+
     var elapsed = time - baseTimestamp;
     let diff_rot = Math.floor(elapsed / 86400);
     

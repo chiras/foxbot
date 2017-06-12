@@ -2,6 +2,7 @@
 // http://esosales.uesp.net/salesPrices.shtml
 const tokens = require('./tokens/dev.json');
 
+const luaparse = require('luaparse');
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const util = require('util')
@@ -17,12 +18,14 @@ const Promise = require('bluebird');
 const extract = require('extract-zip')
 const fileExists = require('file-exists');
 const sql = require('mysql');
+const csv=require('csvtojson')
 
 const eh = require("./helper/events.js")
 const dh = require("./helper/db.js")
 
 // mysql database
 var mysql = sql.createPool({
+  multipleStatements: true,
   host     : 'localhost',
   user     : tokens["mysqluser"],
   password : tokens["mysqlpass"],
@@ -42,8 +45,10 @@ function getLogDate() {
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// GOLDEN UPDATE
-function getDbMaxId(db, vendor, callback) {
-    db.all("SELECT MAX(dateid) FROM " + vendor, function(err, all) {
+function getDbMaxId(mysql, vendor, callback) {
+	var query = "SELECT MAX(dateid) FROM vendors WHERE type = '"+vendor+"';";
+	
+    dh.mysqlQuery(mysql, query, function(err, all) {
         if (err) {
             console.log(err)
         };
@@ -51,22 +56,23 @@ function getDbMaxId(db, vendor, callback) {
     });
 };
 
-function insertVendorDB(db, items, searchdate, vendor, callback) {
+function insertVendorDB(mysql, items, searchdate, vendor, callback) {
 
-    getDbMaxId(db, vendor, function(err, max) {
+    getDbMaxId(mysql, vendor, function(err, max) {
         var day = Number(max[0]['MAX(dateid)']) + 1;
-        db.serialize(() => {
-            var stmt = db.prepare('INSERT into ' + vendor + ' values (?,?,?)');
             for (var i = 0; i < items.length; i++) {
-                stmt.run([day, searchdate, items[i]]);
+            	var query = 'INSERT INTO vendors (dateid, date, item, type) VALUES ("'+day+'","'+searchdate+'","'+items[i]+'","'+vendor+'");';
+    			dh.mysqlQuery(mysql, query, function(err, all) {
+      				  if (err) {
+      			      console.log(err)
+			        };
+    			    callback(err, all);
+   				 });
             }
-
-            stmt.finalize();
-        }) // end serialize
     })
 };
 
-var excludeUpdates = ["soon", "TBD", "soon(TM)", "soon (TM)","Soon(tm)"]
+var excludeUpdates = ["soon", "TBD", "soon(TM)", "soon (TM)", "Soon (TM)","Soon(tm)","soon(tm)"]
 
 var findOne = function(haystack, arr) {
     return arr.some(function(v) {
@@ -74,7 +80,7 @@ var findOne = function(haystack, arr) {
     });
 };
 
-function vendorUpdate(url, searchdate, db, vendor) {
+function vendorUpdate(url, searchdate, mysql, vendor) {
     return new Promise((resolve) => {
         var promiseVendor = new Promise((resolve, reject) => {
             request(url, function(error, response, body) {
@@ -113,16 +119,18 @@ function vendorUpdate(url, searchdate, db, vendor) {
         });
         promiseVendor.then(items => {
             if (items.length > 0 && findOne(items, excludeUpdates) == 0) {
-                console.log(getLogDate() + "SUCCESS vendor update: " + vendor);
-                console.log(items); // Success!
-                insertVendorDB(db, items, searchdate, vendor)
-                webHooks.trigger('weekendvendors', {
+                insertVendorDB(mysql, items, searchdate, vendor,function(err,all){
+                })
+                console.log(getLogDate() + "SUCCESS vendor update: " + vendor +" -> "+ items.join(", "));
+
+                    webHooks.trigger('weekendvendors', {
                     "username": vendors[vendor].username,
                     "content": "New " + vendors[vendor].name + " wares available: \n* " + items.join("\n* ")
-                })
+                	})            
                 return 0;
+
             } else {
-                console.log(getLogDate() + "FAILED vendor update: " + vendor);
+                console.log(getLogDate() + "FAILED vendor update: " + vendor +" -> "+ items.join(", "));
                 return 1;
             }
 
@@ -136,10 +144,9 @@ function vendorUpdate(url, searchdate, db, vendor) {
 }
 
 var vendors = JSON.parse(fs.readFileSync('data/json/vendors.json', 'utf8'));
-var vendordb = new sqlite3.Database('./data/dbs/vendors.db');
 
-var scheduleVendor = schedule.scheduleJob('1 14 2 * * 6', function() { // vendor comes online, try to refresh stores
-    //var schedGolden = schedule.scheduleJob(debugtime, function(){		// for debugging only
+var scheduleVendor = schedule.scheduleJob('0 58 1 * * 6', function() { // vendor comes online, try to refresh stores
+//    var scheduleVendor = schedule.scheduleJob(debugtime, function(){		// for debugging only
     webHooks.trigger('service', {
         "content": "Update Vendors: started"
     })
@@ -168,7 +175,7 @@ var scheduleVendor = schedule.scheduleJob('1 14 2 * * 6', function() { // vendor
         for (var i = 0; i < Object.keys(vendors).length; i++) {
             var vendor = Object.keys(vendors)[i]
             if (vendors[vendor].updating) {
-                promises.push(vendorUpdate(vendors[vendor].url, searchdate, vendordb, vendor))
+                promises.push(vendorUpdate(vendors[vendor].url, searchdate, mysql, vendor))
             } else {
                 promises.push(0)
             }
@@ -361,86 +368,111 @@ var scheduleRealm = schedule.scheduleJob('*/5 * * * *', function() {
 /// TTC UPDATE
 
 function ttcCreateItemTable(json, callback) {
+  var queryPrep1 = 'TRUNCATE TABLE `items_ttc`;';
+	var	fields = ['id','name']
+	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS `items_ttc` (id INT(20), name TEXT );';	
 
-    db.serialize(() => {
-        db.run('drop table items'); //or drop the table first..
-        db.run('create table if not exists ' +
-            'items (' +
-            'id numeric primary key, ' +
-            'name text)');
+ 		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
+      	console.log(getLogDate() + "items_ttc created " )
+      	console.log(queryPrep2)
+ 		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
 
-        var stmt = db.prepare('insert into items values (?,?)');
 
-        var doneItems = []
+	 	var sql = "INSERT INTO items_ttc  ("+ fields.join(",")+") VALUES ?;";
+        var values = []
+   
+         var doneItems = []
 
         for (var i = 0; i < json.length; i++) {
             var counter = 0;
             for (var key in json[i].items) {
                 if (doneItems.includes(key) == false) {
-                    stmt.run([json[i].items[key], key]);
+                    values.push([json[i].items[key], key]);
                     doneItems.push(key)
                     counter++;
                 }
             }
-            console.log(getLogDate() + "TTC Item table inserts: " + json[i].megaserver + " --> " + counter + " added")
-        }
-
-        stmt.finalize(function(result) {
-            callback(getLogDate() + "TTC Item tables have been updated")
-        });
-
-    });
+            console.log(getLogDate() + "TTC items_ttc inserts: " + json[i].megaserver + " --> " + counter + " added")
+        }  
+        
+            mysql.query(sql, [values], function(err) {
+    			if (err) throw err;
+	        callback(getLogDate() + "items_ttc have been updated")
+			});
+})})
 }
 
 function ttcCreateInfoTable(json, callback) {
-    db.serialize(() => {
-        db.run('drop table info'); //or drop the table first..
-        db.run('create table if not exists ' +
-            'info (' +
-            'megaserver text, ' +
-            'timestamp text)');
+  var queryPrep1 = 'TRUNCATE TABLE `items_prices_ttc_info`;';
+	var	fields = ['id','megaserver','timestamp']
+	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS `items_prices_ttc_info` (id INT(20), '+ fields.slice(1).join(' VARCHAR(20),')+' VARCHAR(20) );';	
 
-        var stmt2 = db.prepare('insert into info values (?,?)');
+ 		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
+      	console.log(getLogDate() + "items_prices_ttc created " )
+      	console.log(queryPrep2)
+ 		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
+
+	 	var sql = "INSERT INTO items_prices_ttc_info  ("+ fields.join(",")+") VALUES ?;";
+        var values = []
 
         for (var i = 0; i < json.length; i++) {
-            stmt2.run([json[i].megaserver, json[i].date]);
+            values.push([i, json[i].megaserver, json[i].date]);
         }
-
-        stmt2.finalize(function(resultDate) {
-            callback(getLogDate() + "TTC Info table has been updated")
-        });
-
+            mysql.query(sql, [values], function(err) {
+    			if (err) throw err;
+	        callback(getLogDate() + "items_ttc_info have been updated")
+			});
     })
+	})
+}
+
+function insertVouchers(callback){
+			var vquery1 = 'INSERT into items_prices_ttc (SELECT items_prices_ttc.id, megaserver, "99", level, trait, category, vouchers, countEntry, countAmount, suggested, ROUND(AVG(avg)), MAX(max), MIN(min), null FROM items_ttc, items_prices_ttc WHERE items_ttc.id  = items_prices_ttc.id AND items_ttc.name LIKE "%sealed%writ%" AND vouchers >0 GROUP BY items_prices_ttc.id, megaserver, vouchers);'
+			var vquery2 = 'DELETE FROM items_prices_ttc WHERE rowid IN (SELECT cid FROM (SELECT items_prices_ttc.rowid AS cid FROM items_ttc, items_prices_ttc WHERE items_ttc.id  = items_prices_ttc.id AND items_ttc.name LIKE "%sealed%writ%" AND NOT items_prices_ttc.quality = "99") AS c);'
+
+	        mysql.query(vquery1, function(err) {
+    				if (err) throw err;
+	        	mysql.query(vquery2, function(err) {
+    				if (err) throw err;
+    			
+	        		callback("items_prices_ttc vouchers have been updated")
+			});
+			});
+/**
+	INSERT into items_prices_ttc (SELECT items_prices_ttc.id, megaserver, "99", level, trait, category, vouchers, countEntry, countAmount, suggested, ROUND(AVG(avg)), MAX(max), MIN(min) FROM items_ttc, items_prices_ttc WHERE items_ttc.id  = items_prices_ttc.id AND items_ttc.name LIKE "%sealed%writ%" AND vouchers >0 GROUP BY items_prices_ttc.id, megaserver, vouchers);
+	SELECT items_prices_ttc.* FROM items_ttc, items_prices_ttc WHERE items_ttc.id  = items_prices_ttc.id AND items_ttc.name LIKE "%sealed%writ%";
+
+    
+	DELETE FROM items_prices_ttc 
+		WHERE id IN (
+			SELECT cid FROM (
+				SELECT items_prices_ttc.id AS cid FROM items_ttc, items_prices_ttc WHERE items_ttc.id  = items_prices_ttc.id AND items_ttc.name LIKE "%sealed%writ%" AND NOT items_prices_ttc.quality = "99"
+				) 
+			AS c
+			);
+*/
+
 }
 
 function ttcCreatePriceTable(jsonAll, callback) {
+	var queryPrep1 = 'DROP TABLE IF EXISTS  `items_prices_ttc`;';
+	var	fields = ['id','megaserver','quality','level','trait','category','vouchers','countEntry','countAmount','suggested','avg','max','min']
+	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS `items_prices_ttc` (id INT(20), '+ fields.slice(1).join(' VARCHAR(20),')+' VARCHAR(20) );';	
 
-    db.serialize(() => {
-        db.run('drop table prices'); //or drop the table first..
-        db.run('create table if not exists ' +
-            'prices (' +
-            'id numeric, ' +
-            'megaserver text, ' +
-            'quality numeric, ' +
-            'level numeric, ' +
-            'trait numeric, ' +
-            'category text, ' +
-            'vouchers numeric, ' +
-            'countEntry numeric, ' +
-            'countAmount numeric, ' +
-            'suggested numeric, ' +
-            'avg numeric, ' +
-            'max numeric, ' +
-            'min numeric)');
-
-        var stmt = db.prepare('insert into prices values (?,?,?,?,?,?,?,?,?,?,?,?,?)');
+	 	var sql = "INSERT INTO items_prices_ttc  ("+ fields.join(",")+") VALUES ?;";
+	 	
+ 		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
+      	console.log(getLogDate() + "items_prices_ttc created " )
+      	console.log(queryPrep2)
+ 		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
+        var values = []
 
         for (var i = 0; i < jsonAll.length; i++) {
             var json = jsonAll[i].price
             var megaserver = jsonAll[i].megaserver
-            console.log(getLogDate() + "TTC Preparing price table inserts: " + megaserver)
+            console.log(getLogDate() + "TTC Preparing items_prices_ttc inserts: " + megaserver)
 
-            var voucher = [];
+            
             traverse(json).forEach(function(x) {
                 if (this.node["Min"]) {
                     var suggested = null;
@@ -449,36 +481,49 @@ function ttcCreatePriceTable(jsonAll, callback) {
                     }
 
                     if (this.level == 4) {
-                        stmt.run([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], null, null, this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
+                        values.push([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], null, null, this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
                     } else if (this.level == 5) {
-                        stmt.run([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], this.path[4], null, this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
+                        values.push([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], this.path[4], null, this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
                     } else if (this.level == 8) {
-                        if (!voucher.includes(this.path[1])) {
 
-                            voucher.push(this.path[1])
-
-                        }
-                        stmt.run([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], null, this.path[6], this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
-
+                        values.push([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], this.path[4],  this.path[6], this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
+                        
                         // these are the writs
                     }
                 }
             });
-        };
+        }
+            
+            mysql.query(sql, [values], function(err) {
+    			if (err) throw err;
 
-        stmt.finalize(function(result) {
-            callback(getLogDate() + "TTC Price tables have been updated: ")
-        });
-    });
+                    	var qafter = "ALTER TABLE `items_prices_ttc` ADD COLUMN rowid INT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY; ALTER TABLE `items_prices_ttc` ADD index (id,quality,level,trait,vouchers); ALTER TABLE `items_ttc` ADD index (id);  ALTER TABLE `items_ttc` ADD FULLTEXT (name);"
+	            		mysql.query(qafter, function(err) {
+    						if (err) throw err;
+	        				console.log(getLogDate() + "items_prices_ttc have been indexed ")
+		
+    				 	insertVouchers(function(result){
+	        				console.log(getLogDate() + result)
+    		        		callback(getLogDate() + "items_prices_ttc have been updated ")
+                         webHooks.trigger('service', {
+                            "content": "Update TTC: finished"
+                        })   
+
+//     						})
+ 						});
+						});
+            
+        
+ 		
+ 		})
+ 		})})
 }
-
-const db = new sqlite3.Database('./data/dbs/ttc.db');
 
 var timestamp = "";
 
 var ttcdownload = {
-    "us": "https://us.tamrieltradecentre.com/Download/PriceTable",
-    "eu": "https://eu.tamrieltradecentre.com/Download/PriceTable"
+    "NA": "https://us.tamrieltradecentre.com/Download/PriceTable",
+    "EU": "https://eu.tamrieltradecentre.com/Download/PriceTable"
 }
 
 var asyncExtract = Promise.promisify(require("extract-zip"));
@@ -562,34 +607,291 @@ var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
     }
 
     Promise.all(promises).then(alldata => {
-        db.serialize(() => {
 
             ttcCreateItemTable(alldata, function(resultItem) {
                 console.log(resultItem);
                 ttcCreateInfoTable(alldata, function(resultPrice) {
                     console.log(resultPrice)
                     ttcCreatePriceTable(alldata, function(resultInfo) {
-                        console.log(resultInfo)
-                        webHooks.trigger('service', {
-                            "content": "Update TTC: finished"
-                        })
+                    	console.log(resultInfo)
                     });
                 });
             });
         }) // end serialize
-    })
 }) //schedule
 
+return;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// SALES UPDATE
+
+function uespsCreatePriceTable(json, callback) {
+var table = "items_prices_uesp";
+
+var fields = ["id","Item","Level","Quality","Item_ID","Internal_Level","Internal_Subtype","Item_Type","Equip_Type","Armor_Type","Weapon_Type","Set_Name","Extra_Data","Sales_Count","Sales_Items","Sales_Price","Last_Sale_Time","List_Count","List_Items","List_Price","Last_List_Time","Last_Seen_Time","Good_Price","Good_Sales_Price","Good_List_Price"]
+    console.log(getLogDate() + "UESP "+table+" prepare " )
+// 		console.log(util.inspect(json[0].items["body"][0]["body"][3]["variables"])) // 0 = server, 1 = version , 2 = SalesPricesLastUpdate, 3 = SalesPrices, 4 = SalesPricesDataCount
+// 		console.log(util.inspect(json[0].items["body"][0]["body"][3]["init"][0]["fields"])) // 0 = server, 1 = version , 2 = SalesPricesLastUpdate, 3 = SalesPrices, 4 = SalesPricesDataCount
+// 		console.log(util.inspect(json[0].items["body"][0]["body"][3]["init"][0]["fields"][0]["fields"])) // 0 = server, 1 = version , 2 = SalesPricesLastUpdate, 3 = SalesPrices, 4 = SalesPricesDataCount
+// http://esosales.uesp.net/getSalesImage.php?id=79648&width=400&height=300&view=all&timeperiod=
+
+		//  
+
+// 		$this->ParseFormParam('text');
+// 		$this->ParseFormParam('trait');
+// 		$this->ParseFormParam('quality');+
+// 		$this->ParseFormParam('itemtype');
+// 		$this->ParseFormParam('equiptype');
+// 		$this->ParseFormParam('armortype');
+// 		$this->ParseFormParam('weapontype');
+// 		$this->ParseFormParam('level');
+// 		$this->ParseFormParam('timeperiod');
+// 		$this->ParseFormParam('server');
+// 		$this->ParseFormParam('saletype');
+
+// 
+// [84793]={ //id, same as images. trait specific
+// 	[31]={ // lvl
+// 		[2]={	// green
+// 			[7]={ 
+// 				[0]={199,199,0,1,0,1,0},
+// 				},
+// 			},
+// 		 },
+// 	[66]={ // lvl
+// 		[3]={	//blue
+// 			[7]={	
+// 				[0]={175300,150300,200300,2,2,2,2},
+// 				},
+// 			},
+// 		[4]={	//purple
+// 			[7]={
+// 				[0]={305994,237658,414873,6,8,6,8},	//averageAll,averageSold,averageListed,sales,listed, sales , listed
+// 				},
+// 			},
+// 		[5]={	//legendary
+// 			[7]={	// sharpened
+// 				[0]={349992,399995,299990,1,1,1,1},
+// 				},
+// 			},
+// 		},
+// 	},
+// 
+// [ '1', 'items', '84793', '66', '4', '7', '0', '0' ] 305994
+// [ '1', 'items', '84751', '66', '4', '3', '0', '0' ] 81166
+// 
+// http://esosales.uesp.net/getSalesImage.php?id=79648&width=1024&height=600&view=all&timeperiod=
+
+
+
+traverse(json).forEach(function(x) {
+ if (this.isLeaf) {
+            console.log(this.path, this.node);
+        }
+
+})
+	var queryPrep1 = 'TRUNCATE TABLE IF EXISTS `'+table+'`;';
+	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS `'+table+'` (id INT(20), '+ fields.slice(1).join(' VARCHAR(20),')+' VARCHAR(20) );';	
+	
+
+	 	var sql = "INSERT INTO "+table+"  ("+ fields.join(",")+") VALUES ?;";
+ 		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
+      	console.log(getLogDate() + "UESP "+table+" created " )
+      	console.log(queryPrep2)
+ 		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
+ 		
+// 				
+//  		var values = []
+//  		
+//         for (var i = 0; i < Object.keys(json[catergory]).length ; i++) {//Object.keys(json[catergory]).length
+//          	var tmporg = json[catergory][i]
+//          	var tmparray = []
+//          	var tmpfield = []
+//         	console.log(tmporg["id"])        	
+//             for (var j = 0; j < Object.keys(tmporg).length; j++) {
+// 				tmparray.push(tmporg[Object.keys(tmporg)[j]].replace(/"/g, "'"))
+// 				tmpfield.push(Object.keys(tmporg)[j])
+//        		}
+//          //	console.log(tmparray)
+// 			//values.push(tmparray);
+// 			var sql = "INSERT INTO "+table+"  ("+ tmpfield.join(",")+') VALUES ("'+ tmparray.join('","')+'");'
+//   			dh.mysqlQuery(mysql, sql, function(errorP3, resultsP3) {
+//      			if (errorP3) throw errorP3;
+//  			});
+//         }
+     	console.log(getLogDate() + "UESP "+table+" objects complete" )
+//		console.log(sql)
+   	
+	    callback(getLogDate() + "UESP "+table+" tables have been updated")
+
+
+		})
+		})    	
+
+ //   });
+ // 
+//     db.serialize(() => {
+//         db.run('drop table prices'); //or drop the table first..
+//         db.run('create table if not exists ' +
+//             'prices (' +
+//             'id numeric, ' +
+//             'megaserver text, ' +
+//             'quality numeric, ' +
+//             'level numeric, ' +
+//             'trait numeric, ' +
+//             'category text, ' +
+//             'vouchers numeric, ' +
+//             'countEntry numeric, ' +
+//             'countAmount numeric, ' +
+//             'suggested numeric, ' +
+//             'avg numeric, ' +
+//             'max numeric, ' +
+//             'min numeric)');
+// 
+//         var stmt = db.prepare('insert into prices values (?,?,?,?,?,?,?,?,?,?,?,?,?)');
+// 
+//         for (var i = 0; i < jsonAll.length; i++) {
+//             var json = jsonAll[i].price
+//             var megaserver = jsonAll[i].megaserver
+//             console.log(getLogDate() + "TTC Preparing price table inserts: " + megaserver)
+// 
+//             var voucher = [];
+ //            traverse(json).forEach(function(x) {
+//                 if (this.node["Min"]) {
+//                     var suggested = null;
+//                     if (this.node["SuggestedPrice"]) {
+//                         suggested = this.node["SuggestedPrice"]
+//                     }
+// 
+//                     if (this.level == 4) {
+//                         stmt.run([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], null, null, this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
+//                     } else if (this.level == 5) {
+//                         stmt.run([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], this.path[4], null, this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
+//                     } else if (this.level == 8) {
+//                         if (!voucher.includes(this.path[1])) {
+// 
+//                             voucher.push(this.path[1])
+// 
+//                         }
+//                         stmt.run([this.path[0], megaserver, this.path[1], this.path[2], this.path[3], null, this.path[6], this.node["EntryCount"], this.node["AmountCount"], suggested, this.node["Avg"], this.node["Max"], this.node["Min"]]);
+// 
+//                         // these are the writs
+//                     }
+//                 }
+//             });
+//         };
+// 
+//         stmt.finalize(function(result) {
+//             callback(getLogDate() + "TTC Price tables have been updated: ")
+//         });
+//    });
+}
+
+var ttcdownload = {
+    "us": "https://esosales.uesp.net/pricesNA/uespSalesPrices.lua",
+    "eu": "https://esosales.uesp.net/pricesEU/uespSalesPrices.lua"
+}
+
+function UESPsalesUpdate(megaserver) {
+    return new Promise((resolve) => {
+
+        var path = process.cwd() + "/data/tmp/" + "UESPsales_" + moment().tz("Europe/Berlin").format("YYYY-MM-DD") + "_" + megaserver
+        var zipfile = path + ".lua"
+
+
+        var promiseDownload = new Promise((resolve, reject) => {
+            fileExists(zipfile, function(err, exists) {
+
+                //console.log(exists + zipfile)
+                if (exists) {
+                    console.log(getLogDate() + "UESPsales File exists: " + megaserver)
+                    resolve();
+                } else {
+                    var stream = fs.createWriteStream(zipfile);
+                    console.log(getLogDate() + "UESPsales Starting download: " + megaserver)
+                    var requestTTC = https.get(ttcdownload[megaserver], function(response) {
+                        response.pipe(stream);
+                        response.on("end", function() { //waits for data to be consumed
+                            // pipe has ended here, so we resolve the promise
+                            console.log(getLogDate() + "UESPsales download complete: " + megaserver)
+                            resolve();
+                        });
+                    });
+                }
+
+            }) // OUTPUTS: true or false             // var item = JSON.parse(contents);
+// 
+
+
+        }).then(function() {
+            console.log(getLogDate() + "UESPsales Preparing Item table: " + megaserver)
+            var contents = fs.readFileSync(zipfile, 'utf8');
+           // var item = luaparse.parse(contents)
+             contents = contents.replace(/\n/g, '').replace(/\["/g, '"').replace(/"\]/g, '"').replace(/\[/g, '"').replace(/\]/g, '"').replace(/,}/g, '}').replace(/=/g, ':');
+         //    contents = contents.replace(/\{([0-9])/g, '{"$1').replace(/([0-9])\}/g, '$1"}').replace(/([0-9]),([0-9])/g, '$1","$2').replace(/([0-9]),([0-9])/g, '$1","$2')
+             contents = contents.replace(/\{([0-9,.]*)\}/g, '[$1]')
+             contents = contents.substring(contents.indexOf('{'), contents.lastIndexOf('}') + 1) //.substring(0, 50);
+             
+          //   console.log(contents)
+
+		
+             return(JSON.parse(contents))
+        }).then(function(jsonitem) {
+            resolve({
+                megaserver: megaserver,
+                items: jsonitem,
+                date: moment().tz("Europe/Berlin").unix()
+            })
+        })
+    }) // end return promis
+}
+
+var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
+//var scheduleTTC = schedule.scheduleJob(debugtime, function() {
+    webHooks.trigger('service', {
+        "content": "Update UESPsales: started"
+    })
+    var promises = [];
+    for (var i = 0; i < Object.keys(ttcdownload).length; i++) {
+        promises.push(UESPsalesUpdate(Object.keys(ttcdownload)[i]))
+    }
+
+    Promise.all(promises).then(alldata => {
+//    	console.log(alldata)
+//         db.serialize(() => {
+// 
+//             uepssCreateItemTable(alldata, function(resultItem) {
+//                 console.log(resultItem);
+//                 ttcCreateInfoTable(alldata, function(resultPrice) {
+//                     console.log(resultPrice)
+                     uespsCreatePriceTable(alldata, function(resultInfo) {
+                         console.log(resultInfo)
+//                         webHooks.trigger('service', {
+//                             "content": "Update TTC: finished"
+//                         })
+                     });
+//                 });
+//             });
+//         }) // end serialize
+     })
+}) //schedule
+
+
+
+return;
 //////////////////////////////////////////////////////////////////////////////////////////
 /// ITEMS UPDATE
 // http://esolog.uesp.net/itemLink.php?itemid=70
 // http://esoitem.uesp.net/item-70-66-5.png
-// http://esoitem.uesp.net/viewlog.php?record=setSummary&format=csv
+const minedCSV = "http://esoitem.uesp.net/viewlog.php?record=setSummary&format=csv"
 const esoitemUrl = "https://esolog.uesp.net/exportJson.php?table=setSummary"
 const esoskillUrl = "https://esolog.uesp.net/exportJson.php?table=playerSkills"
 // https://esolog.uesp.net/exportJson.php?table=cpSkills
-// http://esolog.uesp.net/exportJson.php?table=minedItemSummary
-
+const esoMineditemUrl =  "https://esolog.uesp.net/exportJson.php?table=minedItemSummary"
+//curl -o itemSummary.csv "http://esoitem.uesp.net/viewlog.php?record=minedItemSummary&format=csv"
+//curl -o itemComplete.csv "http://esoitem.uesp.net/viewlog.php?record=item&format=csv"
+const itemForSet1 = "http://esoitem.uesp.net/dumpMinedItems.php?type=1&fields=setName,itemId,trait"	
+const itemForSet2 = "http://esoitem.uesp.net/dumpMinedItems.php?type=2&fields=setName,itemId,trait"	
 
 /// DOC: http://en.uesp.net/wiki/User:Daveh/ESO_Log_Collector#ItemLinkImage_Documentation
 
@@ -597,28 +899,29 @@ const itemdb = new sqlite3.Database('./data/dbs/item.db');
 const skilldb = new sqlite3.Database('./data/dbs/skill.db');
 
 function createEsoItemTable(db, json, callback) {
+		
+ //   db.serialize(() => {
+    	var queryPrep1 = 'DROP TABLE IF EXISTS `items_sets`;\n';
+    	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS '
+    		queryPrep2 += '`items_sets` ( '+
+            'id INTEGER, ' +
+            'setName TEXT, ' +
+            'setMaxEquipCount TEXT, ' +
+            'setBonusCount TEXT, ' +
+            'itemCount TEXT, ' +
+            'setBonusDesc1 TEXT, ' +
+            'setBonusDesc2 TEXT, ' +
+            'setBonusDesc3 TEXT, ' +
+            'setBonusDesc4 TEXT, ' +
+            'setBonusDesc5 TEXT, ' +
+            'setBonusDesc TEXT, ' +
+            'itemSlots TEXT);';
 
-    db.serialize(() => {
-        db.run('drop table if exists sets '); //or drop the table first..
-        db.run('create table if not exists ' +
-            'sets (' +
-            'id numeric primary key, ' +
-            'setName text, ' +
-            'setMaxEquipCount text, ' +
-            'setBonusCount text, ' +
-            'itemCount text, ' +
-            'setBonusDesc1 text, ' +
-            'setBonusDesc2 text, ' +
-            'setBonusDesc3 text, ' +
-            'setBonusDesc4 text, ' +
-            'setBonusDesc5 text, ' +
-            'setBonusDesc text, ' +
-            'itemSlots text)');
-
-        var stmt = db.prepare('insert into sets values (?,?,?,?,?,?,?,?,?,?,?,?)');
-
+		var sql = "INSERT INTO items_sets (id,setName,setMaxEquipCount,setBonusCount,itemCount,setBonusDesc1,setBonusDesc2,setBonusDesc3,setBonusDesc4,setBonusDesc5,setBonusDesc,itemSlots) VALUES ?;";
+ 		var values = []
+ 		
         for (var i = 0; i < json.setSummary.length; i++) {
-            stmt.run([	json.setSummary[i]["id"], 
+		values.push([	json.setSummary[i]["id"], 
             			json.setSummary[i]["setName"],
             			json.setSummary[i]["setMaxEquipCount"],
             			json.setSummary[i]["setBonusCount"],
@@ -631,16 +934,59 @@ function createEsoItemTable(db, json, callback) {
         	    		json.setSummary[i]["setBonusDesc"],
             			json.setSummary[i]["itemSlots"]            
             			]);
-
         }
+    	
+		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
+		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
+		mysql.query(sql, [values], function(err) {
+    		if (err) throw err;
+    		mysql.end();
+	        callback(getLogDate() + "EsoItem Set tables have been updated")
+		});
+		})})    	
 
-        console.log(getLogDate() + "EsoItem Set table inserts: " + json.setSummary.length + " added")
+ //   });
+}
 
-        stmt.finalize(function(result) {
-            callback(getLogDate() + "EsoItem Set tables have been updated")
-        });
+function createEsoTable(mysql, json, table, catergory, callback) {
+    console.log(getLogDate() + "EsoItem "+table+" prepare " )
+ 	var fields = Object.keys(json[catergory][0])
+	var queryPrep1 = 'TRUNCATE TABLE IF EXISTS `'+table+'`;';
+	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS `'+table+'` (id INTEGER,'+ fields.slice(1).join(" TEXT,")+" TEXT );";	
+ 
 
-    });
+		var sql = "INSERT INTO "+table+"  ("+ fields.join(",")+") VALUES ?;";
+ 		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
+      	console.log(getLogDate() + "EsoItem "+table+" created " )
+ 		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
+				
+ 		var values = []
+ 		
+        for (var i = 0; i < Object.keys(json[catergory]).length ; i++) {//Object.keys(json[catergory]).length
+         	var tmporg = json[catergory][i]
+         	var tmparray = []
+         	var tmpfield = []
+        	console.log(tmporg["id"])        	
+            for (var j = 0; j < Object.keys(tmporg).length; j++) {
+				tmparray.push(tmporg[Object.keys(tmporg)[j]].replace(/"/g, "'"))
+				tmpfield.push(Object.keys(tmporg)[j])
+       		}
+         //	console.log(tmparray)
+			//values.push(tmparray);
+			var sql = "INSERT INTO "+table+"  ("+ tmpfield.join(",")+') VALUES ("'+ tmparray.join('","')+'");'
+  			dh.mysqlQuery(mysql, sql, function(errorP3, resultsP3) {
+     			if (errorP3) throw errorP3;
+ 			});
+        }
+     	console.log(getLogDate() + "EsoItem "+table+" objects complete" )
+		console.log(sql)
+   	
+	     callback(getLogDate() + "EsoItem "+table+" tables have been updated")
+
+
+		})})    	
+
+ //   });
 }
 
 function createEsoSkillTable(db, json, callback) {
@@ -809,7 +1155,7 @@ var scheduleEsoItem = schedule.scheduleJob('0 0 5 * * 3', function(){
                             "content": "Update ESO skills/sets: started"
                     })
     console.log(getLogDate() + "EsoItem Starting Set download " )
-    https.get(esoitemUrl, function(res) {
+/**    https.get(esoitemUrl, function(res) {
         var body = '';
 
     	res.on('data', function(chunk){
@@ -818,34 +1164,98 @@ var scheduleEsoItem = schedule.scheduleJob('0 0 5 * * 3', function(){
 
     	res.on('end', function(){
         	var fbResponse = JSON.parse(body);
-        	createEsoItemTable(itemdb, fbResponse, function(result){
+        	createEsoTable(mysql, fbResponse, "items_sets","setSummary", function(result){        	
+//        	createEsoItemTable(itemdb, fbResponse, function(result){
         		console.log(result)
         	})
     	});
 	}).on('error', function(e){
       	console.log("Got an error: ", e);
 	});
+**/
+	var col = "ALTER TABLE items_sets ADD IF NOT EXITS COLUMN representative VARCHAR(20);"
+  	// dh.mysqlQuery(mysql, col, function(errorP1, resultsP1) {
+//  				if (errorP1) throw errorP1;
+//  	});
+			    
+	var representatives = {}
+	csv().fromStream(request.get(itemForSet1))
+			.on('csv',(csvRow)=>{
+				console.log(representatives[csvRow[0]]);
+				if (typeof representatives[csvRow[0]] == "undefined" || csvRow[2] == "Sharpened"){
+					representatives[csvRow[0]] = csvRow[1]
+					console.log(representatives[csvRow[0]]);
+					}
+			})
+			.on('done',(error)=>{
+	csv().fromStream(request.get(itemForSet2))
+			.on('csv',(csvRow)=>{
+				if (typeof representatives[csvRow[0]] == "undefined" && csvRow[2] == "Divines"){
+					representatives[csvRow[0]] = csvRow[1]
+					console.log(representatives[csvRow[0]]);
+					}
+				if (typeof representatives[csvRow[0]] == "undefined"){
+					representatives[csvRow[0]] = csvRow[1]
+					}
 
-    console.log(getLogDate() + "EsoSkill Starting Skill download " )
-    https.get(esoskillUrl, function(res) {
-        var body = '';
+			})
+			.on('done',(error)=>{
+		
+				for (var key in representatives){
+				console.log(key)
+				if (key != ""){
+				var sql = 'UPDATE items_sets SET representative = "'+ representatives[key]+'" WHERE setName LIKE "'+key+'";'
+				console.log(sql)
+  				dh.mysqlQuery(mysql, sql, function(errorP2, resultsP2) {
+     				if (errorP2) throw errorP2;
+ 				});
+ 				}
+ 				}			
+		})			
+		})
 
-    	res.on('data', function(chunk){
-        	body += chunk;
-    	});
 
-    	res.on('end', function(){
-        	var sbResponse = JSON.parse(body);    	
-            	createEsoSkillTable(skilldb, sbResponse, function(result){
-        		console.log(result)
-                        webHooks.trigger('service', {
-                            "content": "Update ESO skills/sets: finished"
-                        })
-        	})
-    	});
-	}).on('error', function(e){
-      	console.log("Got an error: ", e);
-	});
+
+	
+//     console.log(getLogDate() + "EsoItem Starting Full Item download " )
+// 	
+//     https.get(esoMineditemUrl, function(res) {
+//         var body = '';
+// 
+//     	res.on('data', function(chunk){
+//         	body += chunk;
+//     	});
+// 
+//     	res.on('end', function(){
+//         	var fbResponse = JSON.parse(body);
+//         	createEsoTable(mysql, fbResponse, "items_summary","minedItemSummary", function(result){
+//         		console.log(result)
+//         	})
+//     	});
+// 	}).on('error', function(e){
+//       	console.log("Got an error: ", e);
+// 	});
+// 	
+//     console.log(getLogDate() + "EsoSkill Starting Skill download " )
+//     https.get(esoskillUrl, function(res) {
+//         var body = '';
+// 
+//     	res.on('data', function(chunk){
+//         	body += chunk;
+//     	});
+// 
+//     	res.on('end', function(){
+//         	var sbResponse = JSON.parse(body);    	
+//             	createEsoSkillTable(skilldb, sbResponse, function(result){
+//         		console.log(result)
+//                         webHooks.trigger('service', {
+//                             "content": "Update ESO skills/sets: finished"
+//                         })
+//         	})
+//     	});
+// 	}).on('error', function(e){
+//       	console.log("Got an error: ", e);
+// 	});
 
 
 

@@ -93,7 +93,7 @@ module.exports = (bot, msg, options, mysql, type, Discord) => {
     if (options.options == "-help" | options.others.includes("help")) {
         getHelp(options, type, embed, function(helpembed) {
 
-            mh.send(msg, helpembed);
+            mh.send(msg, helpembed, options);
         })
 
     } else {
@@ -160,7 +160,7 @@ module.exports = (bot, msg, options, mysql, type, Discord) => {
                         var searchdate2 = moment().tz("America/New_York").add(-1, 'days').format("YYYY-MM-DD");
                         var searchdate3 = moment().tz("America/New_York").add(-2, 'days').format("YYYY-MM-DD");
 
-                        console.log(max.date + "-" + searchdate1 + "/" + searchdate2)
+                        //console.log(max.date + "-" + searchdate1 + "/" + searchdate2)
                         if (max.date == searchdate1 || max.date == searchdate2 || max.date == searchdate3) {
                             embed.addField(vendorTexts[type]["currentT"], lagacytxt + vendorTexts[type]["currentF"] + remainingOff);
                         } else {
@@ -170,7 +170,7 @@ module.exports = (bot, msg, options, mysql, type, Discord) => {
 
                     embed.setFooter(vendorTexts[type]["footer"])
 
-                    mh.send(msg, embed);
+                    mh.send(msg, embed, options);
 
                 });
             }) // max id	
@@ -195,7 +195,7 @@ module.exports = (bot, msg, options, mysql, type, Discord) => {
 
                 embed.setFooter(vendorTexts[type]["footer"])
 
-                mh.send(msg, embed);
+                mh.send(msg, embed, options);
             })
 
         }

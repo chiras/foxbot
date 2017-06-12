@@ -27,8 +27,15 @@ function httpGet(url) {
     })
 }
 
-function getDbRecords(mysql, callback) {
-    var query = 'SELECT * FROM youtube ORDER BY date DESC, RAND() LIMIT 5;';
+function getDbRecords(mysql, all, callback) {
+    var query = "";
+    if (all){
+    	query ='SELECT * FROM youtube ORDER BY date DESC, RAND() LIMIT 30;;';
+    }else{
+    	query ='SELECT * FROM youtube ORDER BY date DESC, RAND() LIMIT 5;';    
+    }
+    
+    
     dh.mysqlQuery(mysql, query, function(error, results) {
         callback(results)
     })
@@ -50,9 +57,10 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
 
         embed.addField(options.command, "Shows hot, recent and recommended videos")
         embed.addField(options.command + " eso magicka dk morrowind", "Shows top results for this query")
-        embed.addField(options.command + " -recommend ERcZznUKCdw", "Recommend a video to other Fox-Bot users")
+        embed.addField(options.command + " -recommend ERcZznUKCdw", "Recommend a video to other Fox-Bot users using the offical youtube video id")
+        embed.addField(options.command + " -more", "See only recommended videos, but 30 of those.")
 
-        mh.send(msg, embed);
+        mh.send(msg, embed, options);
 
     } else if (options.options[0] == "-recommend") {
         var querypart = []
@@ -85,9 +93,26 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
             setDbRecords(mysql, query, function() {
                 embed.setTitle("Thank you for your suggestion!")
                 embed.setDescription("The following videos have been added to the recommendation list")
-                mh.send(msg, embed)
+                mh.send(msg, embed, options)
             })
         });
+
+    } else if (options.options[0] == "-more") {
+
+                getDbRecords(mysql, true, function(results) {
+
+                    if (results.length > 0) {
+                        var curcount = 1;
+                        var youtubeout = "";
+                        for (var z = 0; z < results.length; z++) {
+                            youtubeout += "\n" + curcount + ". **[" + results[z].youtuber + '](http://youtube.com/watch?v=' + results[z].id + ')**: ' + results[z].title;
+                            curcount++;
+                        }
+                        embed.addField("More videos recommended recently: ", youtubeout)
+                    }
+                    mh.send(msg, embed, options)
+                })
+
 
     } else {
 
@@ -145,7 +170,7 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
                 }
 
             }).then(function() {
-                getDbRecords(mysql, function(results) {
+                getDbRecords(mysql, false, function(results) {
 
                     if (results.length > 0) {
                         var curcount = 1;
@@ -154,22 +179,24 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
                             youtubeout += "\n" + curcount + ". **[" + results[z].youtuber + '](http://youtube.com/watch?v=' + results[z].id + ')**: ' + results[z].title;
                             curcount++;
                         }
-                        embed.addField("Recently recommended by other Fox-Bot users:", youtubeout)
+                        embed.addField("Some recently recommended by other Fox-Bot users: (**!youtube -more** for more)", youtubeout)
                     }
-                    mh.send(msg, embed)
+                    mh.send(msg, embed, options)
                 })
 
             })
 
         } else {
+        	//console.log(options.others)
 
-            var url = encodeURI(yturl + "search?q=" + options.others.join("%20").replace(/[\.\:\,]/g, "") + "&part=snippet&maxResults=5&type=video&order=viewCount&key=" + key)
-            console.log(url)
+            var url = encodeURI(yturl + "search?q=" + options.others.join(" ") + "&part=snippet&maxResults=5&type=video&order=viewCount&key=" + key)
+            //console.log(url)
 
             var promises = [];
             promises.push(httpGet(url))
 
             Promise.all(promises).then(body => {
+           // 	console.log(promises)
 
                 for (var j = 0; j < body.length; j++) {
 
@@ -187,7 +214,7 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
                 }
 
             }).then(function() {
-                mh.send(msg, embed)
+               mh.send(msg, embed, options)
             })
 
 

@@ -16,7 +16,7 @@ if (options.options[0] == "-help"){
     embed.addField(options.command + " -forum", "only server status and forum announcements")
     embed.addField(options.command + " -launcher", "only server status and launcher messages")
     
-    mh.send(msg, embed)
+    mh.send(msg, embed, options)
 
 }else{
 	var wheretxt = "";
@@ -46,7 +46,9 @@ if (options.options[0] == "-help"){
 
 
         embed.addField("Server status:", statustxt)
-        mh.send(msg, embed)
+        
+        embed.addField("Configure auto-notifications of server status changes:", "**!config**")
+        mh.send(msg, embed, options)
 
     })
 

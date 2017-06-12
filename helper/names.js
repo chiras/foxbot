@@ -22,6 +22,17 @@ var quality = {
 	"yellow" : 4,
 	"legendary" : 4
 }
+// var traits = {
+// 	"powered" : 0,
+// 	"charged" : 1,
+// 	"precise" : 2,
+// 	"infused" : 3,
+// 	"defending" : 4,
+// 	"training" : 5,
+// 	"sharpened" : 6,
+// 	"decisive" : 7
+// }
+
 var traits = {
 	"powered" : 0,
 	"charged" : 1,
@@ -30,7 +41,19 @@ var traits = {
 	"defending" : 4,
 	"training" : 5,
 	"sharpened" : 6,
-	"decisive" : 7
+	"decisive" : 7,
+	"sturdy" : 8,
+	"impenetrable" : 9,
+	"reinforced" : 10,
+	"well-fitted" : 11,
+	"prosperous" : 12,
+	"divines" : 13,
+	"nirnhoned" : 14,
+	"intricate" : 15,
+	"ornate" : 16,
+	"arcane" : 17,	
+	"healthy" : 18,	
+	"robust" : 19,	
 }
 
 const instances = {
@@ -120,16 +143,18 @@ const roles = {
 }
 
 exports.getCpLvl = function (type) {
+	var result = 0;
+
+	if (type != "lvl" && type != "cp" && !type.match(/-/)){
 	var cp = new RegExp("cp","i")
 	var lvl = new RegExp("lvl","i")
 	var number = new RegExp("[0-9]+","i")
-	var result = 0;
 		
 	if (type.match(cp)){
 		result = Number(type.match(number)[0])+50;
 	}else if(type.match(lvl)){
 		result = Number(type.match(number)[0]);	
-	}
+	}}
 	return (result);
 }
 
@@ -161,6 +186,18 @@ exports.getTrait = function (type) {
 	}
 }
 
+
+exports.decodeLevel = function(lvl){
+	if (lvl > 50){
+		var l = lvl - 50;
+		return "cp"+ l ;
+		}else{
+		return "lvl"+ lvl ;
+		
+		}
+	}
+
+
 // exports.getInstance = function (type) {
 // 	if (instances[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()]){ 
 // 		return instances[type.replace(/\"/g, "").replace(/ /g, "").toLowerCase()];
@@ -185,7 +222,6 @@ exports.getLongName = function (shortname) {
 
 exports.getValidInstances = function (name) {
 	var shortname = name.trim();
-	console.log("!>>>"+shortname+"<<<!")
 	if (instances[shortname]){return shortname;
 	}else{
 		if (instancesGroup[shortname]){return shortname;
@@ -194,7 +230,7 @@ exports.getValidInstances = function (name) {
 			for (var i = 0; i < Object.keys(instances).length;i++){
 				if (instances[Object.keys(instances)[i]] == shortname) {
 					longname = Object.keys(instances)[i]
-					console.log(longname+"/"+shortname)
+					//console.log(longname+"/"+shortname)
 					};
 			}
 			return longname;	

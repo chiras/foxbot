@@ -3,21 +3,14 @@ const tokens = require('./tokens/dev.json');
 const setitems = require('./data/setfile.json');
 
 // required modules
-const util = require('util')
 const Discord = require("discord.js");
-const request = require("request"); // necessary?
-const cheerio = require('cheerio');
-const fs = require('fs');
-const sqlite3 = require('sqlite3').verbose();
 const FuzzyMatching = require('fuzzy-matching');
 const sql      = require('mysql');
-//const TwitchApi = require('twitch-api');
 
 // local modules
 const vendor = require('./modules/vendor.sql.js'); // v2 ready
 const status = require('./modules/server.sql.js');
-const getset = require('./modules/sets.db.js');
-const getsetstats = require('./modules/setstats.js');
+const getset = require('./modules/sets.sql.js');
 const help = require('./modules/help.js');
 const pledges = require('./modules/pledges.js');
 const trials = require('./modules/trials.js');
@@ -26,18 +19,20 @@ const gettwitch = require('./modules/twitch.js'); // v2 ready
 const contact = require('./modules/contact.js');
 const youtube = require('./modules/youtube.js');
 const patchnotes = require('./modules/patchnotes.js');
-const patchpts = require('./modules/patchnotes-pts.js');
 const lfg = require('./modules/lfg.js');
 const lfm = require('./modules/lfm.js');
 const leaderboards = require('./modules/leaderboards.js');
-const poll = require('./modules/vote.db.js');
+const poll = require('./modules/vote.sql.js');
 const esoDBhook = require('./modules/esoDBhook.js');
 const subscribe = require('./modules/subscribe.js');
-const ttc = require('./modules/ttc.js');
-const configure = require('./modules/settings.js');
+const ttc = require('./modules/ttc.sql.js');
+const configure = require('./modules/settings.sql.js');
+const guildUpdate = require('./modules/guild.sql.js');
 
 // helper functions
 const ah = require("./helper/arguments.js")
+const dh = require("./helper/db.js")
+const nh = require("./helper/names.js")
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -46,16 +41,8 @@ const listenchannel = tokens["listening"];
 
 // setting up global variables
 var bot = new Discord.Client({autoReconnect:true});
-
-var gsDayNames = new Array(
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-);
+const roleID = tokens["id"];
+const blacklist = ["!roll"]
 
 // mysql database
 var mysql = sql.createPool({
@@ -65,46 +52,11 @@ var mysql = sql.createPool({
   database : 'foxbot'
 });
 
-
-
-// functions
-function isNumber(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
-var dbguilds = new sqlite3.Database('./data/guilds.db'); // database file
-
-function getDbRecords(db, arg, callback) {
-db.serialize(function() {
-    db.all("SELECT * FROM subscription WHERE guild IS '"+ arg+"'", function(err, all) {
-        if (err) {
-            console.log(err)
-        };
-        //     console.log(all)
-        callback(err, all);
-    });
-});
-};
-
-function saveStats(options, sql){
-	var key = options["command"]+":"+options["user"]+"@"+options["guild"]
-	var query = 'INSERT into stats (id, guild, user, command, count) VALUES ("' + key +'", "' + options["guild"] +'", "' + options["user"]+'", "' + options["command"]+'", 1) ON DUPLICATE KEY UPDATE count = count + 1';
-	//console.log(query)
-	
-	sql.query(query, function (error, results, fields) {
-	  	if (error) console.log(error);
-	});
-}
-
-
-const roleID = tokens["id"];
-
 // listening for messages
 bot.on("message", (msg) => {
-
 	if(msg.channel.id == listenchannel){
-		console.log("LISTENING")
-		esoDBhook(bot, msg, Discord);
+		//console.log("LISTENING")
+		esoDBhook(bot, msg, {bot : bot}, mysql, Discord);
 		return;
 	}	
 
@@ -113,140 +65,108 @@ bot.on("message", (msg) => {
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
+    
+   	guildUpdate(bot, msg, mysql)   	
    	
    	ah.argumentSlicer(msg, mysql, function(options){
-    	
+   	var checkdbchannel = options["guild"]
+   	if (checkdbchannel =="DM") checkdbchannel = options["channel"]
+   	
+   	dh.getDbData(mysql, "guilds_settings", {settingsid: checkdbchannel}, function(settings) {  
+   	dh.getDbData(mysql, "guilds_users", {userid: options["user"], guild : options["guild"]}, function(users) {  
+   	
+   	var blacklistChannel = [...blacklist];
+   	for (var s = 0; s < settings.length; s++){
+   		if (settings[s].setting == "-deny" && users[0].role == settings[s].sap) blacklistChannel.push("!"+settings[s].value) // SOME ERROR here in beta test with sha.
+   		if (settings[s].setting == "-megaserver" && options.megaservers.length==0) options.megaservers.push(Object.keys(nh.listServers())[settings[s].value-1].toUpperCase())
+   		if (settings[s].setting == "-replytype" && settings[s].value == 2 ) options["rechannel"] = "redirectDM"
+   		if (settings[s].setting == "-replytype" && settings[s].value == 3 ) {options["rechannel"] = "redirectChannel"; options["rechannelid"] = settings[s].sap}
+   	}
+   	
+   	//console.log("blacklist: "+blacklistChannel.join(","))
+   	
+   	if (blacklistChannel.includes(options["command"][0])) return;
+
+	//console.log(options)
+   		   	
 	var responses = {
 		//v2 ready
 		"!golden" 		: function(){vendor(bot, msg, options, mysql, "golden", Discord);}, 
 		"!luxury" 		: function(){vendor(bot, msg, options, mysql, "luxury", Discord);}, 
-		"!twitch" 		: function(){gettwitch(bot, msg, tokens["twitch"], Discord);}, //no help yet
+		"!twitch" 		: function(){gettwitch(bot, msg, tokens["twitch"], options, Discord);}, //no help yet
 		"!youtube" 		: function(){youtube(bot, msg, tokens["youtube"], options, mysql, Discord);}, 
-		"!contact"	 	: function(){contact(bot, msg, Discord);}, 
+		"!contact"	 	: function(){contact(bot, msg, options, Discord);}, 
 		"!help" 		: function(){help(bot, msg, options, Discord);}, 
 		"!status" 		: function(){status(bot, msg, options, mysql, Discord);}, 
+		"!server" 		: function(){status(bot, msg, options, mysql, Discord);}, 
+		"!realm" 		: function(){status(bot, msg, options, mysql, Discord);}, 
 		"!lb" 			: function(){leaderboards(bot, msg, options, Discord);}, 
 		"!leaderboard" 	: function(){leaderboards(bot, msg, options, Discord);}, 
 		"!pledge" 		: function(){pledges(bot, msg, options,  Discord);}, 
 		"!dailies" 		: function(){pledges(bot, msg, options,  Discord);}, 
 		"!daily" 		: function(){pledges(bot, msg, options,  Discord);}, 
+		"!weekly" 		: function(){trials(bot, msg, options, Discord);}, 
+		"!trial" 		: function(){trials(bot, msg, options, Discord);}, 
+		"!patch" 		: function(){patchnotes(bot, msg, options, Discord);}, 
+		"!patchpts" 	: function(){patchnotes(bot, msg, options, Discord);}, 
+		"!set" 			: function(){getset(bot, msg, options, Discord);}, 
+		"!price"		: function(){ttc(bot, msg, options, Discord);}, 
 		
 		//v2 preparation
+		
+			// needs help, troubleshoot and user poll list in DM
+		"!poll" 		: function(){poll(bot, msg, tokens, options, mysql, Discord);}, 
+		"!vote" 		: function(){poll(bot, msg, tokens, options, mysql, Discord);}, 
 
-/**			//not ready
-		"!ttc"		: function(){ttc(bot, msg, Discord);}, 
-		"!subscribe": function(){subscribe(bot, msg, Discord, 0);}, 
-		"!poll" 	: function(){poll(bot, msg, tokens, Discord);}, 
-		"!vote" 	: function(){poll(bot, msg, tokens, Discord);}, 
-		"!weekly" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
-		"!trials" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
-		"!trial" 	: function(){trials(bot, msg, request, cheerio, util, Discord);}, 
-		"!set" 		: function(){getset(bot, msg, Discord);}, 
-//		"!setbonus" : function(){msg.channel.sendMessage("Please call the command with an argument, e.g. !set Magicka")}, 
-//		"!test" 	: function(){msg.channel.sendMessage("No testing function at the moment ");}, 
-//		"!fox" 		: function(){msg.channel.sendMessage("Yeah, the FoX!");}, 
+		"!config" 		: function(){configure(bot, msg, options, mysql, Discord);}, 
+
+/**			//not ready			
+
 		"!lfg" 		: function(){lfg(bot, msg, Discord)}, 
 //		"!lfm" 		: function(){lfm(bot, msg, lfgdb)}, 
-		"!patch" 	: function(){patchnotes(bot, msg, request, cheerio);}, 
-		"!patchpts" : function(){patchpts(bot, msg, request, cheerio);}, 
-		"!config" 		: function(){configure(bot, msg, Discord);}, 
+
 **/
 		};
     	
 	var fm = new FuzzyMatching(Object.keys(responses));
 	
 	var cmd = msg.content.split(" ")[0];
-	
-//	console.log(fm.get(cmd)); // --> { distance: 1, value: 'tough' } 
-	
-	if (fm.get(cmd).distance > 0.7){
-		options["command"] = fm.get(cmd).value
-		saveStats(options, mysql)
+		var fuzzymatch = fm.get(cmd);
 		
-		if (tokens["tokenset"] == "live"){ 
-			log(msg, cmd + " ("+msg.content+")", fs, logfile, bot);
+		if (fuzzymatch.distance > 0.7){
+		options["command"] = fuzzymatch.value
+		
+    	if (typeof bot.channels.get(logchannel) !=="undefined" && tokens["tokenset"] == "live"){
+			log(msg, options, logchannel, bot, mysql, Discord);
 		}
 
-		var permission = 1;
+		if (!options["rechannel"]){
+			options["rechannel"] = "DM"
 		
-        if (msg.guild) {
-			
-		if (!msg.channel.permissionsFor(roleID).hasPermission("READ_MESSAGES")){
-			console.log("NOT READ_MESSAGES")
-			msg.author.sendMessage("I do not have rights to READ MESSAGES in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
-			permission = 0;
-		}
+        	if (msg.guild) {
+       			options["rechannel"] = "guild"
+        			
+				if (!msg.channel.permissionsFor(roleID).has("READ_MESSAGES")){
+					options["rechannel"] = "read";
+				}
 
-		if (!msg.channel.permissionsFor(roleID).hasPermission("SEND_MESSAGES")){
-			console.log("NOT SEND_MESSAGES")
-			msg.author.sendMessage("I do not have rights to SEND MESSAGES in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
-			permission = 0;
-		}
+				if (!msg.channel.permissionsFor(roleID).has("SEND_MESSAGES")){
+					options["rechannel"] = "send";
+				}
 	
-		if (!msg.channel.permissionsFor(roleID).hasPermission("EMBED_LINKS")){
-		console.log("NOT EMBED_LINKS")
-			msg.author.sendMessage("I do not have rights to EMBED LINKS in the channel you used the bot command. Please ask your admin to give me permission or switch channels!")
-			permission = 0;
-		}
-		
-		if (permission){
-		var p = new Promise(function(resolve, reject) {
-			getDbRecords(dbguilds, msg.guild.id ,function(err, obj) {
-        		resolve(obj);
-			})
-		}).then(function(value){
-	     //console.log(value); 
-	       
-		if (value.length == 0){
-			subscribe(bot, msg, Discord, 1); 
-			console.log("new subscription")
-		}
+				if (!msg.channel.permissionsFor(roleID).has("EMBED_LINKS")){
+					options["rechannel"] = "embed";
+				}
+				
+			}// end if guild
+		} // no preset rechannel
+		options["bot"] = bot.user.id;
 
-		}) // end promise guild channel
-		}
-		
-		
-		} // end if guild
-	
-		if (permission){
-			if (responses[options["command"]]) {responses[options["command"]]();	
-		}}else{
-			log(msg, cmd + " <--- wrong permissions ", fs, logfile, bot);
-		}
+		if (responses[options["command"]]) {responses[options["command"]]()};	
 
-
-		
-	
-// 	} else if (msg.content.startsWith(prefix + "set")) {
-//          getset(bot, msg, setitems);
-// 	} else if (msg.content.startsWith(prefix + "poll") || msg.content.startsWith(prefix + "vote")) {
-//          poll(bot, msg, tokens, Discord);
-// 	} else if (msg.content.startsWith(prefix + "lb") || msg.content.startsWith(prefix + "leaderboard")) {
-//          leaderboards(bot, msg);
-// 	} else if (msg.content.startsWith(prefix + "lfg")) {
-//          lfg(bot, msg, lfgdb);
-// 	} else if (msg.content.startsWith(prefix + "lfm")) {
-//          lfm(bot, msg, lfgdb, "");         
-  //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
-  //  } else if (msg.content.startsWith(prefix + "setbonus ")) {
-  //       getsetstats(bot, msg, setitems, util);
- //   } // else {
-//          	msg.channel.sendEmbed({
-//   				color: 0x800000,
-//   				title:"Command not found",
-//   				description: " try one of: " + Object.keys(responses).join(", "),
-//   				fields: [{
-//        				 name: "Your suggestion?",
-//        				 value: "If you feel that your command should be implemented into the bot, contact <@218803587491299328>"
-//      			 }
-//     			]    		
-// 			});			
-//     }  
-        
-//currently disabled the unknown command because of other both's interferring
 	} // end fuzzy search
+	})}) // db settings
   }) // end argument slicer
-
 });
 
 // startup
@@ -262,11 +182,8 @@ bot.on('ready', () => {
 });
 
 bot.on('guildCreate', guild => {
-	var guildCreate =  guild +  "\t" +  guild.owner + "\tGuild added\t\t";// + msg.createdAt;
-	fs.appendFile(logfile, guildCreate , function (err) {});
-	console.log(guildCreate);
     if (typeof bot.channels.get(logchannel) !=="undefined"){
-  		bot.channels.get(logchannel).sendMessage(guildCreate)
+		log("guildCreate", guild, logchannel, bot, mysql, Discord);
 	}
 });
 

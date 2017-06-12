@@ -1,4 +1,5 @@
 const nh = require("../helper/names.js")
+const fh = require("../helper/functions.js")
 /**
 Argument Types:
 
@@ -18,13 +19,6 @@ traits
 
 !command $account, NA, -op1 -op2 ballal 1,2  superior, 
 **/
-
-
-
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
 
 function definePollQuestion(input,callback){
 		pollObject = {
@@ -90,6 +84,7 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
 		"value_num" 	: [],
 		"value_char"	: [],
 		"date"			: [],
+		"range"		: [],
 		"others"		: [],
 		"slice_info"	: []
 	}
@@ -117,7 +112,7 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
 		}
 		// console.log("got no question here")	
 
-		var argsArray = args.replace(/ /g, ",").split(",")
+		var argsArray = args.replace(/ /g, ",").replace(/\n/g, ",").replace(/\"/g, "'").replace(/\`/g, "'").split(",")
 
     	for (var i = 0; i < argsArray.length; i++){
     	
@@ -139,15 +134,29 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
     			returnObj["item_quality"].push(Number(nh.getQuality(argsArray[i])))
 	    	}else if(nh.getTrait(argsArray[i])){
     			returnObj["item_trait"].push(Number(nh.getTrait(argsArray[i])))
-	    	}else if(isNumeric(argsArray[i])){
+	    	}else if(fh.isNumeric(argsArray[i])){
     			returnObj["value_num"].push(Number(argsArray[i]))
 	    	}else if(argsArray[i].match(isDate)){
     			returnObj["date"].push(argsArray[i])
+	    	}else if(argsArray[i].match(/[a.zA-Z]*-[a.zA-Z]*/)){
+	    		var range = argsArray[i].split("-");
+	    		var rangetype = ""
+	    		if(nh.getCpLvl(range[0])){rangetype = "level";range[0]=nh.getCpLvl(range[0]);range[1]=nh.getCpLvl(range[1]) }else{
+	    		if(nh.getQuality(range[0])){rangetype = "quality";range[0]=Number(nh.getQuality(range[0]));range[1]=Number(nh.getQuality(range[1])) }else{
+	    		if(range[0].match(isDate)){rangetype = "date";}else{
+	    		if(fh.isNumeric(range[0])){rangetype = "numeric";}else{
+	    			rangetype = "unknown";
+	    		}}}}
+				if (range[0] < range[1]){
+    				returnObj["range"].push({from : range[0], to: range[1], type : rangetype})
+    			}else{
+	    			returnObj["range"].push({from : range[1], to: range[0], type : rangetype})
+    			}
 	    	}else{
     			returnObj["others"].push(argsArray[i])	    	
 	    	}
        	} // end for		
 	}
-	console.log(returnObj)
+	//console.log(returnObj)
 	callback(returnObj);
 }

@@ -1,12 +1,8 @@
 // Set user preferences
-const sqlite3 = require('sqlite3').verbose();
-
 const mh = require("../helper/messages.js")
 const ah = require("../helper/arguments.js")
 const nh = require("../helper/names.js")
 const gh = require("../helper/guilds.js")
-
-var db = new sqlite3.Database('./data/dbs/guilds.db');
 
 /** 
 #### user: = direct messages
@@ -49,16 +45,27 @@ x:
 
 **/
 
-function getGuildConfigStep(db, table, arg, callback) {
-db.serialize(function() {
-    db.all("SELECT * FROM "+ table +" WHERE guild IS '"+ arg+"'", function(err, all) {
+function setupQuery(array){
+	var query = "";
+	for (var k in array) {
+        if (array.hasOwnProperty(k)) {
+           query += " "+ k +" = '"+array[k]+ "' AND ";
+        }
+	}
+	return query.substring(0, query.length-4);
+}
+
+
+function getDbData(mysql, table, args, callback) {
+var query = "SELECT * FROM "+ table +" WHERE "+ setupQuery(args)
+console.log(query);
+
+dh.mysqlQuery(mysql, query, function(all) {
         if (err) {
             console.log(err)
         };
-             console.log(all)
-        callback(err, all);
+        callback(all);
     });
-});
 };
 
 const reply_types = {	1 : "In the same channel",
@@ -110,13 +117,13 @@ function setMegaserverTxt(embed){
 
 
 function newGuildConfig(db, args, callback) {
-	db.each("INSERT OR REPLACE into settings (guild) VALUES ('"+args+"')", function(err, row) {
-		if (err){
-			console.log(err)
-		}else{
-
-		}	
-	});
+	var query = "INSERT OR REPLACE into guilds_settings (id, type, setting, value) VALUES ('"+args["id"]+"','"+args["type"]+"','"+args["setting"]+"','"+args["value"]+"')";
+	dh.mysqlQuery(mysql, query, function(all) {
+        if (err) {
+            console.log(err)
+        };
+    });	
+	
 }; 
 
 function setGuildConfigStep(db, args, callback) {
@@ -130,89 +137,101 @@ function setGuildConfigStep(db, args, callback) {
 	});
 }; 
 
+var allconfigsteps = ["megaserver", "replytype"}
+
 function guildConfiguration(db, msg, embed, callback){
-	getGuildConfigStep(db, "settings", msg.channel.guild.id, function(err, configstep){
-		if (configstep.length!=0){
-		if (nh.getServer(configstep[0].megaserver)){
-			console.log("Megaserver has already been set")
-			if (configstep[0].reply_type){
-				console.log("Reply Type has already been set")
 
-				getGuildConfigStep(db, "channels", msg.channel.guild.id, function(err, channels){
-  				console.log(channels)
-	        	console.log(gh.getGuildRoles(msg))
+	var guildconfigstep = [...allconfigsteps]
+	console.log("setting start: "+guildconfigstep.join(","))
+	
+	getDbData(mysql, "guilds_settings", {guildid : msg.guild.id}, function(err, configstep){
+		configstep.foreach(function(setting){
+			removeElement(guildconfigstep,setting.setting)
+			console.log("setting elements: "+guildconfigstep.join(","))
+		})
+		console.log("setting unconfigs: "+guildconfigstep.join(","))
 
-					if ("Here check roles" == "not yet done"){
-						console.log("Roles have already been set")		
-					
-					}else{ // roles
-	        			console.log("Step 3: required" )
-						gh.getGuildRoles(msg, function(roles){
-	    	    			embed = setRoleTxt(embed, roles);			
-		        			console.log(roles)	        			
-						
-						}) //this might need a callback
-					}
-				})
-				
-			}else{ // reply type
-	        	console.log("Step 2: required" )
-    	    	embed = setReplyTxt(embed);			
-			}
-		}else{ // megaserver
-        	console.log("Step 1: required" )
-        	embed = setMegaserverTxt(embed);			
-		}
-		
-		console.log("No valid configuration step provided")	
-		
-		}else{	
-			console.log("starting new config")	
-    		embed = setMegaserverTxt(embed);
-			newGuildConfig(db, msg.channel.guild.id, function(){})			
-		}
-		callback(embed)
-	})
+	}
+	
+	// 
+// 	
+// 	
+// 		if (configstep.length!=0){
+// 		if (nh.getServer(configstep[0].megaserver)){
+// 			console.log("Megaserver has already been set")
+// 			if (configstep[0].reply_type){
+// 				console.log("Reply Type has already been set")
+// 
+// 				getGuildConfigStep(db, "channels", msg.channel.guild.id, function(err, channels){
+//   				console.log(channels)
+// 	        	console.log(gh.getGuildRoles(msg))
+// 
+// 					if ("Here check roles" == "not yet done"){
+// 						console.log("Roles have already been set")		
+// 					
+// 					}else{ // roles
+// 	        			console.log("Step 3: required" )
+// 						gh.getGuildRoles(msg, function(roles){
+// 	    	    			embed = setRoleTxt(embed, roles);			
+// 		        			console.log(roles)	        			
+// 						
+// 						}) //this might need a callback
+// 					}
+// 				})
+// 				
+// 			}else{ // reply type
+// 	        	console.log("Step 2: required" )
+//     	    	embed = setReplyTxt(embed);			
+// 			}
+// 		}else{ // megaserver
+//         	console.log("Step 1: required" )
+//         	embed = setMegaserverTxt(embed);			
+// 		}
+// 		
+// 		console.log("No valid configuration step provided")	
+// 		
+// 		}else{	
+// 			console.log("starting new config")	
+//     		embed = setMegaserverTxt(embed);
+// 			newGuildConfig(db, msg.channel.guild.id, function(){})			
+// 		}
+// 		callback(embed)
+// 	})
 
 }
 
 
 
-module.exports = (bot, msg, Discord) => {
-	var embed = mh.prepare(Discord)
-	ah.argumentSlicer(msg.content, function(options){
-	
-			switch(options.options[0]) {
-    			case "-megaserver":
-        			console.log("Setup 1:" )
-        			if (options.value_num.length!=0){
-        				servers = nh.listServers()       			
-	        			setGuildConfigStep(db, [msg.channel.guild.id, "megaserver",Object.keys(servers)[options.value_num[0]-1]])
-						embed.addField("New Setting:","Default megaserver has been set to " + servers[Object.keys(servers)[options.value_num[0]-1]])
-        			}else{
-            			embed = setMegaserverTxt(embed);			
-        			}			
-        		break;
-    			case "-reply":
-        			console.log("Setup 2:")
-        			if (options.value_num.length!=0){
-	        			setGuildConfigStep(db, [msg.channel.guild.id, "reply_type",options.value_num[0]])
-						embed.addField("New Setting:","Default reply type has been set to '" + reply_types[options.value_num[0]]+"'")
-        			}else{
-            			embed = setMegaserverTxt(embed);			
-        			}			
-
-        		break;
-    			default:
-        			console.log("No valid configuration step provided")
-			}
-			
-		console.log(options)
+module.exports = (bot, msg, options, mysql, Discord, rechannel) => {	
+// 			switch(options.options[0]) {
+//     			case "-megaserver":
+//         			console.log("Setup 1:" )
+//         			if (options.value_num.length!=0){
+//         				servers = nh.listServers()       			
+// 	        			setGuildConfigStep(db, [msg.channel.guild.id, "megaserver",Object.keys(servers)[options.value_num[0]-1]])
+// 						embed.addField("New Setting:","Default megaserver has been set to " + servers[Object.keys(servers)[options.value_num[0]-1]])
+//         			}else{
+//             			embed = setMegaserverTxt(embed);			
+//         			}			
+//         		break;
+//     			case "-reply":
+//         			console.log("Setup 2:")
+//         			if (options.value_num.length!=0){
+// 	        			setGuildConfigStep(db, [msg.channel.guild.id, "reply_type",options.value_num[0]])
+// 						embed.addField("New Setting:","Default reply type has been set to '" + reply_types[options.value_num[0]]+"'")
+//         			}else{
+//             			embed = setMegaserverTxt(embed);			
+//         			}			
+// 
+//         		break;
+//     			default:
+//         			console.log("No valid configuration step provided")
+// 			}
+// 			
+// 		console.log(options)
 		guildConfiguration(db, msg, embed,function(){
 		
-			mh.send(msg.channel,embed)
+		//	mh.send(msg.channel,embed)
 		
 		})
-
-	})
 };
