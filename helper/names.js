@@ -150,11 +150,16 @@ exports.getCpLvl = function (type) {
 	var lvl = new RegExp("lvl","i")
 	var number = new RegExp("[0-9]+","i")
 		
+	if (Number(type.match(number))){
 	if (type.match(cp)){
 		result = Number(type.match(number)[0])+50;
+		if (result > 210) result = 210
 	}else if(type.match(lvl)){
 		result = Number(type.match(number)[0]);	
+		if (result < 1) result = 1;
 	}}
+	
+	}
 	return (result);
 }
 

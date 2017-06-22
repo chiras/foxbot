@@ -1,3 +1,5 @@
+//         if (catname != "0x"){  --> are still in the counter ,but not displayed anymore --> hack
+
 const FuzzyMatching = require('fuzzy-matching');
 const sql = require('mysql');
 
@@ -116,6 +118,7 @@ function getPreviewList(msg, results, embed, filter, Discord, options, callback)
         indices = indices.sort();
 
         var catname = cats[z]
+        if (catname != "0x"){
         fields = fields + 1;
 
         for (var i = 0; i < indices.length; i++) {
@@ -134,7 +137,7 @@ function getPreviewList(msg, results, embed, filter, Discord, options, callback)
         }
         embed.addField(catname, concattxt.substring(2))
         concattxt = ""
-
+		}
     }
 
     callback(embed)

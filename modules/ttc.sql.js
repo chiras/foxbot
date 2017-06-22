@@ -34,6 +34,7 @@ Array.prototype.chunk = function(n) {
 
 function getDbRecords(mysql, table, args, callback) {
     var query = "SELECT * FROM " + table + " " + args //+ ' LIKE "%' + filter + '%"';
+    //console.log(query)
     dh.mysqlQuery(mysql, query, function(error, results) {
         callback(error, results)
     })
@@ -43,6 +44,7 @@ function getDbPromise(mysql, table, args) {
     return new Promise((resolve) => {
 
         var query = "SELECT * FROM " + table + " " + args //+ ' LIKE "%' + filter + '%"';
+  //  console.log(query)
         dh.mysqlQuery(mysql, query, function(error, results) {
         	if (error){
         		console.log(error)
@@ -185,7 +187,7 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
             if (options.range.length > 0){
             	for (var r = 0; r < options.range.length;r++){
             	if (options.range[r].type=="numeric" && name.match(/writ|sealed/)){options.range[r].type ="vouchers"}
-            	if (options.range[r].type!="numeric"){
+            	if (options.range[r].type!="numeric" && options.range[r].type!="unknown"){
 	                q2 += "AND ("+options.range[r].type+" BETWEEN "+options.range[r].from+" AND "+options.range[r].to+") "
 
             	}      
@@ -214,16 +216,14 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
 
                 if (values.length > limit) {
                     embed.addField("Too many results", "Please provide more infos to narrow down the search. See **!price -help** for more details.")
-
-
                     embed.setDescription(allnames.join("; "))
                     return embed;
 
                 } else {
 
-                    var pricetext = "sdsd";
+                    var pricetext = "";
                     var maxchar = 900;
-                    var maxfields = 20;
+                    var maxfields = 15;
                     var fields = 0;
                 	
                 	if (values.length > 0) {
@@ -263,6 +263,7 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
                                 if (pricetext.length > maxchar) {
                                     fields = fields + 1;
                                     if (fields > maxfields) {
+                                    	options["rechannel"] = "lengthRedirect"
                                         mh.send(msg, embed, options)
                                         embed = mh.prepare(Discord)
                                         fields = 0;

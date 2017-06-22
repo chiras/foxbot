@@ -8,10 +8,12 @@ var request = Promise.promisifyAll(require('request'));
 var notiNames = {	"news" : "latest ESO news", "regular" : "regular Events", "bot" : "major Bot updates"}
 
 const distributors = {
-	"ESO-Database.com" : 1,
-	"Fox" : 3,
-	"the Undaunted Quartermaster" : 2,
-	"The Watcher" : 1
+	"ESO-Database.com" : 0,
+	"Fox" : 2,
+	"the Undaunted Quartermaster" : 1,
+	"The Watcher" : 0,
+	"Adhazabi Aba-daro" : 1, 
+	"Zenil Theran" : 1 
 }
 
 const distributor_icons = {
@@ -20,12 +22,9 @@ const distributor_icons = {
 	"the Undaunted Quartermaster" : "http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png"
 }
 
-
-
-
 function getDbRecords(mysql, callback) {
 
-var query = "SELECT settingsid, value, settingstype FROM guilds_settings WHERE setting = '-sub'"
+var query = "SELECT settingsid, value, settingstype,sap FROM guilds_settings WHERE setting = '-sub'"
 
 dh.mysqlQuery(mysql, query, function(err,all) {
     		callback(err, all)
@@ -53,24 +52,16 @@ var p2 = new Promise(function(resolve, reject) {
 }).then(function(channels){
 	     
 	     channels.forEach(function(channel){
-	     	 var subscription = channel.settingsid
+	     	 var subscription = channel.sap
 	     	 var type =channel.settingstype
-	     	 var value =channel.value		     
+	     	 var value = channel.value		     
 		     
 		     if (value == notitype){
 		     	options["rechannelid"] = subscription;
-		     if (type == "channel"){
-		     		options["rechannel"] = "announceChannel";
+		     	options["rechannel"] = "announceChannel";
+		     	mh.send(msg, subtext, options)
 		     }
-
-		     if (type == "user") {
-		     		options["rechannel"] = "announceUser";
-		     
-		     }
-		     
-		     mh.send(msg, subtext, options)
-		     }
-		     })
+		})
 	       
 })
 

@@ -89,8 +89,7 @@ function getUserPermission(bot, mysql, pollinfo, msg, type, callback){
 
 module.exports = (bot, msg, mysql) => {
 
-		var time = moment().add(-24,"hours").unix();    
-    
+		var time = moment().add(-5,"minutes").unix();     
     	
    		if (msg.guild){
 
@@ -142,24 +141,11 @@ module.exports = (bot, msg, mysql) => {
         				};
    	 			});		
    	 	})
-   	 	}
-			//bot.channels.get(msg.channel.id).guild.members.every(function(member){
-//		console.log(member.user.username)			
-//		})
-
-//    		
-//    		dh.mysqlQuery(mysql, query, function(err, all) {
-//         	if (err) {
-//          	   console.log(err)
-//         	};
-//         callback(err, all);
-//    	 });		
-//    		
+   	 	}	
    		
-        	getDbData(mysql, "guilds_users", {guild : msg.guild.id}, function(){
-        		
+        	getDbData(mysql, "guilds_users", {guild : msg.guild.id}, function(){ // do we need this?        		
         
-        	})
+        	})        	
         
         }
 };

@@ -157,6 +157,13 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
 	    	}
        	} // end for		
 	}
-	//console.log(returnObj)
+	
+	
+	if(returnObj["level"].length == 0){
+		returnObj["level"].push("200")
+		returnObj["level"].push("210")
+	}
+	
+	console.log(returnObj)
 	callback(returnObj);
 }

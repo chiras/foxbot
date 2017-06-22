@@ -208,14 +208,16 @@ var scheduleVendor = schedule.scheduleJob('0 58 1 * * 6', function() { // vendor
 
 // scheduled to do everyday on 8:01 am
 var schedulePledges = schedule.scheduleJob('30 0 8 * * *', function() {
-    console.log(getLogDate() + "Pledges Update")
-    eh.pledges(function(pledgesTxt, pledgesTxtNext) {
-        webHooks.trigger('quartermaster', {
-            "username": "The Undaunted Quartermaster",
-            "title": "Pledges update",
-            "content": "Today's new pledges are: \n" + pledgesTxt
-        })
-    })
+//var schedulePledges = schedule.scheduleJob(debugtime, function() {
+		var time = moment().unix()
+
+		eh.pledges(time, function(pledgesTxt, pledgesTxtNext){
+    	    webHooks.trigger('quartermaster', {
+        	    "username": "The Undaunted Quartermaster",
+            	"title": "Pledges update",
+            	"content": "Today's new pledges are: \n" + pledgesTxt
+	        })
+		})
 
 });
 
@@ -309,7 +311,7 @@ var scheduleRealm = schedule.scheduleJob('*/5 * * * *', function() {
 
             for (let i = 0; r && i < r.length; ++i) {
                 if (r[i] && r[i]['message'] && r[i]['message'].length > 0)
-                    message += r[i]['message'] + '\n';
+                    message += r[i]['message'].replace(/\'/g, '"') + '\n';
             }
 			
 			var query = "UPDATE `servers` SET time = NOW(), status = '"+message+ "' WHERE id = '_launcher'";
@@ -369,8 +371,8 @@ var scheduleRealm = schedule.scheduleJob('*/5 * * * *', function() {
 
 function ttcCreateItemTable(json, callback) {
   var queryPrep1 = 'TRUNCATE TABLE `items_ttc`;';
-	var	fields = ['id','name']
-	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS `items_ttc` (id INT(20), name TEXT );';	
+	var	fields = ['id','cat','name','language']
+	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS `items_ttc` (id INT(20), cat INT(20), name TEXT, language VARCHAR(2));';	
 
  		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
       	console.log(getLogDate() + "items_ttc created " )
@@ -381,13 +383,15 @@ function ttcCreateItemTable(json, callback) {
 	 	var sql = "INSERT INTO items_ttc  ("+ fields.join(",")+") VALUES ?;";
         var values = []
    
-         var doneItems = []
+        var doneItems = []
 
         for (var i = 0; i < json.length; i++) {
             var counter = 0;
             for (var key in json[i].items) {
                 if (doneItems.includes(key) == false) {
-                    values.push([json[i].items[key], key]);
+                	var tmparray = [json[i].items[key][Object.keys(json[i].items[key])[0]],Object.keys(json[i].items[key])[0], key, "EN"];
+                	console.log(tmparray)
+                    values.push(tmparray);
                     doneItems.push(key)
                     counter++;
                 }
@@ -427,7 +431,7 @@ function ttcCreateInfoTable(json, callback) {
 }
 
 function insertVouchers(callback){
-			var vquery1 = 'INSERT into items_prices_ttc (SELECT items_prices_ttc.id, megaserver, "99", level, trait, category, vouchers, countEntry, countAmount, suggested, ROUND(AVG(avg)), MAX(max), MIN(min), null FROM items_ttc, items_prices_ttc WHERE items_ttc.id  = items_prices_ttc.id AND items_ttc.name LIKE "%sealed%writ%" AND vouchers >0 GROUP BY items_prices_ttc.id, megaserver, vouchers);'
+			var vquery1 = 'INSERT into items_prices_ttc (SELECT ANY_VALUE(items_prices_ttc.id), ANY_VALUE(megaserver), "99", ANY_VALUE(level), ANY_VALUE(trait), ANY_VALUE(category), ANY_VALUE(vouchers), SUM(countEntry), SUM(countAmount), ANY_VALUE(suggested), ROUND(AVG(avg)), MAX(max), MIN(min), null FROM items_ttc, items_prices_ttc WHERE items_ttc.id  = items_prices_ttc.id AND items_ttc.name LIKE "%sealed%writ%" AND vouchers >0 GROUP BY items_prices_ttc.id, megaserver, vouchers);'
 			var vquery2 = 'DELETE FROM items_prices_ttc WHERE rowid IN (SELECT cid FROM (SELECT items_prices_ttc.rowid AS cid FROM items_ttc, items_prices_ttc WHERE items_ttc.id  = items_prices_ttc.id AND items_ttc.name LIKE "%sealed%writ%" AND NOT items_prices_ttc.quality = "99") AS c);'
 
 	        mysql.query(vquery1, function(err) {
@@ -550,7 +554,7 @@ function ttcUpdate(megaserver) {
                         response.on("end", function() { //waits for data to be consumed
                             // pipe has ended here, so we resolve the promise
                             console.log(getLogDate() + "TTC download complete: " + megaserver)
-                            resolve();
+                            	resolve();
                         });
                     });
                 }
@@ -572,8 +576,8 @@ function ttcUpdate(megaserver) {
             var contents = fs.readFileSync(itemtable, 'utf8');
             contents = contents.replace(/\["/g, '"').replace(/"\]/g, '"').replace(/\[/g, '"').replace(/\]/g, '"').replace(/,}/g, '}').replace(/=/g, ':');
             contents = contents.substring(contents.indexOf('{'), contents.lastIndexOf('}') + 1);
-
             var item = JSON.parse(contents);
+			console.log(item)
 
             return item
         }).then(function(jsonitem) {
@@ -596,8 +600,8 @@ function ttcUpdate(megaserver) {
     }) // end return promis
 }
 
-var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
-//var scheduleTTC = schedule.scheduleJob(debugtime, function() {
+//var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
+var scheduleTTC = schedule.scheduleJob(debugtime, function() {
     webHooks.trigger('service', {
         "content": "Update TTC: started"
     })
@@ -620,10 +624,10 @@ var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
         }) // end serialize
 }) //schedule
 
-return;
 
+/**
 //////////////////////////////////////////////////////////////////////////////////////////
-/// SALES UPDATE
+/// SALES UPDATE UESP
 
 function uespsCreatePriceTable(json, callback) {
 var table = "items_prices_uesp";
@@ -876,9 +880,8 @@ var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
      })
 }) //schedule
 
+**/
 
-
-return;
 //////////////////////////////////////////////////////////////////////////////////////////
 /// ITEMS UPDATE
 // http://esolog.uesp.net/itemLink.php?itemid=70
