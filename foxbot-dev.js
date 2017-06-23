@@ -50,7 +50,8 @@ var mysql = sql.createPool({
   host     : 'localhost',
   user     : tokens["mysqluser"],
   password : tokens["mysqlpass"],
-  database : 'foxbot'
+  database : 'foxbot',
+  multipleStatements: true
 });
 
 // listening for messages
