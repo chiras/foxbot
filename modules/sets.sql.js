@@ -161,9 +161,10 @@ module.exports = (bot, msg, options, Discord) => {
 
     if (options.options.includes("-help") ||  (options.others.length == 0 && !options.options.includes("-all"))) {
     	embed.setTitle("Options for " + options.command)
+    	embed.setDescription("Extended documentation available at: [foxbot.biotopia.info](http://foxbot.biotopia.info/?page_id=184)")
         embed.addField(options.command, "Shows this help")
-        embed.addField(options.command + " text", "Shows matches for this text in the set name. Partial names and single types should also yield results. If no set with that name can be found, it will search through the set boni for your query. Try: \n**!set Pirate Skeleton** \n**!set skel** \n**!set spell damage**")
-        embed.addField(options.command + " -bonus ", "Searches only through boni, not the names. This will help when set names are prioritized but interested in the boni. Try: \n**!set magicka** \n**!set -bonus magicka** \n**!set max magicka** ")
+        embed.addField(options.command + " text", "Shows matches for this text in the set name. Partial names and single types should also yield results. If no set with that name can be found, it will search through the set boni for your query.")
+        embed.addField(options.command + " -bonus ", "Searches only through boni, not the names. This will help when set names are prioritized but interested in the boni.")
         embed.addField(options.command + " -all ", "Forces a list of all set names")
         embed.addField(options.command + " -tooltip skel", "Will also produce directly viewable tooltips instead of links for every resulting set (be careful in this use, very slow and needs a lot of space!)")
         mh.send(msg, embed, options)

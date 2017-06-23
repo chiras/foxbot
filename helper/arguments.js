@@ -164,6 +164,6 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
 		returnObj["level"].push("210")
 	}
 	
-	console.log(returnObj)
+//	console.log(returnObj)
 	callback(returnObj);
 }

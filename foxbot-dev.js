@@ -71,7 +71,7 @@ bot.on("message", (msg) => {
    	
    	ah.argumentSlicer(msg, mysql, function(options){
    	var checkdbchannel = options["guild"]
-   	if (checkdbchannel =="DM") checkdbchannel = options["channel"]
+   	if (checkdbchannel =="DM") checkdbchannel = options["user"]
    	
    	dh.getDbData(mysql, "guilds_settings", {settingsid: checkdbchannel}, function(settings) {  
    	dh.getDbData(mysql, "guilds_users", {userid: options["user"], guild : options["guild"]}, function(users) {  

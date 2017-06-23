@@ -14,7 +14,8 @@ const urls = {	"!pledge" 	: urlbase+"54",
 				"!help" 	: urlbase+"33",
 				"!trial"	: urlbase+"74",
 				"!twitch"	: urlbase+"148",
-				"!youtube"	: urlbase+"150"
+				"!youtube"	: urlbase+"150",
+				"!golden"	: urlbase+"172"
 
 	}
 

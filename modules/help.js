@@ -70,7 +70,7 @@ module.exports = (bot, msg, options, Discord) => {
 		}		
 		embed.addField("Available commands: ", helptxt)		
 		embed.addField("Do you need more details? ", "**!help -details**: some more details")
-		embed.addField("Command help", "**Every** command now has a help page with a lot of new options listed, check out! \ne.g. **!set -help** or **!price -help**")
+		embed.addField("Command help", "**Every** command now has a help page! \ne.g. **!set -help** or **!price -help**")
         embed.setAuthor("List of available commands")
         embed.setDescription("Full documentation is now online available at: http://foxbot.biotopia.info")
 	}	

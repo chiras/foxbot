@@ -12,7 +12,7 @@ const dh = require("../helper/db.js")
 var options = ["start", "status", "vote", "end", "revive", "reset"]
 
 var polltexts = {
-    "changes": ["Changes to the poll command:", "Use ** !vote $ID** for votes now, you can whisper the bot directly. The ** !poll ** command is now only used for start/status/end of polls!\nYou can make our vote anonymous by adding '-anonym' after the last option in a whisper to the bot."],
+    "changes": ["Changes to the poll command:", "Use ** !vote $ID** for voting, since multiple are possible now and also casting votes in direct messages. The ** !poll ** command is now only used for start/status/end/revive/reset of polls!\n\nYou can make our vote anonymous by adding '-anonym' after the last option in a whisper to the bot."],
     "wrongID": ["Wrong Poll ID", "IDs are usually only numbers."],
     "creation": ["Poll creation:", "You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal.**\nYou can make all votes in this poll anonymous by adding '-anonym' after the last option."]
 }
@@ -90,11 +90,12 @@ function getUserPolls(mysql, msg, bot, callback) {
         }
 
         callback(polls_allowed)
-
     })
 }
 
-
+function mysql_to_unix(date) {
+    return Math.floor(new Date(date).getTime() / 1000);
+}
 
 
 function getDbState(mysql, args, callback) {
@@ -137,7 +138,7 @@ function setDbReset(mysql, args, callback) {
 };
 
 function setDbVote(mysql, user, id, anonym, votes, callback) {
-    console.log("-------------------------------:")
+    //console.log("-------------------------------:")
 
     getDbState(mysql, id, function(err, active) {
         if (active[0]["active"]) {
@@ -225,7 +226,7 @@ function getUserPermissionGuild(bot, guild, msg, callback) {
     //		  console.log(bot.guilds.get(guild))
 
     var validUser = bot.guilds.get(guild).members.find('id', user)
-    console.log("Valid" + user + "-->" + validUser)
+    console.log("Valid " + user + "--> " + validUser)
 
     if (validUser != null) {
         allowed = 1;
@@ -249,7 +250,7 @@ function getUserPermission(bot, mysql, pollinfo, msg, type, callback) {
     //  getDbData(db, "channels", userquery, function (err, userinfo){
 
     var user = msg.author.id
-    // var user = "219009482024419328"
+    //var user = "219009482024419328"
     console.log("Permission check")
 
     var validUser = bot.channels.get(pollinfo[0].channel).guild.members.find('id', user)
@@ -301,11 +302,16 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
         }
         getDbData(mysql, "polls", query, function(err, polls) {
 
+            embed.addField(polltexts["changes"][0], polltexts["changes"][1])
+
+            if (msg.guild) {
             var activesTxt = "";
 
             if (polls.length > 0) {
                 polls.forEach(function(entry) {
-                    activesTxt += "\n$" + entry["id"] + ": " + entry["question"]
+                    var dateX = new Date(entry["timestamp"])
+                
+                    activesTxt += "\n$" + entry["id"] + ": " + entry["question"] +" (" +moment(dateX).format("DD-MM-YYYY")+")"
                 })
             } else {
                 activesTxt = "There are no active polls for you to vote"
@@ -313,13 +319,42 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
 
             embed.addField("Active polls in this channel: ", activesTxt)
             console.log("gID" + msg.guild)
-            if (msg.guild) {
+
+
                 embed.addField(polltexts["creation"][0], polltexts["creation"][1])
+             	mh.send(msg, embed, options)
+           }else{
+				getUserPolls(mysql, msg, bot, function(polls) {
+                    var guilds = {};
+                    for (var i = 0; i < Object.keys(polls).length; i++) {
+                        console.log(polls[Object.keys(polls)[i]].guild)
+                        if (typeof guilds[polls[Object.keys(polls)[i]].guild] === "undefined") {
+                            guilds[polls[Object.keys(polls)[i]].guild] = []
+                        }
+                        guilds[polls[Object.keys(polls)[i]].guild].push(polls[Object.keys(polls)[i]].id)
+                    }
+                    //embed.addTitle("All polls you currently have access to:")
+
+                    for (var i = 0; i < Object.keys(guilds).length; i++) {
+                        var polltxt = ""
+                        for (var j = 0; j < guilds[Object.keys(guilds)[i]].length; j++) {
+                        	var dateX = new Date(polls[guilds[Object.keys(guilds)[i]][j]]["timestamp"])
+                        	
+                            polltxt += "\n$" + guilds[Object.keys(guilds)[i]][j] + ": " + polls[guilds[Object.keys(guilds)[i]][j]].question +" (" + moment(dateX).format("DD-MM-YYYY")+")"
+                        }
+                        embed.addField("Guild: "+bot.guilds.get(Object.keys(guilds)[i]), polltxt)
+                    }
+
+                    //		.addField("Active polls in this channel: ",activesTxt)
+                    //		.addField("Poll creation:","You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal.**\nYou can make all votes anonymous by adding 'anonymous' after the last option.")		
+
+                    mh.send(msg, embed, options)
+
+                })            
+            
             }
-            embed.addField(polltexts["changes"][0], polltexts["changes"][1])
             //	.addField("Vote:","You can now vote with \n**!poll $"+ID+" 1," + answers.length+"**\nVoting of multiple options is allowed, but not voting the same option twice.")		
 
-            mh.send(msg, embed, options)
 
         })
 
@@ -346,7 +381,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
     //  	option = entry
 
 
-    if (options.question.length != 0 && options.command == "!poll") {
+    if (options.question.length != 0 && options.command == "!poll" && msg.guild) {
         // setting up a new poll
 
         var question = options.question[0];
@@ -372,7 +407,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                 var answerTxt = "";
 
                 for (var k = 1; k < answers.length + 1; k++) {
-                    answerTxt += "\n" + k + ": \t" + answers[k - 1]
+                    answerTxt += "\n" + k + ": " + answers[k - 1]
                 }
 
                 embed.addField("Poll $" + id + " has been created", "Options:\n**!poll $" + id + " status** --> Intermediate results\n**!poll $" + id + " reset** --> Clear all votes\n**!poll $" + id + " end** --> End poll")
@@ -399,6 +434,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
         getDbData(mysql, "polls", query, function(err, pollinfo) {
 
             if (pollinfo.length == 0) {
+                embed.addField("Poll $"+pollID,"No poll with that ID has been found")
 
                 getUserPolls(mysql, msg, bot, function(polls) {
                     var guilds = {};
@@ -420,7 +456,6 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                         embed.addField(bot.guilds.get(Object.keys(guilds)[i]), polltxt)
                     }
 
-                    //		.addField("Poll $"+pollID,"No poll with that ID has been found")
                     //		.addField("Active polls in this channel: ",activesTxt)
                     //		.addField("Poll creation:","You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal.**\nYou can make all votes anonymous by adding 'anonymous' after the last option.")		
 
@@ -449,12 +484,12 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
 
             getDbData(mysql, "polls_answers", query, function(err, answers) {
 
-                if (option == "status" | option == "end" | option == "revive" | option == "reset" | vargs.length == 0) {
+                if ((options.command == "!poll" && (option == "status" | option == "end" | option == "revive" | option == "reset")) || vargs.length == 0) {
 
                     getUserPermission(bot, mysql, pollinfo, msg, "can_create_polls", function(allowed, declineTxt) {
 
                         if (!allowed) {
-                            embed.addField("Poll $" + pollID, "You are not allowed to manage in this poll. " + declineTxt)
+                            embed.addField("Poll $" + pollID, "You are not allowed use this poll. " + declineTxt)
 
                             mh.send(msg, embed, options)
 
@@ -542,18 +577,20 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                                 // 
                                 // 					optiText = "\nPoll is ongoing, you can still vote!"
                                 //			}else 
-                                if (option == "end") {
+                                if (options.command == "!poll" && option == "end") {
                                     setDbState(mysql, query, 0)
                                     optiText = "\nPoll has been ended, no votes are counted anymore. But it can be revived anytime by **!poll revive $" + pollID + "**!"
-                                } else if (option == "revive") {
+                                } else if (options.command == "!poll" && option == "revive") {
                                     setDbState(mysql, query, 1)
                                     optiText = "\nPoll has been revived, votes are counted again."
-                                } else if (option == "reset") {
+                                } else if (options.command == "!poll" && option == "reset") {
                                     setDbReset(mysql, query)
                                     optiText = "\nThese were the results so far. All votes have now been cleared. "
+                                    printImage = 0;
                                 } else {
                                     if (pollinfo[0].active) {
                                         optiText = "\nPoll is active, you can vote."
+                                        printImage = 0;
                                     } else {
                                         optiText = "\nPoll is inactive. But it can be revived anytime by **!poll revive $" + pollID + "**!"
                                     }
@@ -577,7 +614,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                         } // end allowed
                     }) // end user got permission
 
-                } else { // end (options == "status" etc) --> vote
+                } else if (options.command == "!vote"){ // end (options == "status" etc) --> vote
                     getUserPermission(bot, mysql, pollinfo, msg, "can_grptools", function(allowed, declineTxt) {
 
                         if (!allowed) {
@@ -623,7 +660,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                                     embed.setDescription("You have voted " + votesNew.join(", ") + invalidTxt + anonymtxt)
                                 } else {
                                     embed.setTitle("Poll $" + pollID + ": " + pollinfo[0].question.substring(0, 240))
-                                    embed.setDescription("This poll is inactive, your vote has not been recorded. It can be revived anytime by !poll revive $20!")
+                                    embed.setDescription("This poll is inactive, your vote has not been recorded. It can be revived anytime by **!poll revive $" + pollID + "**!")
 
                                 }
 
@@ -634,7 +671,11 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
 
                         } // end allowed
                     }) // end user got permission								
-                } // end option vote
+                }else{ // end option vote
+             		embed.addField(polltexts["changes"][0], polltexts["changes"][1])
+               	 	mh.send(msg, embed, options)
+                
+                } // end option vote else
             }); // getDbData(answers)
 
 

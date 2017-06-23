@@ -44,7 +44,7 @@ function getDbPromise(mysql, table, args) {
     return new Promise((resolve) => {
 
         var query = "SELECT * FROM " + table + " " + args //+ ' LIKE "%' + filter + '%"';
-  //  console.log(query)
+ //   console.log(query)
         dh.mysqlQuery(mysql, query, function(error, results) {
         	if (error){
         		console.log(error)
@@ -136,14 +136,10 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
     if (options.options.includes("-help") || options.others.length == 0){
  //   !price of the sun lvl45-cp10 blue-legendary
  	   embed.setTitle("Options for " + options.command)
- 	   embed.setDescription("This command gives you a rough idea, how items are listed on guild vendors. The three values are 'minimum - **average** - maximum list price' recorded. The number in parenthesis is the count of individual listings on which these values are based on.")
- 	   embed.addField(options.command, "Will display this help")
- 	   embed.addField(options.command + " necklace of the viper", "Will provide all listing prices for this item")
- 	   embed.addField(options.command + " sword of the sun EU epic sharpened precise", "Will provide only EU listing prices for this item in epic quality and traits sharpened or precise. \n\n* **Megaservers:** 'EU', 'NA'. \n\n* **Qualities:** 'white','green','blue','purple','gold','yellow','normal','fine','superior','epic' and 'legendary'\n\n* **Traits:** 'powered', 'charged', 'precise', 'infused', 'defending', 'training', 'sharpened', 'decisive', 'sturdy', 'impenetrable', 'reinforced', 'well-fitted', 'prosperous', 'divines', 'nirnhoned', 'intricate', 'ornate', 'arcane', 'healthy', 'robust'")
- 	   embed.addField(options.command + " immovab cp150, EU", "Will show all immovability potions with cp level 150")
- 	   embed.addField(options.command + " of the sun lvl45-cp10 blue-legendary","Ranges also work for levels, quality and voucher numbers: Will show every listing of the sun set that are in a range of lvl 45 to cp 10, and have at least blue quality");
-	   embed.addField(options.command + " sealed writ 80","displayes all writs that give back 80 vouchers");
- 	   embed.addField(options.command + " sealed black writ 80-90","will show all blacksmithing writs that give 80 - 90 vouchers");
+    	embed.setDescription("Extended documentation available at: [foxbot.biotopia.info](http://foxbot.biotopia.info/?page_id=196)\n\nThis command gives you a rough idea, how items are listed on guild vendors. The three values are 'minimum - **average** - maximum' list price. In parenthesis: count of individual listings.\n\n* Be as precise as possible \n* Ideally configure your megaserver: **!config -megaserver**\n* All following options are combinable,  best include 2-3 restrictions")
+// 	   embed.addField(options.command + " necklace of the viper", "Will provide all listing prices for this item")
+ 	   embed.addField("Options", "**Megaservers:** 'EU', 'NA'. \n**Qualities:** 'white','green','blue','purple','gold','yellow','normal','fine','superior','epic' and 'legendary', *also as ranges:* blue-purple \n**Traits:** 'powered', 'charged', 'precise', 'infused', 'defending', 'training', 'sharpened', 'decisive', 'sturdy', 'impenetrable', 'reinforced', 'well-fitted', 'prosperous', 'divines', 'nirnhoned', 'intricate', 'ornate', 'arcane', 'healthy', 'robust'\n**Level:** *Veteran:* cp150, *Non-Vet:* lvl30, *Ranges:* lvl30-cp140\n**Vouchers:** \n!price sealed writ 80 --> displayes all writs that give back 80 vouchers\n!price sealed black writ 80-90 --> all blacksmithing writs with 80 - 90 vouchers");
+ 	   embed.addField("Good usage examples:","!price sword of the sun EU cp160 epic sharpened precise \n!price immovab cp150 EU\n!price sealed black writ 80-90")
 	
 	 mh.send(msg,embed, options)
 	 
@@ -167,7 +163,7 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
 			if (Object.keys(all).length < 50){
 			
             var q2 = ""
-            if (options.level.length > 0) {
+            if (options.level.length > 0 && !name.match(/writ|sealed/) && options.range.length == 0 ) {
                 q2 += "AND level IN ('" + options.level.join("','") + "') ";
             }
             if (options.item_quality.length > 0) {
