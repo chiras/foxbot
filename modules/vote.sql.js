@@ -608,7 +608,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                                 }
 
                                 var height = answers.length * 30 + 30;
-                                var image = "https://chart.googleapis.com/chart?cht=bhs&chs=400x" + height + "&chd=t:" + chartValues.join(',') + "&chxl=0:|0|" + maxValue + "|1:|" + chartText.reverse().join('|') + "&chds=a&chco=4D89F9,C6D9FD&chxt=x,y&chf=bg,s,32363c&chxs=0,ffffff,14|1,ffffff,14";
+                                var image = encodeURI("https://chart.googleapis.com/chart?cht=bhs&chs=400x" + height + "&chd=t:" + chartValues.join(',') + "&chxl=0:|0|" + maxValue + "|1:|" + chartText.reverse().join('|') + "&chds=a&chco=4D89F9,C6D9FD&chxt=x,y&chf=bg,s,32363c&chxs=0,ffffff,14|1,ffffff,14");
 
                                 embed.setTitle("Poll $" + pollID + ": " + pollinfo[0].question.substring(0, 240))
                                 embed.setDescription(voteText + "\n" + optiText)
