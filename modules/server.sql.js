@@ -29,25 +29,25 @@ if (options.options[0] == "-help"){
         var statustxt = ""
         for (var i = 0; i < results.length;i++){
         	if (!results[i].id.startsWith("_")){
-	        	statustxt += results[i].id + ": "+ results[i].status +"\n";
+	        	statustxt += results[i].id + ": "+ results[i].status +".\n";
         	}
         }
     	if ((options.options.length == 0 || options.options.includes("-forum")) && !options.options.includes("-short")){
     		if (results[results.length-2].status != ""){
-    			embed.addField("Forum announcements:",results[results.length-2].status)
+    			embed.addField("Forum announcements:",results[results.length-2].status+".")
     		}
     	}
     	if ((options.options.length == 0 || options.options.includes("-launcher")) && !options.options.includes("-short")){
     		if (results[results.length-1].status != ""){
-     			embed.addField("Launcher messages:",results[results.length-1].status)
+     			embed.addField("Launcher messages:","*" + results[results.length-1].status)
      		}
 	    }
 
 
 
-        embed.addField("Server status:", statustxt)
+        embed.addField("Server status:", statustxt+".")
         
-        embed.addField("Configure auto-notifications of server status changes:", "**!config**")
+        embed.addField("Configure auto-notifications of server status changes:", "**!config -subscription**")
         mh.send(msg, embed, options)
 
     })

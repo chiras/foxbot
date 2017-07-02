@@ -10,7 +10,7 @@ var notiNames = {	"news" : "latest ESO news", "regular" : "regular Events", "bot
 const distributors = {
 	"ESO-Database.com" : 0,
 	"Fox" : 2,
-	"the Undaunted Quartermaster" : 1,
+	"The Undaunted Quartermaster" : 1,
 	"The Watcher" : 0,
 	"Adhazabi Aba-daro" : 1, 
 	"Zenil Theran" : 1 
@@ -23,7 +23,7 @@ const distributor_icons = {
 }
 
 function getDbRecords(mysql, callback) {
-
+//console.log("db")
 var query = "SELECT settingsid, value, settingstype,sap FROM guilds_settings WHERE setting = '-sub'"
 
 dh.mysqlQuery(mysql, query, function(err,all) {
@@ -34,9 +34,10 @@ dh.mysqlQuery(mysql, query, function(err,all) {
 
 module.exports = (bot, msg, options, mysql, Discord) => {
 
-if (msg.content.startsWith("!")){
+if (msg.content.startsWith("!") || msg.content=="Hello\nDiscord!"){
 	return;	
 }
+//console.log("hook")
 
 	var notitype = Number(distributors[msg.author.username])
 	var subtext = mh.prepare(Discord);
@@ -47,7 +48,8 @@ if (msg.content.startsWith("!")){
     
 var p2 = new Promise(function(resolve, reject) {
 	getDbRecords(mysql, function(err, obj) {
-        resolve(obj);
+// 		console.log("channels")
+       resolve(obj);
 	})
 }).then(function(channels){
 	     
@@ -55,8 +57,10 @@ var p2 = new Promise(function(resolve, reject) {
 	     	 var subscription = channel.sap
 	     	 var type =channel.settingstype
 	     	 var value = channel.value		     
+	//		console.log(subscription)
 		     
 		     if (value == notitype){
+	//			console.log("true")
 		     	options["rechannelid"] = subscription;
 		     	options["rechannel"] = "announceChannel";
 		     	mh.send(msg, subtext, options)

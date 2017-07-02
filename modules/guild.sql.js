@@ -102,50 +102,59 @@ module.exports = (bot, msg, mysql) => {
 		
 		guildCache[msg.guild.id] = moment().unix()
 		
-		var queryG = "REPLACE INTO guilds (guildid, guildname, ownername, ownerid) VALUES ('"+msg.guild.id+"', '"+msg.guild.name+"', '"+msg.guild.owner.user.username+"','"+msg.guild.owner.user.id+"');"
+		var queryG = "REPLACE INTO guilds (guildid, guildname, ownername, ownerid) VALUES ('"+msg.guild.id+"', '"+msg.guild.name.substring(0,29).replace(/\'/g,"")+"', '"+msg.guild.owner.user.username.substring(0,29).replace(/\'/g,"")+"','"+msg.guild.owner.user.id+"');"
 
 				dh.mysqlQuery(mysql, queryG, function(err, all) {
         			if (err) {
          			   console.log(err)
         				};
    	 			});	
-		
+   	 			
+		var queryC = ""
 		channels.forEach(function(channel){				
-				var query = "REPLACE INTO guilds_channels (channelid, guildid, channelname, type) VALUES ('"+channel.id+"','"+msg.guild.id+"', '"+channel.name+"', '"+channel.type+"');"
-				dh.mysqlQuery(mysql, query, function(err, all) {
-        			if (err) {
-         			   console.log(err)
-        				};
-   	 			});			
+				queryC += "REPLACE INTO guilds_channels (channelid, guildid, channelname, type) VALUES ('"+channel.id+"','"+msg.guild.id+"', '"+channel.name.substring(0,29).replace(/\'/g,"")+"', '"+channel.type+"');"
 
 		})
 		
+		dh.mysqlQuery(mysql, queryC, function(err, all) {
+        		if (err) {
+         			   console.log(err)
+        		};
+   	 	});			
+
+		var queryM = ""
 		members.forEach(function(member){				
 				var key = member.user.id+"@"+msg.guild.id
 
-				var query = "REPLACE INTO guilds_users (id, guild, userid, username, role) VALUES ('"+key+"','"+msg.guild.id+"', '"+member.user.id+"', '"+member.user.username+"','"+member.highestRole.id+"');"
-				dh.mysqlQuery(mysql, query, function(err, all) {
+				queryM += "REPLACE INTO guilds_users (id, guild, userid, username, role) VALUES ('"+key+"','"+msg.guild.id+"', '"+member.user.id+"', '"+member.user.username.substring(0,29).replace(/\'/g,"")+"','"+member.highestRole.id+"');"
+		})
+
+		dh.mysqlQuery(mysql, queryM, function(err, all) {
         			if (err) {
          			   console.log(err)
         				};
-   	 			});			
-
-		})
+   	 	});	
+   	 			
+		var query2 = ""
 		roles.forEach(function(role){
 				var key = role.id+"@"+msg.guild.id
 				
-				var query2 = "REPLACE INTO guilds_roles (id, guild, roleid, rolename) VALUES ('"+key+"','"+msg.guild.id+"', '"+role.id+"', '"+role.name+"');"
-				dh.mysqlQuery(mysql, query2, function(err, all) {
+				query2 += "REPLACE INTO guilds_roles (id, guild, roleid, rolename) VALUES ('"+key+"','"+msg.guild.id+"', '"+role.id+"', '"+role.name.substring(0,29).replace(/\'/g,"")+"');"
+	
+   	 	})
+
+   				dh.mysqlQuery(mysql, query2, function(err, all) {
         			if (err) {
          			   console.log(err)
         				};
    	 			});		
-   	 	})
+
    	 	}	
-   		
-        	getDbData(mysql, "guilds_users", {guild : msg.guild.id}, function(){ // do we need this?        		
-        
-        	})        	
-        
+   	
+   	 				
+  //       	getDbData(mysql, "guilds_users", {guild : msg.guild.id}, function(){ // do we need this?        		
+//         
+//         	})        	
+//         
         }
 };

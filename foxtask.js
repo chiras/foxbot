@@ -600,8 +600,8 @@ function ttcUpdate(megaserver) {
     }) // end return promis
 }
 
-//var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
-var scheduleTTC = schedule.scheduleJob(debugtime, function() {
+var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
+//var scheduleTTC = schedule.scheduleJob(debugtime, function() {
     webHooks.trigger('service', {
         "content": "Update TTC: started"
     })

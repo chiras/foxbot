@@ -36,7 +36,7 @@ function definePollQuestion(input,callback){
 		
 		var qargs = input.split("?");
    		
-        var question = qargs[0].trim();
+        var question = qargs[0].trim().replace(/'/g, "");
         if (question.length>200){
         	question = question.substr(0,200).trim() + "...?"
         	pollObject["slice_info"].push("Question has been shortened to avoid Discord issues (max 200 characters)")
@@ -46,7 +46,7 @@ function definePollQuestion(input,callback){
 		
 		pollObject["question"].push(question)
         
-        var answers = qargs.slice(1).join("").split(".")
+        var answers = qargs.slice(1).join("").replace(/'/g, "").split(".")
 
      	answers = answers.filter(function (item) {
 			   return item.trim().indexOf("-anonym") !== 0;
@@ -84,7 +84,7 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
 		"value_num" 	: [],
 		"value_char"	: [],
 		"date"			: [],
-		"range"		: [],
+		"range"			: [],
 		"others"		: [],
 		"slice_info"	: []
 	}
@@ -92,9 +92,13 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
 	if (msg.guild){
 		returnObj["guild"] = msg.guild.id
 	}
-	var command = new RegExp("\![a-zA-Z]+","i")
+	var command = new RegExp("\![a-zA-Z0-9]+","i")
 	var isDate = new RegExp('[0-9]{4}-[0-9]{2}-[0-9]{2}', 'i');	
-	returnObj["command"].push(args.match(command)[0].trim())
+	if (args.match(command)){
+		returnObj["command"].push(args.match(command)[0].trim())
+	}else{
+		returnObj["command"].push(msg.content.split(" ")[0])	
+	}
 	
 	args = args.replace(command,"").trim();
 	
@@ -160,6 +164,7 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
 	
 	
 	if(returnObj["level"].length == 0){
+		returnObj["level"].push("1")
 		returnObj["level"].push("200")
 		returnObj["level"].push("210")
 	}

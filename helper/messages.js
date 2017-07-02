@@ -20,7 +20,14 @@ const urls = {	"!pledge" 	: urlbase+"54",
 	}
 
 exports.send = function(msg, embed, options, callback) {
-		if (urls[options["command"]]) embed.setURL(urls[options["command"]])
+		var helpurl = "http://foxbot.biotopia.info"
+		if (urls[options["command"]]){helpurl = urls[options["command"]]}
+		
+	//	embed.setURL(helpurl)
+// 		
+// 		if (typeof embed.description == "undefined"){
+// 			embed.setDescription("[:closed_book:]("+helpurl+")")
+// 		}
 		//if (!embed["title"]) embed.setTitle(">>"+options["command"] + " documentation<<\n")
 		
 	 	if (JSON.stringify(embed["fields"]).replace(/\(http:.*?\)/g, "").length > 2500 && msg.guild){
@@ -53,6 +60,7 @@ exports.send = function(msg, embed, options, callback) {
             
 
         } else if (options["rechannel"] == "redirectChannel") {
+        	console.log(options["rechannelid"])
             if (msg.guild.members.get(options["bot"]).permissionsIn(msg.guild.channels.get(options["rechannelid"])).has(["SEND_MESSAGES", "EMBED_LINKS"])) {
                     if (options.channel != options["rechannelid"]) {
                         embed.addField("Redirection", "This is a redirect of the " + options["command"] + " request of <@" + options["user"] + "> in another channel.")
@@ -70,10 +78,12 @@ exports.send = function(msg, embed, options, callback) {
                 }
 
             }else if (options["rechannel"] == "announceChannel"){
-				options["bot"].channels.get(options["rechannelid"]).send({embed: embed})
+            	if (options["bot"].channels.get(options["rechannelid"])){
+					options["bot"].channels.get(options["rechannelid"]).send({embed: embed})
+				}
             
             }else if (options["rechannel"] == "announceUser"){
-				options["bot"].users.get(options["rechannelid"]).send({embed: embed})
+				
             
             }else {
                msg.channel.send({embed: embed});

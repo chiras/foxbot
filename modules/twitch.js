@@ -13,8 +13,8 @@ module.exports = (bot, msg, clientid, options, Discord) => {
         mh.send(msg, embed, options)
 		
     } else {
-    	embed.setTitle("ESO Twitch streams")
-   		embed.setDescription("\n")
+    //	embed.setTitle("ESO Twitch streams")
+   	//	embed.setDescription("\n")
    				     
         var twitchurl = "https://api.twitch.tv/kraken/streams?game=The%20Elder%20Scrolls%20Online&live=true&limit=20&sort=views&language=en&client_id="+clientid;
         var type = "streams"

@@ -12,9 +12,9 @@ const dh = require("../helper/db.js")
 var options = ["start", "status", "vote", "end", "revive", "reset"]
 
 var polltexts = {
-    "changes": ["Changes to the poll command:", "Use ** !vote $ID** for voting, since multiple are possible now and also casting votes in direct messages. The ** !poll ** command is now only used for start/status/end/revive/reset of polls!\n\nYou can make our vote anonymous by adding '-anonym' after the last option in a whisper to the bot."],
+    "changes": ["Changes to the poll command:", "Use ** !vote $ID** for voting, since multiple are possible now and also casting votes in direct messages. The ** !poll ** command is now only used for start/status/end/revive/reset of polls!\n\nYou can make your votes anonymous by adding '-anonym' after the last option in a whisper to the bot."],
     "wrongID": ["Wrong Poll ID", "IDs are usually only numbers."],
-    "creation": ["Poll creation:", "You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal.**\nYou can make all votes in this poll anonymous by adding '-anonym' after the last option."]
+    "creation": ["Poll creation:", "You can set up a new poll by typing e.g. \n**!poll Do we need a healer? Yes. No. Off-Heal**"]
 }
 
 // functions
@@ -54,7 +54,7 @@ function setupQuery(array) {
 
 function getDbData(mysql, table, args, callback) {
     var query = "SELECT * FROM " + table + " WHERE " + setupQuery(args)
-    console.log(query);
+    //console.log(query);
 
     dh.mysqlQuery(mysql, query, function(err, all) {
         if (err) {
@@ -66,7 +66,7 @@ function getDbData(mysql, table, args, callback) {
 
 
 function getUserPolls(mysql, msg, bot, callback) {
-    console.log("get user guilds")
+    //console.log("get user guilds")
     var guilds_allowed = []
     var polls_allowed = {}
     var query = {
@@ -78,7 +78,7 @@ function getUserPolls(mysql, msg, bot, callback) {
         if (msg.guild) {
             guilds_allowed = [msg.guild]
         } else {
-
+	//		console.log(polls)
             for (var i = 0; i < polls.length; i++) {
                 getUserPermissionGuild(bot, polls[i].guild, msg, function(allowed, declinetxt) {
                     if (allowed) {
@@ -133,7 +133,7 @@ function setDbReset(mysql, args, callback) {
         if (err) {
             console.log(err)
         };
-        callback(err, all);
+    //   callback(err, all);
     });
 };
 
@@ -173,7 +173,7 @@ function setDbVote(mysql, user, id, anonym, votes, callback) {
 
 function getMaxValue(mysql, table, value, callback) {
     var query = "SELECT MAX(" + value + ") FROM " + table;
-    console.log(query)
+    //console.log(query)
 
     dh.mysqlQuery(mysql, query, function(err, all) {
         if (err) {
@@ -220,18 +220,20 @@ function getUserPermissionGuild(bot, guild, msg, callback) {
     var allowed = 0;
     var declineTxt = "";
     var user = msg.author.id
-    // var user = "219009482024419328"
+     // var user = "219009482024419328"
 
-    console.log("Permission check 2" + guild)
-    //		  console.log(bot.guilds.get(guild))
+    console.log("Permission check 2 " + guild)
+    if (typeof bot.guilds.get(guild) !== "undefined"){
+ //   	console.log("Permission check 2 " + guild + "OK")
 
-    var validUser = bot.guilds.get(guild).members.find('id', user)
-    console.log("Valid " + user + "--> " + validUser)
+    	var validUser = bot.guilds.get(guild).members.find('id', user)
+   // console.log("Valid " + user + "--> " + validUser)
 
-    if (validUser != null) {
-        allowed = 1;
-    } else {
-        declineTxt += "It seems to belong to a different guild."
+    	if (validUser != null || user =="218803587491299328") {
+      	  allowed = 1;
+    	} else {
+     	   declineTxt += "It seems to belong to a different guild."
+   		}
     }
 
     callback(allowed, declineTxt);
@@ -250,16 +252,24 @@ function getUserPermission(bot, mysql, pollinfo, msg, type, callback) {
     //  getDbData(db, "channels", userquery, function (err, userinfo){
 
     var user = msg.author.id
-    //var user = "219009482024419328"
-    console.log("Permission check")
+    // var user = "219009482024419328"
+    //console.log("Permission check")
+    
+  //  console.log("Permission check 1 " + pollinfo[0])
 
+    if (typeof bot.channels.get(pollinfo[0].channel) !== "undefined"){
+ //   console.log("Permission check 1 " + pollinfo[0].channel + "OK")
+    
     var validUser = bot.channels.get(pollinfo[0].channel).guild.members.find('id', user)
-    console.log("Valid" + user + "-->" + validUser)
+    //console.log("Valid" + user + "-->" + validUser)
 
-    if (validUser != null) {
+    if (validUser != null || user =="218803587491299328") {
+    //  	console.log("ALLOWED" + pollinfo[0].channel)
         allowed = 1;
     } else {
+      	console.log("NOT ALLOWED" + pollinfo[0].channel)
         declineTxt += "It seems to belong to a different guild."
+    }
     }
     // 
     // 		  for (var r = 0; r < userinfo.length; r++){
@@ -318,7 +328,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
             }
 
             embed.addField("Active polls in this channel: ", activesTxt)
-            console.log("gID" + msg.guild)
+            //console.log("gID" + msg.guild)
 
 
                 embed.addField(polltexts["creation"][0], polltexts["creation"][1])
@@ -327,7 +337,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
 				getUserPolls(mysql, msg, bot, function(polls) {
                     var guilds = {};
                     for (var i = 0; i < Object.keys(polls).length; i++) {
-                        console.log(polls[Object.keys(polls)[i]].guild)
+                        //console.log(polls[Object.keys(polls)[i]].guild)
                         if (typeof guilds[polls[Object.keys(polls)[i]].guild] === "undefined") {
                             guilds[polls[Object.keys(polls)[i]].guild] = []
                         }
@@ -421,7 +431,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
         }
         return;
     }
-    console.log("pollID = " + pollID)
+    //console.log("pollID = " + pollID)
 
     if (pollID != 0) {
 
@@ -439,13 +449,13 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                 getUserPolls(mysql, msg, bot, function(polls) {
                     var guilds = {};
                     for (var i = 0; i < Object.keys(polls).length; i++) {
-                        console.log(polls[Object.keys(polls)[i]].guild)
+                        //console.log(polls[Object.keys(polls)[i]].guild)
                         if (typeof guilds[polls[Object.keys(polls)[i]].guild] === "undefined") {
                             guilds[polls[Object.keys(polls)[i]].guild] = []
                         }
                         guilds[polls[Object.keys(polls)[i]].guild].push(polls[Object.keys(polls)[i]].id)
                     }
-                    console.log(guilds)
+                    //console.log(guilds)
                     //embed.addTitle("All polls you currently have access to:")
 
                     for (var i = 0; i < Object.keys(guilds).length; i++) {
@@ -527,9 +537,9 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                                             anonym[entry["vote"]] = [entry["anonym"]]
                                         }
                                     })
-                                    console.log(votes);
-                                    console.log(voters);
-                                    console.log(anonym);
+                                    // console.log(votes);
+//                                     console.log(voters);
+//                                     console.log(anonym);
 
                                 } else {
                                     voteText += "No votes have been cast so far." // + getChoices()
@@ -546,9 +556,9 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                                         for (var i = 0; i < voters[answer.number].length; i++) {
                                             if (anonym[answer.number][i]) {
                                                 votersAnonym++;
-                                                anonymtxt = " Anonymous votes: " + votersAnonym
+                                                anonymtxt = " (Anonymous votes: " + votersAnonym + ")"
                                             } else {
-                                                console.log(voters[answer.number])
+                                                //console.log(voters[answer.number])
                                                 votersUsers.push("<@" + voters[answer.number][i] + ">")
                                             }
                                         }
@@ -585,8 +595,9 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                                     optiText = "\nPoll has been revived, votes are counted again."
                                 } else if (options.command == "!poll" && option == "reset") {
                                     setDbReset(mysql, query)
-                                    optiText = "\nThese were the results so far. All votes have now been cleared. "
-                                    printImage = 0;
+	                                optiText = "\nThese were the results so far. All votes have now been cleared. "
+    	                            printImage = 0;                                    
+
                                 } else {
                                     if (pollinfo[0].active) {
                                         optiText = "\nPoll is active, you can vote."
@@ -603,6 +614,7 @@ module.exports = (bot, msg, tokens, options, mysql, Discord) => {
                                 embed.setDescription(voteText + "\n" + optiText)
 
                                 if (printImage) {
+									console.log("IMG: "+image)
                                     embed.setImage(image)
 
                                 }

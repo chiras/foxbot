@@ -71,7 +71,7 @@ function writeSettings(embed, mysql, options, msg, allchoices, mychoices, thisop
             }, function() {
                 for (var i = 0; i < va.length; i++) {
                     var sap = null;
-                    if (thisoption == "-replytype" && va[i] == "3" && msg.guild) sap = msg.channel.id
+                    if (thisoption == "-replytype" && va[i] == "2" && msg.guild) sap = msg.channel.id
 
                     newGuildConfig(mysql, {
                         id: options["settingsid"],

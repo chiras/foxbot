@@ -14,7 +14,7 @@ function processFeed(feed) {
 
 function getHelp(embed, options){
     embed.setTitle("Options for " + options.command)
-    embed.setDescription("Arguments for account/character and megaserver are required.")
+    embed.setDescription("Arguments for account/character and megaserver (only EU/NA) are required.")
     embed.addField(options.command + " $account EU", "Shows all scores for this account on the EU megaserver")
     embed.addField(options.command + " character NA", "Shows all scores for this character on the NA megaserver")
     embed.addField(options.command + " $account EU DSA, MSA, trials", "Shows scores only for these specific instances. \nValid single instance options are: '"+ nh.getInstances("lbAll").join(', ').toUpperCase() +"'\nValid combinatory options '"+ nh.getInstances("lbOptions").join(', ') + "'")
@@ -35,7 +35,7 @@ if (options.options == "!help"){
 
 }else{
 
-	if (options.megaservers.length == 0 || (options.accounts.length == 0 && options.others.length == 0)){
+	if (options.megaservers.length == 0 || (options.accounts.length == 0 && options.others.length == 0) || !["EU","NA","eu","na"].includes(options.megaservers[0])){
 			embed = getHelp(embed, options)
 		//	embed.addField("Char/Megaserver information missing (EU/NA)", "please provide this information to proceed.")
         	mh.send(msg,embed, options)

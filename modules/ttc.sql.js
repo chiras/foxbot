@@ -172,7 +172,7 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
             if (options.item_trait.length > 0) {
                 q2 += "AND trait IN ('" + options.item_trait.join("','") + "') ";
             }
-            if (options.megaservers.length > 0) {
+            if (options.megaservers.length > 0 &&  ["EU","NA","eu","na"].includes(options.megaservers[0])) {
                 q2 += "AND megaserver IN ('" + options.megaservers.join("','") + "') ";
             }        
                  
@@ -231,7 +231,7 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
                             var titlejoin = ""
                             titleargs = []
 
-                            if (options.megaservers.length == 1) {
+                            if (options.megaservers.length == 1 && ["EU","NA","eu","na"].includes(options.megaservers[0])) {
                                 titleargs.push("**" + options.megaservers[0] + "**")
                             }
 
@@ -269,7 +269,7 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
                                     title = titleorg + titlejoin + "..."
                                 }
 
-                                if (options.megaservers.length != 1) {
+                                if (options.megaservers.length != 1 || !["EU","NA","eu","na"].includes(options.megaservers[0])) {
                                     pricetext += "**" + values[z][i]["megaserver"] + "** "
                                 }
 

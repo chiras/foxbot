@@ -50,13 +50,14 @@ var mysql = sql.createPool({
   host     : 'localhost',
   user     : tokens["mysqluser"],
   password : tokens["mysqlpass"],
-  database : 'foxbot'
+  database : 'foxbot',
+  multipleStatements: true
 });
 
 // listening for messages
 bot.on("message", (msg) => {
 	if(msg.channel.id == listenchannel){
-		//console.log("LISTENING")
+		console.log("LISTENING")
 		esoDBhook(bot, msg, {bot : bot}, mysql, Discord);
 		return;
 	}	
@@ -66,6 +67,8 @@ bot.on("message", (msg) => {
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
+
+    console.log(msg.author.id +" -> " + msg.content)
     
    	guildUpdate(bot, msg, mysql)   	
    	
@@ -80,7 +83,7 @@ bot.on("message", (msg) => {
    	//console.log(settings)
    	for (var s = 0; s < settings.length; s++){
    		if (settings[s].setting == "-deny" && typeof users[0] !== "undefined" && users[0].role == settings[s].sap) blacklistChannel.push("!"+settings[s].value) // SOME ERROR here in beta test with sha.
-   		if (settings[s].setting == "-megaserver" && options.megaservers.length==0) options.megaservers.push(Object.keys(nh.listServers())[settings[s].value-1].toUpperCase())
+   		if (settings[s].setting == "-megaserver" && options.megaservers.length==0 && settings[s].value != 0) options.megaservers.push(Object.keys(nh.listServers())[settings[s].value-1].toUpperCase())
    		if (settings[s].setting == "-replytype" && settings[s].value == 1 && options.command != "!config" && options.command != "!poll") options["rechannel"] = "redirectDM"
    		if (settings[s].setting == "-replytype" && settings[s].value == 2 && options.command != "!config" && options.command != "!poll") {options["rechannel"] = "redirectChannel"; options["rechannelid"] = settings[s].sap}
    	}
@@ -195,7 +198,7 @@ bot.on('guildCreate', guild => {
 bot.on('error', error => {
     console.log(error);
     if (typeof bot.channels.get(logchannel) !=="undefined"){
-	  	bot.channels.get(logchannel).sendMessage(error)
+	  	bot.channels.get(logchannel).send(error)
     }
 
     process.exit(1);
@@ -204,7 +207,7 @@ bot.on('error', error => {
 process.on('unhandledRejection', error => {
     console.log(error);
      if (typeof bot.channels.get(logchannel) !=="undefined"){
- 			bot.channels.get(logchannel).sendMessage('-- Warning: unhandled Rejection received: '+error)
+ 			bot.channels.get(logchannel).send('-- Warning: unhandled Rejection received: '+error)
     }
 });
 

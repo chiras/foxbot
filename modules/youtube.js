@@ -89,12 +89,25 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
 
         }).then(function() {
             var query = 'INSERT INTO youtube (date,recommender,youtuber, title, id) VALUES ' + querypart.join(",") + ' ON DUPLICATE KEY UPDATE date = CURDATE();\n';
-
+			if (querypart.length < 6){
+			if (querypart.length > 0){
             setDbRecords(mysql, query, function() {
                 embed.setTitle("Thank you for your suggestion!")
                 embed.setDescription("The following videos have been added to the recommendation list")
                 mh.send(msg, embed, options)
             })
+            }else{
+                embed.setTitle("Did not find that video!")
+                embed.setDescription("Make sure you provided the ID from the video correctly, e.g. https://www.youtube.com/watch?v=ERcZznUKCdw --> ID = ERcZznUKCdw")
+                mh.send(msg, embed, options)
+            
+            }
+            }else{
+                embed.setTitle("Too many videos")
+                embed.setDescription("Please only recommend a maximum of 5 videos at a time")
+                mh.send(msg, embed, options)
+            
+            }
         });
 
     } else if (options.options[0] == "-more") {
