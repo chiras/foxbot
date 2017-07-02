@@ -66,6 +66,7 @@ bot.on("message", (msg) => {
     let prefix = "!";
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
+    if (!msg.content.startsWith(prefix+prefix)) return;
     if (msg.author.bot) return;
 
     console.log(msg.author.id +" -> " + msg.content)
