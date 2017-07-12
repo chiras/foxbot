@@ -347,7 +347,7 @@ var scheduleRealm = schedule.scheduleJob('*/5 * * * *', function() {
         var $statusbin = 0;
         if (response.statusCode === 200) {
             var $ = cheerio.load(body);
-        }
+        
         $('div[class="DismissMessage AlertMessage"]')
             .each(function() {
                 $statusbin = 1;
@@ -359,7 +359,7 @@ var scheduleRealm = schedule.scheduleJob('*/5 * * * *', function() {
 			}           
         var query = "UPDATE `servers` SET time = NOW(), status = '" +forumtxt+ "' WHERE id = '_forums'";
         dh.mysqlQuery(mysql, query, function(error, results) {
-		})
+		})}
 		}
     });
     

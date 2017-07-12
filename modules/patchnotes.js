@@ -69,8 +69,8 @@ if (options.options.includes("-help")){
         }
 		if (patchOutStickies.length>0){
 			embed.setTitle('Current Announcements')		
-			embed.setDescription(patchOutStickies)		
-			embed.addField('Other recent',patchOutOthers)
+			embed.setDescription(patchOutStickies.join("\n").substring(0,2000))		
+			embed.addField('Other recent',patchOutOthers.join("\n").substring(0,2000))
 		}else{
 			embed.setDescription("No announcements available")				
 		}		
