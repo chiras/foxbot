@@ -58,11 +58,17 @@ if (options.options.includes("-help")){
         
         var lastcurrent = 0;
         for (var i = 0; i < titles.length; i++) {
-        	if (stickies[i]){
-        		patchOutStickies.push("[" + titles[i] + ']('+list[i]+')');
+        
+        	//avoid too long messages, discord breaks on that
+        	var tmptxt = "[" + titles[i] + ']('+list[i]+')'; //linkified
+        	var stickylength = patchOutStickies.join("\n").length + tmptxt.length
+        	var otherslength = patchOutOthers.join("\n").length + tmptxt.length
+        	
+        	if (stickies[i] && stickylength < 2000){
+        		patchOutStickies.push(tmptxt);
         	}else{
-        		if (lastcurrent < 3){
-        			patchOutOthers.push("[" + titles[i] + ']('+list[i]+')');
+        		if (lastcurrent < 3 && otherslength < 2000){
+        			patchOutOthers.push(tmptxt);
         			lastcurrent ++;
         		}
         	}
