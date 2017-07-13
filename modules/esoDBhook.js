@@ -55,7 +55,7 @@ var p2 = new Promise(function(resolve, reject) {
 	     
 	     channels.forEach(function(channel){
 	     	// see if that channel is still accessible to the bot
-	   //  	if (typeof bot.channels.get(channel) !== "undefined"){
+			if (typeof bot.channels.get(channel) !== "undefined"){
 	     	 var subscription = channel.sap
 	     	 var type =channel.settingstype
 	     	 var value = channel.value		     
@@ -67,7 +67,7 @@ var p2 = new Promise(function(resolve, reject) {
 		     	options["rechannel"] = "announceChannel";
 		     	mh.send(msg, subtext, options)
 		     }
-		//    }
+		    }
 		})
 	       
 })
