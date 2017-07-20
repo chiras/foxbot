@@ -29,7 +29,7 @@ const ttc = require('./modules/ttc.sql.js');
 const configure = require('./modules/settings.sql.js');
 const guildUpdate = require('./modules/guild.sql.js');
 const easteregg = require('./modules/easteregg.js');
-const test = require('./modules/test.js');
+//const test = require('./modules/test.js');
 
 // helper functions
 const ah = require("./helper/arguments.js")
@@ -119,7 +119,7 @@ bot.on("message", (msg) => {
 		"!price"		: function(){ttc(bot, msg, options, Discord);}, 
 		"!christmas"	: function(){easteregg(bot, msg, options, "christmas", Discord);}, 
 		"!secretshanta"	: function(){easteregg(bot, msg, options, "christmas", Discord);}, 
-		"!test"			: function(){test(bot, msg, options, Discord);}, 
+//		"!test"			: function(){test(bot, msg, options, Discord);}, 
 		
 		//v2 preparation
 		
@@ -170,6 +170,7 @@ bot.on("message", (msg) => {
 			}// end if guild
 		} // no preset rechannel
 		options["bot"] = bot.user.id;
+		options["client"] = bot;
 		
 		//console.log(options)
 		

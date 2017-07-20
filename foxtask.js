@@ -553,8 +553,11 @@ function ttcUpdate(megaserver) {
                         response.pipe(stream);
                         response.on("end", function() { //waits for data to be consumed
                             // pipe has ended here, so we resolve the promise
-                            console.log(getLogDate() + "TTC download complete: " + megaserver)
+                            setTimeout(function(){
+    							//do what you need here
+	                            console.log(getLogDate() + "TTC download complete: " + megaserver)
                             	resolve();
+							}, 300000);
                         });
                     });
                 }
@@ -969,7 +972,7 @@ function createEsoTable(mysql, json, table, catergory, callback) {
          	var tmporg = json[catergory][i]
          	var tmparray = []
          	var tmpfield = []
-        	console.log(tmporg["id"])        	
+        	//console.log(tmporg["id"])        	
             for (var j = 0; j < Object.keys(tmporg).length; j++) {
 				tmparray.push(tmporg[Object.keys(tmporg)[j]].replace(/"/g, "'"))
 				tmpfield.push(Object.keys(tmporg)[j])
@@ -982,7 +985,7 @@ function createEsoTable(mysql, json, table, catergory, callback) {
  			});
         }
      	console.log(getLogDate() + "EsoItem "+table+" objects complete" )
-		console.log(sql)
+		//console.log(sql)
    	
 	     callback(getLogDate() + "EsoItem "+table+" tables have been updated")
 

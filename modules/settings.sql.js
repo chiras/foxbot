@@ -422,9 +422,9 @@ module.exports = (bot, msg, options, mysql, Discord) => {
     	    var embed = mh.prepare(Discord)
     	    	embed.addField("Settings scope:","**guild-wide** (admin mode), switch to direct message to the bot, if you want to make personal settings for DMs.")
     	    	mh.send(msg, embed, options)
-    }else{
+    	}else{
      	    var embed = mh.prepare(Discord)
-    	    	embed.addField("Settings scope:","personal, switching to direct message for config")
+    	    	embed.addField("Settings scope:","personal, switching to direct message for config, since you do not have permission to MANAGE CHANNELS in the guild you entered the commands.")
 	    	    options["rechannel"] = "DM"	    	
     	    	mh.send(msg, embed, options)
     }}

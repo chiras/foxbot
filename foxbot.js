@@ -167,8 +167,10 @@ bot.on("message", (msg) => {
 				
 			}// end if guild
 		} // no preset rechannel
+		
 		options["bot"] = bot.user.id;
-		console.log(options["bot"])
+		options["client"] = bot;
+		//console.log(options["bot"])
 		//console.log(options)
 		
 		if (responses[options["command"]]) {responses[options["command"]]()};	
@@ -182,7 +184,6 @@ bot.on("message", (msg) => {
 bot.on('ready', () => {
     console.log('Fox Bot initiated!');
     console.log('Running on ' +  bot.guilds.size + ' servers:');
-    
     bot.user.setGame("!help for commands");
 
     var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")

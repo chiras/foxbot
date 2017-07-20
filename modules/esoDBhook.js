@@ -1,3 +1,4 @@
+const debug = false;
 const Promise = require('bluebird');
 
 const mh = require("../helper/messages.js")
@@ -31,12 +32,15 @@ dh.mysqlQuery(mysql, query, function(err,all) {
     	})
 };
 
+console.log("Debug Hook: " + debug)
 
 module.exports = (bot, msg, options, mysql, Discord) => {
 
-if (msg.content.startsWith("!") || msg.content=="Hello\nDiscord!"){
-	return;	
-}
+//if (!debug){
+	if (msg.content.startsWith("!") || msg.content=="Hello\nDiscord!"){
+		return;	
+	}
+//}
 //console.log("hook")
 
 	var notitype = Number(distributors[msg.author.username])
@@ -52,22 +56,27 @@ var p2 = new Promise(function(resolve, reject) {
        resolve(obj);
 	})
 }).then(function(channels){
-	     
 	     channels.forEach(function(channel){
-	     	// see if that channel is still accessible to the bot
-			if (typeof bot.channels.get(channel) !== "undefined"){
-	     	 var subscription = channel.sap
-	     	 var type =channel.settingstype
-	     	 var value = channel.value		     
-	//		console.log(subscription)
+
+	     	// see if that channel is still accessible to the bot, now covered in messages.js
+			//if (typeof bot.channels.get(channel.sap) !== "undefined"){
+
+    	     options["client"]  = bot;		     
 		     
-		     if (value == notitype){
-	//			console.log("true")
-		     	options["rechannelid"] = subscription;
-		     	options["rechannel"] = "announceChannel";
-		     	mh.send(msg, subtext, options)
+		     if (channel.value == notitype){
+		     	if (channel.settingstype == "user"){
+		     		options["rechannelid"] = channel.settingsid;
+		     		options["rechannel"]   = "announceUser"
+		     	}else{
+			     	options["rechannelid"] = channel.sap;
+			     	options["rechannel"] = "announceChannel";		     	
+		     	}
+
+		     	//if (!debug){
+		     		mh.send(msg, subtext, options)
+		     	//}
 		     }
-		    }
+		  //  }
 		})
 	       
 })

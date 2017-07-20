@@ -202,8 +202,8 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
         } else {
         	//console.log(options.others)
 
-            var url = encodeURI(yturl + "search?q=" + options.others.join(" ") + "&part=snippet&maxResults=5&type=video&order=viewCount&key=" + key)
-            //console.log(url)
+            var url = encodeURI(yturl + "search?q=" + options.others.join(" ").replace(/\"/g, "").replace(/\'/g, "") + "&part=snippet&maxResults=5&type=video&order=viewCount&key=" + key)
+          //  console.log(url)
 
             var promises = [];
             promises.push(httpGet(url))
@@ -215,15 +215,18 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
 
                     var curcount = 1;
                     var youtubeout = "";
+                    //	console.log(curcount)
+                    var max = body[j].items.length
+                    if (max > 5){max = 5}
 
-                    for (var i = 0; curcount <= 5; i++) {
-
+                    for (var i = 0; curcount <= max; i++) {
                         if (body[j].items[i]) {
-                            youtubeout += "\n" + curcount + ". **[" + JSON.stringify(body[j].items[i].snippet.channelTitle).replace(/\"/g, "") + '](http://youtube.com/watch?v=' + JSON.stringify(body[j].items[i].id.videoId).replace(/\"/g, "") + ')**: ' + JSON.stringify(body[j].items[i].snippet.title).replace(/\"/g, "");
+                            youtubeout += "\n" + curcount + ". **[" + JSON.stringify(body[j].items[i].snippet.channelTitle).replace(/\"/g, "").replace(/\'/g, "") + '](http://youtube.com/watch?v=' + JSON.stringify(body[j].items[i].id.videoId).replace(/\"/g, "") + ')**: ' + JSON.stringify(body[j].items[i].snippet.title).replace(/\"/g, "");
+                    		//console.log(i+"  "+youtubeout)
                             curcount++;
                         }
                     }
-                    embed.addField("Results for '" + options.others.join(" ") + "'", youtubeout)
+                    embed.addField("Results for '" + options.others.join(" ").replace(/\"/g, "").replace(/\'/g, "") + "'", youtubeout)
                 }
 
             }).then(function() {

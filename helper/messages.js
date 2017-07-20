@@ -18,11 +18,12 @@ const urls = {	"!pledge" 	: urlbase+"54",
 				"!golden"	: urlbase+"172"
 
 	}
-
+			 
+			 
 exports.send = function(msg, embed, options, callback) {
 		var helpurl = "http://foxbot.biotopia.info"
 		if (urls[options["command"]]){helpurl = urls[options["command"]]}
-		
+			
 	//	embed.setURL(helpurl)
 // 		
 // 		if (typeof embed.description == "undefined"){
@@ -77,13 +78,32 @@ exports.send = function(msg, embed, options, callback) {
                 		}                    
                 }
 
-            }else if (options["rechannel"] == "announceChannel"){
-            	if (options["bot"].channels.get(options["rechannelid"])){
-					options["bot"].channels.get(options["rechannelid"]).send({embed: embed})
-				}
+            }else if (options["rechannel"] == "announceChannel"){ // for automatic announcements through esoDBhook
+             if(typeof options["client"].channels.get(options["rechannelid"]) !== "undefined"){ // only guild channels that still exist pass this
+             if(options["client"].channels.get(options["rechannelid"]).type == "text" ){ // guild channel and has permissions
+			 	if (options["client"].channels.get(options["rechannelid"]).permissionsFor(options["client"].user).has(["SEND_MESSAGES", "EMBED_LINKS"])){
+			 		console.log("GC announcement "+options["rechannelid"])
+			 		options["client"].channels.get(options["rechannelid"]).send({embed: embed})
+			 	}else{			 	
+			 		console.log("GC no perms "+options["rechannelid"])
+			 	}
+			 }else{ // user DM, should already be redirected to announceUser, but to be sure!
+			 		console.log("DM announcement "+options["rechannelid"])
+			 	    options["client"].channels.get(options["rechannelid"]).send({embed: embed})
+		     }
+		     }else{
+			 		console.log("channel undefined "+options["rechannelid"])		     		     
+		     }           
             
+//            	if (options["bot"].channels.get(options["rechannelid"])){
+//					options["bot"].channels.get(options["rechannelid"]).send({embed: embed})
+//				}
+
             }else if (options["rechannel"] == "announceUser"){
-				
+			 	if (typeof options["client"].users.get(options["rechannelid"]) !== "undefined"){
+				 	console.log("D2 announcement "+options["rechannelid"])
+			 		options["client"].users.get(options["rechannelid"]).send({embed: embed})
+			 	}
             
             }else {
                msg.channel.send({embed: embed});
