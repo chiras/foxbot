@@ -60,6 +60,10 @@ function insertVendorDB(mysql, items, searchdate, vendor, callback) {
 
     getDbMaxId(mysql, vendor, function(err, max) {
         var day = Number(max[0]['MAX(dateid)']) + 1;
+        
+        	// exceptional events
+            if (vendor == "golden" && searchdate == "2017-07-21"){day = Number(max[0]['MAX(dateid)'])}
+            
             for (var i = 0; i < items.length; i++) {
             	var query = 'INSERT INTO vendors (dateid, date, item, type) VALUES ("'+day+'","'+searchdate+'","'+items[i]+'","'+vendor+'");';
     			dh.mysqlQuery(mysql, query, function(err, all) {
@@ -121,7 +125,12 @@ function vendorUpdate(url, searchdate, mysql, vendor) {
             if (items.length > 0 && findOne(items, excludeUpdates) == 0) {
                 insertVendorDB(mysql, items, searchdate, vendor,function(err,all){
                 })
+
+				// exceptional dates: 
+            	if (vendor == "golden" && searchdate == "2017-07-21"){items.push("Midyear Mayhem: Necklaces of Alliance War sets")}
+            	
                 console.log(getLogDate() + "SUCCESS vendor update: " + vendor +" -> "+ items.join(", "));
+
 
                     webHooks.trigger('weekendvendors', {
                     "username": vendors[vendor].username,

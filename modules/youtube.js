@@ -118,8 +118,13 @@ module.exports = (bot, msg, key, options, mysql, Discord) => {
                         var curcount = 1;
                         var youtubeout = "";
                         for (var z = 0; z < results.length; z++) {
-                            youtubeout += "\n" + curcount + ". **[" + results[z].youtuber + '](http://youtube.com/watch?v=' + results[z].id + ')**: ' + results[z].title;
-                            curcount++;
+                        	var tmpytout = "\n" + curcount + ". **[" + results[z].youtuber + '](http://youtube.com/watch?v=' + results[z].id + ')**: ' + results[z].title;
+                        	var complength = youtubeout.length + tmpytout.length;
+                        	
+                        	if  (complength < 1000){
+                            	youtubeout += "\n" + curcount + ". **[" + results[z].youtuber + '](http://youtube.com/watch?v=' + results[z].id + ')**: ' + results[z].title;
+                            	curcount++;
+                            }
                         }
                         embed.addField("More videos recommended recently: ", youtubeout)
                     }

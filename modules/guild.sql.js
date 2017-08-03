@@ -102,7 +102,14 @@ module.exports = (bot, msg, mysql) => {
 		
 		guildCache[msg.guild.id] = moment().unix()
 		
-		var queryG = "REPLACE INTO guilds (guildid, guildname, ownername, ownerid) VALUES ('"+msg.guild.id+"', '"+msg.guild.name.substring(0,29).replace(/\'/g,"")+"', '"+msg.guild.owner.user.username.substring(0,29).replace(/\'/g,"")+"','"+msg.guild.owner.user.id+"');"
+		var owner = "ownerUnknown";
+		var ownerid = "0";
+		
+		if (typeof msg.guild.owner !== "undefined"){
+			owner = msg.guild.owner.user.username.substring(0,29).replace(/\'/g,"")
+			ownerid = msg.guild.owner.user.id
+		}
+		var queryG = "REPLACE INTO guilds (guildid, guildname, ownername, ownerid) VALUES ('"+msg.guild.id+"', '"+msg.guild.name.substring(0,29).replace(/\'/g,"")+"', '"+owner+"','"+ownerid+"');"
 
 				dh.mysqlQuery(mysql, queryG, function(err, all) {
         			if (err) {
