@@ -3,6 +3,7 @@
 # foxbot
 
 A discord bot for The Elder Scrolls Online
+
 more information on foxbot.biotopia.info
 
 
