@@ -92,6 +92,8 @@ const instances = {
 	"dire"	: 'Direfrost Keep',
 	"vom"	: 'Vaults of Madness',
 	
+	"fh"	: 'Falkreath Hold',
+	"bf"	: 'Bloodroot Forge',
 	"cos"	: 'Cradle of Shadows',
 	"icp"	: 'Imperial City Prison',
 	"rom"	: 'Ruins of Mazzatun',

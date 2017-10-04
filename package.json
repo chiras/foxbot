@@ -14,6 +14,7 @@
     "file-exists": "^4.0.0",
     "fs": "0.0.1-security",
     "fuzzy-matching": "0.4.3",
+    "luaparse": "^0.2.1",
     "merge-json": "0.1.0-b.3",
     "moment-timezone": "^0.5.13",
     "mysql": "^2.13.0",

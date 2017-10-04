@@ -29,7 +29,9 @@ var mysql = sql.createPool({
   host     : 'localhost',
   user     : tokens["mysqluser"],
   password : tokens["mysqlpass"],
-  database : 'foxbot'
+  database : 'foxbot',
+  multipleStatements: true
+
 });
 
 var webHooks = new WebHooks({
@@ -575,13 +577,13 @@ function ttcUpdate(megaserver) {
 
         }).then(function() {
             console.log(getLogDate() + "TTC decompression of zip: " + megaserver)
-            asyncExtract(zipfile, {
-                dir: path
-            }, function(err) {
+         //   asyncExtract(zipfile, {
+         //       dir: path
+         //   }, function(err) {
                 //console.log(err)
                 return
                 // extraction is complete. make sure to handle the err 
-            })
+         //   })
         }).then(function() {
             console.log(getLogDate() + "TTC Preparing Item table: " + megaserver)
             var itemtable = path + "/ItemLookUpTable_EN.lua"
@@ -589,7 +591,7 @@ function ttcUpdate(megaserver) {
             contents = contents.replace(/\["/g, '"').replace(/"\]/g, '"').replace(/\[/g, '"').replace(/\]/g, '"').replace(/,}/g, '}').replace(/=/g, ':');
             contents = contents.substring(contents.indexOf('{'), contents.lastIndexOf('}') + 1);
             var item = JSON.parse(contents);
-			console.log(item)
+			//console.log(item)
 
             return item
         }).then(function(jsonitem) {
@@ -612,8 +614,27 @@ function ttcUpdate(megaserver) {
     }) // end return promis
 }
 
-var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
-//var scheduleTTC = schedule.scheduleJob(debugtime, function() {
+var scheduleTTCdl = schedule.scheduleJob('0 0 3 * * 3', function(){
+
+    for (var i = 0; i < Object.keys(ttcdownload).length; i++) {
+        var megaserver = Object.keys(ttcdownload)[i]
+        var path = process.cwd() + "/data/tmp/" + "ttc_" + moment().tz("Europe/Berlin").format("YYYY-MM-DD") + "_" + megaserver
+        var zipfile = path + ".zip"
+        var stream = fs.createWriteStream(zipfile);
+        console.log(getLogDate() + "TTC Starting download: " + megaserver)
+        var requestTTC = https.get(ttcdownload[megaserver], function(response) {          
+                        response.pipe(stream);
+                        response.on("end", function() { //waits for data to be consumed
+                            // pipe has ended here, so we resolve the promise
+                    
+	                console.log(getLogDate() + "TTC download complete: " + megaserver)
+	        })
+		})	
+    }
+})
+
+//var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
+var scheduleTTC = schedule.scheduleJob(debugtime, function() {
     webHooks.trigger('service', {
         "content": "Update TTC: started"
     })
@@ -621,8 +642,8 @@ var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
     for (var i = 0; i < Object.keys(ttcdownload).length; i++) {
         promises.push(ttcUpdate(Object.keys(ttcdownload)[i]))
     }
-
     Promise.all(promises).then(alldata => {
+	//console.log(alldata)
 
             ttcCreateItemTable(alldata, function(resultItem) {
                 console.log(resultItem);
@@ -966,7 +987,7 @@ function createEsoItemTable(db, json, callback) {
 function createEsoTable(mysql, json, table, catergory, callback) {
     console.log(getLogDate() + "EsoItem "+table+" prepare " )
  	var fields = Object.keys(json[catergory][0])
-	var queryPrep1 = 'TRUNCATE TABLE IF EXISTS `'+table+'`;';
+	var queryPrep1 = 'TRUNCATE TABLE `'+table+'`;';
 	var	queryPrep2 = 'CREATE TABLE IF NOT EXISTS `'+table+'` (id INTEGER,'+ fields.slice(1).join(" TEXT,")+" TEXT );";	
  
 
@@ -1170,7 +1191,7 @@ var scheduleEsoItem = schedule.scheduleJob('0 0 5 * * 3', function(){
                             "content": "Update ESO skills/sets: started"
                     })
     console.log(getLogDate() + "EsoItem Starting Set download " )
-/**    https.get(esoitemUrl, function(res) {
+    https.get(esoitemUrl, function(res) {
         var body = '';
 
     	res.on('data', function(chunk){
@@ -1187,7 +1208,7 @@ var scheduleEsoItem = schedule.scheduleJob('0 0 5 * * 3', function(){
 	}).on('error', function(e){
       	console.log("Got an error: ", e);
 	});
-**/
+
 	var col = "ALTER TABLE items_sets ADD IF NOT EXITS COLUMN representative VARCHAR(20);"
   	// dh.mysqlQuery(mysql, col, function(errorP1, resultsP1) {
 //  				if (errorP1) throw errorP1;
@@ -1220,7 +1241,6 @@ var scheduleEsoItem = schedule.scheduleJob('0 0 5 * * 3', function(){
 				console.log(key)
 				if (key != ""){
 				var sql = 'UPDATE items_sets SET representative = "'+ representatives[key]+'" WHERE setName LIKE "'+key+'";'
-				console.log(sql)
   				dh.mysqlQuery(mysql, sql, function(errorP2, resultsP2) {
      				if (errorP2) throw errorP2;
  				});

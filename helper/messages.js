@@ -23,6 +23,7 @@ const urls = {	"!pledge" 	: urlbase+"54",
 exports.send = function(msg, embed, options, callback) {
 		var helpurl = "http://foxbot.biotopia.info"
 		if (urls[options["command"]]){helpurl = urls[options["command"]]}
+		//console.log(embed)
 			
 	//	embed.setURL(helpurl)
 // 		
@@ -114,7 +115,7 @@ exports.send = function(msg, embed, options, callback) {
             }else if (options["rechannel"] == "announceChannel"){ // for automatic announcements through esoDBhook
              if(typeof options["client"].channels.get(options["rechannelid"]) !== "undefined"){ // only guild channels that still exist pass this
              if(options["client"].channels.get(options["rechannelid"]).type == "text" ){ // guild channel and has permissions
-			 	if (options["client"].channels.get(options["rechannelid"]).permissionsFor(options["client"].user).has(["SEND_MESSAGES", "EMBED_LINKS"])){
+			 	if (options["client"].channels.get(options["rechannelid"]).permissionsFor(options["client"].user) != null && options["client"].channels.get(options["rechannelid"]).permissionsFor(options["client"].user).has(["SEND_MESSAGES", "EMBED_LINKS"])){
 			 		console.log("GC announcement "+options["rechannelid"])
 			 		try {
 			 			options["client"].channels.get(options["rechannelid"]).send({embed: embed})

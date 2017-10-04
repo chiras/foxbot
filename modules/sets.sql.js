@@ -65,10 +65,10 @@ function getDetailList(results, embed, callback) {
     for (var i = 0; i < results.length; i++) {
         var tttext = ""
         if (results.length != 1) {
-            tttext = "[Tooltip](http://esoitem.uesp.net/item-" + results[i].representative + "-66-5.png), "
+      //      tttext = "[Tooltip](http://esoitem.uesp.net/item-" + results[i].representative + "-66-5.png), "
         }
-         tttext += "[UESP Wiki Page](http://en.uesp.net/wiki/Online:"+encodeURI(results[i].setName)+"), "
-         tttext += "[Fextralife](http://elderscrollsonline.wiki.fextralife.com/"+encodeURI(results[i].setName.replace(/ /g, "+"))+"+Set)\n\n"
+      //   tttext += "[UESP Wiki Page](http://en.uesp.net/wiki/Online:"+encodeURI(results[i].setName)+"), "
+      //   tttext += "[Fextralife](http://elderscrollsonline.wiki.fextralife.com/"+encodeURI(results[i].setName.replace(/ /g, "+"))+"+Set)\n\n"
 
         embed.addField(results[i].setName, tttext +
             "**Items: **" + results[i].itemSlots.replace(/ /g, ", ").replace(/\(/g, " (").replace(/container/g, "") + "\n\n" +
@@ -133,7 +133,8 @@ function getPreviewList(msg, results, embed, filter, Discord, options, callback)
                 concattxt = ""
                 catname = cats[z] + "..."
             }
-            concattxt += ", [" + indices[i] + "](http://esoitem.uesp.net/item-" + reps[indices[i]] + "-66-5.png)"
+            //concattxt += ", [" + indices[i] + "](http://esoitem.uesp.net/item-" + reps[indices[i]] + "-66-5.png)"
+            concattxt += ", " + indices[i]
         }
         embed.addField(catname, concattxt.substring(2))
         concattxt = ""
