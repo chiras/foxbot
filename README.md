@@ -1,6 +1,6 @@
 
 
-# foxbot
+# FoX Bot
 
 A discord bot for The Elder Scrolls Online
 
