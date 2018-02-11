@@ -186,7 +186,7 @@ bot.on('ready', () => {
     console.log('Fox Bot initiated!');
     console.log('Running on ' +  bot.guilds.size + ' servers:');
     
-    bot.user.setGame("!help for commands");
+    bot.user.setStatus("!help for commands");
 
     var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
     console.log(guildNames);
