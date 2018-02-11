@@ -86,7 +86,8 @@ exports.argumentSlicer = function(msg, mysql, callback){ // add required / optio
 		"date"			: [],
 		"range"			: [],
 		"others"		: [],
-		"slice_info"	: []
+		"slice_info"    : [],
+		"timezone"      : [],
 	}
 	
 	if (msg.guild){
