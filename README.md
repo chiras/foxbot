@@ -11,6 +11,7 @@ https://discord.gg/VNrzzvg
 # Commands
 
 **Full documentation:** http://foxbot.biotopia.info
+
 **Statistics:** 1500+ Servers already use the bot! Awesome!
 
 **Tipp:** All commands now have a "-help" option
