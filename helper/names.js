@@ -97,7 +97,9 @@ const instances = {
 	"cos"	: 'Cradle of Shadows',
 	"icp"	: 'Imperial City Prison',
 	"rom"	: 'Ruins of Mazzatun',
-	"wgt"	: 'White-Gold Tower'
+	"wgt"	: 'White-Gold Tower',
+	"fl" 	: 'Fang Liar',
+	"sp"	: 'Scalecaller Peak'
 };
 
 var instancesGroup = { 	"lbAll" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
