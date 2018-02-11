@@ -103,6 +103,7 @@ bot.on("message", (msg) => {
 		"!youtube" 		: function(){youtube(bot, msg, tokens["youtube"], options, mysql, Discord);}, 
 		"!contact"	 	: function(){contact(bot, msg, options, Discord);}, 
 		"!help" 		: function(){help(bot, msg, options, Discord);}, 
+		"!fox" 		: function(){help(bot, msg, options, Discord);}, 
 		"!status" 		: function(){status(bot, msg, options, mysql, Discord);}, 
 		"!server" 		: function(){status(bot, msg, options, mysql, Discord);}, 
 		"!realm" 		: function(){status(bot, msg, options, mysql, Discord);}, 
@@ -185,7 +186,7 @@ bot.on('ready', () => {
     console.log('Fox Bot initiated!');
     console.log('Running on ' +  bot.guilds.size + ' servers:');
 	
-    bot.user.setStatus("!help for commands");
+    bot.user.setStatus("!fox for commands");
 
     var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
     console.log(guildNames);
