@@ -29,6 +29,7 @@ const ttc = require('./modules/ttc.sql.js');
 const configure = require('./modules/settings.sql.js');
 const guildUpdate = require('./modules/guild.sql.js');
 const easteregg = require('./modules/easteregg.js');
+const time = require('./modules/time.js');
 
 // helper functions
 const ah = require("./helper/arguments.js")
@@ -87,6 +88,7 @@ bot.on("message", (msg) => {
    		if (settings[s].setting == "-megaserver" && options.megaservers.length==0 && settings[s].value != 0) options.megaservers.push(Object.keys(nh.listServers())[settings[s].value-1].toUpperCase())
    		if (settings[s].setting == "-replytype" && settings[s].value == 1 && options.command != "!config" && options.command != "!poll") options["rechannel"] = "redirectDM"
    		if (settings[s].setting == "-replytype" && settings[s].value == 2 && options.command != "!config" && options.command != "!poll") {options["rechannel"] = "redirectChannel"; options["rechannelid"] = settings[s].sap}
+        if (settings[s].setting == "-timezone") options["timezone"] = settings[s].value
    	}
    	
    	//console.log("blacklist: "+blacklistChannel.join(","))
@@ -119,6 +121,7 @@ bot.on("message", (msg) => {
 		"!set" 			: function(){getset(bot, msg, options, Discord);}, 
 		"!price"		: function(){ttc(bot, msg, options, Discord);}, 
 		"!christmas"	: function(){easteregg(bot, msg, options, "christmas", Discord);}, 
+		"!time"			: function(){time(bot, msg, options, Discord);},
 		
 		//v2 preparation
 		
