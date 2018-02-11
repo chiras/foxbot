@@ -78,7 +78,7 @@ function insertVendorDB(mysql, items, searchdate, vendor, callback) {
     })
 };
 
-var excludeUpdates = ["soon", "TBD", "soon(TM)", "soon (TM)", "Soon (TM)","Soon(tm)","soon(tm)"]
+var excludeUpdates = ["soon", "TBD", "soon(TM)", "soon (TM)", "Soon (TM)","Soon(tm)","soon(tm)","Soon &#8482;"]
 
 var findOne = function(haystack, arr) {
     return arr.some(function(v) {
@@ -124,7 +124,7 @@ function vendorUpdate(url, searchdate, mysql, vendor) {
             });
         });
         promiseVendor.then(items => {
-            if (items.length > 0 && findOne(items, excludeUpdates) == 0) {
+            if (items.length > 1 && findOne(items, excludeUpdates) == 0) {
                 insertVendorDB(mysql, items, searchdate, vendor,function(err,all){
                 })
 
@@ -156,7 +156,7 @@ function vendorUpdate(url, searchdate, mysql, vendor) {
 
 var vendors = JSON.parse(fs.readFileSync('data/json/vendors.json', 'utf8'));
 
-var scheduleVendor = schedule.scheduleJob('0 58 1 * * 6', function() { // vendor comes online, try to refresh stores
+var scheduleVendor = schedule.scheduleJob('0 58 0 * * 6', function() { // vendor comes online, try to refresh stores
 //    var scheduleVendor = schedule.scheduleJob(debugtime, function(){		// for debugging only
     webHooks.trigger('service', {
         "content": "Update Vendors: started"
@@ -218,7 +218,7 @@ var scheduleVendor = schedule.scheduleJob('0 58 1 * * 6', function() { // vendor
 /// PLEDGES UPDATE
 
 // scheduled to do everyday on 8:01 am
-var schedulePledges = schedule.scheduleJob('30 0 8 * * *', function() {
+var schedulePledges = schedule.scheduleJob('30 0 7 * * *', function() {
 //var schedulePledges = schedule.scheduleJob(debugtime, function() {
 		var time = moment().unix()
 
@@ -512,7 +512,9 @@ function ttcCreatePriceTable(jsonAll, callback) {
             mysql.query(sql, [values], function(err) {
     			if (err) throw err;
 
-                    	var qafter = "ALTER TABLE `items_prices_ttc` ADD COLUMN rowid INT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY; ALTER TABLE `items_prices_ttc` ADD index (id,quality,level,trait,vouchers); ALTER TABLE `items_ttc` ADD index (id);  ALTER TABLE `items_ttc` ADD FULLTEXT (name);"
+                    	var qafter = "ALTER TABLE `items_prices_ttc` ADD COLUMN rowid INT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY; ALTER TABLE `items_prices_ttc` ADD index (id,quality,level,trait,vouchers); "
+                    	// missing: ALTER TABLE `items_ttc` ADD index (id);  ALTER TABLE `items_ttc` ADD FULLTEXT (name);
+	            		var qend = 'UPDATE items_prices_ttc SET level = 1 WHERE trait = "-1"';
 	            		mysql.query(qafter, function(err) {
     						if (err) throw err;
 	        				console.log(getLogDate() + "items_prices_ttc have been indexed ")
@@ -520,11 +522,12 @@ function ttcCreatePriceTable(jsonAll, callback) {
     				 	insertVouchers(function(result){
 	        				console.log(getLogDate() + result)
     		        		callback(getLogDate() + "items_prices_ttc have been updated ")
-                         webHooks.trigger('service', {
-                            "content": "Update TTC: finished"
-                        })   
+    		        		mysql.query(qend, function(err) {
+                         		webHooks.trigger('service', {
+                            		"content": "Update TTC: finished"
+                        		})   
 
-//     						})
+     						})
  						});
 						});
             
@@ -542,6 +545,11 @@ var ttcdownload = {
 }
 
 var asyncExtract = Promise.promisify(require("extract-zip"));
+var zlib = require('zlib'),
+    out = fs.createWriteStream('out');
+var AdmZip = require('adm-zip');
+
+	// reading archives
 
 function ttcUpdate(megaserver) {
     return new Promise((resolve) => {
@@ -560,15 +568,19 @@ function ttcUpdate(megaserver) {
                 } else {
                     var stream = fs.createWriteStream(zipfile);
                     console.log(getLogDate() + "TTC Starting download: " + megaserver)
+                    
+              //      request(ttcdownload[megaserver]).pipe(zlib.createGunzip()).pipe(path);
+                    
                     var requestTTC = https.get(ttcdownload[megaserver], function(response) {
                         response.pipe(stream);
+               //         response.pipe(zlib.createGunzip()).pipe(path);
                         response.on("end", function() { //waits for data to be consumed
                             // pipe has ended here, so we resolve the promise
-                            setTimeout(function(){
+                            //setTimeout(function(){
     							//do what you need here
 	                            console.log(getLogDate() + "TTC download complete: " + megaserver)
                             	resolve();
-							}, 300000);
+							//}, 300000);
                         });
                     });
                 }
@@ -577,14 +589,26 @@ function ttcUpdate(megaserver) {
 
         }).then(function() {
             console.log(getLogDate() + "TTC decompression of zip: " + megaserver)
-         //   asyncExtract(zipfile, {
-         //       dir: path
-         //   }, function(err) {
-                //console.log(err)
-                return
+           	var zip = new AdmZip(zipfile);
+           	zip.extractAllTo(path, true);
+
+          //  zlib.gunzip(zipfile, function(err, result) {
+    	//		if(err) console.error(err);
+
+  	//			  console.log(result);
+		//	});
+            
+            //setTimeout(function(){
+            //	extract(zipfile, {
+            //  	  dir: path
+           // 	}, function(err) {
+           //   	  console.log(err)
+              	  return
                 // extraction is complete. make sure to handle the err 
-         //   })
+           // 	})
+            //}, 300000);
         }).then(function() {
+         
             console.log(getLogDate() + "TTC Preparing Item table: " + megaserver)
             var itemtable = path + "/ItemLookUpTable_EN.lua"
             var contents = fs.readFileSync(itemtable, 'utf8');
@@ -594,6 +618,7 @@ function ttcUpdate(megaserver) {
 			//console.log(item)
 
             return item
+        
         }).then(function(jsonitem) {
             var pricetable = path + "/PriceTable.lua"
             var contents_price = fs.readFileSync(pricetable, 'utf8');
@@ -621,7 +646,7 @@ var scheduleTTCdl = schedule.scheduleJob('0 0 3 * * 3', function(){
         var path = process.cwd() + "/data/tmp/" + "ttc_" + moment().tz("Europe/Berlin").format("YYYY-MM-DD") + "_" + megaserver
         var zipfile = path + ".zip"
         var stream = fs.createWriteStream(zipfile);
-        console.log(getLogDate() + "TTC Starting download: " + megaserver)
+        console.log(getLogDate() + "TTC1 Starting download: " + megaserver)
         var requestTTC = https.get(ttcdownload[megaserver], function(response) {          
                         response.pipe(stream);
                         response.on("end", function() { //waits for data to be consumed
@@ -633,8 +658,8 @@ var scheduleTTCdl = schedule.scheduleJob('0 0 3 * * 3', function(){
     }
 })
 
-//var scheduleTTC = schedule.scheduleJob('0 0 6 * * 3', function(){
-var scheduleTTC = schedule.scheduleJob(debugtime, function() {
+var scheduleTTC = schedule.scheduleJob('0 0 6 * * *', function(){
+// var scheduleTTC = schedule.scheduleJob(debugtime, function() {
     webHooks.trigger('service', {
         "content": "Update TTC: started"
     })

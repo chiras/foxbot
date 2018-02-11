@@ -1,6 +1,7 @@
 const FuzzyMatching = require('fuzzy-matching');
 const sql = require('mysql');
 const Promise = require('bluebird');
+const moment = require('moment-timezone');
 
 const tokens = require('../tokens/dev.json');
 
@@ -30,6 +31,13 @@ Array.prototype.chunk = function(n) {
         return [];
     }
     return [this.slice(0, n)].concat(this.slice(n).chunk(n));
+};
+function getDateRecord(mysql, table, args, callback) {
+    var query = "SELECT timestamp FROM items_prices_ttc_info WHERE id = 0;";
+    //console.log(query)
+    dh.mysqlQuery(mysql, query, function(error, results) {
+        callback(error, results)
+    })
 };
 
 function getDbRecords(mysql, table, args, callback) {
@@ -132,6 +140,7 @@ function argumentSlicer(text, callback) {
 
 // Here the module export begins
 module.exports = (bot, msg, options, Discord) => { // these arguments must be passed through the main 
+var dateString ;
     var embed = mh.prepare(Discord)
     if (options.options.includes("-help") || options.others.length == 0){
  //   !price of the sun lvl45-cp10 blue-legendary
@@ -151,7 +160,10 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
         }
         
     if (options.others.length > 0) {
-    
+     	getDateRecord(mysql, "items_prices_ttc_info", '', function(err, daterecord) {
+     		dateString = moment.unix(daterecord[0].timestamp).format("DD/MM/YYYY");
+     	})
+        
         var name = options.others.join("%")
         getDbRecords(mysql, "items_ttc", 'WHERE name LIKE "%' + name + '%" ORDER BY name ASC', function(err, all) {
         	if (err){
@@ -326,7 +338,7 @@ module.exports = (bot, msg, options, Discord) => { // these arguments must be pa
                     return embed;
                 }
             }).then(function(embed) {
-                embed.setFooter("These prices are **Listing** prices obtained from www.tamrieltradecentre.com")
+                embed.setFooter("These prices are **Listing** prices obtained from www.tamrieltradecentre.com, updated: "+dateString)
                 mh.send(msg, embed, options);
 
             })
