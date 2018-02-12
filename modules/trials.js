@@ -27,7 +27,7 @@ if (options.options.includes("-help")){
 
 }else{
 	// set up the URL based on megaserver
-    var baserURL = "https://www.esoleaderboards.com/api/api.php?callType=getWeeklyTrial&megaserver="
+    var baserURL = "https://www.esoleaderboards.com/api/weekly?megaserver="
     var servers = []
     if (options.megaservers.length == 0 || options.megaservers.includes("NA")){
     	servers.push("NA")
