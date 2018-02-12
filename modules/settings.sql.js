@@ -7,6 +7,7 @@ const fh = require("../helper/functions.js")
 const ah = require("../helper/arguments.js")
 const nh = require("../helper/names.js")
 const dh = require("../helper/db.js")
+const zone = require("../helper/timezone.js")
 
 var terms = {
     "-megaserver": ["no default"].concat(Object.keys(nh.listServers())),
@@ -338,6 +339,43 @@ function setMegaserverTxt(Discord, mysql, options, msg, callback) {
     })
 }
 
+function setTimezone(Discord, mysql, options, msg, callback) {
+    var embed = mh.prepare(Discord)
+    embed.setTitle("Timezone configuration")
+
+    var thisoption = "-timezone";
+    var mychoices = [...options.others]
+
+    if (mychoices.length == 1)
+        mychoices = zone.searchZone(mychoices[0]);
+
+    if (mychoices.length == 1) {
+        clearGuildConfig(mysql, {
+            id: options["settingsid"],
+            type: options["settingstype"],
+            setting: "-timezone"
+        },
+            function () {
+                newGuildConfig(mysql, {
+                    id: options["settingsid"],
+                    setting: "-timezone",
+                    type: options["settingstype"],
+                    value: mychoices[0]
+                }, function () {
+                    callback(false)
+                })
+            }
+        )
+        
+        embed.setDescription("Timezone set to " + mychoices[0])
+    } else {
+        embed.setDescription("You need to specify only the timezone to use.\n\nSee https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for timezone names")
+    }
+
+    mh.send(msg, embed, options)
+}
+
+
 function clearGuildConfig(mysql, args, callback) {
     var query = "DELETE FROM guilds_settings WHERE settingsid = '" + args["id"] + "' AND settingstype = '" + args["type"] + "' AND setting = '" + args["setting"] + "'";
     //console.log(query)
@@ -406,6 +444,11 @@ module.exports = (bot, msg, options, mysql, Discord) => {
                 callback(proceed)
             })
         },
+        "-timezone": function (callback) {
+            setTimezone(Discord, mysql, options, msg, function (proceed) {
+                callback(proceed)
+            })
+        }
     }
 
     var guildconfigstep = [];
