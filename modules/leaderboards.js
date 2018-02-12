@@ -61,7 +61,7 @@ if (options.options == "!help"){
 	
 	name = encodeURI(nameorg)
 	
-    var baserURL = "https://www.esoleaderboards.com/api/api.php?callType=getScoreBy"+characc+"Name&megaserver="
+    var baserURL = "https://www.esoleaderboards.com/api/score/"+characc.toLowerCase()+"?megaserver="
 
     var lbAPI = [];
     var triallist = [];
