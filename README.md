@@ -1,10 +1,58 @@
 
 
-# foxbot
+# FoX Bot
 
 A discord bot for The Elder Scrolls Online
 
-more information on foxbot.biotopia.info
+# Developer Channel
+
+https://discord.gg/VNrzzvg
+
+# Commands
+
+**Full documentation:** http://foxbot.biotopia.info
+
+**Statistics:** 1500+ Servers already use the bot! Awesome!
+
+**Tipp:** All commands now have a "-help" option
+
+**Regular Events**
+
+ * !pledges -> Today's Undaunted pledges
+ * !trials -> This weeks's special trials
+
+**Weekend Vendors**
+ * !golden -> Cyrodiil's Golden Vendor Items
+ * !luxury -> Luxury Housing Vendor Items
+
+**Game Information**
+ * !set -> Set item information (e.g. !set skel)
+ * !price -> TTC guild vendor listing prices
+ * !lb -> Leaderboard scores (e.g. !lb $account, EU, HRC)
+
+**Group Tools**
+ * !poll / !vote -> Start a poll, vote and end it
+
+**Official Information**
+ * !status -> ESO server status
+ * !patch -> Latest ESO patch notes (and PTS with option)
+
+**Media**
+ * !youtube -> Hot and new ESO videos
+ * !twitch -> Current top 5 ESO streams
+
+**Bot**
+ * !config -> Options to adapt the bot to your needs
+ * !contact -> Contact information for the Bot author
+ * !help -> This help page
+
+# Installation
+
+Installation is tricky atm, since there are many factors that are not easily reproducible and need setup in MySQL and Discord. I will write down a simple guide in a bit and create a minimal working example bot, that does not require SQL and other preferences. 
+
+If you want install it anyway, check our dev channel here: https://discord.gg/VNrzzvg
+
+# License
 
 MIT License
 

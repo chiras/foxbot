@@ -29,6 +29,7 @@ const ttc = require('./modules/ttc.sql.js');
 const configure = require('./modules/settings.sql.js');
 const guildUpdate = require('./modules/guild.sql.js');
 const easteregg = require('./modules/easteregg.js');
+const time = require('./modules/time.js');
 //const test = require('./modules/test.js');
 
 // helper functions
@@ -87,6 +88,7 @@ bot.on("message", (msg) => {
    		if (settings[s].setting == "-megaserver" && options.megaservers.length==0 && settings[s].value != 0) options.megaservers.push(Object.keys(nh.listServers())[settings[s].value-1].toUpperCase())
    		if (settings[s].setting == "-replytype" && settings[s].value == 1 && options.command != "!config" && options.command != "!poll") options["rechannel"] = "redirectDM"
    		if (settings[s].setting == "-replytype" && settings[s].value == 2 && options.command != "!config" && options.command != "!poll") {options["rechannel"] = "redirectChannel"; options["rechannelid"] = settings[s].sap}
+   		if (settings[s].setting == "-timezone") options["timezone"] = settings[s].value
    	}
    	
    	//console.log("blacklist: "+blacklistChannel.join(","))
@@ -103,6 +105,7 @@ bot.on("message", (msg) => {
 		"!youtube" 		: function(){youtube(bot, msg, tokens["youtube"], options, mysql, Discord);}, 
 		"!contact"	 	: function(){contact(bot, msg, options, Discord);}, 
 		"!help" 		: function(){help(bot, msg, options, Discord);}, 
+		"!fox" 		: function(){help(bot, msg, options, Discord);}, 
 		"!status" 		: function(){status(bot, msg, options, mysql, Discord);}, 
 		"!server" 		: function(){status(bot, msg, options, mysql, Discord);}, 
 		"!realm" 		: function(){status(bot, msg, options, mysql, Discord);}, 
@@ -119,6 +122,7 @@ bot.on("message", (msg) => {
 		"!price"		: function(){ttc(bot, msg, options, Discord);}, 
 		"!christmas"	: function(){easteregg(bot, msg, options, "christmas", Discord);}, 
 		"!secretshanta"	: function(){easteregg(bot, msg, options, "christmas", Discord);}, 
+        "!time" 		: function () { time(bot, msg, options, Discord); },
 //		"!test"			: function(){test(bot, msg, options, Discord);}, 
 		
 		//v2 preparation
@@ -186,7 +190,7 @@ bot.on('ready', () => {
     console.log('Fox Bot initiated!');
     console.log('Running on ' +  bot.guilds.size + ' servers:');
     
-    bot.user.setGame("!help for commands");
+    bot.user.setStatus("!fox for commands");
 
     var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
     console.log(guildNames);
