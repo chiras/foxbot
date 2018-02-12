@@ -32,6 +32,7 @@ https://discord.gg/VNrzzvg
 
 **Group Tools**
  * !poll / !vote -> Start a poll, vote and end it
+ * !time  -> Time conversion tool
 
 **Official Information**
  * !status -> ESO server status
