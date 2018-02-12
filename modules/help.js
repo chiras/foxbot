@@ -26,7 +26,8 @@ var help = {
 
 	'Group Tools':{	
 							 "!poll":"Start and end a poll",
-							 "!vote":"Vote on an existing poll"
+							 "!vote":"Vote on an existing poll",
+							 "!time":"Time conversion tool"
 							},
 
 	'Media':	{
@@ -37,7 +38,8 @@ var help = {
 	'Bot':	{
 							 "!config":"Configuration options for guilds and users",
 							 "!contact":"Contact information for the Bot author",
-							 "!help":"This help page"	
+							 "!help":"This help page",	
+							 "!fox":"Help page that avoids conflicts with other bots"	
 							}							
 }
 
