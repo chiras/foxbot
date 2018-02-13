@@ -104,7 +104,7 @@ const instances = {
 	"sp"	: 'Scalecaller Peak'
 };
 
-var instancesGroup = { 	"lbAll" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
+var instancesGroup = { 	"lbAll" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa","weekly","weeklymsa"],
 						"solo" : ["msa"],
 						"trials" : ["aa", "hrc", "so", "mol", "hof"],
 						"weekly" : ["weekly", "weeklymsa"],
