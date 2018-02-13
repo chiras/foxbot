@@ -107,13 +107,14 @@ const instances = {
 var instancesGroup = { 	"lbAll" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
 						"solo" : ["msa"],
 						"trials" : ["aa", "hrc", "so", "mol", "hof"],
+						"weekly" : ["weekly", "weeklymsa"],
 			//			"pvp" : [],
 			//			"bg" : [],
 						"pve" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
 						"group" : ["aa", "hrc", "so", "mol", "hof", "dsa"]	,
 						"dungeon" : ["fg2" ,"sc1" ,"dc2" ,"eh1" ,"ws2" ,"fg1" ,"bc2" ,"dc1","eh2","ws1","sc2","bc1","coh2","coa1","ti","bh","arx","sw","coa2","coh","vol","bc","dire","vom","cos","icp","rom","wgt"]	,
 
-						"lbOptions" : ["all","solo","group","trials","pve"]
+						"lbOptions" : ["all","solo","group","trials","pve","weekly"]
 					}
 
 const groupmode = {
