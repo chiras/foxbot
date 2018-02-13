@@ -29,7 +29,8 @@ module.exports = (bot, msg, options, Discord) => {
             if (src.length == 0 && options.others.length > 0)
                 src = zone.searchZone(options.others.pop());    // Assume that the word was a 'joiner' (ie, 'to' 'in' etc)
 
-            if (src.length == 0 && options.timezone.length > 0) {
+            if (src.length != 0 && options.timezone.length > 0) {
+                // Ignore both non-match and multiple matches and prefer fallback to 'option' timezone
                 options.others = [query];
                 src = dest;
                 dest = [options.timezone];
