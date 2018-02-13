@@ -64,6 +64,8 @@ const instances = {
     "hof": "Halls of Fabrication",
     "dsa": "Dragonstar Arena",	// needs " (Veteran)" for leaderboards
     "msa": "Maelstrom Arena",	// needs " (Veteran)" for leaderboards
+	"weekly": "Weekly Trial",
+	"weeklymsa": "Weekly Maelstrom Arena",
   //  "bg": "Battlegrounds",
 
 	"fg2" 	: 'Fungal Grotto II',
