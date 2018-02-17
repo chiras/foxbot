@@ -15,7 +15,7 @@ var questgiver = ["Maj al-Ragath", "Glirion the Redbeard", "Urgarlag Chief-Bane"
 
 const rotation = [	['Fungal Grotto II', 'Spindleclutch I', 'Darkshade Caverns II', 'Elden Hollow I', 'Wayrest Sewers II', 'Fungal Grotto I', 'Banished Cells II', 'Darkshade Cavern I', 'Elden Hollow II', 'Wayrest Sewers I','Spindleclutch II', 'Banished Cells I'],
     				['Crypt of Hearts II', 'City of Ash I', 'Tempest Island', 'Blackheart Haven', 'Arx Corinium', "Selene's Web",'City of Ash II', 'Crypt of Hearts I', 'Volenfell', 'Blessed Crucible', 'Direfrost Keep', 'Vaults of Madness'],
-    				[ 'Falkreath Hold','Fang Liar','Scalecaller Peak','Imperial City Prison','Ruins of Mazzatun', 'White-Gold Tower', 'Cradle of Shadows','Bloodroot Forge']];
+    				[ 'Cradle of Shadows','Bloodroot Forge','Falkreath Hold','Fang Liar','Scalecaller Peak','Imperial City Prison','Ruins of Mazzatun', 'White-Gold Tower']];
 
 
 function getDungeon(npc, idx) {
