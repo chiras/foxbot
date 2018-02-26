@@ -387,7 +387,7 @@ function ttcCreateItemTable(json, callback) {
 
  		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
       	console.log(getLogDate() + "items_ttc created " )
-      	console.log(queryPrep2)
+      	//console.log(queryPrep2)
  		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
 
 
@@ -401,7 +401,7 @@ function ttcCreateItemTable(json, callback) {
             for (var key in json[i].items) {
                 if (doneItems.includes(key) == false) {
                 	var tmparray = [json[i].items[key][Object.keys(json[i].items[key])[0]],Object.keys(json[i].items[key])[0], key, "EN"];
-                	console.log(tmparray)
+                	//console.log(tmparray)
                     values.push(tmparray);
                     doneItems.push(key)
                     counter++;
@@ -424,7 +424,7 @@ function ttcCreateInfoTable(json, callback) {
 
  		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
       	console.log(getLogDate() + "items_prices_ttc created " )
-      	console.log(queryPrep2)
+      	//console.log(queryPrep2)
  		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
 
 	 	var sql = "INSERT INTO items_prices_ttc_info  ("+ fields.join(",")+") VALUES ?;";
@@ -478,7 +478,7 @@ function ttcCreatePriceTable(jsonAll, callback) {
 	 	
  		dh.mysqlQuery(mysql, queryPrep1, function(errorP1, resultsP1) {
       	console.log(getLogDate() + "items_prices_ttc created " )
-      	console.log(queryPrep2)
+      	//console.log(queryPrep2)
  		dh.mysqlQuery(mysql, queryPrep2, function(errorP2, resultsP2) {
         var values = []
 
