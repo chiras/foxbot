@@ -100,7 +100,7 @@ const instances = {
 	"icp"	: 'Imperial City Prison',
 	"rom"	: 'Ruins of Mazzatun',
 	"wgt"	: 'White-Gold Tower',
-	"fl" 	: 'Fang Liar',
+	"fl" 	: 'Fang Lair',
 	"sp"	: 'Scalecaller Peak'
 };
 
