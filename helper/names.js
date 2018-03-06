@@ -62,6 +62,7 @@ const instances = {
     "so": "Sanctum Ophidia",
     "mol": "Maw of Lorkhaj",
     "hof": "Halls of Fabrication",
+    "as": "Asylum Sanctorium",
     "dsa": "Dragonstar Arena",	// needs " (Veteran)" for leaderboards
     "msa": "Maelstrom Arena",	// needs " (Veteran)" for leaderboards
 	"weekly": "Weekly Trial",
@@ -104,14 +105,14 @@ const instances = {
 	"sp"	: 'Scalecaller Peak'
 };
 
-var instancesGroup = { 	"lbAll" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa","weekly","weeklymsa"],
+var instancesGroup = { 	"lbAll" : ["aa", "hrc", "so", "mol", "hof", "dsa", "as", "msa","weekly","weeklymsa"],
 						"solo" : ["msa"],
 						"trials" : ["aa", "hrc", "so", "mol", "hof"],
 						"weekly" : ["weekly", "weeklymsa"],
 			//			"pvp" : [],
 			//			"bg" : [],
-						"pve" : ["aa", "hrc", "so", "mol", "hof", "dsa", "msa"],
-						"group" : ["aa", "hrc", "so", "mol", "hof", "dsa"]	,
+						"pve" : ["aa", "hrc", "so", "mol", "hof", "as", "dsa", "msa"],
+						"group" : ["aa", "hrc", "so", "mol", "hof", "as", "dsa"]	,
 						"dungeon" : ["fg2" ,"sc1" ,"dc2" ,"eh1" ,"ws2" ,"fg1" ,"bc2" ,"dc1","eh2","ws1","sc2","bc1","coh2","coa1","ti","bh","arx","sw","coa2","coh","vol","bc","dire","vom","cos","icp","rom","wgt"]	,
 
 						"lbOptions" : ["all","solo","group","trials","pve","weekly"]
