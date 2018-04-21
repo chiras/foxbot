@@ -13,10 +13,24 @@ module.exports = (bot, msg, options, Discord) => {
         embed.addField(options.command + " EST", "Will show the current time for US EST")
         embed.addField(options.command + " 6am EST in UTC", "Converts a time from EST to UTC")
     } else {
-        var dest = zone.searchZone(options.others.pop());
+        var search = options.others.pop();
+        var dest = zone.searchZone(search);
 
-        if (dest.length != 1)
+        if (dest.length != 1) {
+            embed.setTitle(options.command + "timezone conversion");
+            var err = "";
+            if (dest.length > 6)
+                err = "Please be more specific";
+            else if (dest.length > 1)
+                err = dest.join(", ");
+            else
+                err = "Try being a little more generic";
+
+            embed.addField("Found " + dest.length + " timezones" + (search.length == 0 ? "" : " for '" + search + "'"), err);
+
+            mh.send(msg, embed, options);
             return; // TODO: Error
+        }
 
         if (options.others.length == 0) {
             // Single conversion
@@ -25,12 +39,16 @@ module.exports = (bot, msg, options, Discord) => {
         }
         else {
             var query = options.others.join(" ");
-            var src = zone.searchZone(options.others.pop());
-            if (src.length == 0 && options.others.length > 0)
-                src = zone.searchZone(options.others.pop());    // Assume that the word was a 'joiner' (ie, 'to' 'in' etc)
+            search = options.others.pop();
+            var src = zone.searchZone(search);
+            if (src.length == 0 && options.others.length > 0) {
+                search = options.others.pop();
+                src = zone.searchZone(search);    // Assume that the word was a 'joiner' (ie, 'to' 'in' etc)
+            }
 
             if (src.length != 1 && options.timezone.length > 0) {
                 // Ignore both non-match and multiple matches and prefer fallback to 'option' timezone
+                search = '';
                 options.others = [query];
                 src = dest;
                 dest = [options.timezone];
@@ -39,7 +57,18 @@ module.exports = (bot, msg, options, Discord) => {
             // Could probably do other smarts here too, eg detect a 'hh:mmZ-00:00' or equivalent
 
             if (src.length != 1) {
-                // TODO: Error
+                embed.setTitle(options.command + "timezone conversion");
+                var err = "";
+                if (src.length > 6)
+                    err = "Please be more specific";
+                else if (src.length > 1)
+                    err = src.join(", ");
+                else
+                    err = "Try being a little more generic";
+                
+                embed.addField("Found " + src.length + " timezones" + (search.length == 0 ? "" : " for '" + search + "'"), err);
+
+                mh.send(msg, embed, options);
                 return;
             }
 
