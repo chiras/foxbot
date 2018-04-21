@@ -20,6 +20,17 @@ exports.searchZone = function (zone) {
 
     if (exact.length > 1)
         matches = [exact];
+    
+    if (matches.length > 1) {
+        // We don't care about duplicates if they are aliases of the same zone
+        var off = moment.tz(matches[0]).utcOffset();
+        var sameOff = true;
+        for (var i = 1; i < matches.length && sameOff; ++i) {
+            sameOff = moment.tz(matches[i]).utcOffset() == off;
+        }
+        if (sameOff)
+            matches = [matches[0]];
+    }
 
     return matches;
 }
