@@ -10,6 +10,7 @@ var notiNames = {	"news" : "latest ESO news", "regular" : "regular Events", "bot
 
 const distributors = {
 	"ESO-Database.com" : 0,
+	"The Dwemer Automaton" : 0,
 	"Fox" : 2,
 	"The Undaunted Quartermaster" : 1,
 	"The Watcher" : 0,
