@@ -20,6 +20,7 @@ const distributors = {
 
 const distributor_icons = {
 	"ESO-Database.com" : "",
+	"The Dwemer Automaton" : "",
 	"Fox" : "",
 	"the Undaunted Quartermaster" : "http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png"
 }
