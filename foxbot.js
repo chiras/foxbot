@@ -189,22 +189,27 @@ bot.on("message", (msg) => {
   }) // end argument slicer
 });
 
+function countGuilds() {
+  
+  bot.shard.fetchClientValues('guilds.size')
+ 	 .then(results => {
+  		  console.log(`${results.reduce((prev, val) => prev + val, 0)} total guilds`);
+			bot.user.setActivity(`!fox on ${results.reduce((prev, val) => prev + val, 0)}  servers`); 	 
+	 })
+ 	 .catch(console.error);
+}
+
 // startup
 bot.on('ready', () => {
-	// console.log(roleID);
-
     console.log('Fox Bot initiated!');
-	
-	//bot.user.setActivity(`on ${bot.guilds.size} servers`);
-    //bot.user.setStatus("!fox for commands");
-
-    var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
-    console.log(guildNames);
-
-    console.log('Running on ' +  bot.guilds.size + ' servers:');
-
-	//mysql.connect();
+    console.log('Shard running on ' +  bot.guilds.size + ' servers:');
+    
+    setTimeout(countGuilds, 30000);
+    
+    //var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
+    //console.log(guildNames);
 });
+
 
 bot.on("warn", (e) => console.warn(e));
 bot.on("debug", (e) => console.info(e));
