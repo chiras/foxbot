@@ -44,7 +44,7 @@ const listenchannel = tokens["listening"];
 // setting up global variables
 var bot = new Discord.Client({autoReconnect:true});
 
-console.log(bot);
+//console.log(bot);
 
 const roleID = tokens["id"];
 const blacklist = ["!roll"]
@@ -58,7 +58,7 @@ var mysql = sql.createPool({
   multipleStatements: true
 });
 
-console.log(roleID);
+//console.log(roleID);
 
 // listening for messages
 bot.on("message", (msg) => {
@@ -212,7 +212,7 @@ bot.on('ready', () => {
 
 
 bot.on("warn", (e) => console.warn(e));
-bot.on("debug", (e) => console.info(e));
+//bot.on("debug", (e) => console.info(e));
 
 
 bot.on('guildCreate', guild => {
