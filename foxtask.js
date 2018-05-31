@@ -102,12 +102,12 @@ function vendorUpdate(url, searchdate, mysql, vendor) {
                     //scrape the site for the day
 
                     var hits = $('h3').filter(function() {
-                        return $(this).text().trim() === searchdate;
+                        return $(this).text().trim().startsWith(searchdate);
                     }).length
 
                     if (hits) {
                         results = $('h3').filter(function() {
-                                return $(this).text().trim() === searchdate;
+                                return $(this).text().trim().startsWith(searchdate);
                             }).next('ul').find('li')
                             .each(function() {
                                 var $el = $(this);
@@ -156,7 +156,7 @@ function vendorUpdate(url, searchdate, mysql, vendor) {
 
 var vendors = JSON.parse(fs.readFileSync('data/json/vendors.json', 'utf8'));
 
-var scheduleVendor = schedule.scheduleJob('0 58 0 * * 6', function() { // vendor comes online, try to refresh stores
+var scheduleVendor = schedule.scheduleJob('0 58 1 * * 6', function() { // vendor comes online, try to refresh stores
 //    var scheduleVendor = schedule.scheduleJob(debugtime, function(){		// for debugging only
     webHooks.trigger('service', {
         "content": "Update Vendors: started"
@@ -218,7 +218,7 @@ var scheduleVendor = schedule.scheduleJob('0 58 0 * * 6', function() { // vendor
 /// PLEDGES UPDATE
 
 // scheduled to do everyday on 8:01 am
-var schedulePledges = schedule.scheduleJob('30 0 7 * * *', function() {
+var schedulePledges = schedule.scheduleJob('30 0 8 * * *', function() {
 //var schedulePledges = schedule.scheduleJob(debugtime, function() {
 		var time = moment().unix()
 
@@ -1321,7 +1321,7 @@ var scheduleEsoItem = schedule.scheduleJob('0 0 5 * * 3', function(){
 
 })
 
-console.log("Tasking activated")
+console.log("Tasking activated. Build 20180531-1")
 
 
 

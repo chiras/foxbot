@@ -44,8 +44,14 @@ const listenchannel = tokens["listening"];
 
 // setting up global variables
 var bot = new Discord.Client({autoReconnect:true});
+
+console.log(bot);
+			
 const roleID = tokens["id"];
 const blacklist = ["!roll"]
+
+console.log(roleID);
+
 
 // mysql database
 var mysql = sql.createPool({

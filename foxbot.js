@@ -43,6 +43,9 @@ const listenchannel = tokens["listening"];
 
 // setting up global variables
 var bot = new Discord.Client({autoReconnect:true});
+
+console.log(bot);
+
 const roleID = tokens["id"];
 const blacklist = ["!roll"]
 
@@ -54,6 +57,8 @@ var mysql = sql.createPool({
   database : 'foxbot',
   multipleStatements: true
 });
+
+console.log(roleID);
 
 // listening for messages
 bot.on("message", (msg) => {
@@ -186,15 +191,24 @@ bot.on("message", (msg) => {
 
 // startup
 bot.on('ready', () => {
+	// console.log(roleID);
+
     console.log('Fox Bot initiated!');
-    console.log('Running on ' +  bot.guilds.size + ' servers:');
 	
-    bot.user.setStatus("!fox for commands");
+	//bot.user.setActivity(`on ${bot.guilds.size} servers`);
+    //bot.user.setStatus("!fox for commands");
 
     var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
     console.log(guildNames);
+
+    console.log('Running on ' +  bot.guilds.size + ' servers:');
+
 	//mysql.connect();
 });
+
+bot.on("warn", (e) => console.warn(e));
+bot.on("debug", (e) => console.info(e));
+
 
 bot.on('guildCreate', guild => {
     if (typeof bot.channels.get(logchannel) !=="undefined"){
