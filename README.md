@@ -51,6 +51,8 @@ https://discord.gg/VNrzzvg
 
 Installation is tricky atm, since there are many factors that are not easily reproducible and need setup in MySQL and Discord. I will write down a simple guide in a bit and create a minimal working example bot, that does not require SQL and other preferences. 
 
+A basic setup guide is to be found in ```installation.md``` but it is not complete yet.
+
 If you want install it anyway, check our dev channel here: https://discord.gg/VNrzzvg
 
 # License
