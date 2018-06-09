@@ -1,6 +1,7 @@
 // local data
 const tokens = require('./tokens/dev.json');
 const setitems = require('./data/setfile.json');
+const mysqlsupport = 1;
 
 // required modules
 const Discord = require("discord.js");
@@ -23,7 +24,7 @@ const lfg = require('./modules/lfg.js');
 const lfm = require('./modules/lfm.js');
 const leaderboards = require('./modules/leaderboards.js');
 const poll = require('./modules/vote.sql.js');
-const esoDBhook = require('./modules/esoDBhook.js');
+const esoDBhook = require('./modules/webhook.js');
 const subscribe = require('./modules/subscribe.js');
 const ttc = require('./modules/ttc.sql.js');
 const configure = require('./modules/settings.sql.js');
@@ -33,9 +34,13 @@ const time = require('./modules/time.js');
 //const test = require('./modules/test.js');
 
 // helper functions
+const mh = require("./helper/messages.js")
 const ah = require("./helper/arguments.js")
-const dh = require("./helper/db.js")
+//if(mysqlsupport){
+	const dh = require("./helper/db.js")
+//}
 const nh = require("./helper/names.js")
+const xh = require("./helper/announcement.js")
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -45,7 +50,7 @@ const listenchannel = tokens["listening"];
 // setting up global variables
 var bot = new Discord.Client({autoReconnect:true});
 
-console.log(bot);
+//console.log(bot);
 			
 const roleID = tokens["id"];
 const blacklist = ["!roll"]
@@ -54,6 +59,7 @@ console.log(roleID);
 
 
 // mysql database
+if(mysqlsupport){
 var mysql = sql.createPool({
   host     : 'localhost',
   user     : tokens["mysqluser"],
@@ -61,6 +67,7 @@ var mysql = sql.createPool({
   database : 'foxbot',
   multipleStatements: true
 });
+}
 
 // listening for messages
 bot.on("message", (msg) => {
@@ -75,18 +82,30 @@ bot.on("message", (msg) => {
     // Exit and stop if it's not there or another bot
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
-
+	
     console.log(msg.author.id +" -> " + msg.content)
     
-   	guildUpdate(bot, msg, mysql)   	
+    if(0){
+   		guildUpdate(bot, msg, mysql)   	
+   	}
    	
    	ah.argumentSlicer(msg, mysql, function(options){
    	var checkdbchannel = options["guild"]
    	if (checkdbchannel =="DM") checkdbchannel = options["user"]
    	
-   	dh.getDbData(mysql, "guilds_settings", {settingsid: checkdbchannel}, function(settings) {  
-   	dh.getDbData(mysql, "guilds_users", {userid: options["user"], guild : options["guild"]}, function(users) {  
+ 	
+	/// announcement here
+   	xh.announce(mysql, options, bot, Discord, function(result){
+   		console.log(result)
+   	})
    	
+   	
+ // not working like this, just outcommented atm  	if(mysqlsupport){
+
+  	dh.getDbData(mysql, "guilds_settings", {settingsid: checkdbchannel}, function(settings) {  
+  	dh.getDbData(mysql, "guilds_users", {userid: options["user"], guild : options["guild"]}, function(users) {  
+   	
+   	if(mysqlsupport){
    	var blacklistChannel = [...blacklist];
    	//console.log(settings)
    	for (var s = 0; s < settings.length; s++){
@@ -100,7 +119,7 @@ bot.on("message", (msg) => {
    	//console.log("blacklist: "+blacklistChannel.join(","))
    	
    	if (blacklistChannel.includes(options["command"][0])) return;
-
+	}
 	//console.log(options)
    		   	
 	var responses = {
@@ -111,7 +130,7 @@ bot.on("message", (msg) => {
 		"!youtube" 		: function(){youtube(bot, msg, tokens["youtube"], options, mysql, Discord);}, 
 		"!contact"	 	: function(){contact(bot, msg, options, Discord);}, 
 		"!help" 		: function(){help(bot, msg, options, Discord);}, 
-		"!fox" 		: function(){help(bot, msg, options, Discord);}, 
+		"!fox" 			: function(){help(bot, msg, options, Discord);}, 
 		"!status" 		: function(){status(bot, msg, options, mysql, Discord);}, 
 		"!server" 		: function(){status(bot, msg, options, mysql, Discord);}, 
 		"!realm" 		: function(){status(bot, msg, options, mysql, Discord);}, 
@@ -187,26 +206,40 @@ bot.on("message", (msg) => {
 		if (responses[options["command"]]) {responses[options["command"]]()};	
 
 	} // end fuzzy search
+	//needs to get if(mysqlsupport){ 
 	})}) // db settings
   }) // end argument slicer
 });
 
+
+function countGuilds() {
+  
+  bot.shard.fetchClientValues('guilds.size')
+ 	 .then(results => {
+  		  console.log(`${results.reduce((prev, val) => prev + val, 0)} total guilds`);
+			bot.user.setActivity(`!fox on ${results.reduce((prev, val) => prev + val, 0)}  servers`); 	 
+	 })
+ 	 .catch(console.error);
+}
+
 // startup
 bot.on('ready', () => {
     console.log('Fox Bot initiated!');
+	console.log("SHARD: "+bot.shard.id + "/" + bot.options.shardCount);
+
     console.log('Running on ' +  bot.guilds.size + ' servers:');
     
-    bot.user.setStatus("!fox for commands");
-
+	setTimeout(countGuilds, 30000);
+    
     var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
     console.log(guildNames);
-	//mysql.connect();
 });
 
 bot.on('guildCreate', guild => {
     if (typeof bot.channels.get(logchannel) !=="undefined"){
 		log("guildCreate", guild, logchannel, bot, mysql, Discord);
 	}
+	setTimeout(countGuilds, 1000);
 });
 
 bot.on('error', error => {

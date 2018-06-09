@@ -23,7 +23,8 @@ const lfg = require('./modules/lfg.js');
 const lfm = require('./modules/lfm.js');
 const leaderboards = require('./modules/leaderboards.js');
 const poll = require('./modules/vote.sql.js');
-const esoDBhook = require('./modules/esoDBhook.js');
+const esoDBhook = require('./modules/webhook.js');
+//const esoDBhook = require('./modules/esoDBhook.js');
 const subscribe = require('./modules/subscribe.js');
 const ttc = require('./modules/ttc.sql.js');
 const configure = require('./modules/settings.sql.js');
@@ -32,9 +33,11 @@ const easteregg = require('./modules/easteregg.js');
 const time = require('./modules/time.js');
 
 // helper functions
+const mh = require("./helper/messages.js")
 const ah = require("./helper/arguments.js")
 const dh = require("./helper/db.js")
 const nh = require("./helper/names.js")
+const xh = require("./helper/announcement.js")
 
 // logging requests 
 const logfile = "logs/requests.log";
@@ -44,7 +47,7 @@ const listenchannel = tokens["listening"];
 // setting up global variables
 var bot = new Discord.Client({autoReconnect:true});
 
-console.log(bot);
+//console.log(bot);
 
 const roleID = tokens["id"];
 const blacklist = ["!roll"]
@@ -58,7 +61,7 @@ var mysql = sql.createPool({
   multipleStatements: true
 });
 
-console.log(roleID);
+//console.log(roleID);
 
 // listening for messages
 bot.on("message", (msg) => {
@@ -82,6 +85,11 @@ bot.on("message", (msg) => {
    	ah.argumentSlicer(msg, mysql, function(options){
    	var checkdbchannel = options["guild"]
    	if (checkdbchannel =="DM") checkdbchannel = options["user"]
+
+	/// announcement check here
+   	xh.announce(mysql, options, bot, Discord, function(result){
+   		console.log(result)
+   	})
    	
    	dh.getDbData(mysql, "guilds_settings", {settingsid: checkdbchannel}, function(settings) {  
    	dh.getDbData(mysql, "guilds_users", {userid: options["user"], guild : options["guild"]}, function(users) {  
@@ -137,10 +145,8 @@ bot.on("message", (msg) => {
 		"!config" 		: function(){configure(bot, msg, options, mysql, Discord);}, 
 
 /**			//not ready			
-
 		"!lfg" 		: function(){lfg(bot, msg, Discord)}, 
 //		"!lfm" 		: function(){lfm(bot, msg, lfgdb)}, 
-
 **/
 		};
     	
@@ -189,31 +195,38 @@ bot.on("message", (msg) => {
   }) // end argument slicer
 });
 
+function countGuilds() {
+  
+  bot.shard.fetchClientValues('guilds.size')
+ 	 .then(results => {
+  		  console.log(`${results.reduce((prev, val) => prev + val, 0)} total guilds`);
+			bot.user.setActivity(`!fox on ${results.reduce((prev, val) => prev + val, 0)}  servers`); 	 
+	 })
+ 	 .catch(console.error);
+}
+
 // startup
 bot.on('ready', () => {
-	// console.log(roleID);
-
     console.log('Fox Bot initiated!');
-	
-	//bot.user.setActivity(`on ${bot.guilds.size} servers`);
-    //bot.user.setStatus("!fox for commands");
-
-    var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
-    console.log(guildNames);
-
-    console.log('Running on ' +  bot.guilds.size + ' servers:');
-
-	//mysql.connect();
+ 	console.log("SHARD: "+bot.shard.id + "/" + bot.options.shardCount);
+    console.log('Shard running on ' +  bot.guilds.size + ' servers:');
+    
+    setTimeout(countGuilds, 30000);
+    
+    //var guildNames = bot.guilds.array().map(s=>s.name ).join("; ")
+    //console.log(guildNames);
 });
 
+
 bot.on("warn", (e) => console.warn(e));
-bot.on("debug", (e) => console.info(e));
+//bot.on("debug", (e) => console.info(e));
 
 
 bot.on('guildCreate', guild => {
     if (typeof bot.channels.get(logchannel) !=="undefined"){
 		log("guildCreate", guild, logchannel, bot, mysql, Discord);
 	}
+	setTimeout(countGuilds, 1000);
 });
 
 bot.on('error', error => {

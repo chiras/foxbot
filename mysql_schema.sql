@@ -19,6 +19,24 @@
 -- Table structure for table `guilds`
 --
 
+
+DROP TABLE IF EXISTS `announcements`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `announcements` (
+  `rowid` int(20) NOT NULL AUTO_INCREMENT,
+  `announced` BINARY(1) DEFAULT 0,
+  `shard` int(20) NOT NULL,
+  `announcement` TEXT COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sender` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`rowid`),
+  KEY (`announced`),
+  KEY (`shard`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
 DROP TABLE IF EXISTS `guilds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
