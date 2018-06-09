@@ -4,7 +4,7 @@
 
 A discord bot for The Elder Scrolls Online
 
-# Inviting the Bot to your guild
+# Inviting the public FoxBot to your guild
 
 You don't have to install anything, you just have to invite it to your guild by clicking this link:
 
