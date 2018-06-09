@@ -4,6 +4,14 @@
 
 A discord bot for The Elder Scrolls Online
 
+# Inviting the Bot to your guild
+
+You don't have to install anything, you just have to invite it to your guild by clicking this link:
+
+https://discordapp.com/oauth2/authorize?client_id=251443671541481472&scope=bot
+
+Give it read/write/embed permissions, then it should be fine. Nothing else required!
+
 # Developer Channel
 
 https://discord.gg/VNrzzvg
