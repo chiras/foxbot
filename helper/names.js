@@ -32,7 +32,6 @@ var quality = {
 // 	"sharpened" : 6,
 // 	"decisive" : 7
 // }
-
 var traits = {
 	"powered" : 0,
 	"charged" : 1,
@@ -54,7 +53,14 @@ var traits = {
 	"arcane" : 17,	
 	"healthy" : 18,	
 	"robust" : 19,	
+	"special" : 20,
+	"bloodthirsty" : 21,
+	"harmony" : 22,
+	"protective" : 23,
+	"swift" : 24,
+	"triune" : 25
 }
+
 
 const instances = {
     "aa": "Aetherian Archive",
