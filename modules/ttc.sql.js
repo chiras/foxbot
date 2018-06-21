@@ -80,7 +80,6 @@ var traits = {
     5: "training",
     6: "sharpened",
     7: "decisive",
-
     8: "sturdy",
     9: "impenetrable",
     10: "reinforced",
@@ -93,10 +92,14 @@ var traits = {
     17: "arcane",
     18: "healthy",
     19: "robust",
-    20: "special"
+    20: "special",
+    21: "bloodthirsty",
+    22: "harmony",
+    23: "protective",
+    24: "swift",
+    25: "triune"
 
 }
-
 
 var effects = {
     0: "Health",
