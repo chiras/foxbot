@@ -19,8 +19,8 @@ const distributors = {
 }
 
 const distributor_icons = {
-	"ESO-Database.com" : "",
-	"The Dwemer Automaton" : "",
+	"ESO-Database.com" : "https://eso-database.com/apple-touch-icon-114x114.png",
+	"The Dwemer Automaton" : "https://projects.woeler.eu/reddit_autopost/img/dwemer.jpg",
 	"Fox" : "",
 	"the Undaunted Quartermaster" : "http://images.uesp.net//9/94/ON-icon-skill-Undaunted-Blood_Altar.png"
 }
